@@ -1,5 +1,5 @@
 import { data } from '../src/data/seed/seed-data'
-import { prisma } from '../src/libs/prisma/prisma-config'
+import { prisma } from '../src/lib/prisma/prisma-config'
 
 async function main() {
   await prisma.orderAddress.deleteMany()
