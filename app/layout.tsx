@@ -1,6 +1,5 @@
 import { inter } from '@/config'
 import type { Metadata } from 'next'
-import React from 'react'
 
 import '../src/styles/globals.css'
 
