@@ -1,4 +1,4 @@
-import { getAllProducts } from '@/actions/products/get-all-products'
+import { getAllProducts } from '@/actions'
 import { formatCurrency } from '@/utils/format-currency'
 import Image from 'next/image'
 
