@@ -8,20 +8,23 @@ dependencies:
   '@prisma/client':
     specifier: 5.15.0
     version: 5.15.0(prisma@5.15.0)
+  '@radix-ui/react-direction':
+    specifier: ^1.0.1
+    version: 1.0.1(@types/react@18.3.3)(react@18.3.1)
   '@radix-ui/react-label':
-    specifier: ^2.0.2
+    specifier: 2.0.2
     version: 2.0.2(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)
   '@radix-ui/react-navigation-menu':
-    specifier: ^1.1.4
+    specifier: 1.1.4
     version: 1.1.4(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)
   '@radix-ui/react-slot':
-    specifier: ^1.0.2
+    specifier: 1.0.2
     version: 1.0.2(@types/react@18.3.3)(react@18.3.1)
   bcrypt:
     specifier: 5.1.1
     version: 5.1.1
   class-variance-authority:
-    specifier: ^0.7.0
+    specifier: 0.7.0
     version: 0.7.0
   clsx:
     specifier: 2.1.1
@@ -36,10 +39,10 @@ dependencies:
     specifier: 4.24.7
     version: 4.24.7(next@14.2.4)(react-dom@18.3.1)(react@18.3.1)
   react:
-    specifier: '18'
+    specifier: ^18.3.1
     version: 18.3.1
   react-dom:
-    specifier: 18.3.1
+    specifier: ^18.3.1
     version: 18.3.1(react@18.3.1)
   tailwind-merge:
     specifier: 2.3.0
@@ -59,25 +62,25 @@ devDependencies:
     specifier: 4.3.0
     version: 4.3.0(prettier@3.3.2)
   '@types/bcrypt':
-    specifier: ^5.0.2
+    specifier: 5.0.2
     version: 5.0.2
   '@types/node':
-    specifier: '20'
+    specifier: ^20.14.2
     version: 20.14.2
   '@types/react':
-    specifier: '18'
+    specifier: ^18.3.3
     version: 18.3.3
   '@types/react-dom':
     specifier: 18.3.0
     version: 18.3.0
   eslint:
-    specifier: '8'
+    specifier: ^8.57.0
     version: 8.57.0
   eslint-config-next:
     specifier: 14.2.4
     version: 14.2.4(eslint@8.57.0)(typescript@5.4.5)
   postcss:
-    specifier: '8'
+    specifier: ^8.4.38
     version: 8.4.38
   prettier:
     specifier: 3.3.2
@@ -98,7 +101,7 @@ devDependencies:
     specifier: 10.9.2
     version: 10.9.2(@types/node@20.14.2)(typescript@5.4.5)
   typescript:
-    specifier: '5'
+    specifier: ^5.4.5
     version: 5.4.5
 
 packages:

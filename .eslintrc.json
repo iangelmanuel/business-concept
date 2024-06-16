@@ -2,6 +2,7 @@
   "extends": ["next/core-web-vitals", "standard"],
   "rules": {
     "global-require": "off",
-    "space-before-function-paren": "off"
+    "space-before-function-paren": "off",
+    "no-undef": "off"
   }
 }
