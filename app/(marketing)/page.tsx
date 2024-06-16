@@ -1,19 +1,20 @@
 import { getAllProducts } from '@/actions'
 import { IndexProducts } from '@/components'
-import { ProductWithImageAndCategory } from '@/types'
+import { ProductType } from '@/types'
 
 export default async function HomePage() {
   const products = await getAllProducts()
 
-  const categorizedProducts = products.reduce<
-    Record<string, ProductWithImageAndCategory[]>
-  >((acc, product) => {
-    if (!acc[product.category.name.toLowerCase()]) {
-      acc[product.category.name.toLowerCase()] = []
-    }
-    acc[product.category.name.toLowerCase()].push(product)
-    return acc
-  }, {})
+  const categorizedProducts = products.reduce<Record<string, ProductType[]>>(
+    (acc, product) => {
+      if (!acc[product.category.name.toLowerCase()]) {
+        acc[product.category.name.toLowerCase()] = []
+      }
+      acc[product.category.name.toLowerCase()].push(product)
+      return acc
+    },
+    {}
+  )
 
   return (
     <section className="space-y-20">

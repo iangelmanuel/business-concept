@@ -4,14 +4,14 @@ import {
   CardDescription,
   CardHeader
 } from '@/components/ui/card'
-import { ProductWithImageAndCategory } from '@/types'
+import { ProductType } from '@/types'
 import { formatCurrency } from '@/utils/format-currency'
 import Image from 'next/image'
 import Link from 'next/link'
 
 type Props = {
   category: string
-  productsOrder: ProductWithImageAndCategory[]
+  productsOrder: ProductType[]
 }
 
 export const IndexProducts = ({ category, productsOrder }: Props) => {

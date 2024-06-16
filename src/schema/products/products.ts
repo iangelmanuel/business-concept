@@ -11,7 +11,7 @@ const productImage = z.object({
   productId: z.number()
 })
 
-export const ProductsFullDbSchema = z.object({
+export const ProductsSchema = z.object({
   category,
   productImage: z.array(productImage),
   id: z.number(),
@@ -24,7 +24,7 @@ export const ProductsFullDbSchema = z.object({
   updatedAt: z.date()
 })
 
-export const ProductsWithCategoryDbSchema = z.object({
+export const ProductsCategorySchema = z.object({
   category,
   id: z.number(),
   name: z.string(),
@@ -34,6 +34,19 @@ export const ProductsWithCategoryDbSchema = z.object({
   slug: z.string(),
   createdAt: z.date(),
   updatedAt: z.date()
+})
+
+export const ProductsImageSchema = z.object({
+  productImage: z.array(productImage),
+  id: z.number(),
+  name: z.string(),
+  description: z.string(),
+  price: z.number(),
+  stock: z.number(),
+  slug: z.string(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
+  categoryId: z.number()
 })
 
 export const ProductsDbSchema = z.object({
