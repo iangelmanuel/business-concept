@@ -1,7 +1,15 @@
+import { Footer, Header } from '@/components'
+
 export default function AuthLayout({
   children
 }: {
   children: React.ReactNode
 }) {
-  return <main>{children}</main>
+  return (
+    <>
+      <Header />
+      <main>{children}</main>
+      <Footer />
+    </>
+  )
 }

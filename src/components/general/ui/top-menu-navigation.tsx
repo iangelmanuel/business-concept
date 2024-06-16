@@ -14,6 +14,7 @@ import Link from 'next/link'
 import React from 'react'
 
 const components: { title: string; href: string; description: string }[] = [
+  // TODO - Manage the list of components
   {
     title: 'Alert Dialog',
     href: '/docs/primitives/alert-dialog',
