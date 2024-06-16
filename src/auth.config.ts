@@ -21,7 +21,7 @@ export const authConfig: NextAuthOptions = {
   },
   providers: [
     Credentials({
-      async authorize(credentials, req) {
+      async authorize(credentials) {
         const parsedCredentials = userLoginSchema.safeParse(credentials)
 
         if (!parsedCredentials.success) return null
