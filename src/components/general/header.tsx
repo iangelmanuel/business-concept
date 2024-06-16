@@ -31,7 +31,7 @@ export const Header = () => {
           Signin
         </Link>
         <Link
-          href="/regiter"
+          href="/register"
           className={buttonVariants({ variant: 'default' })}
         >
           Signup
