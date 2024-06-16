@@ -8,7 +8,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle
-} from '@/components/ui/navigation-menu'
+} from '@/components'
 import { cn } from '@/lib'
 import Link from 'next/link'
 import React from 'react'
