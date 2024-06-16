@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { TopMenuNavigation } from './ui/top-menu'
+import { TopMenuNavigation } from './ui/top-menu-navigation'
 
 export const Header = () => {
   return (
