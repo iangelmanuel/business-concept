@@ -1,7 +1,7 @@
 {
   "extends": ["next/core-web-vitals", "standard"],
   "rules": {
-    "global React": "writable",
+    "global-require": "off",
     "space-before-function-paren": "off"
   }
 }
