@@ -15,7 +15,6 @@ export default async function HomePage() {
     },
     {}
   )
-
   return (
     <section className="space-y-20">
       {Object.entries(categorizedProducts).map(([category, productsOrder]) => (

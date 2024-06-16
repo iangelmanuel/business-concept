@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { buttonVariants } from '../ui/button'
 import { TopMenuNavigation } from './ui/top-menu-navigation'
 
 export const Header = () => {
@@ -23,8 +24,18 @@ export const Header = () => {
       </section>
 
       <section>
-        <p>Login</p>
-        <p>Register</p>
+        <Link
+          href="/login"
+          className={buttonVariants({ variant: 'ghost' })}
+        >
+          Signin
+        </Link>
+        <Link
+          href="/regiter"
+          className={buttonVariants({ variant: 'default' })}
+        >
+          Signup
+        </Link>
       </section>
     </header>
   )
