@@ -1,7 +1,7 @@
-export * from './address/address'
+export * from './address/address-schema'
 
-export * from './cart/cart'
+export * from './cart/cart-schema'
 
-export * from './products/products'
+export * from './products/products-schema'
 
-export * from './user/user'
+export * from './user/user-schema'
