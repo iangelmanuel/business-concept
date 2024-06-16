@@ -1,4 +1,4 @@
-import { inter } from '@/config'
+import { fontSans } from '@/config'
 import { Providers } from '@/providers'
 import type { Metadata } from 'next'
 
@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={fontSans.className}>
         <Providers>{children}</Providers>
       </body>
     </html>
