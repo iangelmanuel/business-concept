@@ -1,11 +1,11 @@
 import { z } from 'zod'
 
-const category = z.object({
+export const category = z.object({
   id: z.number(),
   name: z.string()
 })
 
-const productImage = z.object({
+export const productImage = z.object({
   id: z.number(),
   url: z.string(),
   productId: z.number()

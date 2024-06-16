@@ -1,4 +1,4 @@
-export * from './cart/card-types'
+export * from './cart/card'
 
 export * from './products/products'
 export * from './products/products-images'

@@ -1,9 +1,9 @@
-import type { CartProduct } from '@/types'
+import type { Cart } from '@/types'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
 type State = {
-  cart: CartProduct[]
+  cart: Cart[]
   getTotalItems: () => number
   getSummaryInfo: () => {
     subTotal: number
@@ -11,9 +11,9 @@ type State = {
     total: number
     itemsInCart: number
   }
-  addProductToCart: (product: CartProduct) => void
-  updateProductInCart: (product: CartProduct, quantity: number) => void
-  removeProductFromCart: (product: CartProduct) => void
+  addProductToCart: (product: Cart) => void
+  updateProductInCart: (product: Cart, quantity: number) => void
+  removeProductFromCart: (product: Cart) => void
 
   clearCart: () => void
 }
@@ -45,7 +45,7 @@ export const useCartStore = create<State>()(
         return { subTotal, tax, total, itemsInCart }
       },
 
-      addProductToCart: (product: CartProduct) => {
+      addProductToCart: (product: Cart) => {
         const { cart } = get()
 
         const productInCart = cart.some((item) => item.id === product.id)
@@ -64,10 +64,7 @@ export const useCartStore = create<State>()(
         set({ cart: updatedCartProducts })
       },
 
-      updateProductInCart: (
-        product: CartProduct,
-        quantity: CartProduct['quantity']
-      ) => {
+      updateProductInCart: (product: Cart, quantity: Cart['quantity']) => {
         const { cart } = get()
 
         const updatedCartProducts = cart.map((item) => {
@@ -79,7 +76,7 @@ export const useCartStore = create<State>()(
         set({ cart: updatedCartProducts })
       },
 
-      removeProductFromCart: (product: CartProduct) => {
+      removeProductFromCart: (product: Cart) => {
         const { cart } = get()
 
         const updatedCartProducts = cart.filter(
