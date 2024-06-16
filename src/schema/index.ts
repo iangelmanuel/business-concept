@@ -5,3 +5,4 @@ export * from './cart/cart-schema'
 export * from './products/products-schema'
 
 export * from './user/user-schema'
+export * from './user/user-login-schema'
