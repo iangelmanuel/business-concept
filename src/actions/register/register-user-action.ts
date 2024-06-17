@@ -22,6 +22,7 @@ export async function registerUser(data: RegisterUser) {
       }
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { repeatPassword: _, password, ...userData } = response.data
     const hashedPassword = bcrypt.hashSync(password, 10)
 

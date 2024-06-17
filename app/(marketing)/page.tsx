@@ -1,6 +1,6 @@
 import { getAllProducts } from '@/actions'
 import { IndexProducts } from '@/components'
-import { ProductType } from '@/types'
+import type { ProductType } from '@/types'
 
 export default async function HomePage() {
   const products = await getAllProducts()
