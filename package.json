@@ -10,7 +10,7 @@
     "lint": "next lint",
     "eslint": "eslint . --ext .ts,.tsx",
     "prettier": "prettier --write .",
-    "prettier:check": "prettier --check ."
+    "prettier:check": "prettier . --check"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
