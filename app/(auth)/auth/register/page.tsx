@@ -29,7 +29,7 @@ export default function RegisterPage() {
         <p>
           ¿Ya tienes una cuenta?{' '}
           <Link
-            href="/login"
+            href="/auth/login"
             className="text-primary"
           >
             Inicia Sesión

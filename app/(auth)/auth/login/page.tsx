@@ -56,7 +56,7 @@ export default function LoginPage() {
         <p>
           ¿No tienes cuenta?{' '}
           <Link
-            href="/register"
+            href="/auth/register"
             className="text-primary"
           >
             Registrate

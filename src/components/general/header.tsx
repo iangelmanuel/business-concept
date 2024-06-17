@@ -25,13 +25,13 @@ export const Header = () => {
 
       <section>
         <Link
-          href="/login"
+          href="/auth/login"
           className={buttonVariants({ variant: 'ghost' })}
         >
           Signin
         </Link>
         <Link
-          href="/register"
+          href="/auth/register"
           className={buttonVariants({ variant: 'default' })}
         >
           Signup
