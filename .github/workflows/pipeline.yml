@@ -1,4 +1,4 @@
-name: Deployment Pipeline
+name: Pipeline Workflow
 
 on:
   push:
@@ -30,7 +30,7 @@ jobs:
         run: pnpm run prettier:check
 
   eslint:
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -52,7 +52,7 @@ jobs:
         run: pnpm run eslint:check
 
   build:
-    need: [prettier, eslint]
+    needs: [prettier, eslint]
     runs-on: ubuntu-latest
 
     steps:
