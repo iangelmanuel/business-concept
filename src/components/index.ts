@@ -8,3 +8,6 @@ export * from './ui/card'
 export * from './ui/input'
 export * from './ui/label'
 export * from './ui/navigation-menu'
+export * from './ui/error-message'
+
+export * from './auth/register/form-card-content'
