@@ -15,7 +15,7 @@ export const userSchema = z.object({
   addresses: z.array(addressSchema)
 })
 
-export const userCreateSchema = z
+export const registerUserSchema = z
   .object({
     email: z
       .string()

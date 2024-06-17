@@ -1,12 +1,12 @@
 'use server'
 
 import { prisma } from '@/lib'
-import { userCreateSchema } from '@/schema'
-import type { CreateUser } from '@/types'
+import { registerUserSchema } from '@/schema'
+import type { RegisterUser } from '@/types'
 import bcrypt from 'bcrypt'
 
-export async function registerUser(data: CreateUser) {
-  const response = userCreateSchema.safeParse(data)
+export async function registerUser(data: RegisterUser) {
+  const response = registerUserSchema.safeParse(data)
   if (!response.success) {
     return {
       ok: false,

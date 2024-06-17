@@ -1,6 +1,6 @@
-import type { CreateUser } from '@/types'
+import type { RegisterUser } from '@/types'
 
-export const DEFAULT_VALUES: CreateUser = {
+export const DEFAULT_VALUES: RegisterUser = {
   name: '',
   lastname: '',
   email: '',

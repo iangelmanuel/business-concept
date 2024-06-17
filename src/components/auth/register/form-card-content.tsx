@@ -3,7 +3,7 @@
 import { registerUser } from '@/actions'
 import { Button, CardContent, ErrorMessage, Input, Label } from '@/components'
 import { DEFAULT_VALUES } from '@/consts'
-import type { CreateUser } from '@/types'
+import type { RegisterUser } from '@/types'
 import { useRouter } from 'next/navigation'
 import { useTransition } from 'react'
 import { useForm } from 'react-hook-form'
@@ -18,11 +18,11 @@ export const FormCardContent = () => {
     handleSubmit,
     formState: { errors },
     watch
-  } = useForm<CreateUser>({
+  } = useForm<RegisterUser>({
     defaultValues: DEFAULT_VALUES
   })
 
-  const onSubmit = (data: CreateUser) => {
+  const onSubmit = (data: RegisterUser) => {
     startTransition(async () => {
       const response = await registerUser(data)
       if (response.ok) {

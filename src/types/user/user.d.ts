@@ -4,4 +4,4 @@ import type { z } from 'zod'
 export type User = z.infer<typeof userSchema>
 
 // Register
-export type CreateUser = z.infer<typeof userCreateSchema>
+export type RegisterUser = z.infer<typeof userCreateSchema>
