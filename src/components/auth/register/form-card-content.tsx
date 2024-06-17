@@ -26,7 +26,7 @@ export const FormCardContent = () => {
     startTransition(async () => {
       const response = await registerUser(data)
       if (response.ok) {
-        router.push('/auth/login')
+        router.push('/auth/login?registered=true')
         toast.success('¡Registrado!', {
           description: response.message,
           duration: 5000,

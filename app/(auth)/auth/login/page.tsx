@@ -1,4 +1,5 @@
 import {
+  AlertMessage,
   Button,
   Card,
   CardContent,
@@ -9,9 +10,24 @@ import {
 } from '@/components'
 import Link from 'next/link'
 
-export default function LoginPage() {
+export default function LoginPage({
+  searchParams
+}: {
+  searchParams: { registered: string }
+}) {
+  const { registered } = searchParams
+
+  const isRegistered = !!registered
   return (
     <section className="grid place-content-center min-h-screen">
+      {isRegistered && (
+        <AlertMessage
+          variant="success"
+          title="¡Registro exitoso!"
+          description="Inicia sesión en tu cuenta para validar tu registro."
+          className="mb-3"
+        />
+      )}
       <Card className="max-w-screen-sm">
         <CardHeader>
           <h1 className="text-5xl font-bold text-center">
