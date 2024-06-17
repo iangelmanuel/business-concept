@@ -1,0 +1,75 @@
+name: Deployment Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '16.14.0'
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: '8.14.1'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Prettier
+        run: pnpm run prettier:check
+
+  eslint:
+    run-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '16.14.0'
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: '8.14.1'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Eslint
+        run: pnpm run eslint:check
+
+  build:
+    need: [prettier, eslint]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '16.14.0'
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: '8.14.1'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm run build
