@@ -2,14 +2,14 @@
 
 import { registerUser } from '@/actions'
 import { Button, CardContent, ErrorMessage, Input, Label } from '@/components'
-import { DEFAULT_VALUES } from '@/consts'
+import { DEFAULT_REGISTER_VALUES } from '@/consts'
 import type { RegisterUser } from '@/types'
 import { useRouter } from 'next/navigation'
 import { useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
-export const FormCardContent = () => {
+export const CardRegisterForm = () => {
   const [isPending, startTransition] = useTransition()
   const router = useRouter()
 
@@ -19,7 +19,7 @@ export const FormCardContent = () => {
     formState: { errors },
     watch
   } = useForm<RegisterUser>({
-    defaultValues: DEFAULT_VALUES
+    defaultValues: DEFAULT_REGISTER_VALUES
   })
 
   const onSubmit = (data: RegisterUser) => {
@@ -91,7 +91,7 @@ export const FormCardContent = () => {
         </div>
 
         <div>
-          <Label>Correo Eléctrnico:</Label>
+          <Label>Correo Electrónico:</Label>
           <Input
             type="email"
             autoComplete="username"
