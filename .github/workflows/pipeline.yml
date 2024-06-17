@@ -17,7 +17,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '16.14.0'
+          node-version: '20.9.0'
 
       - uses: pnpm/action-setup@v4
         with:
@@ -39,7 +39,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '16.14.0'
+          node-version: '20.9.0'
 
       - uses: pnpm/action-setup@v4
         with:
@@ -62,11 +62,11 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '16.14.0'
+          node-version: '20.9.0'
 
       - uses: pnpm/action-setup@v4
         with:
-          version: '8.14.1'
+          version: '9.4.0'
 
       - name: Install dependencies
         run: pnpm install
