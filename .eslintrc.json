@@ -1,8 +1,17 @@
 {
-  "extends": ["next/core-web-vitals", "standard"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "next/core-web-vitals",
+    "standard",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
   "rules": {
     "global-require": "off",
     "space-before-function-paren": "off",
-    "no-undef": "off"
+    "no-undef": "off",
+    "@typescript-eslint/consistent-type-imports": "error",
+    "@typescript-eslint/no-unused-vars": "off"
   }
 }
