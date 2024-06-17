@@ -1,19 +1,21 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { prisma } from '@/lib'
-import { userLoginSchema } from '@/schema'
+import { loginUserSchema } from '@/schema'
 import bcrypt from 'bcrypt'
-import NextAuth, { type NextAuthOptions } from 'next-auth'
+import NextAuth, { type NextAuthConfig } from 'next-auth'
 import Credentials from 'next-auth/providers/credentials'
 
-export const authConfig: NextAuthOptions = {
+export const authConfig: NextAuthConfig = {
   pages: {
     signIn: '/auth/login',
-    newUser: '/auth/new-account'
+    newUser: '/auth/regiser'
   },
   callbacks: {
     jwt({ token, user, account, profile, session }) {
       if (user) token.data = user
       return token
     },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     session({ session, token, user }: any) {
       session.user = token.data
       return session
@@ -21,8 +23,8 @@ export const authConfig: NextAuthOptions = {
   },
   providers: [
     Credentials({
-      async authorize(credentials) {
-        const parsedCredentials = userLoginSchema.safeParse(credentials)
+      async authorize(credentials, req) {
+        const parsedCredentials = loginUserSchema.safeParse(credentials)
 
         if (!parsedCredentials.success) return null
 
@@ -36,9 +38,9 @@ export const authConfig: NextAuthOptions = {
 
         if (!bcrypt.compareSync(password, user.password)) return null
 
-        const { password: _, ...rest } = user
+        const { password: _, id, ...rest } = user
 
-        return rest
+        return { id: id.toString(), ...rest }
       }
     })
   ]

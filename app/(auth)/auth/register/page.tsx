@@ -2,7 +2,7 @@ import {
   Card,
   CardDescription,
   CardHeader,
-  FormCardContent
+  CardRegisterForm
 } from '@/components'
 import Link from 'next/link'
 
@@ -22,7 +22,7 @@ export default function RegisterPage() {
           </CardDescription>
         </CardHeader>
 
-        <FormCardContent />
+        <CardRegisterForm />
       </Card>
 
       <div className="mt-4 text-center">

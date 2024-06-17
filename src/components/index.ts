@@ -12,4 +12,5 @@ export * from './ui/navigation-menu'
 export * from './ui/error-message'
 export * from './ui/alert'
 
-export * from './auth/register/form-card-content'
+export * from './auth/register/register-form'
+export * from './auth/login/login-form'

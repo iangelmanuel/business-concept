@@ -1,12 +1,9 @@
 import {
   AlertMessage,
-  Button,
   Card,
-  CardContent,
   CardDescription,
   CardHeader,
-  Input,
-  Label
+  CardLoginForm
 } from '@/components'
 import Link from 'next/link'
 
@@ -41,31 +38,7 @@ export default function LoginPage({
           </CardDescription>
         </CardHeader>
 
-        <CardContent>
-          <form
-            action=""
-            className="space-y-2"
-          >
-            <div>
-              <Label>Correo Eléctrnico:</Label>
-              <Input
-                type="email"
-                placeholder="Ej. correo@correo.com"
-              />
-            </div>
-            <div>
-              <Label>Contraseña:</Label>
-              <Input
-                type="password"
-                placeholder="Escriba su contraseña"
-              />
-            </div>
-
-            <div className="flex justify-end items-center">
-              <Button>Iniciar Sesión</Button>
-            </div>
-          </form>
-        </CardContent>
+        <CardLoginForm />
       </Card>
 
       <div className="mt-4 text-center">
