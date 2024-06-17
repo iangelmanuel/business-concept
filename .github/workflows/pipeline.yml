@@ -49,7 +49,7 @@ jobs:
         run: pnpm install
 
       - name: Eslint
-        run: pnpm run eslint:check
+        run: pnpm run eslint
 
   build:
     needs: [prettier, eslint]
