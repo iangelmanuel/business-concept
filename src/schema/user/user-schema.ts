@@ -31,3 +31,8 @@ export const registerUserSchema = z
   .refine((data) => data.password === data.repeatPassword, {
     path: ['repeatPassword']
   })
+
+export const loginUserSchema = z.object({
+  email: z.string().email().trim(),
+  password: z.string()
+})

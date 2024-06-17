@@ -1,6 +1,6 @@
 import type { RegisterUser } from '@/types'
 
-export const DEFAULT_VALUES: RegisterUser = {
+export const DEFAULT_REGISTER_VALUES: RegisterUser = {
   name: '',
   lastname: '',
   email: '',
