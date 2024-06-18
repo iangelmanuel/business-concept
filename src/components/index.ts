@@ -1,8 +1,19 @@
-export * from './general/header'
-export * from './general/footer'
-export * from './general/alert-message'
+export * from './auth/register/register-form'
+export * from './auth/login/login-form'
+
+export * from './general/header/dropdown-menu-user'
+export * from './general/alert-message/alert-message'
+export * from './general/header/top-menu-auth'
+export * from './general/header/top-menu-navigation'
+export * from './general/header/sheet-menu-cart'
+export * from './general/footer/footer'
+export * from './general/header/header'
 
 export * from './marketing/index-products'
+
+export * from './shop/cart/add-product-cart'
+export * from './shop/cart/cart-sheet-items'
+export * from './shop/cart/cart-buttons'
 
 export * from './ui/button'
 export * from './ui/card'
@@ -14,11 +25,3 @@ export * from './ui/alert'
 export * from './ui/sheet'
 export * from './ui/dropdown-menu'
 export * from './ui/avatar'
-
-export * from './auth/register/register-form'
-export * from './auth/login/login-form'
-
-export * from './general/ui/top-menu-auth'
-export * from './general/ui/top-menu-navigation'
-export * from './general/ui/sheet-menu-cart'
-export * from './general/ui/dropdown-menu-user'

@@ -1,5 +1,7 @@
 import {
   Button,
+  CartButtons,
+  CartSheetItems,
   Sheet,
   SheetClose,
   SheetContent,
@@ -19,17 +21,23 @@ export const SheetMenuCart = () => {
           <ShoppingCart size={24} />
         </Button>
       </SheetTrigger>
-      <SheetContent>
+
+      <SheetContent className="overflow-y-auto">
         <SheetHeader>
-          <SheetTitle>Menu</SheetTitle>
+          <SheetTitle>Carrito de Compras</SheetTitle>
           <SheetDescription>
-            Make changes to your profile here. Click save when youre done.
+            Añade productos de tu interes a tu carrito de compras
           </SheetDescription>
         </SheetHeader>
-        <div className="grid gap-4 py-4"></div>
+        <div className="grid gap-4 py-4">
+          <CartSheetItems />
+        </div>
         <SheetFooter>
-          <SheetClose asChild>
-            <Button type="submit">Save changes</Button>
+          <SheetClose
+            asChild
+            className="flex justify-center items-center"
+          >
+            <CartButtons />
           </SheetClose>
         </SheetFooter>
       </SheetContent>

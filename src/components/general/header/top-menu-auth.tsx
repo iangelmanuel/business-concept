@@ -16,6 +16,7 @@ export const TopMenuAuth = () => {
         </section>
       ) : (
         <section>
+          <SheetMenuCart />
           <Link
             href="/auth/login"
             className={buttonVariants({ variant: 'ghost' })}
