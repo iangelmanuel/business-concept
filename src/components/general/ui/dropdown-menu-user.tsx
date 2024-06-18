@@ -31,11 +31,14 @@ import {
   User
 } from 'lucide-react'
 import { useSession } from 'next-auth/react'
+import { useTheme } from 'next-themes'
 import { useTransition } from 'react'
 
 export const DropdownMenuUser = () => {
   const [isPending, startTransition] = useTransition()
   const { data: session } = useSession()
+  const { setTheme } = useTheme()
+
   const user = session!.user
 
   const handleLogout = () => {
@@ -96,17 +99,17 @@ export const DropdownMenuUser = () => {
 
             <DropdownMenuPortal>
               <DropdownMenuSubContent>
-                <DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setTheme('system')}>
                   <Laptop2Icon className="mr-2 h-4 w-4" />
                   <span>Sistema</span>
                 </DropdownMenuItem>
 
-                <DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setTheme('ligth')}>
                   <Sun className="mr-2 h-4 w-4" />
                   <span>Claro</span>
                 </DropdownMenuItem>
 
-                <DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setTheme('dark')}>
                   <Moon className="mr-2 h-4 w-4" />
                   <span>Oscuro</span>
                 </DropdownMenuItem>

@@ -21,7 +21,14 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className={fontSans.className}>
-        <Providers>{children}</Providers>
+        <Providers
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </Providers>
         <Toaster />
       </body>
     </html>
