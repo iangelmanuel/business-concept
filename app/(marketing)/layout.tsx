@@ -1,6 +1,6 @@
 import { Footer, Header } from '@/components'
 
-export default function MarketingLayoutLayout({
+export default function MarketingLayout({
   children
 }: {
   children: React.ReactNode
