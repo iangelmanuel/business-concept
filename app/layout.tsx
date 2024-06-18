@@ -16,7 +16,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html
+      lang="es"
+      suppressHydrationWarning
+    >
       <body className={fontSans.className}>
         <Providers>{children}</Providers>
         <Toaster />
