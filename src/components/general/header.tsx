@@ -1,10 +1,8 @@
+import { TopMenuAuth, TopMenuNavigation } from '@/components'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { buttonVariants } from '../ui/button'
-import { TopMenuNavigation } from './ui/top-menu-navigation'
-
-export const Header = () => {
+export const Header = async () => {
   return (
     <header className="flex justify-between items-center px-7 py-1.5 w-full border-b">
       <section className="flex items-center gap-x-2">
@@ -23,20 +21,7 @@ export const Header = () => {
         <TopMenuNavigation />
       </section>
 
-      <section>
-        <Link
-          href="/auth/login"
-          className={buttonVariants({ variant: 'ghost' })}
-        >
-          Signin
-        </Link>
-        <Link
-          href="/auth/register"
-          className={buttonVariants({ variant: 'default' })}
-        >
-          Signup
-        </Link>
-      </section>
+      <TopMenuAuth />
     </header>
   )
 }
