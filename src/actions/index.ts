@@ -1,4 +1,5 @@
 export * from './products/get-all-products'
+export * from './products/get-product-by-slug'
 
 export * from './register/register-user-action'
 
