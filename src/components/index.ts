@@ -9,8 +9,6 @@ export * from './general/header/sheet-menu-cart'
 export * from './general/footer/footer'
 export * from './general/header/header'
 
-export * from './marketing/index-products'
-
 export * from './shop/cart/add-product-cart'
 export * from './shop/cart/cart-sheet-items'
 export * from './shop/cart/cart-buttons'
