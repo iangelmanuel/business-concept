@@ -4,7 +4,6 @@ import { prisma } from '../src/lib/prisma/prisma-config'
 async function main() {
   await prisma.orderAddress.deleteMany()
   await prisma.orderItem.deleteMany()
-  await prisma.orderAddress.deleteMany()
   await prisma.order.deleteMany()
   await prisma.user.deleteMany()
   await prisma.productImage.deleteMany()
