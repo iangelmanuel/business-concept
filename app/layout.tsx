@@ -1,4 +1,3 @@
-import { Footer, Header } from '@/components'
 import { fontSans } from '@/config'
 import { Providers } from '@/providers'
 import type { Metadata } from 'next'
