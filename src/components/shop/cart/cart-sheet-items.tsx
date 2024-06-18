@@ -18,7 +18,7 @@ export const CartSheetItems = () => {
       />
       <div>
         <Link
-          href={`/product/${product.slug}`}
+          href={`/shop/product/${product.slug}`}
           className="font-bold hover:underline"
         >
           {product.name}

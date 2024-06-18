@@ -1,16 +1,20 @@
 'use client'
 
-import { Button } from '@/components'
+import { Button, buttonVariants } from '@/components'
 import { useCartStore } from '@/store'
-import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 export const CartButtons = () => {
   const clearCart = useCartStore((state) => state.clearCart)
   const cart = useCartStore((state) => state.cart)
-  const router = useRouter()
   return cart.length > 0 ? (
     <div>
-      <Button onClick={() => router.push('/shop/cart')}>Ir al Carrito</Button>
+      <Link
+        href="/shop/cart"
+        className={buttonVariants()}
+      >
+        Ir al Carrito
+      </Link>
       <Button
         variant="ghost"
         onClick={() => clearCart()}
@@ -21,9 +25,12 @@ export const CartButtons = () => {
   ) : (
     <div className="flex gap-2 justify-center items-center">
       <p className="text-sm">No hay productos en el carrito</p>
-      <Button onClick={() => router.push('/shop/products')}>
+      <Link
+        href="/shop/products"
+        className={buttonVariants()}
+      >
         Ir a la Tienda
-      </Button>
+      </Link>
     </div>
   )
 }
