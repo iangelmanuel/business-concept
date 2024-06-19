@@ -5,6 +5,7 @@ import { useCartStore } from '@/store'
 import type { ProductType } from '@/types'
 import { MinusCircle, PlusCircle } from 'lucide-react'
 import { useState } from 'react'
+import { toast } from 'sonner'
 
 type Props = {
   product: ProductType
@@ -25,10 +26,14 @@ export const AddProductCart = ({ product }: Props) => {
       image: productImage,
       quantity
     })
+    toast.success('Producto añadido al carrito', {
+      duration: 2500,
+      position: 'top-right'
+    })
   }
 
   const handleAddAmount = () => {
-    if (quantity >= 5) return
+    if (quantity > 5) return
     setQuantity(quantity + 1)
   }
 
@@ -36,6 +41,8 @@ export const AddProductCart = ({ product }: Props) => {
     if (quantity <= 1) return
     setQuantity(quantity - 1)
   }
+
+  const isQuantity = quantity !== 0
 
   return (
     <CardContent>
@@ -61,6 +68,7 @@ export const AddProductCart = ({ product }: Props) => {
       <Button
         onClick={handleAddProductCart}
         className="w-full"
+        disabled={!isQuantity}
       >
         Añadir al Carrito
       </Button>

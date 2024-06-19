@@ -1,3 +1,5 @@
+'use client'
+
 import { useCartStore } from '@/store'
 import { formatCurrency } from '@/utils'
 import Image from 'next/image'
@@ -15,6 +17,7 @@ export const CartSheetItems = () => {
         alt={product.name}
         width={100}
         height={100}
+        className="object-cover"
       />
       <div>
         <Link
