@@ -13,6 +13,9 @@ export * from './shop/product/add-product-cart'
 
 export * from './shop/address/card-address-form'
 
+export * from './shop/checkout/card-checkout-details'
+export * from './shop/checkout/card-checkout-summary'
+
 export * from './shop/cart/card-sheet-items'
 export * from './shop/cart/cart-buttons'
 export * from './shop/cart/payment-summary'
