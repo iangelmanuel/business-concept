@@ -1,3 +1,4 @@
+import { departamentsWithCities } from '../src/data/seed/departament-city'
 import { data } from '../src/data/seed/seed-data'
 import { prisma } from '../src/lib/prisma/prisma-config'
 
@@ -10,6 +11,7 @@ async function main() {
   await prisma.productImage.deleteMany()
   await prisma.product.deleteMany()
   await prisma.category.deleteMany()
+  await prisma.location.deleteMany()
 
   const { products, categories } = data
 
@@ -36,6 +38,14 @@ async function main() {
       productId: dbProduct.id
     }))
     await prisma.productImage.createMany({ data: imagesData })
+  })
+
+  departamentsWithCities.forEach(async (location) => {
+    const { department, cities } = location
+
+    await prisma.location.create({
+      data: { department, cities }
+    })
   })
 
   console.log('Seed executed successfully')
