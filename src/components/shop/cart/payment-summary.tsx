@@ -1,20 +1,24 @@
 'use client'
 
 import {
+  Button,
   Card,
   CardContent,
   CardFooter,
   CardHeader,
-  PaymentSummaryLoading,
-  buttonVariants
+  PaymentSummaryLoading
 } from '@/components'
 import { useCartStore } from '@/store'
 import { formatCurrency } from '@/utils'
-import Link from 'next/link'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 export const PaymentSummary = () => {
   const [loaded, setLoaded] = useState(false)
+  const { data: session } = useSession()
+
+  const router = useRouter()
 
   const {
     subTotal,
@@ -28,6 +32,16 @@ export const PaymentSummary = () => {
   useEffect(() => {
     setLoaded(true)
   }, [])
+
+  const handleClickNextStep = () => {
+    if (!session) {
+      router.push('/auth/login?callbackUrl=/shop/checkout')
+    } else {
+      router.push('/shop/address')
+    }
+  }
+
+  const isAuth = !!session
 
   if (!loaded) return <PaymentSummaryLoading />
   return (
@@ -66,12 +80,13 @@ export const PaymentSummary = () => {
         </CardContent>
 
         <CardFooter>
-          <Link
-            href="/shop/address"
-            className={buttonVariants({ className: 'w-full' })}
+          <Button
+            disabled={!isAuth}
+            onClick={handleClickNextStep}
+            className="w-full"
           >
-            Proceder con la Compra
-          </Link>
+            {isAuth ? 'Continuar con el pago' : 'Iniciar sesión para pagar'}
+          </Button>
         </CardFooter>
       </Card>
     </>

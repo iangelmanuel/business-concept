@@ -11,7 +11,7 @@ import { redirect } from 'next/navigation'
 export default async function AddressPage() {
   const user = await auth()
   const location = await getLocationData()
-  if (!user) redirect('/login?redirect=/shop/address')
+  if (!user) redirect('/auth/login?redirect=/shop/address')
   return (
     <section className="max-w-screen-lg mx-auto mt-10">
       <Card>
