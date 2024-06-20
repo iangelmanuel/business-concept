@@ -36,16 +36,20 @@ model User {
 }
 
 model UserAddress {
-  id         Int      @id @default(autoincrement())
-  firstName  String
-  lastName   String
-  address    String
-  address2   String?
-  postalCode String
-  city       String
-  phone      String
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  id                   Int      @id @default(autoincrement())
+  firstName            String
+  lastName             String
+  city                 String
+  typeOfIdentification String
+  identification       String
+  phone                String
+  address              String
+  address2             String?
+  postalCode           String
+  department           String
+  extraData            String?
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
 
   userId Int
   User   User @relation(fields: [userId], references: [id])
@@ -119,15 +123,27 @@ model OrderItem {
 }
 
 model OrderAddress {
-  id         Int     @id @default(autoincrement())
-  firstName  String
-  lastName   String
-  address    String
-  address2   String?
-  postalCode String
-  city       String
-  phone      String
+  id                   Int     @id @default(autoincrement())
+  firstName            String
+  lastName             String
+  city                 String
+  typeOfIdentification String
+  identification       String
+  phone                String
+  address              String
+  address2             String?
+  postalCode           String
+  department           String
+  extraData            String?
 
   orderId Int   @unique
   order   Order @relation(fields: [orderId], references: [id])
+}
+
+// DEPARTMENTS AND CITIES
+
+model Location {
+  id         Int      @id @default(autoincrement())
+  department String
+  cities     String[]
 }
