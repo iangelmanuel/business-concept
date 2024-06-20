@@ -45,7 +45,7 @@ export const CardCheckoutSummary = () => {
 
   return (
     <article className="col-span-1">
-      <Card>
+      <Card className="sticky top-0">
         <CardHeader>
           <h2 className="text-2xl font-bold">Resumen de la compra</h2>
           <CardDescription>

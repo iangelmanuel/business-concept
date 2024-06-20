@@ -9,7 +9,7 @@ import {
 export const CardSummaryLoading = () => {
   return (
     <article className="col-span-1">
-      <Card>
+      <Card className="sticky top-0">
         <CardHeader>
           <Skeleton className="w-40 h-5" />
           <Skeleton className="w-80 h-5" />

@@ -1,6 +1,6 @@
 import { Card, CardContent, CardFooter, Skeleton } from '@/components'
 
-const cart = [1, 2, 3]
+const cart = [1, 2, 3, 4, 5, 6]
 
 export const CartItemsLoading = () => {
   return (
