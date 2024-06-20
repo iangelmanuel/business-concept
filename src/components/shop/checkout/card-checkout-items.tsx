@@ -1,6 +1,12 @@
 'use client'
 
-import { Card, CardContent, CardDescription, CardHeader } from '@/components'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardItemsLoading
+} from '@/components'
 import { useCartStore } from '@/store'
 import { formatCurrency } from '@/utils'
 import Image from 'next/image'
@@ -16,7 +22,7 @@ export const CardCheckoutItems = () => {
     setLoading(false)
   }, [])
 
-  if (loading) return <p>Cargando...</p>
+  if (loading) return <CardItemsLoading />
 
   const prom = 0.25
   return (

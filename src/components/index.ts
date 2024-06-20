@@ -15,6 +15,8 @@ export * from './shop/address/card-address-form'
 
 export * from './shop/checkout/card-checkout-items'
 export * from './shop/checkout/card-checkout-summary'
+export * from './shop/checkout/card-items-loading'
+export * from './shop/checkout/card-summary-loading'
 
 export * from './shop/cart/card-sheet-items'
 export * from './shop/cart/cart-buttons'

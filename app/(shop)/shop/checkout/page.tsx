@@ -1,5 +1,8 @@
 import { auth } from '@/auth.config'
-import { CardCheckoutItems, CardCheckoutSummary } from '@/components'
+import {
+  CardCheckoutItems, // CardItemsLoading,
+  CardCheckoutSummary // CardSummaryLoading
+} from '@/components'
 import { redirect } from 'next/navigation'
 
 export default async function CheckoutPage() {

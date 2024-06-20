@@ -6,7 +6,8 @@ import {
   CardContent,
   CardDescription,
   CardFooter,
-  CardHeader
+  CardHeader,
+  CardSummaryLoading
 } from '@/components'
 import { useAddressStore, useCartStore } from '@/store'
 import { formatCurrency } from '@/utils'
@@ -40,7 +41,7 @@ export const CardCheckoutSummary = () => {
 
   const prom = 0.25
 
-  if (loading) return <p>Cargando...</p>
+  if (loading) return <CardSummaryLoading />
 
   return (
     <article className="col-span-1">
