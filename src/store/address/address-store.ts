@@ -1,17 +1,9 @@
+import type { AddressForm } from '@/types'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
 type State = {
-  address: {
-    firstName: string
-    lastName: string
-    address: string
-    address2?: string
-    postalCode: string
-    city: string
-    country: string
-    phone: string
-  }
+  address: AddressForm
   setAddress: (address: State['address']) => void
 }
 
@@ -21,11 +13,15 @@ export const useAddressStore = create<State>()(
       address: {
         firstName: '',
         lastName: '',
-        address: '',
-        postalCode: '',
         city: '',
-        country: '',
-        phone: ''
+        typeOfIdentification: '',
+        identification: '',
+        phone: '',
+        address: '',
+        address2: '',
+        postalCode: '',
+        department: '',
+        extraData: ''
       },
 
       setAddress: (address) => {
