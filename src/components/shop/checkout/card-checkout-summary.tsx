@@ -1,6 +1,13 @@
 'use client'
 
-import { Button, Card, CardContent, CardFooter, CardHeader } from '@/components'
+import {
+  Button,
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader
+} from '@/components'
 import { useAddressStore, useCartStore } from '@/store'
 import { formatCurrency } from '@/utils'
 import { useRouter } from 'next/navigation'
@@ -39,13 +46,17 @@ export const CardCheckoutSummary = () => {
     <article className="col-span-1">
       <Card>
         <CardHeader>
-          <h2 className="text-xl font-bold">Resumen de la compra</h2>
+          <h2 className="text-2xl font-bold">Resumen de la compra</h2>
+          <CardDescription>
+            Por favor, revisa los productos seleccionados antes de proceder al
+            pago.
+          </CardDescription>
         </CardHeader>
 
         <CardContent>
-          <section className="space-y-2">
+          <article className="space-y-2">
             <h3 className="text-lg font-bold mb-3">Dirección de envío</h3>
-            <article className="mb-3">
+            <section className="mb-3">
               <div className="flex justify-between">
                 <p>Recibe:</p>
                 <p>
@@ -98,10 +109,10 @@ export const CardCheckoutSummary = () => {
                   <p>{address.extraData}</p>
                 </div>
               )}
-            </article>
+            </section>
 
             <h3 className="text-lg font-bold mb-3">Detalles de Precio</h3>
-            <article className="space-y-3">
+            <section className="space-y-3">
               <div className="flex justify-between">
                 <p>Subtotal:</p>
                 <p>{formatCurrency(subTotal)}</p>
@@ -121,8 +132,8 @@ export const CardCheckoutSummary = () => {
                 <p>Total:</p>
                 <p className="font-bold">{formatCurrency(total)}</p>
               </div>
-            </article>
-          </section>
+            </section>
+          </article>
         </CardContent>
 
         <CardFooter>

@@ -1,19 +1,13 @@
 'use client'
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader
-} from '@/components'
+import { Card, CardContent, CardDescription, CardHeader } from '@/components'
 import { useCartStore } from '@/store'
 import { formatCurrency } from '@/utils'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
-export const CardCheckoutDetails = () => {
+export const CardCheckoutItems = () => {
   const [loading, setLoading] = useState(true)
 
   const cart = useCartStore((state) => state.cart)
@@ -28,10 +22,10 @@ export const CardCheckoutDetails = () => {
   return (
     <Card className="col-span-2">
       <CardHeader>
-        <h1 className="text-2xl font-bold">
+        <h2 className="text-2xl font-bold">
           Detalles del resumen de la compra
-        </h1>
-        <CardDescription className="text-sm">
+        </h2>
+        <CardDescription>
           Por favor, revisa los detalles de tu compra antes de proceder al pago.
         </CardDescription>
       </CardHeader>
@@ -40,7 +34,7 @@ export const CardCheckoutDetails = () => {
         <article>
           <section className="mt-4 space-y-3">
             <div>
-              <h2 className="text-lg font-bold">Productos</h2>
+              <h3 className="text-lg font-bold mb-3">Productos</h3>
               <ul className="space-y-3">
                 {cart.map((item) => (
                   <li key={item.id}>
@@ -67,9 +61,7 @@ export const CardCheckoutDetails = () => {
                           </div>
                         </article>
 
-                        <CardContent></CardContent>
-
-                        <CardFooter className="p-0 flex flex-col justify-center items-center">
+                        <CardContent className="p-0 flex flex-col justify-center items-center">
                           <section>
                             <p className="font-bold">
                               {formatCurrency(item.price)}
@@ -85,7 +77,7 @@ export const CardCheckoutDetails = () => {
                               </p>
                             </section>
                           )}
-                        </CardFooter>
+                        </CardContent>
                       </section>
                     </Card>
                   </li>
@@ -95,8 +87,6 @@ export const CardCheckoutDetails = () => {
           </section>
         </article>
       </CardContent>
-
-      <CardFooter></CardFooter>
     </Card>
   )
 }

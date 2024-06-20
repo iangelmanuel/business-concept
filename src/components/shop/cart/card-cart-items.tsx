@@ -5,6 +5,7 @@ import {
   Card,
   CardContent,
   CardFooter,
+  CardHeader,
   CartItemsLoading
 } from '@/components'
 import { useCartStore } from '@/store'
@@ -15,7 +16,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
-export const CartItems = () => {
+export const CardCartItems = () => {
   const [loaded, setLoaded] = useState(false)
 
   const cart = useCartStore((state) => state.cart)
@@ -45,19 +46,21 @@ export const CartItems = () => {
   return (
     <Card className="mx-auto w-4/6 px-5 py-7 flex flex-col justify-center">
       {loaded && getTotalItems > 0 && (
-        <h2 className="text-xl font-bold mb-3">
-          Mi carrito de compras ({getTotalItems})
-        </h2>
+        <CardHeader>
+          <h2 className="text-xl font-bold mb-3">
+            Mi carrito de compras ({getTotalItems})
+          </h2>
+        </CardHeader>
       )}
 
-      <article className="space-y-5">
+      <CardContent className="space-y-5">
         {cart.map((item) => (
           <Card
             key={item.id}
             className="p-6"
           >
-            <section className="flex justify-between items-center">
-              <article className="flex items-center gap-x-5">
+            <article className="flex justify-between items-center">
+              <section className="flex items-center gap-x-5">
                 <Image
                   src={item.image[0].url}
                   alt={`producto ${item.name}`}
@@ -81,7 +84,7 @@ export const CartItems = () => {
                     <p>Eliminar</p>
                   </Button>
                 </div>
-              </article>
+              </section>
 
               <CardContent>
                 <Card className="flex items-center gap-x-2">
@@ -120,10 +123,10 @@ export const CartItems = () => {
                   </section>
                 )}
               </CardFooter>
-            </section>
+            </article>
           </Card>
         ))}
-      </article>
+      </CardContent>
     </Card>
   )
 }

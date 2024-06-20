@@ -6,7 +6,7 @@ import {
   Skeleton
 } from '@/components'
 
-export const PaymentSummaryLoading = () => {
+export const CartSummaryLoading = () => {
   return (
     <>
       <Card className="mx-auto w-2/6 p-2 h-[440px] sticky top-0">

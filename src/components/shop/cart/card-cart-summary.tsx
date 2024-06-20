@@ -6,7 +6,7 @@ import {
   CardContent,
   CardFooter,
   CardHeader,
-  PaymentSummaryLoading
+  CartSummaryLoading
 } from '@/components'
 import { useCartStore } from '@/store'
 import { formatCurrency } from '@/utils'
@@ -14,7 +14,7 @@ import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
-export const PaymentSummary = () => {
+export const CardCartSummary = () => {
   const [loaded, setLoaded] = useState(false)
   const { data: session } = useSession()
 
@@ -43,7 +43,7 @@ export const PaymentSummary = () => {
 
   const isAuth = !!session
 
-  if (!loaded) return <PaymentSummaryLoading />
+  if (!loaded) return <CartSummaryLoading />
   return (
     <>
       <Card className="mx-auto w-2/6 p-2 h-[420px] sticky top-0">

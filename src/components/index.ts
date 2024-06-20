@@ -13,14 +13,14 @@ export * from './shop/product/add-product-cart'
 
 export * from './shop/address/card-address-form'
 
-export * from './shop/checkout/card-checkout-details'
+export * from './shop/checkout/card-checkout-items'
 export * from './shop/checkout/card-checkout-summary'
 
 export * from './shop/cart/card-sheet-items'
 export * from './shop/cart/cart-buttons'
-export * from './shop/cart/payment-summary'
-export * from './shop/cart/payment-summary-loading'
-export * from './shop/cart/cart-items'
+export * from './shop/cart/card-cart-summary'
+export * from './shop/cart/cart-summary-loading'
+export * from './shop/cart/card-cart-items'
 export * from './shop/cart/cart-items-loading'
 
 export * from './ui/button'

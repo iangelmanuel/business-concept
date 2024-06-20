@@ -84,7 +84,7 @@ export const CardAddressForm = ({ location }: Props) => {
     >
       <CardContent className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <article className="space-y-2">
-          <div>
+          <section>
             <Label>Nombres:</Label>
             <Input
               type="text"
@@ -105,8 +105,8 @@ export const CardAddressForm = ({ location }: Props) => {
             {errors.firstName && (
               <ErrorMessage>{errors.firstName?.message}</ErrorMessage>
             )}
-          </div>
-          <div>
+          </section>
+          <section>
             <Label>Apellidos:</Label>
             <Input
               type="text"
@@ -127,8 +127,8 @@ export const CardAddressForm = ({ location }: Props) => {
             {errors.lastName && (
               <ErrorMessage>{errors.lastName?.message}</ErrorMessage>
             )}
-          </div>
-          <div>
+          </section>
+          <section>
             <Label>Tipo de documento:</Label>
             <Select
               autoComplete="document-type"
@@ -155,8 +155,8 @@ export const CardAddressForm = ({ location }: Props) => {
                 {errors.typeOfIdentification?.message}
               </ErrorMessage>
             )}
-          </div>
-          <div>
+          </section>
+          <section>
             <Label>Cédula:</Label>
             <Input
               type="text"
@@ -173,8 +173,8 @@ export const CardAddressForm = ({ location }: Props) => {
             {errors.identification && (
               <ErrorMessage>{errors.identification?.message}</ErrorMessage>
             )}
-          </div>
-          <div>
+          </section>
+          <section>
             <Label>Télefono:</Label>
             <Input
               type="tel"
@@ -195,11 +195,11 @@ export const CardAddressForm = ({ location }: Props) => {
             {errors.phone && (
               <ErrorMessage>{errors.phone?.message}</ErrorMessage>
             )}
-          </div>
+          </section>
         </article>
 
         <article className="space-y-2">
-          <div>
+          <section>
             <Label>Dirección 1:</Label>
             <Input
               type="text"
@@ -220,8 +220,8 @@ export const CardAddressForm = ({ location }: Props) => {
             {errors.address && (
               <ErrorMessage>{errors.address?.message}</ErrorMessage>
             )}
-          </div>
-          <div>
+          </section>
+          <section>
             <Label>Dirección 2 (opcional):</Label>
             <Input
               type="text"
@@ -241,8 +241,8 @@ export const CardAddressForm = ({ location }: Props) => {
             {errors.address2 && (
               <ErrorMessage>{errors.address2?.message}</ErrorMessage>
             )}
-          </div>
-          <div>
+          </section>
+          <section>
             <Label>Código Postal:</Label>
             <Input
               type="text"
@@ -265,8 +265,8 @@ export const CardAddressForm = ({ location }: Props) => {
             {errors.postalCode && (
               <ErrorMessage>{errors.postalCode?.message}</ErrorMessage>
             )}
-          </div>
-          <div>
+          </section>
+          <section>
             <Label>Departamento:</Label>
             <Select
               autoComplete="address-level1"
@@ -299,8 +299,8 @@ export const CardAddressForm = ({ location }: Props) => {
             {errors.department && (
               <ErrorMessage>{errors.department?.message}</ErrorMessage>
             )}
-          </div>
-          <div>
+          </section>
+          <section>
             <Label>Ciudad:</Label>
             <Select
               autoComplete="address-level2"
@@ -328,8 +328,8 @@ export const CardAddressForm = ({ location }: Props) => {
               </SelectContent>
             </Select>
             {errors.city && <ErrorMessage>{errors.city?.message}</ErrorMessage>}
-          </div>
-          <div>
+          </section>
+          <section>
             <Label>Información Adicional (opcional):</Label>
             <Input
               type="text"
@@ -351,12 +351,12 @@ export const CardAddressForm = ({ location }: Props) => {
             {errors.extraData && (
               <ErrorMessage>{errors.extraData?.message}</ErrorMessage>
             )}
-          </div>
+          </section>
         </article>
       </CardContent>
 
       <CardFooter className="flex items-center justify-between">
-        <div className="flex items-center space-x-2">
+        <section className="flex items-center space-x-2">
           <Checkbox
             id="save-address"
             disabled={isPending}
@@ -369,7 +369,7 @@ export const CardAddressForm = ({ location }: Props) => {
           >
             ¿Desear guardar esta dirección para futuras compras?
           </label>
-        </div>
+        </section>
 
         <Button
           type="submit"
