@@ -47,8 +47,8 @@ export const CardCartSummary = () => {
 
   if (!loaded) return <CartSummaryLoading />
   return (
-    <article className="mt-10">
-      <Card className="sticky top-0">
+    <article className="mt-10 order-1 lg:order-2">
+      <Card className="md:sticky md:top-0">
         <CardHeader>
           <h2 className="text-xl font-bold mb-3">
             Resumen de la compra ({itemsInCart})
@@ -85,9 +85,7 @@ export const CardCartSummary = () => {
             onClick={handleClickNextStep}
             className="w-full"
           >
-            {isAuth
-              ? 'Continuar con la dirección de envío'
-              : 'Iniciar sesión para proceder la compra'}
+            {isAuth ? 'Continuar' : 'Inicia sesión'}
           </Button>
         </CardFooter>
       </Card>

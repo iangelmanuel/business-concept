@@ -45,7 +45,7 @@ export const CardCartItems = () => {
   }
 
   return (
-    <Card className="col-span-2 mt-10">
+    <Card className="lg:col-span-2 mt-10 order-2 lg:order-1">
       {loaded && getTotalItems > 0 && (
         <CardHeader>
           <h2 className="text-xl font-bold mb-3">
@@ -76,8 +76,8 @@ export const CardCartItems = () => {
             key={item.id}
             className="p-6"
           >
-            <article className="flex justify-between items-center">
-              <section className="flex items-center gap-x-5">
+            <article className="flex flex-col md:flex-row justify-between items-center">
+              <section className="flex flex-col md:flex-row items-center md:gap-x-5">
                 <Image
                   src={item.image[0].url}
                   alt={`producto ${item.name}`}

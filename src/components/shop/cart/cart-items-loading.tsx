@@ -10,7 +10,7 @@ const cart = [1, 2, 3, 4, 5, 6]
 
 export const CartItemsLoading = () => {
   return (
-    <Card className="col-span-2 mt-10">
+    <Card className="lg:col-span-2 mt-10 order-2 lg:order-1">
       <CardHeader>
         <Skeleton className="h-5 w-3/4 mb-3" />
       </CardHeader>
@@ -21,8 +21,8 @@ export const CartItemsLoading = () => {
             key={item}
             className="p-6"
           >
-            <article className="flex justify-between items-center">
-              <section className="flex items-center gap-x-5">
+            <article className="flex flex-col md:flex-row justify-between items-center">
+              <section className="flex flex-col md:flex-row items-center md:gap-x-5">
                 <Skeleton className="h-24 w-24" />
                 <div>
                   <Skeleton className="h-5 w-full mb-3" />

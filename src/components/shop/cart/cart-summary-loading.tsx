@@ -8,8 +8,8 @@ import {
 
 export const CartSummaryLoading = () => {
   return (
-    <article className="sticky top-0 mt-10">
-      <Card>
+    <article className="order-1 lg:order-2 mt-10">
+      <Card className="sticky top-0">
         <CardHeader>
           <Skeleton className="h-5 w-3/4 mb-3" />
         </CardHeader>
