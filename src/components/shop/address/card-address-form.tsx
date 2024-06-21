@@ -355,7 +355,7 @@ export const CardAddressForm = ({ location }: Props) => {
         </article>
       </CardContent>
 
-      <CardFooter className="flex items-center justify-between">
+      <CardFooter className="flex flex-col gap-y-3 sm:gap-y-0 sm:flex-row items-center justify-between">
         <section className="flex items-center space-x-2">
           <Checkbox
             id="save-address"
@@ -374,6 +374,7 @@ export const CardAddressForm = ({ location }: Props) => {
         <Button
           type="submit"
           disabled={isPending}
+          className="w-full sm:w-auto"
         >
           Proceder al Pago
         </Button>
