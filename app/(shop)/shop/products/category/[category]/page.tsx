@@ -1,4 +1,4 @@
-import { getAllProducts, getCategories } from '@/actions'
+import { getProductByCategory } from '@/actions'
 import {
   Card,
   CardContent,
@@ -11,41 +11,18 @@ import { fontSans } from '@/config'
 import { formatCurrency } from '@/utils'
 import Image from 'next/image'
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
 
-export default async function ShopProductsPage() {
-  const products = await getAllProducts()
-  const categories = await getCategories()
-  if (!products || !categories) return notFound()
+export default async function CategoryProductPage({
+  params
+}: {
+  params: { category: string }
+}) {
+  const products = await getProductByCategory(params.category)
   return (
     <section className="p-5 2xl:p-0 max-w-screen-2xl mx-auto mt-10">
-      <h1 className={`text-2xl font-bold ${fontSans.className} mb-3`}>
-        Bienvenidos a nuestra tienda online
-      </h1>
-
-      <article className="mb-10">
-        <h2 className={`text-xl font-bold ${fontSans.className} mb-2`}>
-          Categorias
-        </h2>
-
-        <section className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3">
-          {categories.map((category) => (
-            <Link
-              key={category.id}
-              href={`/shop/products/category/${category.name}`}
-              className={`extrabold ${fontSans.className} text-4xl`}
-            >
-              <Card className="flex items-center justify-center hover:border-gray-400 py-5">
-                {category.name}
-              </Card>
-            </Link>
-          ))}
-        </section>
-      </article>
-
       <article>
         <h2 className={`text-xl font-bold ${fontSans.className} mb-2`}>
-          Productos
+          Productos de la categoria {params.category}
         </h2>
         <section className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-3">
           {products.map((product) => (
