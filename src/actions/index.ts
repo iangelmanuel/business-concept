@@ -1,7 +1,10 @@
 export * from './products/get-all-products'
 export * from './products/get-product-by-slug'
+export * from './products/get-product-by-category'
 
 export * from './register/register-user-action'
+
+export * from './categories/get-categories-action'
 
 export * from './login/login-user-action'
 
