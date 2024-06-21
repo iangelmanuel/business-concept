@@ -12,6 +12,8 @@ export * from './general/header/header'
 
 export * from './shop/product/add-product-cart'
 
+export * from './shop/products/products-button-cart'
+
 export * from './shop/address/card-address-form'
 
 export * from './shop/checkout/card-checkout-items'

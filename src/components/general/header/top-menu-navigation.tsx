@@ -115,12 +115,12 @@ export function TopMenuNavigation() {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <Link
-            href="/docs"
+            href="/shop/products"
             legacyBehavior
             passHref
           >
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Documentation
+              Shop
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>

@@ -1,0 +1,32 @@
+'use client'
+
+import { Button } from '@/components'
+import { useCartStore } from '@/store'
+import type { ProductType } from '@/types'
+import { toast } from 'sonner'
+
+type Props = {
+  product: ProductType
+}
+
+export const ProductsButtonCart = ({ product }: Props) => {
+  const addProductToCart = useCartStore((state) => state.addProductToCart)
+  const { id, slug, name, price, stock, productImage: image } = product
+
+  const handleClick = () => {
+    addProductToCart({ id, slug, name, price, stock, quantity: 1, image })
+    toast.success('Producto añadido al carrito', {
+      duration: 3000,
+      position: 'top-right'
+    })
+  }
+
+  return (
+    <Button
+      className="w-full"
+      onClick={handleClick}
+    >
+      Añadir Carrito
+    </Button>
+  )
+}
