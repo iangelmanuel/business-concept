@@ -26,6 +26,7 @@ export const CardCartSummary = () => {
     total,
     itemsInCart
   } = useCartStore((state) => state.getSummaryInfo())
+  const cart = useCartStore((state) => state.cart)
 
   const prom = 0.25
 
@@ -42,18 +43,17 @@ export const CardCartSummary = () => {
   }
 
   const isAuth = !!session
+  const isCartEmpty = cart.length === 0
 
   if (!loaded) return <CartSummaryLoading />
   return (
-    <>
-      <Card className="mx-auto w-2/6 p-2 h-[420px] sticky top-0">
-        {loaded && itemsInCart > 0 && (
-          <CardHeader>
-            <h2 className="text-xl font-bold mb-3">
-              Resumen de la compra ({itemsInCart})
-            </h2>
-          </CardHeader>
-        )}
+    <article className="mt-10">
+      <Card className="sticky top-0">
+        <CardHeader>
+          <h2 className="text-xl font-bold mb-3">
+            Resumen de la compra ({itemsInCart})
+          </h2>
+        </CardHeader>
 
         <CardContent>
           <article className="space-y-3">
@@ -81,14 +81,16 @@ export const CardCartSummary = () => {
 
         <CardFooter>
           <Button
-            disabled={!isAuth}
+            disabled={!isAuth || isCartEmpty}
             onClick={handleClickNextStep}
             className="w-full"
           >
-            {isAuth ? 'Continuar con el pago' : 'Iniciar sesión para pagar'}
+            {isAuth
+              ? 'Continuar con la dirección de envío'
+              : 'Iniciar sesión para proceder la compra'}
           </Button>
         </CardFooter>
       </Card>
-    </>
+    </article>
   )
 }

@@ -1,13 +1,21 @@
-import { Card, CardContent, CardFooter, Skeleton } from '@/components'
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  Skeleton
+} from '@/components'
 
 const cart = [1, 2, 3, 4, 5, 6]
 
 export const CartItemsLoading = () => {
   return (
-    <Card className="mx-auto w-4/6 px-5 py-7 flex flex-col justify-center">
-      <Skeleton className="h-5 w-3/4 mb-3" />
+    <Card className="col-span-2 mt-10">
+      <CardHeader>
+        <Skeleton className="h-5 w-3/4 mb-3" />
+      </CardHeader>
 
-      <section className="space-y-5">
+      <CardContent className="space-y-5">
         {cart.map((item) => (
           <Card
             key={item}
@@ -45,7 +53,7 @@ export const CartItemsLoading = () => {
             </article>
           </Card>
         ))}
-      </section>
+      </CardContent>
     </Card>
   )
 }

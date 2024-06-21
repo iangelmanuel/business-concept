@@ -8,8 +8,8 @@ import {
 
 export const CartSummaryLoading = () => {
   return (
-    <>
-      <Card className="mx-auto w-2/6 p-2 h-[440px] sticky top-0">
+    <article className="sticky top-0 mt-10">
+      <Card>
         <CardHeader>
           <Skeleton className="h-5 w-3/4 mb-3" />
         </CardHeader>
@@ -42,6 +42,6 @@ export const CartSummaryLoading = () => {
           <Skeleton className="h-10 w-full mb-3" />
         </CardFooter>
       </Card>
-    </>
+    </article>
   )
 }

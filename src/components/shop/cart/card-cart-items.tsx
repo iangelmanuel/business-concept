@@ -4,6 +4,7 @@ import {
   Button,
   Card,
   CardContent,
+  CardDescription,
   CardFooter,
   CardHeader,
   CartItemsLoading
@@ -44,12 +45,28 @@ export const CardCartItems = () => {
   }
 
   return (
-    <Card className="mx-auto w-4/6 px-5 py-7 flex flex-col justify-center">
+    <Card className="col-span-2 mt-10">
       {loaded && getTotalItems > 0 && (
         <CardHeader>
           <h2 className="text-xl font-bold mb-3">
             Mi carrito de compras ({getTotalItems})
           </h2>
+        </CardHeader>
+      )}
+
+      {loaded && getTotalItems === 0 && (
+        <CardHeader>
+          <h2 className="text-xl font-bold mb-3">
+            Tu carrito de compras está vacío
+          </h2>
+          <Link
+            href="/shop/products"
+            className="hover:underline"
+          >
+            <CardDescription>
+              ¡Agrega productos a tu carrito para comenzar a comprar!
+            </CardDescription>
+          </Link>
         </CardHeader>
       )}
 
