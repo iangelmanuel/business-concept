@@ -2,6 +2,7 @@ export * from './auth/register/register-form'
 export * from './auth/login/login-form'
 
 export * from './general/header/dropdown-menu-user'
+export * from './general/header/dropdown-menu-general'
 export * from './general/alert-message/alert-message'
 export * from './general/header/top-menu-auth'
 export * from './general/header/top-menu-navigation'

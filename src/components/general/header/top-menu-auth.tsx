@@ -1,8 +1,11 @@
 'use client'
 
-import { DropdownMenuUser, SheetMenuCart, buttonVariants } from '@/components'
+import {
+  DropdownMenuGeneral,
+  DropdownMenuUser,
+  SheetMenuCart
+} from '@/components'
 import { useSession } from 'next-auth/react'
-import Link from 'next/link'
 
 export const TopMenuAuth = () => {
   const { data: session } = useSession()
@@ -17,18 +20,7 @@ export const TopMenuAuth = () => {
       ) : (
         <section>
           <SheetMenuCart />
-          <Link
-            href="/auth/login"
-            className={buttonVariants({ variant: 'ghost' })}
-          >
-            Signin
-          </Link>
-          <Link
-            href="/auth/register"
-            className={buttonVariants({ variant: 'default' })}
-          >
-            Signup
-          </Link>
+          <DropdownMenuGeneral />
         </section>
       )}
     </section>

@@ -19,14 +19,14 @@ export default async function HomePage() {
     {}
   )
   return (
-    <section className="space-y-20">
+    <section className="space-y-20 mx-auto max-w-screen-2xl mt-10">
       {Object.entries(categorizedProducts).map(([category, productsOrder]) => (
         <article key={category}>
-          <h3 className="text-4xl text-center font-bold mb-5 capitalize">
+          <h3 className="text-lg lg:text-4xl text-center font-bold mb-5 capitalize">
             {category}
           </h3>
 
-          <div className="flex gap-x-2 justify-center items-center">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 place-content-center items-center p-5 2xl:p-0">
             {productsOrder.map((productOrder) => (
               <Card key={productOrder.id}>
                 <Image

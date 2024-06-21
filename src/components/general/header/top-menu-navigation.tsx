@@ -53,7 +53,7 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function TopMenuNavigation() {
   return (
-    <NavigationMenu>
+    <NavigationMenu className="hidden lg:block">
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger>Menus</NavigationMenuTrigger>
