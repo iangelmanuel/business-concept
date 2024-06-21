@@ -6,7 +6,7 @@ import {
   Skeleton
 } from '@/components'
 
-const cart = [1, 2, 3, 4, 5, 6]
+const cart = [1, 2, 3, 4, 5]
 
 export const CartItemsLoading = () => {
   return (
@@ -23,7 +23,7 @@ export const CartItemsLoading = () => {
           >
             <article className="flex flex-col md:flex-row justify-between items-center">
               <section className="flex flex-col md:flex-row items-center md:gap-x-5">
-                <Skeleton className="h-24 w-24" />
+                <Skeleton className="h-16 w-16" />
                 <div>
                   <Skeleton className="h-5 w-full mb-3" />
                   <div className="flex gap-x-2 text-gray-500 text-xs">
