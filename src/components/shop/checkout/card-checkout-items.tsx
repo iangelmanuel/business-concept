@@ -26,7 +26,7 @@ export const CardCheckoutItems = () => {
 
   const prom = 0.25
   return (
-    <Card className="col-span-2">
+    <Card className="lg:col-span-2 mt-10 order-2 lg:order-1">
       <CardHeader>
         <h2 className="text-2xl font-bold">
           Detalles del resumen de la compra
@@ -48,8 +48,8 @@ export const CardCheckoutItems = () => {
                       key={item.id}
                       className="p-6"
                     >
-                      <section className="flex justify-between items-center">
-                        <article className="flex items-center gap-x-5">
+                      <section className="flex flex-col md:flex-row justify-between items-center">
+                        <article className="flex flex-col md:flex-row items-center md:gap-x-5">
                           <Image
                             src={item.image[0].url}
                             alt={`producto ${item.name}`}

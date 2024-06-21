@@ -44,8 +44,8 @@ export const CardCheckoutSummary = () => {
   if (loading) return <CardSummaryLoading />
 
   return (
-    <article className="col-span-1">
-      <Card className="sticky top-0">
+    <article className="mt-10 order-1 lg:order-2">
+      <Card className="md:sticky md:top-0">
         <CardHeader>
           <h2 className="text-2xl font-bold">Resumen de la compra</h2>
           <CardDescription>
@@ -57,7 +57,7 @@ export const CardCheckoutSummary = () => {
         <CardContent>
           <article className="space-y-2">
             <h3 className="text-lg font-bold mb-3">Dirección de envío</h3>
-            <section className="mb-3">
+            <section className="mb-3 text-sm sm:text-base">
               <div className="flex justify-between">
                 <p>Recibe:</p>
                 <p>
@@ -113,7 +113,7 @@ export const CardCheckoutSummary = () => {
             </section>
 
             <h3 className="text-lg font-bold mb-3">Detalles de Precio</h3>
-            <section className="space-y-3">
+            <section className="space-y-3 mb-3 text-sm sm:text-base">
               <div className="flex justify-between">
                 <p>Subtotal:</p>
                 <p>{formatCurrency(subTotal)}</p>
