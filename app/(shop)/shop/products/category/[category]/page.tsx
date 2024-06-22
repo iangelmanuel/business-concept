@@ -22,7 +22,8 @@ export default async function CategoryProductPage({
     <section className="p-5 2xl:p-0 max-w-screen-2xl mx-auto mt-10">
       <article>
         <h2 className={`text-xl font-bold ${fontSans.className} mb-2`}>
-          Productos de la categoria {params.category}
+          Productos de la categoria{' '}
+          <span className="capitalize">{params.category}</span>
         </h2>
         <section className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-3">
           {products.map((product) => (

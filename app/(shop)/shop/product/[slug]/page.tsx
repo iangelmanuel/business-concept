@@ -44,7 +44,7 @@ export default async function ShopProductPage({
             </div>
             <div className="flex items-center justify-end gap-2">
               <Headphones size={24} />
-              <span>{product.category.name}</span>
+              <span className="capitalize">{product.category.name}</span>
             </div>
           </section>
 

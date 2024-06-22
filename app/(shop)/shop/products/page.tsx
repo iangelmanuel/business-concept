@@ -35,7 +35,7 @@ export default async function ShopProductsPage() {
               href={`/shop/products/category/${category.name}`}
               className={`extrabold ${fontSans.className} text-4xl`}
             >
-              <Card className="flex items-center justify-center hover:border-gray-400 py-5">
+              <Card className="flex items-center justify-center hover:border-gray-400 py-5 capitalize">
                 {category.name}
               </Card>
             </Link>
