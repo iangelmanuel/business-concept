@@ -1,8 +1,9 @@
 import { getProductBySlug } from '@/actions'
 import { AddProductCart, Card, CardDescription, CardHeader } from '@/components'
 import { formatCurrency } from '@/utils'
-import { Headphones, Package } from 'lucide-react'
+import { Headphones, Package, Undo2 } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 export default async function ShopProductPage({
@@ -13,40 +14,44 @@ export default async function ShopProductPage({
   const { product } = await getProductBySlug(params.slug)
   if (!product) notFound()
   return (
-    <section className="flex flex-col sm:flex-row justify-center items-center min-h-screen max-w-screen-2xl mx-auto">
-      <div className="mx-auto w-4/6 sm:w-full">
+    <section className="flex flex-col sm:flex-row justify-center items-center min-h-screen max-w-screen-2xl mx-auto p-5 2xl:p-0">
+      <article className="mx-auto w-full">
+        <Link href="/shop/products">
+          <Undo2 size={26} />
+        </Link>
+
         <Image
           src={product.productImage[0].url}
           alt={`imagen de ${product.name}`}
           width={1000}
           height={1000}
         />
-      </div>
+      </article>
 
-      <Card className="mx-auto w-2/6 sm:w-full">
+      <Card className="mx-auto w-full">
         <CardHeader>
-          <section className="flex justify-between items-center">
-            <div>
+          <article className="flex justify-between items-center">
+            <section>
               <h1 className="text-xl font-bold">{product.name}</h1>
-            </div>
+            </section>
 
-            <div>
+            <section>
               <p className="text-xl font-extrabold">
                 {formatCurrency(product.price)}
               </p>
-            </div>
-          </section>
+            </section>
+          </article>
 
-          <section className="flex justify-between items-center">
-            <div className="flex items-center justify-start gap-2">
+          <article className="flex justify-between items-center">
+            <section className="flex items-center justify-start gap-2">
               <Package size={24} />
               <span>{product.stock}</span>
-            </div>
-            <div className="flex items-center justify-end gap-2">
+            </section>
+            <section className="flex items-center justify-end gap-2">
               <Headphones size={24} />
               <span className="capitalize">{product.category.name}</span>
-            </div>
-          </section>
+            </section>
+          </article>
 
           <CardDescription className="mt-3">
             {product.description}
