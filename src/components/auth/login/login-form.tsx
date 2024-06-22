@@ -4,13 +4,11 @@ import { loginUser } from '@/actions'
 import { Button, CardContent, ErrorMessage, Input, Label } from '@/components'
 import { DEFAULT_LOGIN_VALUES } from '@/consts'
 import type { LoginUser } from '@/types'
-import { useRouter } from 'next/navigation'
 import { useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
 export const CardLoginForm = () => {
-  const router = useRouter()
   const [isPeding, startTransition] = useTransition()
 
   const {
@@ -32,7 +30,7 @@ export const CardLoginForm = () => {
           duration: 5000,
           position: 'top-right'
         })
-        router.push('/shop?registered=true')
+        window.location.replace('/shop/products?registered=true')
       } else {
         toast.error('¡Algo falló!', {
           description: response.message,

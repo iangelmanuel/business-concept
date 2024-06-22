@@ -1,20 +1,30 @@
 'use client'
 
-import { Button, buttonVariants } from '@/components'
+import { Button } from '@/components'
 import { useCartStore } from '@/store'
-import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import type { Dispatch, SetStateAction } from 'react'
 
-export const CartButtons = () => {
+type Props = {
+  setIsSheetOpen: Dispatch<SetStateAction<boolean>>
+}
+
+export const CartButtons = ({ setIsSheetOpen }: Props) => {
+  const router = useRouter()
+
   const clearCart = useCartStore((state) => state.clearCart)
   const cart = useCartStore((state) => state.cart)
+
   return cart.length > 0 ? (
     <div>
-      <Link
-        href="/shop/cart"
-        className={buttonVariants()}
+      <Button
+        onClick={() => {
+          setIsSheetOpen((prevState) => !prevState)
+          router.push('/shop/cart')
+        }}
       >
         Ir al Carrito
-      </Link>
+      </Button>
       <Button
         variant="ghost"
         onClick={() => clearCart()}
@@ -25,12 +35,14 @@ export const CartButtons = () => {
   ) : (
     <div className="flex gap-2 justify-center items-center">
       <p className="text-sm">No hay productos en el carrito</p>
-      <Link
-        href="/shop/products"
-        className={buttonVariants()}
+      <Button
+        onClick={() => {
+          setIsSheetOpen((prevState) => !prevState)
+          router.push('/shop/products')
+        }}
       >
         Ir a la Tienda
-      </Link>
+      </Button>
     </div>
   )
 }

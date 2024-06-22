@@ -43,7 +43,10 @@ export const DropdownMenuUser = () => {
 
   const handleLogout = () => {
     startTransition(async () => {
-      if (session) logoutUser()
+      if (session) {
+        await logoutUser()
+        window.location.reload()
+      }
     })
   }
   return (

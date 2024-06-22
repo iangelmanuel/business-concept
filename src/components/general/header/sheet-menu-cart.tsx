@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Button,
   CartButtons,
@@ -12,10 +14,15 @@ import {
   SheetTrigger
 } from '@/components'
 import { ShoppingCart } from 'lucide-react'
+import { useState } from 'react'
 
 export const SheetMenuCart = () => {
+  const [isSheetOpen, setIsSheetOpen] = useState(false)
   return (
-    <Sheet>
+    <Sheet
+      open={isSheetOpen}
+      onOpenChange={setIsSheetOpen}
+    >
       <SheetTrigger asChild>
         <Button variant="ghost">
           <ShoppingCart size={24} />
@@ -37,7 +44,7 @@ export const SheetMenuCart = () => {
             asChild
             className="flex justify-center items-center"
           >
-            <CartButtons />
+            <CartButtons setIsSheetOpen={setIsSheetOpen} />
           </SheetClose>
         </SheetFooter>
       </SheetContent>
