@@ -18,7 +18,7 @@ import {
   SelectValue
 } from '@/components'
 import { FORM_VALUES_ADDRESS } from '@/consts'
-import { useAddressStore } from '@/store'
+import { useAddressStore, useCartStore } from '@/store'
 import type { AddressForm, LocationType } from '@/types'
 import { useRouter } from 'next/navigation'
 import { useState, useTransition } from 'react'
@@ -35,16 +35,32 @@ export const CardAddressForm = ({ location }: Props) => {
   >([])
   const [isSaveAddressActive, setIsSaveAddressActive] = useState(false)
   const [isPending, startTransition] = useTransition()
+
   const router = useRouter()
+
   const setAddress = useAddressStore((state) => state.setAddress)
+  const address = useAddressStore((state) => state.address)
+  const cart = useCartStore((state) => state.cart)
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
     setValue
-  } = useForm<AddressForm>({ defaultValues: FORM_VALUES_ADDRESS })
+  } = useForm<AddressForm>({
+    defaultValues: { ...address } || FORM_VALUES_ADDRESS
+  })
+
+  const isCartEmpty = cart.length === 0
+
+  if (isCartEmpty) {
+    router.push('/shop/cart?redirect=/shop/address')
+    toast.error('No se puede agregar direcciones en este momento', {
+      duration: 3000,
+      description: 'Intenta agregando productos al carrito',
+      position: 'top-right'
+    })
+  }
 
   const getDepartmentValue = (value: LocationType['department']) => {
     const department = location.filter((item) => item.department === value)
@@ -56,6 +72,7 @@ export const CardAddressForm = ({ location }: Props) => {
     if (isSaveAddressActive) {
       startTransition(async () => {
         const response = await saveUserAddress(data)
+        console.log(response)
         if (response.ok) {
           toast.success('Dirección guardada correctamente', {
             duration: 3000,
@@ -70,10 +87,6 @@ export const CardAddressForm = ({ location }: Props) => {
       })
     }
     setAddress(data)
-    setValue('typeOfIdentification', '')
-    setValue('department', '')
-    setValue('city', '')
-    reset()
     router.push('/shop/checkout')
   }
 
@@ -144,9 +157,9 @@ export const CardAddressForm = ({ location }: Props) => {
               <SelectContent>
                 <SelectGroup>
                   <SelectLabel>Seleccione</SelectLabel>
-                  <SelectItem value="c.c">Cédula Ciudadania</SelectItem>
-                  <SelectItem value="t.e">Tarjeta de Extranjería</SelectItem>
-                  <SelectItem value="passport">Pasaporte</SelectItem>
+                  <SelectItem value="C.C">Cédula Ciudadania</SelectItem>
+                  <SelectItem value="T.E">Tarjeta de Extranjería</SelectItem>
+                  <SelectItem value="Pasaporte">Pasaporte</SelectItem>
                 </SelectGroup>
               </SelectContent>
             </Select>
@@ -289,8 +302,9 @@ export const CardAddressForm = ({ location }: Props) => {
                     <SelectItem
                       key={item.id}
                       value={item.department}
+                      className="capitalize"
                     >
-                      {item.department}
+                      <span className="capitalize">{item.department}</span>
                     </SelectItem>
                   ))}
                 </SelectGroup>
@@ -320,8 +334,9 @@ export const CardAddressForm = ({ location }: Props) => {
                     <SelectItem
                       key={item}
                       value={item}
+                      className="capitalize"
                     >
-                      {item}
+                      <span className="capitalize">{item}</span>
                     </SelectItem>
                   ))}
                 </SelectGroup>

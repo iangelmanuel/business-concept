@@ -13,6 +13,7 @@ import { useAddressStore, useCartStore } from '@/store'
 import { formatCurrency } from '@/utils'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { toast } from 'sonner'
 
 export const CardCheckoutSummary = () => {
   const [loading, setLoading] = useState(true)
@@ -23,20 +24,23 @@ export const CardCheckoutSummary = () => {
     state.getSummaryInfo()
   )
 
-  if (!address) {
-    router.push('/shop/address?redirect=/shop/checkout')
-  }
-
   useEffect(() => {
     setLoading(false)
   }, [])
 
+  const isAddressEmpty = Object.keys(address).length === 0
+
+  if (isAddressEmpty) {
+    router.push('/shop/address?redirect=/shop/checkout')
+    toast.error('No se puede acceder al pedido en este momento', {
+      duration: 3000,
+      description: 'Intenta agregando una dirección al pedido',
+      position: 'top-right'
+    })
+  }
+
   const handleClickNextStep = () => {
-    if (!address) {
-      return router.push('/shop/address?redirect=/shop/checkout')
-    } else {
-      router.push('/shop/payment')
-    }
+    router.push('/shop/payment')
   }
 
   const prom = 0.25
@@ -60,7 +64,7 @@ export const CardCheckoutSummary = () => {
             <section className="mb-3 text-sm sm:text-base">
               <div className="flex justify-between">
                 <p>Recibe:</p>
-                <p>
+                <p className="capitalize">
                   {address.firstName} {address.lastName}
                 </p>
               </div>
@@ -79,12 +83,12 @@ export const CardCheckoutSummary = () => {
 
               <div className="flex justify-between">
                 <p>Departamento:</p>
-                <p>{address.department}</p>
+                <p className="capitalize">{address.department}</p>
               </div>
 
               <div className="flex justify-between">
                 <p>Ciudad:</p>
-                <p>{address.city}</p>
+                <p className="capitalize">{address.city}</p>
               </div>
 
               <div className="flex justify-between">

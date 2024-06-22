@@ -11,12 +11,25 @@ import { useCartStore } from '@/store'
 import { formatCurrency } from '@/utils'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { toast } from 'sonner'
 
 export const CardCheckoutItems = () => {
   const [loading, setLoading] = useState(true)
-
+  const router = useRouter()
   const cart = useCartStore((state) => state.cart)
+
+  const isCartEmpty = cart.length === 0
+
+  if (isCartEmpty) {
+    router.push('/shop/cart?redirect=/shop/checkout')
+    toast.error('No se puede acceder al pedido en este momento', {
+      duration: 3000,
+      description: 'Intenta agregando productos al carrito',
+      position: 'top-right'
+    })
+  }
 
   useEffect(() => {
     setLoading(false)

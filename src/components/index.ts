@@ -15,6 +15,7 @@ export * from './shop/product/add-product-cart'
 export * from './shop/products/products-button-cart'
 
 export * from './shop/address/card-address-form'
+export * from './shop/address/card-address-user'
 
 export * from './shop/checkout/card-checkout-items'
 export * from './shop/checkout/card-checkout-summary'
@@ -41,3 +42,4 @@ export * from './ui/avatar'
 export * from './ui/skeleton'
 export * from './ui/select'
 export * from './ui/checkbox'
+export * from './ui/alert-dialog'
