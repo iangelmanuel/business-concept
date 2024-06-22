@@ -6,9 +6,10 @@ export const FORM_VALUES_ADDRESS: AddressForm = {
   typeOfIdentification: '',
   identification: '',
   address: '',
-  address2: '',
+  address2: null,
   postalCode: '',
   department: '',
   city: '',
-  phone: ''
+  phone: '',
+  extraData: null
 }
