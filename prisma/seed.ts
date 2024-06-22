@@ -22,7 +22,7 @@ async function main() {
 
   const categoriesMap = categoriesDB.reduce<Record<string, string>>(
     (map, category) => {
-      map[category.name.toLocaleLowerCase()] = category.id.toString()
+      map[category.name] = category.id.toString()
       return map
     },
     {}
@@ -44,7 +44,10 @@ async function main() {
     const { department, cities } = location
 
     await prisma.location.create({
-      data: { department, cities }
+      data: {
+        department: department.toLowerCase(),
+        cities: cities.map((city) => city.toLowerCase())
+      }
     })
   })
 
