@@ -8,6 +8,8 @@ import {
   ShoppingCart,
   UserCheckIcon
 } from 'lucide-react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 type Props = {
@@ -15,7 +17,20 @@ type Props = {
 }
 
 export const BarProgress = ({ step }: Props) => {
-  const [progress, setProgress] = useState(0)
+  const pathname = usePathname()
+
+  const initialProgress =
+    pathname === '/shop/cart'
+      ? 0
+      : pathname === '/shop/address'
+        ? 0
+        : pathname === '/shop/checkout'
+          ? 35
+          : pathname === '/shop/payment'
+            ? 65
+            : 0
+
+  const [progress, setProgress] = useState(initialProgress)
 
   useEffect(() => {
     switch (step) {
@@ -35,7 +50,7 @@ export const BarProgress = ({ step }: Props) => {
         setTimeout(() => setProgress(0), 500)
         break
     }
-  }, [step])
+  }, [step, pathname])
 
   return (
     <section className="max-w-screen-2xl mx-auto p-5 2xl:p-0 mt-10 mb-3">
@@ -46,27 +61,39 @@ export const BarProgress = ({ step }: Props) => {
         />
 
         <section className="flex gap-2 items-center justify-evenly h-8 w-8 rounded-full ring-2 ring-emerald-500 bg-emerald-500">
-          {step > 1 ? <CircleCheckBig size={24} /> : <ShoppingCart size={24} />}
+          <Link href="/shop/cart">
+            {step > 1 ? (
+              <CircleCheckBig size={24} />
+            ) : (
+              <ShoppingCart size={24} />
+            )}
+          </Link>
         </section>
 
         <section className="flex gap-2 items-center justify-evenly h-8 w-8 rounded-full ring-2 ring-emerald-500 bg-emerald-500">
-          {step > 2 ? <CircleCheckBig size={24} /> : <MapPinIcon size={24} />}
+          <Link href="/shop/address">
+            {step > 2 ? <CircleCheckBig size={24} /> : <MapPinIcon size={24} />}
+          </Link>
         </section>
 
         <section className="flex gap-2 items-center justify-evenly h-8 w-8 rounded-full ring-2 ring-emerald-500 bg-emerald-500">
-          {step > 3 ? (
-            <CircleCheckBig size={24} />
-          ) : (
-            <UserCheckIcon size={24} />
-          )}
+          <Link href="/shop/checkout">
+            {step > 3 ? (
+              <CircleCheckBig size={24} />
+            ) : (
+              <UserCheckIcon size={24} />
+            )}
+          </Link>
         </section>
 
         <section className="flex gap-2 items-center justify-evenly h-8 w-8 rounded-full ring-2 ring-emerald-500 bg-emerald-500">
-          {step > 4 ? (
-            <CircleCheckBig size={24} />
-          ) : (
-            <CreditCardIcon size={24} />
-          )}
+          <Link href="/shop/payment">
+            {step > 4 ? (
+              <CircleCheckBig size={24} />
+            ) : (
+              <CreditCardIcon size={24} />
+            )}
+          </Link>
         </section>
       </article>
     </section>
