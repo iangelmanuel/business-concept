@@ -43,3 +43,6 @@ export * from './ui/skeleton'
 export * from './ui/select'
 export * from './ui/checkbox'
 export * from './ui/alert-dialog'
+export * from './ui/progress'
+
+export * from './shop/bar-progress'

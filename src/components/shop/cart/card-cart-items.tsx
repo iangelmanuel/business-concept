@@ -45,7 +45,7 @@ export const CardCartItems = () => {
   }
 
   return (
-    <Card className="lg:col-span-2 mt-10 order-2 lg:order-1">
+    <Card className="lg:col-span-2 order-2 lg:order-1">
       {loaded && getTotalItems > 0 && (
         <CardHeader>
           <h2 className="text-xl font-bold mb-3">
