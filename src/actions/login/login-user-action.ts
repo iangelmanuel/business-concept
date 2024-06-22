@@ -13,7 +13,6 @@ export async function loginUser(data: LoginUser) {
       message: 'Ocurrio un error al validar los datos'
     }
   }
-
   try {
     const { ...emailAndPassword } = response.data
     await signIn('credentials', {
