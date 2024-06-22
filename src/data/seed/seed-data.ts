@@ -1,5 +1,5 @@
 export const data = {
-  categories: ['Auriculares', 'Celulares', 'Computadoras', 'Consolas'],
+  categories: ['auriculares', 'celulares', 'computadoras', 'consolas'],
   products: [
     {
       type: 'auriculares',
