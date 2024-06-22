@@ -11,4 +11,6 @@ export * from './login/login-user-action'
 export * from './logout/logout-user-action'
 
 export * from './address/get-location-data'
+export * from './address/get-user-address'
 export * from './address/save-user-address'
+export * from './address/delete-user-addres'

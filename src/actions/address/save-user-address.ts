@@ -35,6 +35,7 @@ export async function saveUserAddress(addressFormData: AddressForm) {
     })
     return { ok: true }
   } catch (error) {
+    console.error(error)
     return { ok: false }
   }
 }
