@@ -1,5 +1,6 @@
 export type NavigationItem = {
   label: string
   href: string
-  icon: string
+  description: string
+  icon: React.ReactNode
 }
