@@ -2,13 +2,13 @@ export * from './products/get-all-products'
 export * from './products/get-product-by-slug'
 export * from './products/get-product-by-category'
 
-export * from './register/register-user-action'
+export * from './register/register-user'
 
-export * from './categories/get-categories-action'
+export * from './categories/get-categories'
 
-export * from './login/login-user-action'
+export * from './login/login-user'
 
-export * from './logout/logout-user-action'
+export * from './logout/logout-user'
 
 export * from './address/get-location-data'
 export * from './address/get-user-address'
