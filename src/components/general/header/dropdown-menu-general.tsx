@@ -15,13 +15,13 @@ import {
   DropdownMenuTrigger
 } from '@/components'
 import {
-  CreditCard,
   Laptop2Icon,
   MenuIcon,
   Moon,
   Palette,
   Sun,
-  User
+  User,
+  UserRoundPlus
 } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { useRouter } from 'next/navigation'
@@ -48,7 +48,7 @@ export const DropdownMenuGeneral = () => {
           </DropdownMenuItem>
 
           <DropdownMenuItem onClick={() => router.push('/auth/register')}>
-            <CreditCard className="mr-2 h-4 w-4" />
+            <UserRoundPlus className="mr-2 h-4 w-4" />
             <span>Registrarse</span>
           </DropdownMenuItem>
         </DropdownMenuGroup>

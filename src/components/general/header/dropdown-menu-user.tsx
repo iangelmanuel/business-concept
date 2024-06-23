@@ -21,12 +21,12 @@ import {
 import { getLettersName } from '@/utils'
 import {
   CreditCard,
-  Keyboard,
   Laptop2Icon,
+  LockIcon,
   LogOut,
   Moon,
   Palette,
-  Settings,
+  ShoppingBagIcon,
   Sun,
   User
 } from 'lucide-react'
@@ -66,28 +66,28 @@ export const DropdownMenuUser = () => {
       </DropdownMenuTrigger>
 
       <DropdownMenuContent className="w-56">
-        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+        <DropdownMenuLabel>{user.name}</DropdownMenuLabel>
         <DropdownMenuSeparator />
 
         <DropdownMenuGroup>
           <DropdownMenuItem>
             <User className="mr-2 h-4 w-4" />
-            <span>Profile</span>
+            <span>Perfil</span>
+          </DropdownMenuItem>
+
+          <DropdownMenuItem>
+            <ShoppingBagIcon className="mr-2 h-4 w-4" />
+            <span>Mis Compras</span>
           </DropdownMenuItem>
 
           <DropdownMenuItem>
             <CreditCard className="mr-2 h-4 w-4" />
-            <span>Billing</span>
+            <span>Métodos de Pago</span>
           </DropdownMenuItem>
 
           <DropdownMenuItem>
-            <Settings className="mr-2 h-4 w-4" />
-            <span>Settings</span>
-          </DropdownMenuItem>
-
-          <DropdownMenuItem>
-            <Keyboard className="mr-2 h-4 w-4" />
-            <span>Keyboard shortcuts</span>
+            <LockIcon className="mr-2 h-4 w-4" />
+            <span>Segurdad y Privacidad</span>
           </DropdownMenuItem>
         </DropdownMenuGroup>
 
