@@ -25,9 +25,9 @@ export const BarProgress = ({ step }: Props) => {
       : pathname === '/shop/address'
         ? 0
         : pathname === '/shop/checkout'
-          ? 35
+          ? 38
           : pathname === '/shop/payment'
-            ? 65
+            ? 66
             : 0
 
   const [progress, setProgress] = useState(initialProgress)
@@ -38,10 +38,10 @@ export const BarProgress = ({ step }: Props) => {
         setTimeout(() => setProgress(0), 500)
         break
       case 2:
-        setTimeout(() => setProgress(35), 500)
+        setTimeout(() => setProgress(34), 500)
         break
       case 3:
-        setTimeout(() => setProgress(65), 500)
+        setTimeout(() => setProgress(66), 500)
         break
       case 4:
         setTimeout(() => setProgress(100), 500)
