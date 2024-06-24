@@ -36,3 +36,22 @@ export const loginUserSchema = z.object({
   email: z.string().email().trim(),
   password: z.string()
 })
+
+export const authUserSchema = z.object({
+  id: z.number(),
+  email: z.string(),
+  name: z.string(),
+  lastname: z.string(),
+  role: z.enum(['admin', 'user']),
+  avatar: z.string().nullable(),
+  emailVerified: z.boolean().optional(),
+  createdAt: z.date(),
+  updatedAt: z.date()
+})
+
+export const updateUserSchema = z.object({
+  name: z.string().min(3).max(50),
+  lastname: z.string().min(3).max(50),
+  email: z.string().email().trim(),
+  avatar: z.string().optional()
+})
