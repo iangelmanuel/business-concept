@@ -6,6 +6,7 @@ export const cartSchema = z.object({
   slug: z.string(),
   name: z.string(),
   price: z.number(),
+  discount: z.number().optional(),
   stock: z.number(),
   quantity: z.number(),
   image: z.array(productImage)

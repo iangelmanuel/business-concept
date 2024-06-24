@@ -27,8 +27,6 @@ export const CardCartItems = () => {
   )
   const updateProductInCart = useCartStore((state) => state.updateProductInCart)
 
-  const prom = 0.25
-
   useEffect(() => {
     setLoaded(true)
   }, [])
@@ -131,12 +129,14 @@ export const CardCartItems = () => {
                 <section>
                   <p className="font-bold">{formatCurrency(item.price)}</p>
                 </section>
-                {prom > 0 && (
+                {item.discount && item.discount > 0 && (
                   <section className="flex gap-x-2">
                     <p className="text-xs">
-                      {formatCurrency(item.price - prom * item.price)}
+                      {formatCurrency(item.price - item.discount * item.price)}
                     </p>
-                    <p className="text-orange-500 text-xs">{prom * 100}%</p>
+                    <p className="text-orange-500 text-xs">
+                      {item.discount * 100}%
+                    </p>
                   </section>
                 )}
               </CardFooter>
