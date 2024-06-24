@@ -14,3 +14,6 @@ export * from './address/get-location-data'
 export * from './address/get-user-address'
 export * from './address/save-user-address'
 export * from './address/delete-user-addres'
+
+export * from './user/update-user'
+export * from './user/get-user-by-id'

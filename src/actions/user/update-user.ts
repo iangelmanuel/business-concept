@@ -1,0 +1,51 @@
+'use server'
+
+import { auth } from '@/auth.config'
+import { prisma } from '@/lib'
+import { updateUserSchema } from '@/schema'
+import type { UpdateUser } from '@/types'
+
+export const updateUser = async (data: UpdateUser) => {
+  try {
+    const session = await auth()
+    const user = session?.user
+    if (!user) {
+      return {
+        ok: false,
+        message: 'No autorizado'
+      }
+    }
+
+    const result = updateUserSchema.safeParse(data)
+    if (!result.success) {
+      return {
+        ok: false,
+        message: 'Datos incorrectos'
+      }
+    }
+
+    const newUser = await prisma.user.update({
+      where: { id: Number(user.id) },
+      data: {
+        name: data.name,
+        lastname: data.lastname,
+        email: data.email,
+        avatar: data.avatar ? data.avatar : null
+      }
+    })
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { password: _, ...rest } = newUser
+    return {
+      ok: true,
+      message: 'Usuario actualizado correctamente',
+      user: rest
+    }
+  } catch (error) {
+    console.log(error)
+    return {
+      ok: false,
+      message: 'Error al actualizar el usuario'
+    }
+  }
+}
