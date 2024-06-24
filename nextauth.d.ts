@@ -7,7 +7,7 @@ declare module 'next-auth' {
       email: string
       name: string
       lastname: string
-      role: string
+      role: 'admin' | 'user'
       avatar: string | null
       emailVerified?: boolean
       createdAt: Date
