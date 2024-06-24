@@ -18,26 +18,20 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger
 } from '@/components'
+import { dropdownUser } from '@/data'
 import { getLettersName } from '@/utils'
-import {
-  CreditCard,
-  Laptop2Icon,
-  LockIcon,
-  LogOut,
-  Moon,
-  Palette,
-  ShoppingBagIcon,
-  Sun,
-  User
-} from 'lucide-react'
+import { Laptop2Icon, LogOut, Moon, Palette, Sun } from 'lucide-react'
 import { useSession } from 'next-auth/react'
 import { useTheme } from 'next-themes'
+import { useRouter } from 'next/navigation'
 import { useTransition } from 'react'
 
 export const DropdownMenuUser = () => {
   const [isPending, startTransition] = useTransition()
   const { data: session } = useSession()
   const { setTheme } = useTheme()
+
+  const router = useRouter()
 
   const user = session!.user
 
@@ -70,25 +64,15 @@ export const DropdownMenuUser = () => {
         <DropdownMenuSeparator />
 
         <DropdownMenuGroup>
-          <DropdownMenuItem>
-            <User className="mr-2 h-4 w-4" />
-            <span>Perfil</span>
-          </DropdownMenuItem>
-
-          <DropdownMenuItem>
-            <ShoppingBagIcon className="mr-2 h-4 w-4" />
-            <span>Mis Compras</span>
-          </DropdownMenuItem>
-
-          <DropdownMenuItem>
-            <CreditCard className="mr-2 h-4 w-4" />
-            <span>Métodos de Pago</span>
-          </DropdownMenuItem>
-
-          <DropdownMenuItem>
-            <LockIcon className="mr-2 h-4 w-4" />
-            <span>Segurdad y Privacidad</span>
-          </DropdownMenuItem>
+          {dropdownUser.map((item) => (
+            <DropdownMenuItem
+              key={item.href}
+              onClick={() => router.push(item.href)}
+            >
+              {item.icon}
+              <span>{item.label}</span>
+            </DropdownMenuItem>
+          ))}
         </DropdownMenuGroup>
 
         <DropdownMenuSeparator />

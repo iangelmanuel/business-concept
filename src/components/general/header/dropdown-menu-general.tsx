@@ -14,15 +14,8 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger
 } from '@/components'
-import {
-  Laptop2Icon,
-  MenuIcon,
-  Moon,
-  Palette,
-  Sun,
-  User,
-  UserRoundPlus
-} from 'lucide-react'
+import { dropdownGeneral } from '@/data'
+import { Laptop2Icon, MenuIcon, Moon, Palette, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { useRouter } from 'next/navigation'
 
@@ -42,15 +35,15 @@ export const DropdownMenuGeneral = () => {
         <DropdownMenuSeparator />
 
         <DropdownMenuGroup>
-          <DropdownMenuItem onClick={() => router.push('/auth/login')}>
-            <User className="mr-2 h-4 w-4" />
-            <span>Iniciar Sesión</span>
-          </DropdownMenuItem>
-
-          <DropdownMenuItem onClick={() => router.push('/auth/register')}>
-            <UserRoundPlus className="mr-2 h-4 w-4" />
-            <span>Registrarse</span>
-          </DropdownMenuItem>
+          {dropdownGeneral.map((item) => (
+            <DropdownMenuItem
+              key={item.href}
+              onClick={() => router.push(item.href)}
+            >
+              {item.icon}
+              <span>{item.label}</span>
+            </DropdownMenuItem>
+          ))}
         </DropdownMenuGroup>
 
         <DropdownMenuGroup>

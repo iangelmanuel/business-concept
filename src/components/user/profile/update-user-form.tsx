@@ -1,0 +1,197 @@
+'use client'
+
+import { updateUser } from '@/actions'
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+  Button,
+  ErrorMessage,
+  Input,
+  Label
+} from '@/components'
+import type { AuthUser, UpdateUser } from '@/types'
+import { formatDate, getLettersName } from '@/utils'
+import { useTransition } from 'react'
+import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
+
+type Props = {
+  user: AuthUser
+}
+
+export const UpdateUserForm = ({ user }: Props) => {
+  const [isPending, startTransition] = useTransition()
+
+  const defaultValues: UpdateUser = {
+    name: user.name,
+    lastname: user.lastname,
+    email: user.email,
+    avatar: user.avatar || ''
+  }
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<UpdateUser>({
+    defaultValues
+  })
+
+  const onSubmit = async (data: UpdateUser) => {
+    const compareDatas = JSON.stringify(data) === JSON.stringify(defaultValues)
+
+    if (compareDatas) {
+      toast.error('No se han realizado cambios', {
+        duration: 3000,
+        position: 'top-right'
+      })
+      return
+    }
+    startTransition(async () => {
+      const response = await updateUser(data)
+      if (response.ok) {
+        toast.success(response.message, {
+          duration: 3000,
+          position: 'top-right'
+        })
+      } else {
+        toast.error(response.message, {
+          duration: 3000,
+          position: 'top-right'
+        })
+      }
+    })
+  }
+
+  return (
+    <section className="mt-10">
+      <h2 className="text-xl font-bold">Actualizar datos:</h2>
+
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        id="update-user"
+        className="grid gap-5 grid-cols-1 lg:grid-cols-2 mt-3"
+      >
+        <div>
+          <Avatar className="mx-auto w-80 h-80 sm:w-96 sm:h-96">
+            <AvatarImage
+              src={user.avatar ? user.avatar : ''}
+              alt={`${user.name} avatar`}
+            />
+            <AvatarFallback className="text-9xl">
+              {getLettersName(user.name, user.lastname)}
+            </AvatarFallback>
+          </Avatar>
+
+          <Input
+            type="file"
+            accept="image/*"
+            {...register('avatar')}
+            className="mt-3 cursor-pointer max-w-60 mx-auto"
+          />
+        </div>
+
+        <div className="space-y-4">
+          <section>
+            <Label>Nombre:</Label>
+            <Input
+              type="text"
+              {...register('name', {
+                required: 'El campo nombre es requerido',
+                minLength: {
+                  value: 3,
+                  message: 'El campo nombre debe tener al menos 3 caracteres'
+                },
+                maxLength: {
+                  value: 50,
+                  message: 'El campo nombre debe tener menos de 50 caracteres'
+                }
+              })}
+            />
+            {errors.name && <ErrorMessage>{errors.name.message}</ErrorMessage>}
+          </section>
+
+          <section>
+            <Label>Apellido:</Label>
+            <Input
+              type="text"
+              {...register('lastname', {
+                required: 'El campo apellido es requerido',
+                minLength: {
+                  value: 3,
+                  message: 'El campo apellido debe tener al menos 3 caracteres'
+                },
+                maxLength: {
+                  value: 50,
+                  message: 'El campo apellido debe tener menos de 50 caracteres'
+                }
+              })}
+            />
+            {errors.lastname && (
+              <ErrorMessage>{errors.lastname.message}</ErrorMessage>
+            )}
+          </section>
+
+          <section>
+            <Label>Role:</Label>
+            <Input
+              type="text"
+              disabled
+              defaultValue={user.role}
+            />
+          </section>
+
+          <section>
+            <Label>Email:</Label>
+            <Input
+              type="email"
+              value={user.email}
+              {...register('email', {
+                required: 'El campo email es requerido',
+                pattern: {
+                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                  message: 'El email no es válido'
+                },
+                maxLength: {
+                  value: 50,
+                  message: 'El campo email debe tener menos de 50 caracteres'
+                }
+              })}
+            />
+            {errors.email && (
+              <ErrorMessage>{errors.email.message}</ErrorMessage>
+            )}
+          </section>
+
+          <section>
+            <Label>Fecha de creación:</Label>
+            <Input
+              type="text"
+              disabled
+              defaultValue={formatDate(user.createdAt)}
+            />
+          </section>
+
+          <section>
+            <Label>Fecha de actualización:</Label>
+            <Input
+              type="text"
+              disabled
+              defaultValue={formatDate(user.updatedAt)}
+            />
+          </section>
+        </div>
+      </form>
+      <div className="flex justify-end mt-5">
+        <Button
+          type="submit"
+          form="update-user"
+          disabled={isPending}
+        >
+          {isPending ? 'Actualizando' : 'Actualizar'}
+        </Button>
+      </div>
+    </section>
+  )
+}
