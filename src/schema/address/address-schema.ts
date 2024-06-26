@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export const addressSchema = z.object({
+export const AddressSchema = z.object({
   id: z.string(),
   firstName: z.string(),
   lastName: z.string(),
@@ -16,7 +16,7 @@ export const addressSchema = z.object({
   userId: z.string()
 })
 
-export const addressFormSchema = z.object({
+export const AddressFormSchema = z.object({
   firstName: z.string(),
   lastName: z.string(),
   typeOfIdentification: z.enum(['C.C', 'T.E', 'Pasaporte']),
@@ -30,10 +30,10 @@ export const addressFormSchema = z.object({
   extraData: z.string().optional()
 })
 
-export const locationSchema = z.object({
+export const LocationSchema = z.object({
   id: z.string(),
   department: z.string(),
   cities: z.array(z.string())
 })
 
-export const locationsSchema = z.array(locationSchema)
+export const LocationsSchema = z.array(LocationSchema)

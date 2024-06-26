@@ -1,7 +1,7 @@
-import { addressSchema } from '@/schema'
+import { AddressSchema } from '@/schema'
 import { z } from 'zod'
 
-export const userSchema = z.object({
+export const UserSchema = z.object({
   id: z.string(),
   name: z.string(),
   lastname: z.string(),
@@ -15,10 +15,10 @@ export const userSchema = z.object({
   updatedAt: z.string(),
   // TODO: Add the following fields
   orders: z.array(z.object({})),
-  addresses: z.array(addressSchema)
+  addresses: z.array(AddressSchema)
 })
 
-export const registerUserSchema = z
+export const RegisterUserSchema = z
   .object({
     email: z
       .string()
@@ -35,7 +35,7 @@ export const registerUserSchema = z
     path: ['repeatPassword']
   })
 
-export const loginUserSchema = z.object({
+export const LoginUserSchema = z.object({
   email: z.string().email().trim(),
   password: z.string()
 })
@@ -51,13 +51,13 @@ export const authUserSchema = z.object({
   updatedAt: z.date()
 })
 
-export const updateUserSchema = z.object({
+export const UpdateUserSchema = z.object({
   name: z.string().min(3).max(50),
   lastname: z.string().min(3).max(50),
   email: z.string().email().trim()
 })
 
-export const changeUserPasswordSchema = z.object({
+export const ChangeUserPasswordSchema = z.object({
   password: z.string(),
   newPassword: z.string().min(8),
   confirmNewPassword: z.string()

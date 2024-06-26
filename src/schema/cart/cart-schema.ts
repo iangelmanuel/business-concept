@@ -1,7 +1,7 @@
-import { productImage } from '@/schema'
+import { ProductImage } from '@/schema'
 import { z } from 'zod'
 
-export const cartSchema = z.object({
+export const CartSchema = z.object({
   id: z.string(),
   slug: z.string(),
   name: z.string(),
@@ -9,5 +9,5 @@ export const cartSchema = z.object({
   discount: z.number().optional(),
   stock: z.number(),
   quantity: z.number(),
-  image: z.array(productImage)
+  image: z.array(ProductImage)
 })
