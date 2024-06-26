@@ -6,24 +6,24 @@ export const navigationItems: NavigationItem[] = [
     label: 'Inicio',
     href: '/',
     description: 'Página principal',
-    icon: <HomeIcon />
+    icon: <HomeIcon className="mr-2 h-4 w-4" />
   },
   {
     label: 'Nosotros',
     href: '/about-us',
     description: 'Conoce más sobre nosotros',
-    icon: <PersonStanding />
+    icon: <PersonStanding className="mr-2 h-4 w-4" />
   },
   {
     label: 'Contacto',
     href: '/contact',
     description: 'Contáctanos',
-    icon: <MailIcon />
+    icon: <MailIcon className="mr-2 h-4 w-4" />
   },
   {
     label: 'Productos',
     href: '/shop/products',
     description: 'Explora nuestros productos',
-    icon: <Package2 />
+    icon: <Package2 className="mr-2 h-4 w-4" />
   }
 ]
