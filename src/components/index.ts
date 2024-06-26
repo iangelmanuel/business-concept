@@ -30,6 +30,8 @@ export * from './shop/cart/card-cart-items'
 export * from './shop/cart/cart-items-loading'
 
 export * from './user/profile/update-user-form'
+export * from './user/security-privacy/change-password-form'
+export * from './user/security-privacy/delete-user-account'
 
 export * from './ui/button'
 export * from './ui/card'

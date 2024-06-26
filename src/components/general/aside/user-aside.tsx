@@ -9,7 +9,7 @@ export const UserAside = () => {
   const pathname = usePathname()
   return (
     <aside className="hidden xl:block col-span-2 h-screen border-r sticky top-0">
-      <section className="p-2 space-y-2">
+      <section className="p-2 space-y-2 mt-5">
         {dropdownUser.map((item, index) => (
           <Link
             key={index}

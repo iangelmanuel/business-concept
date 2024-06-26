@@ -41,6 +41,7 @@ export const CardRegisterForm = () => {
       }
     })
   }
+
   return (
     <CardContent>
       <form
@@ -88,6 +89,23 @@ export const CardRegisterForm = () => {
           {errors.lastname && (
             <ErrorMessage>{errors.lastname?.message}</ErrorMessage>
           )}
+        </div>
+
+        <div>
+          <Label>Télefono:</Label>
+          <Input
+            type="tel"
+            autoComplete="tel"
+            placeholder="Ej. 312 345 6789"
+            {...register('phone', {
+              required: 'El campo télefono es requerido',
+              pattern: {
+                value: /^[0-9]{7,10}$/,
+                message: 'El télefono no es válido'
+              }
+            })}
+          />
+          {errors.phone && <ErrorMessage>{errors.phone?.message}</ErrorMessage>}
         </div>
 
         <div>

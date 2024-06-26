@@ -49,8 +49,8 @@ export const DropdownMenuUser = () => {
         <Button variant="ghost">
           <Avatar>
             <AvatarImage
-              src={user.avatar!}
-              alt={`${user?.name} avatar`}
+              src="/images/avatar.jpg"
+              alt="avatar"
             />
             <AvatarFallback>
               {getLettersName(user.name, user.lastname)}

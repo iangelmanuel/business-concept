@@ -26,8 +26,7 @@ export const UpdateUserForm = ({ user }: Props) => {
   const defaultValues: UpdateUser = {
     name: user.name,
     lastname: user.lastname,
-    email: user.email,
-    avatar: user.avatar || ''
+    email: user.email
   }
 
   const {
@@ -73,23 +72,16 @@ export const UpdateUserForm = ({ user }: Props) => {
         id="update-user"
         className="grid gap-5 grid-cols-1 lg:grid-cols-2 mt-3"
       >
-        <div>
+        <div className="flex justify-center items-center">
           <Avatar className="mx-auto w-80 h-80 sm:w-96 sm:h-96">
             <AvatarImage
-              src={user.avatar ? user.avatar : ''}
-              alt={`${user.name} avatar`}
+              src="/images/avatar.jpg"
+              alt="avatar"
             />
             <AvatarFallback className="text-9xl">
               {getLettersName(user.name, user.lastname)}
             </AvatarFallback>
           </Avatar>
-
-          <Input
-            type="file"
-            accept="image/*"
-            {...register('avatar')}
-            className="mt-3 cursor-pointer max-w-60 mx-auto"
-          />
         </div>
 
         <div className="space-y-4">
@@ -189,7 +181,7 @@ export const UpdateUserForm = ({ user }: Props) => {
           form="update-user"
           disabled={isPending}
         >
-          {isPending ? 'Actualizando' : 'Actualizar'}
+          {isPending ? 'Actualizando datos' : 'Actualizar datos'}
         </Button>
       </div>
     </section>
