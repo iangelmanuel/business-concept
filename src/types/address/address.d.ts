@@ -1,7 +1,7 @@
-import type { addressSchema, locationSchema } from '@/schema'
+import type { AddressSchema, LocationSchema } from '@/schema'
 import type { z } from 'zod'
 
-export type AddressType = z.infer<typeof addressSchema>
+export type AddressType = z.infer<typeof AddressSchema>
 export type AddressForm = Pick<
   AddressType,
   | 'firstName'
@@ -17,4 +17,4 @@ export type AddressForm = Pick<
   | 'extraData'
 >
 
-export type LocationType = z.infer<typeof locationSchema>
+export type LocationType = z.infer<typeof LocationSchema>
