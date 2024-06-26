@@ -2,7 +2,7 @@
 
 import { prisma } from '@/lib'
 
-export async function getUserById(id: number) {
+export async function getUserById(id: string) {
   try {
     const user = await prisma.user.findUnique({
       where: { id },
@@ -12,7 +12,6 @@ export async function getUserById(id: number) {
         name: true,
         lastname: true,
         role: true,
-        avatar: true,
         createdAt: true,
         updatedAt: true
       }

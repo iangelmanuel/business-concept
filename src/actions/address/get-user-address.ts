@@ -12,7 +12,7 @@ export async function getUserAddress() {
 
     const address = await prisma.userAddress.findMany({
       where: {
-        userId: Number(user.user.id)
+        userId: user.user.id
       },
       select: {
         id: true,

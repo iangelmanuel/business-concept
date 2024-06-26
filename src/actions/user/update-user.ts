@@ -25,12 +25,11 @@ export const updateUser = async (data: UpdateUser) => {
     }
 
     const newUser = await prisma.user.update({
-      where: { id: Number(user.id) },
+      where: { id: user.id },
       data: {
         name: data.name,
         lastname: data.lastname,
-        email: data.email,
-        avatar: data.avatar ? data.avatar : null
+        email: data.email
       }
     })
 

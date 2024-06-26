@@ -30,7 +30,7 @@ export async function saveUserAddress(addressFormData: AddressForm) {
         postalCode: result.data.postalCode,
         department: result.data.department,
         extraData: result.data.extraData,
-        userId: Number(user.user.id)
+        userId: user.user.id
       }
     })
     return { ok: true }

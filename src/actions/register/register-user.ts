@@ -6,14 +6,15 @@ import type { RegisterUser } from '@/types'
 import bcrypt from 'bcrypt'
 
 export async function registerUser(data: RegisterUser) {
-  const response = registerUserSchema.safeParse(data)
-  if (!response.success) {
-    return {
-      ok: false,
-      message: 'Ocurrio un error al validar los datos'
-    }
-  }
   try {
+    const response = registerUserSchema.safeParse(data)
+    if (!response.success) {
+      return {
+        ok: false,
+        message: 'Ocurrio un error al validar los datos'
+      }
+    }
+
     const user = await prisma.user.findUnique({ where: { email: data.email } })
     if (user) {
       return {
@@ -25,7 +26,6 @@ export async function registerUser(data: RegisterUser) {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { repeatPassword: _, password, ...userData } = response.data
     const hashedPassword = bcrypt.hashSync(password, 10)
-
     await prisma.user.create({
       data: { ...userData, password: hashedPassword }
     })

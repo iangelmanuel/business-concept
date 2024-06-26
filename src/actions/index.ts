@@ -17,3 +17,5 @@ export * from './address/delete-user-addres'
 
 export * from './user/update-user'
 export * from './user/get-user-by-id'
+export * from './user/change-user-password'
+export * from './user/delete-user-account'

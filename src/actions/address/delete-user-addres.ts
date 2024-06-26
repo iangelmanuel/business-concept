@@ -3,7 +3,7 @@
 import { prisma } from '@/lib'
 import { revalidatePath } from 'next/cache'
 
-export const deleteUserAddress = async (id: number) => {
+export const deleteUserAddress = async (id: string) => {
   try {
     await prisma.userAddress.delete({
       where: {

@@ -1,24 +1,45 @@
 'use server'
 
 import { signIn } from '@/auth.config'
+import { prisma } from '@/lib'
 import { loginUserSchema } from '@/schema'
 import type { LoginUser } from '@/types'
 import { AuthError } from 'next-auth'
 
 export async function loginUser(data: LoginUser) {
-  const response = loginUserSchema.safeParse(data)
-  if (!response) {
-    return {
-      ok: false,
-      message: 'Ocurrio un error al validar los datos'
-    }
-  }
   try {
+    const response = loginUserSchema.safeParse(data)
+    if (!response.success) {
+      return {
+        ok: false,
+        message: 'Ocurrio un error al validar los datos'
+      }
+    }
+
+    const user = await prisma.user.findUnique({
+      where: {
+        email: response.data.email
+      },
+      select: {
+        isUserDeleted: true
+      }
+    })
+
+    const isUserDeleted = user?.isUserDeleted
+    if (isUserDeleted) {
+      return {
+        ok: false,
+        message:
+          'El usuario al que intentas acceder ha sido eliminado. Contacta con soporte para más información'
+      }
+    }
+
     const { ...emailAndPassword } = response.data
     await signIn('credentials', {
       redirect: false,
       ...emailAndPassword
     })
+
     return {
       ok: true,
       message: 'Usuario logueado correctamente. Bienvenido'
