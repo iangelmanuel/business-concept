@@ -48,7 +48,7 @@ export const CardCheckoutSummary = () => {
   if (loading) return <CardSummaryLoading />
 
   return (
-    <article className="mt-10 order-1 lg:order-2">
+    <section className="mt-10 order-1 lg:order-2">
       <Card className="md:sticky md:top-0">
         <CardHeader>
           <h2 className="text-2xl font-bold">Resumen de la compra</h2>
@@ -150,6 +150,6 @@ export const CardCheckoutSummary = () => {
           </Button>
         </CardFooter>
       </Card>
-    </article>
+    </section>
   )
 }

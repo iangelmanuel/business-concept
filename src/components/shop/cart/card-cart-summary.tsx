@@ -42,7 +42,7 @@ export const CardCartSummary = () => {
 
   if (!loaded) return <CartSummaryLoading />
   return (
-    <article className="order-1 lg:order-2">
+    <section className="order-1 lg:order-2">
       <Card className="md:sticky md:top-0">
         <CardHeader>
           <h2 className="text-xl font-bold mb-3">
@@ -86,6 +86,6 @@ export const CardCartSummary = () => {
           </Button>
         </CardFooter>
       </Card>
-    </article>
+    </section>
   )
 }

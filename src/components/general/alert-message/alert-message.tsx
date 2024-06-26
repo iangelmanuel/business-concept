@@ -15,15 +15,13 @@ export const AlertMessage = ({
   className = ''
 }: Props) => {
   return (
-    <>
-      <Alert
-        variant={variant}
-        className={className}
-      >
-        <InfoIcon className="h-4 w-4" />
-        <AlertTitle>{title}</AlertTitle>
-        <AlertDescription>{description}</AlertDescription>
-      </Alert>
-    </>
+    <Alert
+      variant={variant}
+      className={className}
+    >
+      <InfoIcon className="h-4 w-4" />
+      <AlertTitle>{title}</AlertTitle>
+      <AlertDescription>{description}</AlertDescription>
+    </Alert>
   )
 }

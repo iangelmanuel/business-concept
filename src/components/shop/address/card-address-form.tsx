@@ -98,9 +98,10 @@ export const CardAddressForm = ({ location }: Props) => {
       <CardContent className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <article className="space-y-2">
           <section>
-            <Label>Nombres:</Label>
+            <Label htmlFor="name">Nombres:</Label>
             <Input
               type="text"
+              id="name"
               autoComplete="additional-name"
               placeholder="Ej. Angel"
               {...register('firstName', {
@@ -120,9 +121,10 @@ export const CardAddressForm = ({ location }: Props) => {
             )}
           </section>
           <section>
-            <Label>Apellidos:</Label>
+            <Label htmlFor="lastname">Apellidos:</Label>
             <Input
               type="text"
+              id="lastname"
               autoComplete="family-name"
               placeholder="Ej. De La Torre"
               {...register('lastName', {
@@ -170,9 +172,10 @@ export const CardAddressForm = ({ location }: Props) => {
             )}
           </section>
           <section>
-            <Label>Cédula:</Label>
+            <Label htmlFor="identification">Cédula:</Label>
             <Input
               type="text"
+              id="identification"
               autoComplete="family-name"
               placeholder="Ej. 1234567890"
               {...register('identification', {
@@ -188,9 +191,10 @@ export const CardAddressForm = ({ location }: Props) => {
             )}
           </section>
           <section>
-            <Label>Télefono:</Label>
+            <Label htmlFor="phone">Télefono:</Label>
             <Input
               type="tel"
+              id="phone"
               autoComplete="tel"
               placeholder="Ej. 312 345 6789"
               {...register('phone', {
@@ -213,9 +217,10 @@ export const CardAddressForm = ({ location }: Props) => {
 
         <article className="space-y-2">
           <section>
-            <Label>Dirección 1:</Label>
+            <Label htmlFor="address">Dirección 1:</Label>
             <Input
               type="text"
+              id="address"
               autoComplete="street-address"
               placeholder="Ej. Calle 123 #123 - 123"
               {...register('address', {
@@ -235,9 +240,10 @@ export const CardAddressForm = ({ location }: Props) => {
             )}
           </section>
           <section>
-            <Label>Dirección 2 (opcional):</Label>
+            <Label htmlFor="address2">Dirección 2 (opcional):</Label>
             <Input
               type="text"
+              id="address2"
               autoComplete="street-address"
               placeholder="Ej. Apartamento 123"
               {...register('address2', {
@@ -256,9 +262,10 @@ export const CardAddressForm = ({ location }: Props) => {
             )}
           </section>
           <section>
-            <Label>Código Postal:</Label>
+            <Label htmlFor="postal-code">Código Postal:</Label>
             <Input
               type="text"
+              id="postal-code"
               autoComplete="postal-code"
               placeholder="Ej. 123456"
               {...register('postalCode', {
@@ -345,9 +352,12 @@ export const CardAddressForm = ({ location }: Props) => {
             {errors.city && <ErrorMessage>{errors.city?.message}</ErrorMessage>}
           </section>
           <section>
-            <Label>Información Adicional (opcional):</Label>
+            <Label htmlFor="extra-data">
+              Información Adicional (opcional):
+            </Label>
             <Input
               type="text"
+              id="extra-data"
               autoComplete="address-line2"
               placeholder="Ej. Bogotá"
               {...register('extraData', {

@@ -50,9 +50,10 @@ export const CardRegisterForm = () => {
         className="space-y-2"
       >
         <div>
-          <Label>Nombres:</Label>
+          <Label htmlFor="name">Nombres:</Label>
           <Input
             type="text"
+            id="name"
             placeholder="Ej. Angel"
             {...register('name', {
               required: 'El campo nombres es requerido',
@@ -70,9 +71,10 @@ export const CardRegisterForm = () => {
         </div>
 
         <div>
-          <Label>Apellidos:</Label>
+          <Label htmlFor="lastname">Apellidos:</Label>
           <Input
             type="text"
+            id="lastname"
             placeholder="Ej. Montaño"
             {...register('lastname', {
               required: 'El campo apellidos es requerido',
@@ -92,9 +94,10 @@ export const CardRegisterForm = () => {
         </div>
 
         <div>
-          <Label>Télefono:</Label>
+          <Label htmlFor="phone">Télefono:</Label>
           <Input
             type="tel"
+            id="phone"
             autoComplete="tel"
             placeholder="Ej. 312 345 6789"
             {...register('phone', {
@@ -109,9 +112,10 @@ export const CardRegisterForm = () => {
         </div>
 
         <div>
-          <Label>Correo Electrónico:</Label>
+          <Label htmlFor="email">Correo Electrónico:</Label>
           <Input
             type="email"
+            id="email"
             autoComplete="username"
             placeholder="Ej. correo@correo.com"
             {...register('email', {
@@ -126,9 +130,10 @@ export const CardRegisterForm = () => {
         </div>
 
         <div>
-          <Label>Contraseña:</Label>
+          <Label htmlFor="password">Contraseña:</Label>
           <Input
             type="password"
+            id="password"
             placeholder="Escriba su contraseña"
             autoComplete="new-password"
             {...register('password', {
@@ -145,9 +150,10 @@ export const CardRegisterForm = () => {
         </div>
 
         <div>
-          <Label>Repetir Contraseña:</Label>
+          <Label htmlFor="new-password">Repetir Contraseña:</Label>
           <Input
             type="password"
+            id="new-password"
             placeholder="Repita su contraseña"
             autoComplete="new-password"
             {...register('repeatPassword', {

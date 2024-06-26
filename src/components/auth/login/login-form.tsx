@@ -49,9 +49,10 @@ export const CardLoginForm = () => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <div>
-          <Label>Correo Electrónico:</Label>
+          <Label htmlFor="email">Correo Electrónico:</Label>
           <Input
             type="email"
+            id="email"
             autoComplete="email"
             placeholder="Ej. correo@correo.com"
             {...register('email', {
@@ -65,9 +66,10 @@ export const CardLoginForm = () => {
           {errors.email && <ErrorMessage>{errors.email?.message}</ErrorMessage>}
         </div>
         <div>
-          <Label>Contraseña:</Label>
+          <Label htmlFor="password">Contraseña:</Label>
           <Input
             type="password"
+            id="password"
             autoComplete="current-password"
             placeholder="Escriba su contraseña"
             {...register('password', {
