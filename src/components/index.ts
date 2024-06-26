@@ -10,6 +10,7 @@ export * from './general/header/sheet-menu-cart'
 export * from './general/footer/footer'
 export * from './general/header/header'
 export * from './general/aside/user-aside'
+export * from './general/header/dropdown-phone-navigation'
 
 export * from './shop/product/add-product-cart'
 export * from './shop/products/products-button-cart'
