@@ -11,12 +11,12 @@ import {
 import { redirect } from 'next/navigation'
 
 export default async function AddressPage() {
-  const user = await auth()
+  const session = await auth()
   const location = await getLocationData()
   const addressDb = await getUserAddress()
-  if (!user) redirect('/auth/login?redirect=/shop/address')
+  if (!session) redirect('/auth/login?redirect=/shop/address')
   return (
-    <>
+    <article>
       <BarProgress step={2} />
       <section className="max-w-screen-lg mx-auto mt-10 p-5 lg:p-0">
         <Card>
@@ -37,6 +37,7 @@ export default async function AddressPage() {
           )}
         </Card>
       </section>
-    </>
+    </article>
   )
 }
+// TODO: Revisar la semantica de HTML

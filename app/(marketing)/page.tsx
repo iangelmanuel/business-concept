@@ -26,7 +26,7 @@ export default async function HomePage() {
             {category}
           </h3>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 place-content-center items-center p-5 lg:p-0">
+          <section className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 place-content-center items-center p-5 lg:p-0">
             {productsOrder.map((productOrder) => (
               <Card key={productOrder.id}>
                 <Image
@@ -46,7 +46,7 @@ export default async function HomePage() {
                 </CardDescription>
               </Card>
             ))}
-          </div>
+          </section>
         </article>
       ))}
     </section>

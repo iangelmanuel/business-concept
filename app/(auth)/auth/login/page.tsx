@@ -41,17 +41,17 @@ export default function LoginPage({
         <CardLoginForm />
       </Card>
 
-      <div className="mt-4 text-center">
+      <article className="mt-4 text-center">
         <p>
           ¿No tienes cuenta?{' '}
           <Link
             href="/auth/register"
-            className="text-primary"
+            className="text-primary hover:underline"
           >
             Registrate
           </Link>
         </p>
-      </div>
+      </article>
     </section>
   )
 }

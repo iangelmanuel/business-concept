@@ -25,17 +25,17 @@ export default function RegisterPage() {
         <CardRegisterForm />
       </Card>
 
-      <div className="mt-4 text-center">
+      <article className="mt-4 text-center">
         <p>
           ¿Ya tienes una cuenta?{' '}
           <Link
             href="/auth/login"
-            className="text-primary"
+            className="text-primary hover:underline"
           >
             Inicia Sesión
           </Link>
         </p>
-      </div>
+      </article>
     </section>
   )
 }
