@@ -2,7 +2,7 @@
 
 import { auth } from '@/auth.config'
 import { prisma } from '@/lib'
-import { updateUserSchema } from '@/schema'
+import { UpdateUserSchema } from '@/schema'
 import type { UpdateUser } from '@/types'
 
 export const updateUser = async (data: UpdateUser) => {
@@ -16,7 +16,7 @@ export const updateUser = async (data: UpdateUser) => {
       }
     }
 
-    const result = updateUserSchema.safeParse(data)
+    const result = UpdateUserSchema.safeParse(data)
     if (!result.success) {
       return {
         ok: false,

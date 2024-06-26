@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { prisma } from '@/lib'
-import { loginUserSchema } from '@/schema'
+import { LoginUserSchema } from '@/schema'
 import bcrypt from 'bcrypt'
 import NextAuth, { type NextAuthConfig } from 'next-auth'
 import Credentials from 'next-auth/providers/credentials'
@@ -24,7 +24,7 @@ export const authConfig: NextAuthConfig = {
   providers: [
     Credentials({
       async authorize(credentials, req) {
-        const parsedCredentials = loginUserSchema.safeParse(credentials)
+        const parsedCredentials = LoginUserSchema.safeParse(credentials)
 
         if (!parsedCredentials.success) return null
 

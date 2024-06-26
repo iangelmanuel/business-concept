@@ -2,7 +2,7 @@
 
 import { auth } from '@/auth.config'
 import { prisma } from '@/lib'
-import { changeUserPasswordSchema } from '@/schema'
+import { ChangeUserPasswordSchema } from '@/schema'
 import type { ChangeUserPassword } from '@/types'
 import bcrypt from 'bcrypt'
 
@@ -26,7 +26,7 @@ export async function changeUserPassword(data: ChangeUserPassword) {
       return { ok: false, message: 'Usuario no encontrado' }
     }
 
-    const result = changeUserPasswordSchema.safeParse(data)
+    const result = ChangeUserPasswordSchema.safeParse(data)
     if (!result.success) {
       return { ok: false, message: 'Datos inválidos' }
     }

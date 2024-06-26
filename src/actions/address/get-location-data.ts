@@ -1,7 +1,7 @@
 'use server'
 
 import { prisma } from '@/lib'
-import { locationsSchema } from '@/schema'
+import { LocationsSchema } from '@/schema'
 
 export async function getLocationData() {
   try {
@@ -10,7 +10,7 @@ export async function getLocationData() {
         department: 'asc'
       }
     })
-    const result = locationsSchema.safeParse(locationData)
+    const result = LocationsSchema.safeParse(locationData)
     if (!result.success) {
       return []
     }

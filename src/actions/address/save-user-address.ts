@@ -2,7 +2,7 @@
 
 import { auth } from '@/auth.config'
 import { prisma } from '@/lib'
-import { addressFormSchema } from '@/schema'
+import { AddressFormSchema } from '@/schema'
 import type { AddressForm } from '@/types'
 
 export async function saveUserAddress(addressFormData: AddressForm) {
@@ -12,7 +12,7 @@ export async function saveUserAddress(addressFormData: AddressForm) {
       return { ok: false, message: 'No estas autenticado' }
     }
 
-    const result = addressFormSchema.safeParse(addressFormData)
+    const result = AddressFormSchema.safeParse(addressFormData)
     if (!result.success) {
       return { ok: false, message: 'Datos incorrectos' }
     }

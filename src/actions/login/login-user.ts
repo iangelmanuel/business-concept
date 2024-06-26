@@ -2,13 +2,13 @@
 
 import { signIn } from '@/auth.config'
 import { prisma } from '@/lib'
-import { loginUserSchema } from '@/schema'
+import { LoginUserSchema } from '@/schema'
 import type { LoginUser } from '@/types'
 import { AuthError } from 'next-auth'
 
 export async function loginUser(data: LoginUser) {
   try {
-    const response = loginUserSchema.safeParse(data)
+    const response = LoginUserSchema.safeParse(data)
     if (!response.success) {
       return {
         ok: false,
