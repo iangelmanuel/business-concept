@@ -8,7 +8,7 @@ export const category = z.object({
 export const productImage = z.object({
   id: z.string(),
   url: z.string(),
-  productId: z.number()
+  productId: z.string()
 })
 
 export const ProductsSchema = z.object({

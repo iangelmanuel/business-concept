@@ -1,21 +1,21 @@
-export * from './products/get-all-products'
-export * from './products/get-product-by-slug'
-export * from './products/get-product-by-category'
+export { getAllProducts } from './products/get-all-products'
+export { getProductBySlug } from './products/get-product-by-slug'
+export { getProductByCategory } from './products/get-product-by-category'
 
-export * from './register/register-user'
+export { registerUser } from './register/register-user'
 
-export * from './categories/get-categories'
+export { getCategories } from './categories/get-categories'
 
-export * from './login/login-user'
+export { loginUser } from './login/login-user'
 
-export * from './logout/logout-user'
+export { logoutUser } from './logout/logout-user'
 
-export * from './address/get-location-data'
-export * from './address/get-user-address'
-export * from './address/save-user-address'
-export * from './address/delete-user-addres'
+export { getLocationData } from './address/get-location-data'
+export { getUserAddress } from './address/get-user-address'
+export { saveUserAddress } from './address/save-user-address'
+export { deleteUserAddress } from './address/delete-user-address'
 
-export * from './user/update-user'
-export * from './user/get-user-by-id'
-export * from './user/change-user-password'
-export * from './user/delete-user-account'
+export { updateUser } from './user/update-user'
+export { getUserById } from './user/get-user-by-id'
+export { changeUserPassword } from './user/change-user-password'
+export { deleteUserAccount } from './user/delete-user-account'
