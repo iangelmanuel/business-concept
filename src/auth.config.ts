@@ -38,9 +38,9 @@ export const authConfig: NextAuthConfig = {
 
         if (!bcrypt.compareSync(password, user.password)) return null
 
-        const { password: _, id, ...rest } = user
+        const { password: _, ...rest } = user
 
-        return { id: id.toString(), ...rest }
+        return { ...rest }
       }
     })
   ]
