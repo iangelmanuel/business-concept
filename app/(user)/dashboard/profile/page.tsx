@@ -10,12 +10,12 @@ export default async function ProfilePage() {
   if (!session) return redirect('/auth/login')
   const userIdSession = session?.user.id
 
-  const userDb = await getUserById(Number(userIdSession))
+  const userDb = await getUserById(userIdSession)
   const user = userDb.user!
   return (
     <article>
       <h1 className="text-2xl font-bold">
-        Cuenta de {user?.name} {user?.lastname}
+        Cuenta de {user.name} {user.lastname}
       </h1>
 
       <UpdateUserForm user={user} />
