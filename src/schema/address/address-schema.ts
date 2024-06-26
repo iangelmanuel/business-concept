@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
 export const addressSchema = z.object({
-  id: z.number(),
+  id: z.string(),
   firstName: z.string(),
   lastName: z.string(),
   typeOfIdentification: z.string(),
@@ -31,7 +31,7 @@ export const addressFormSchema = z.object({
 })
 
 export const locationSchema = z.object({
-  id: z.number(),
+  id: z.string(),
   department: z.string(),
   cities: z.array(z.string())
 })

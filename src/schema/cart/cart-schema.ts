@@ -2,7 +2,7 @@ import { productImage } from '@/schema'
 import { z } from 'zod'
 
 export const cartSchema = z.object({
-  id: z.number(),
+  id: z.string(),
   slug: z.string(),
   name: z.string(),
   price: z.number(),

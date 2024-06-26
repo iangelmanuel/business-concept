@@ -1,12 +1,12 @@
 import { z } from 'zod'
 
 export const category = z.object({
-  id: z.number(),
+  id: z.string(),
   name: z.string()
 })
 
 export const productImage = z.object({
-  id: z.number(),
+  id: z.string(),
   url: z.string(),
   productId: z.number()
 })
@@ -14,7 +14,7 @@ export const productImage = z.object({
 export const ProductsSchema = z.object({
   category,
   productImage: z.array(productImage),
-  id: z.number(),
+  id: z.string(),
   name: z.string(),
   description: z.string(),
   price: z.number(),
@@ -26,7 +26,7 @@ export const ProductsSchema = z.object({
 
 export const ProductsCategorySchema = z.object({
   category,
-  id: z.number(),
+  id: z.string(),
   name: z.string(),
   description: z.string(),
   price: z.number(),
@@ -38,7 +38,7 @@ export const ProductsCategorySchema = z.object({
 
 export const ProductsImageSchema = z.object({
   productImage: z.array(productImage),
-  id: z.number(),
+  id: z.string(),
   name: z.string(),
   description: z.string(),
   price: z.number(),
@@ -50,7 +50,7 @@ export const ProductsImageSchema = z.object({
 })
 
 export const ProductsDbSchema = z.object({
-  id: z.number(),
+  id: z.string(),
   name: z.string(),
   description: z.string(),
   price: z.number(),
