@@ -64,7 +64,7 @@ CREATE TABLE "Product" (
 
 -- CreateTable
 CREATE TABLE "ProductImage" (
-    "id" SERIAL NOT NULL,
+    "id" TEXT NOT NULL,
     "url" TEXT NOT NULL,
     "productId" TEXT NOT NULL,
 
