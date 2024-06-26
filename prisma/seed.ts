@@ -29,9 +29,13 @@ async function main() {
   )
 
   products.forEach(async (product) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { images, type, ...rest } = product
     const dbProduct = await prisma.product.create({
-      data: { ...rest, categoryId: Number(categoriesMap[type]) }
+      data: {
+        ...rest,
+        categoryId: categoriesMap[type]
+      }
     })
     const imagesData = images.map((image) => ({
       url: image,
@@ -50,7 +54,6 @@ async function main() {
       }
     })
   })
-
   console.log('Seed executed successfully')
 }
 main()
