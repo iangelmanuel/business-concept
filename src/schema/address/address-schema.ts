@@ -13,7 +13,7 @@ export const addressSchema = z.object({
   city: z.string(),
   phone: z.string(),
   extraData: z.string().nullable(),
-  userId: z.number()
+  userId: z.string()
 })
 
 export const addressFormSchema = z.object({

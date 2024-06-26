@@ -5,14 +5,15 @@ import { prisma } from '@/lib'
 
 export async function getUserAddress() {
   try {
-    const user = await auth()
-    if (!user) {
+    const session = await auth()
+    if (!session) {
       return []
     }
 
+    const userId = session.user.id
     const address = await prisma.userAddress.findMany({
       where: {
-        userId: user.user.id
+        userId
       },
       select: {
         id: true,
