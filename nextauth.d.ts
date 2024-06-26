@@ -4,12 +4,13 @@ declare module 'next-auth' {
   interface Session {
     user: {
       id: number
-      email: string
       name: string
       lastname: string
+      phone: string
+      email: string
       role: 'admin' | 'user'
-      avatar: string | null
-      emailVerified?: boolean
+      isConfirmed: boolean
+      isUserDeleted: boolean
       createdAt: Date
       updatedAt: Date
     } & DefaultSession['user']
