@@ -1,5 +1,6 @@
 import type {
   authUserSchema,
+  changeUserPasswordSchema,
   loginUserSchema,
   updateUserSchema,
   userCreateSchema
@@ -18,3 +19,5 @@ export type LoginUser = z.infer<typeof loginUserSchema>
 export type AuthUser = z.infer<typeof authUserSchema>
 
 export type UpdateUser = z.infer<typeof updateUserSchema>
+
+export type ChangeUserPassword = z.infer<typeof changeUserPasswordSchema>
