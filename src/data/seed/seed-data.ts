@@ -5,7 +5,6 @@ export const data = {
       type: 'auriculares',
       description:
         'Ut faucibus et felis eu hendrerit. Nam pretium risus non laoreet egestas. Integer id risus sed nunc dignissim pretium. Proin in tempus lorem. Fusce pulvinar vehicula felis, eu sagittis leo imperdiet a. Cras convallis suscipit sodales. Curabitur quis porta velit. Sed dui erat, convallis vitae interdum quis, interdum vitae turpis. Etiam et turpis nunc. Suspendisse potenti.',
-      id: 1,
       stock: 30,
       slug: 'audifonos-deportivos',
       images: [
@@ -21,7 +20,6 @@ export const data = {
       type: 'auriculares',
       description:
         'Ut faucibus et felis eu hendrerit. Nam pretium risus non laoreet egestas. Integer id risus sed nunc dignissim pretium. Proin in tempus lorem. Fusce pulvinar vehicula felis, eu sagittis leo imperdiet a. Cras convallis suscipit sodales. Curabitur quis porta velit. Sed dui erat, convallis vitae interdum quis, interdum vitae turpis. Etiam et turpis nunc. Suspendisse potenti.',
-      id: 2,
       stock: 20,
       slug: 'audifonos-inalambricos',
       images: [
@@ -35,7 +33,6 @@ export const data = {
       type: 'auriculares',
       description:
         'Ut faucibus et felis eu hendrerit. Nam pretium risus non laoreet egestas. Integer id risus sed nunc dignissim pretium. Proin in tempus lorem. Fusce pulvinar vehicula felis, eu sagittis leo imperdiet a. Cras convallis suscipit sodales. Curabitur quis porta velit. Sed dui erat, convallis vitae interdum quis, interdum vitae turpis. Etiam et turpis nunc. Suspendisse potenti.',
-      id: 3,
       stock: 25,
       slug: 'audifonos-sports',
       images: [
@@ -49,7 +46,6 @@ export const data = {
       type: 'auriculares',
       description:
         'Ut faucibus et felis eu hendrerit. Nam pretium risus non laoreet egestas. Integer id risus sed nunc dignissim pretium. Proin in tempus lorem. Fusce pulvinar vehicula felis, eu sagittis leo imperdiet a. Cras convallis suscipit sodales. Curabitur quis porta velit. Sed dui erat, convallis vitae interdum quis, interdum vitae turpis. Etiam et turpis nunc. Suspendisse potenti.',
-      id: 4,
       stock: 10,
       slug: 'audifonos-gamer',
       images: [
@@ -63,7 +59,6 @@ export const data = {
       type: 'auriculares',
       description:
         'Ut faucibus et felis eu hendrerit. Nam pretium risus non laoreet egestas. Integer id risus sed nunc dignissim pretium. Proin in tempus lorem. Fusce pulvinar vehicula felis, eu sagittis leo imperdiet a. Cras convallis suscipit sodales. Curabitur quis porta velit. Sed dui erat, convallis vitae interdum quis, interdum vitae turpis. Etiam et turpis nunc. Suspendisse potenti.',
-      id: 5,
       stock: 20,
       slug: 'audifonos-bass',
       images: [
@@ -77,7 +72,6 @@ export const data = {
       type: 'auriculares',
       description:
         'Ut faucibus et felis eu hendrerit. Nam pretium risus non laoreet egestas. Integer id risus sed nunc dignissim pretium. Proin in tempus lorem. Fusce pulvinar vehicula felis, eu sagittis leo imperdiet a. Cras convallis suscipit sodales. Curabitur quis porta velit. Sed dui erat, convallis vitae interdum quis, interdum vitae turpis. Etiam et turpis nunc. Suspendisse potenti.',
-      id: 6,
       stock: 25,
       slug: 'audifonos-bass',
       images: [
@@ -91,7 +85,6 @@ export const data = {
       type: 'celulares',
       description:
         'Ut faucibus et felis eu hendrerit. Nam pretium risus non laoreet egestas. Integer id risus sed nunc dignissim pretium. Proin in tempus lorem. Fusce pulvinar vehicula felis, eu sagittis leo imperdiet a. Cras convallis suscipit sodales. Curabitur quis porta velit. Sed dui erat, convallis vitae interdum quis, interdum vitae turpis. Etiam et turpis nunc. Suspendisse potenti.',
-      id: 7,
       stock: 25,
       slug: 'iphone-13-pro',
       images: [
@@ -104,7 +97,6 @@ export const data = {
       type: 'celulares',
       description:
         'Ut faucibus et felis eu hendrerit. Nam pretium risus non laoreet egestas. Integer id risus sed nunc dignissim pretium. Proin in tempus lorem. Fusce pulvinar vehicula felis, eu sagittis leo imperdiet a. Cras convallis suscipit sodales. Curabitur quis porta velit. Sed dui erat, convallis vitae interdum quis, interdum vitae turpis. Etiam et turpis nunc. Suspendisse potenti.',
-      id: 8,
       stock: 5,
       slug: 'iphone-14-pro',
       images: [
@@ -118,7 +110,6 @@ export const data = {
       type: 'computadoras',
       description:
         'Ut faucibus et felis eu hendrerit. Nam pretium risus non laoreet egestas. Integer id risus sed nunc dignissim pretium. Proin in tempus lorem. Fusce pulvinar vehicula felis, eu sagittis leo imperdiet a. Cras convallis suscipit sodales. Curabitur quis porta velit. Sed dui erat, convallis vitae interdum quis, interdum vitae turpis. Etiam et turpis nunc. Suspendisse potenti.',
-      id: 9,
       stock: 5,
       slug: 'mac-studio-m1',
       images: [
@@ -132,7 +123,6 @@ export const data = {
       type: 'computadoras',
       description:
         'Ut faucibus et felis eu hendrerit. Nam pretium risus non laoreet egestas. Integer id risus sed nunc dignissim pretium. Proin in tempus lorem. Fusce pulvinar vehicula felis, eu sagittis leo imperdiet a. Cras convallis suscipit sodales. Curabitur quis porta velit. Sed dui erat, convallis vitae interdum quis, interdum vitae turpis. Etiam et turpis nunc. Suspendisse potenti.',
-      id: 10,
       stock: 10,
       slug: 'macbook-air-m2',
       images: [
@@ -146,7 +136,6 @@ export const data = {
       type: 'consolas',
       description:
         'Ut faucibus et felis eu hendrerit. Nam pretium risus non laoreet egestas. Integer id risus sed nunc dignissim pretium. Proin in tempus lorem. Fusce pulvinar vehicula felis, eu sagittis leo imperdiet a. Cras convallis suscipit sodales. Curabitur quis porta velit. Sed dui erat, convallis vitae interdum quis, interdum vitae turpis. Etiam et turpis nunc. Suspendisse potenti.',
-      id: 11,
       stock: 14,
       slug: 'oculus-quest-2',
       images: [
@@ -160,7 +149,6 @@ export const data = {
       type: 'consolas',
       description:
         'Ut faucibus et felis eu hendrerit. Nam pretium risus non laoreet egestas. Integer id risus sed nunc dignissim pretium. Proin in tempus lorem. Fusce pulvinar vehicula felis, eu sagittis leo imperdiet a. Cras convallis suscipit sodales. Curabitur quis porta velit. Sed dui erat, convallis vitae interdum quis, interdum vitae turpis. Etiam et turpis nunc. Suspendisse potenti.',
-      id: 12,
       stock: 20,
       slug: 'playstation-4-slim',
       images: [
@@ -174,7 +162,6 @@ export const data = {
       type: 'consolas',
       description:
         'Ut faucibus et felis eu hendrerit. Nam pretium risus non laoreet egestas. Integer id risus sed nunc dignissim pretium. Proin in tempus lorem. Fusce pulvinar vehicula felis, eu sagittis leo imperdiet a. Cras convallis suscipit sodales. Curabitur quis porta velit. Sed dui erat, convallis vitae interdum quis, interdum vitae turpis. Etiam et turpis nunc. Suspendisse potenti.',
-      id: 13,
       stock: 10,
       slug: 'playstation-5',
       images: [
@@ -188,7 +175,6 @@ export const data = {
       type: 'consolas',
       description:
         'Ut faucibus et felis eu hendrerit. Nam pretium risus non laoreet egestas. Integer id risus sed nunc dignissim pretium. Proin in tempus lorem. Fusce pulvinar vehicula felis, eu sagittis leo imperdiet a. Cras convallis suscipit sodales. Curabitur quis porta velit. Sed dui erat, convallis vitae interdum quis, interdum vitae turpis. Etiam et turpis nunc. Suspendisse potenti.',
-      id: 14,
       stock: 10,
       slug: 'playstation-vr',
       images: [
@@ -202,7 +188,6 @@ export const data = {
       type: 'consolas',
       description:
         'Ut faucibus et felis eu hendrerit. Nam pretium risus non laoreet egestas. Integer id risus sed nunc dignissim pretium. Proin in tempus lorem. Fusce pulvinar vehicula felis, eu sagittis leo imperdiet a. Cras convallis suscipit sodales. Curabitur quis porta velit. Sed dui erat, convallis vitae interdum quis, interdum vitae turpis. Etiam et turpis nunc. Suspendisse potenti.',
-      id: 15,
       stock: 50,
       slug: 'smartwatch-sport',
       images: [
