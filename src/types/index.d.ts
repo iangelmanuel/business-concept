@@ -9,3 +9,5 @@ export * from './user/user'
 export * from './data/navigation-items'
 
 export * from './category/category'
+
+export * from './order/order'

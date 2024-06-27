@@ -1,4 +1,3 @@
-import type { ProductType, ProductType } from '@/types'
 import type { ProductsSchema } from '@/schema'
 import type { z } from 'zod'
 
