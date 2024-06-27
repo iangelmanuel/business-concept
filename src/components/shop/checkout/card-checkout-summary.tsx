@@ -1,5 +1,6 @@
 'use client'
 
+import { placeOrder } from '@/actions'
 import {
   Button,
   Card,
@@ -12,17 +13,21 @@ import {
 import { useAddressStore, useCartStore } from '@/store'
 import { formatCurrency } from '@/utils'
 import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useTransition } from 'react'
 import { toast } from 'sonner'
 
 export const CardCheckoutSummary = () => {
   const [loading, setLoading] = useState(true)
+  const [isPending, startTransition] = useTransition()
+
   const router = useRouter()
 
   const address = useAddressStore((state) => state.address)
   const { subTotal, tax, total } = useCartStore((state) =>
     state.getSummaryInfo()
   )
+
+  const cart = useCartStore((state) => state.cart)
 
   useEffect(() => {
     setLoading(false)
@@ -40,7 +45,27 @@ export const CardCheckoutSummary = () => {
   }
 
   const handleClickNextStep = () => {
-    router.push('/shop/payment')
+    const productsToOrder = cart.map((item) => ({
+      productId: item.id,
+      quantity: item.quantity
+    }))
+
+    startTransition(async () => {
+      const response = await placeOrder(productsToOrder, address)
+      if (response.ok) {
+        toast.success('Pedido creado con éxito', {
+          duration: 3000,
+          position: 'top-right'
+        })
+        router.push('/shop/payment')
+      } else {
+        toast.error('Error al crear el pedido', {
+          duration: 3000,
+          description: response.message,
+          position: 'top-right'
+        })
+      }
+    })
   }
 
   const prom = 0.25
@@ -145,8 +170,9 @@ export const CardCheckoutSummary = () => {
           <Button
             className="w-full"
             onClick={handleClickNextStep}
+            disabled={isPending}
           >
-            Proceder al Método de Pago
+            {isPending ? 'Procesando' : 'Continuar al pago'}
           </Button>
         </CardFooter>
       </Card>
