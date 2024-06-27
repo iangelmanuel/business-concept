@@ -19,3 +19,5 @@ export { updateUser } from './user/update-user'
 export { getUserById } from './user/get-user-by-id'
 export { changeUserPassword } from './user/change-user-password'
 export { deleteUserAccount } from './user/delete-user-account'
+
+export { placeOrder } from './order/place-order'
