@@ -16,7 +16,7 @@
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "dependencies": {
-    "@prisma/client": "5.15.1",
+    "@prisma/client": "5.16.0",
     "@radix-ui/react-alert-dialog": "1.1.1",
     "@radix-ui/react-avatar": "1.1.0",
     "@radix-ui/react-checkbox": "1.1.0",
@@ -44,7 +44,7 @@
     "tailwind-merge": "2.3.0",
     "tailwindcss-animate": "1.0.7",
     "zod": "3.23.8",
-    "zustand": "4.5.2"
+    "zustand": "4.5.4"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "4.3.0",
