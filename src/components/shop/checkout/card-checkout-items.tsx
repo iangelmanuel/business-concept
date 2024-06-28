@@ -36,8 +36,6 @@ export const CardCheckoutItems = () => {
   }, [])
 
   if (loading) return <CardItemsLoading />
-
-  const prom = 0.25
   return (
     <Card className="lg:col-span-2 mt-10 order-2 lg:order-1">
       <CardHeader>
@@ -86,16 +84,6 @@ export const CardCheckoutItems = () => {
                               {formatCurrency(item.price)}
                             </p>
                           </section>
-                          {prom > 0 && (
-                            <section className="flex gap-x-2">
-                              <p className="text-xs">
-                                {formatCurrency(item.price - prom * item.price)}
-                              </p>
-                              <p className="text-orange-500 text-xs">
-                                {prom * 100}%
-                              </p>
-                            </section>
-                          )}
                         </CardContent>
                       </section>
                     </Card>
