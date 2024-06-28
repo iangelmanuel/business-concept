@@ -53,7 +53,9 @@ export const CardAddressUser = ({ location, addressDb }: Props) => {
   }
 
   const handleClickSelect = (address: AddressType) => {
-    setAddress(address)
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { id, userId, ...restAddress } = address
+    setAddress(restAddress)
     router.push('/shop/checkout')
   }
 

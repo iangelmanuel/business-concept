@@ -4,7 +4,7 @@ import { persist } from 'zustand/middleware'
 
 type State = {
   address: AddressForm
-  setAddress: (address: State['address']) => void
+  setAddress: (address: AddressForm) => void
 }
 
 export const useAddressStore = create<State>()(
@@ -14,7 +14,7 @@ export const useAddressStore = create<State>()(
         firstName: '',
         lastName: '',
         city: '',
-        typeOfIdentification: '',
+        typeOfIdentification: '' as AddressForm['typeOfIdentification'],
         identification: '',
         phone: '',
         address: '',

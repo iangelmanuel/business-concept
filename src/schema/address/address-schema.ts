@@ -19,15 +19,15 @@ export const AddressSchema = z.object({
 export const AddressFormSchema = z.object({
   firstName: z.string(),
   lastName: z.string(),
-  typeOfIdentification: z.enum(['C.C', 'T.E', 'Pasaporte']),
+  typeOfIdentification: z.string(),
   identification: z.string(),
   address: z.string(),
-  address2: z.string().optional(),
+  address2: z.string().nullable(),
   postalCode: z.string(),
   department: z.string(),
   city: z.string(),
   phone: z.string(),
-  extraData: z.string().optional()
+  extraData: z.string().nullable()
 })
 
 export const LocationSchema = z.object({
