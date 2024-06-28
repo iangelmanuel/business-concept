@@ -42,7 +42,7 @@ export async function loginUser(data: LoginUser) {
 
     return {
       ok: true,
-      message: 'Usuario logueado correctamente. Bienvenido'
+      message: 'Usuario ingresado correctamente.'
     }
   } catch (error) {
     if (error instanceof AuthError) {
