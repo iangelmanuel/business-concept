@@ -25,11 +25,7 @@ export const CardLoginForm = () => {
       const response = await loginUser(data)
 
       if (response.ok) {
-        toast.success('¡Ha iniciado sesión!', {
-          description: response.message,
-          duration: 5000,
-          position: 'top-right'
-        })
+        // TODO: BUSCAR SOLUCION
         window.location.replace('/shop/products?registered=true')
       } else {
         toast.error('¡Algo falló!', {

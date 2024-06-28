@@ -62,10 +62,10 @@ export function DeleteUserAccount() {
           <DialogContent className="sm:max-w-[425px]">
             <DialogHeader>
               <DialogTitle>
-                ¿Estás seguro que quieres eleminar tu cuenta?
+                ¿Estás seguro que quieres eliminar tu cuenta?
               </DialogTitle>
               <DialogDescription>
-                Si deseas eliminar la cuenta sigue las siguietes instrucciones.
+                Si deseas eliminar la cuenta sigue las siguientes instrucciones.
               </DialogDescription>
             </DialogHeader>
             <div className="flex flex-col mb-5">
