@@ -401,7 +401,7 @@ export const CardAddressForm = ({ location }: Props) => {
           disabled={isPending}
           className="w-full sm:w-auto"
         >
-          Proceder al Pago
+          {isPending ? 'Guardando dirección' : 'Continuar'}
         </Button>
       </CardFooter>
     </form>

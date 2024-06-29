@@ -78,11 +78,15 @@ export const CardCartSummary = () => {
 
         <CardFooter>
           <Button
-            disabled={!isAuth || isCartEmpty}
+            disabled={isCartEmpty}
             onClick={handleClickNextStep}
             className="w-full"
           >
-            {isAuth ? 'Continuar' : 'Inicia sesión'}
+            {isAuth
+              ? 'Continuar'
+              : isCartEmpty
+                ? 'Carrito vacío'
+                : 'Iniciar sesión'}
           </Button>
         </CardFooter>
       </Card>
