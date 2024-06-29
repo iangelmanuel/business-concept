@@ -34,6 +34,9 @@ export * from './user/profile/update-user-form'
 export * from './user/security-privacy/change-password-form'
 export * from './user/security-privacy/delete-user-account'
 
+export * from './user/purchases/order-items'
+export * from './user/purchases/order-summary'
+
 export * from './ui/button'
 export * from './ui/card'
 export * from './ui/input'
@@ -49,5 +52,6 @@ export * from './ui/select'
 export * from './ui/checkbox'
 export * from './ui/alert-dialog'
 export * from './ui/progress'
+export * from './ui/badge'
 
 export * from './shop/bar-progress'
