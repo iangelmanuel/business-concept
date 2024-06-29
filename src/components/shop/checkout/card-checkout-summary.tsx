@@ -68,8 +68,6 @@ export const CardCheckoutSummary = () => {
     })
   }
 
-  const prom = 0.25
-
   if (loading) return <CardSummaryLoading />
 
   return (
@@ -149,13 +147,8 @@ export const CardCheckoutSummary = () => {
               </div>
 
               <div className="flex justify-between">
-                <p>Descuento:</p>
-                <p>{formatCurrency(subTotal * prom)}</p>
-              </div>
-
-              <div className="flex justify-between">
                 <p>Impuestos:</p>
-                <p>{formatCurrency(subTotal * tax)}</p>
+                <p>{formatCurrency(tax)}</p>
               </div>
 
               <div className="flex justify-between">

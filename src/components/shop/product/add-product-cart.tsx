@@ -33,7 +33,7 @@ export const AddProductCart = ({ product }: Props) => {
   }
 
   const handleAddAmount = () => {
-    if (quantity > 5) return
+    if (quantity >= 5) return
     setQuantity(quantity + 1)
   }
 
