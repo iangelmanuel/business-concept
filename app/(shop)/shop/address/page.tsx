@@ -40,4 +40,3 @@ export default async function AddressPage() {
     </article>
   )
 }
-// TODO: Revisar la semantica de HTML

@@ -13,7 +13,7 @@ import {
   SheetTitle,
   SheetTrigger
 } from '@/components'
-import { ShoppingCart } from 'lucide-react'
+import { ShoppingBagIcon } from 'lucide-react'
 import { useState } from 'react'
 
 export const SheetMenuCart = () => {
@@ -25,7 +25,7 @@ export const SheetMenuCart = () => {
     >
       <SheetTrigger asChild>
         <Button variant="ghost">
-          <ShoppingCart size={24} />
+          <ShoppingBagIcon size={24} />
         </Button>
       </SheetTrigger>
 

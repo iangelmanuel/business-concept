@@ -1,4 +1,4 @@
-import { UserAddressSchema } from '@/schema'
+import { OrderSchema, UserAddressSchema } from '@/schema'
 import { z } from 'zod'
 
 export const UserSchema = z.object({
@@ -13,8 +13,7 @@ export const UserSchema = z.object({
   isUserDeleted: z.boolean(),
   createdAt: z.string(),
   updatedAt: z.string(),
-  // TODO: Add the following fields
-  orders: z.array(z.object({})),
+  orders: z.array(OrderSchema),
   addresses: z.array(UserAddressSchema)
 })
 
