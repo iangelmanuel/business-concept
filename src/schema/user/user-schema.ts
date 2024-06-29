@@ -1,4 +1,4 @@
-import { AddressSchema } from '@/schema'
+import { UserAddressSchema } from '@/schema'
 import { z } from 'zod'
 
 export const UserSchema = z.object({
@@ -15,7 +15,7 @@ export const UserSchema = z.object({
   updatedAt: z.string(),
   // TODO: Add the following fields
   orders: z.array(z.object({})),
-  addresses: z.array(AddressSchema)
+  addresses: z.array(UserAddressSchema)
 })
 
 export const RegisterUserSchema = z
