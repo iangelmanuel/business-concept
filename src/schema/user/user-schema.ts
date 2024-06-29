@@ -1,5 +1,7 @@
-import { OrderSchema, UserAddressSchema } from '@/schema'
 import { z } from 'zod'
+
+import { UserAddressSchema } from '../address/address-schema'
+import { OrderSchema } from '../order/order-schema'
 
 export const UserSchema = z.object({
   id: z.string(),
