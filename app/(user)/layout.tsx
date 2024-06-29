@@ -2,12 +2,12 @@ import { auth } from '@/auth.config'
 import { Card, Header, UserAside } from '@/components'
 import { redirect } from 'next/navigation'
 
-export default function UserLayout({
+export default async function UserLayout({
   children
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const session = auth()
+  const session = await auth()
   if (!session) redirect('/auth/login')
   return (
     <main>
