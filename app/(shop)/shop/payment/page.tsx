@@ -13,8 +13,8 @@ export default async function PaymentPage() {
     <section>
       <BarProgress step={4} />
       <article className="max-w-screen-2xl grid grid-cols-1 lg:grid-cols-3 gap-x-5 mx-auto p-5">
-        {/* <CardCheckoutItems />
-        <CardCheckoutSummary /> */}
+        <CardCheckoutItems />
+        <CardCheckoutSummary />
       </article>
     </section>
   )
