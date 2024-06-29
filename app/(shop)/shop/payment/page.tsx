@@ -1,7 +1,6 @@
 import { auth } from '@/auth.config'
 import {
-  BarProgress
-  // CardCheckoutItems, // CardItemsLoading,
+  BarProgress // CardCheckoutItems, // CardItemsLoading,
   // CardCheckoutSummary // CardSummaryLoading
 } from '@/components'
 import { redirect } from 'next/navigation'
