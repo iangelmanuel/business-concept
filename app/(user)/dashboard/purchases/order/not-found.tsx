@@ -11,7 +11,7 @@ export default function PageNotFound() {
         <p className="font-light">
           <span>Puedes regresar al </span>
           <Link
-            href="/shop/products"
+            href="/purchases"
             className="font-normal hover:underline transition-all"
           >
             Inicio
