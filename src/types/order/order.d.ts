@@ -1,12 +1,14 @@
 import type {
   OrderCreateSchema,
   OrderSchema,
-  ProductToOrderSchema
+  ProductToOrderSchema,
+  UserOrderSchema
 } from '@/schema'
 import type { z } from 'zod'
 
 export type Order = z.infer<typeof OrderSchema>
 
 export type OrderCreate = z.infer<typeof OrderCreateSchema>
+export type ProductToOrderType = z.infer<typeof ProductToOrderSchema>
 
-type ProductToOrderType = z.infer<typeof ProductToOrderSchema>
+export type UserOrder = z.infer<typeof UserOrderSchema>
