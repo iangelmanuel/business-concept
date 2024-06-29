@@ -34,11 +34,12 @@ export const CardCartItems = () => {
   if (!loaded) return <CartItemsLoading />
 
   const updateProductQuantity = (item: Cart, quantity: number) => {
+    if (quantity > 5 || quantity > item.stock) return
+
     if (quantity <= 0) {
       removeProductFromCart(item)
       return
     }
-    if (quantity > 5) return
     updateProductInCart(item, quantity)
   }
 
