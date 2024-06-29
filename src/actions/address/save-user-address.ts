@@ -4,13 +4,15 @@ import { auth } from '@/auth.config'
 import { prisma } from '@/lib'
 import { AddressFormSchema } from '@/schema'
 import type { AddressForm } from '@/types'
+import { revalidatePath } from 'next/cache'
 
 export async function saveUserAddress(addressFormData: AddressForm) {
   try {
-    const user = await auth()
-    if (!user) {
+    const session = await auth()
+    if (!session) {
       return { ok: false, message: 'No estas autenticado' }
     }
+    const userId = session.user.id
 
     const result = AddressFormSchema.safeParse(addressFormData)
     if (!result.success) {
@@ -30,9 +32,11 @@ export async function saveUserAddress(addressFormData: AddressForm) {
         postalCode: result.data.postalCode,
         department: result.data.department,
         extraData: result.data.extraData,
-        userId: user.user.id
+        userId
       }
     })
+    revalidatePath('/shop/address')
+    revalidatePath('/dashboard/addresses')
     return { ok: true }
   } catch (error) {
     console.error(error)

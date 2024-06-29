@@ -11,6 +11,7 @@ export const deleteUserAddress = async (id: string) => {
       }
     })
     revalidatePath('/shop/address')
+    revalidatePath('/dashboard/addresses')
     return {
       ok: true,
       message: 'Dirección eliminada correctamente'
