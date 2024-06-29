@@ -33,7 +33,10 @@ export function DeleteUserAccount() {
     startTransition(async () => {
       const response = await deleteUserAccount(user?.id)
       if (response.ok) {
-        toast.success(response.message)
+        toast.success(response.message, {
+          duration: 3000,
+          position: 'top-right'
+        })
         await logoutUser()
         window.location.replace('/auth/login')
       } else {

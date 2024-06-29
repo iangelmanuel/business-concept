@@ -37,6 +37,9 @@ export * from './user/security-privacy/delete-user-account'
 export * from './user/purchases/order-items'
 export * from './user/purchases/order-summary'
 
+export * from './user/addresses/address-user'
+export * from './user/addresses/address-form'
+
 export * from './ui/button'
 export * from './ui/card'
 export * from './ui/input'

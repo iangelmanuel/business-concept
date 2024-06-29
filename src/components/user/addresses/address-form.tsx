@@ -5,7 +5,6 @@ import {
   Button,
   CardContent,
   CardFooter,
-  Checkbox,
   ErrorMessage,
   Input,
   Label,
@@ -18,9 +17,8 @@ import {
   SelectValue
 } from '@/components'
 import { FORM_VALUES_ADDRESS } from '@/consts'
-import { useAddressStore, useCartStore } from '@/store'
-import type { AddressForm, LocationType } from '@/types'
-import { useRouter } from 'next/navigation'
+import { useAddressFormStore } from '@/store'
+import type { AddressForm as AddressFormType, LocationType } from '@/types'
 import { useState, useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
@@ -29,38 +27,24 @@ type Props = {
   location: LocationType[]
 }
 
-export const CardAddressForm = ({ location }: Props) => {
+export const AddressForm = ({ location }: Props) => {
   const [citiesOfDepartment, setCitiesOfDepartment] = useState<
     LocationType['cities']
   >([])
-  const [isSaveAddressActive, setIsSaveAddressActive] = useState(false)
   const [isPending, startTransition] = useTransition()
 
-  const router = useRouter()
-
-  const setAddress = useAddressStore((state) => state.setAddress)
-  const address = useAddressStore((state) => state.address)
-  const cart = useCartStore((state) => state.cart)
+  const toggleAddressForm = useAddressFormStore(
+    (state) => state.toggleAddressForm
+  )
 
   const {
     register,
     handleSubmit,
     formState: { errors },
     setValue
-  } = useForm<AddressForm>({
-    defaultValues: { ...address } || FORM_VALUES_ADDRESS
+  } = useForm<AddressFormType>({
+    defaultValues: FORM_VALUES_ADDRESS
   })
-
-  const isCartEmpty = cart.length === 0
-
-  if (isCartEmpty) {
-    router.push('/shop/cart?redirect=/shop/address')
-    toast.error('No se puede agregar direcciones en este momento', {
-      duration: 3000,
-      description: 'Intenta agregando productos al carrito',
-      position: 'top-right'
-    })
-  }
 
   const getDepartmentValue = (value: LocationType['department']) => {
     const department = location.filter((item) => item.department === value)
@@ -68,25 +52,22 @@ export const CardAddressForm = ({ location }: Props) => {
     setCitiesOfDepartment(cities)
   }
 
-  const onSubmit = (data: AddressForm) => {
-    if (isSaveAddressActive) {
-      startTransition(async () => {
-        const response = await saveUserAddress(data)
-        if (response.ok) {
-          toast.success('Dirección guardada correctamente', {
-            duration: 3000,
-            position: 'top-right'
-          })
-        } else {
-          toast.error('Error al guardar la dirección', {
-            duration: 3000,
-            position: 'top-right'
-          })
-        }
-      })
-    }
-    setAddress(data)
-    router.push('/shop/checkout')
+  const onSubmit = (data: AddressFormType) => {
+    startTransition(async () => {
+      const response = await saveUserAddress(data)
+      if (response.ok) {
+        toast.success('Dirección guardada correctamente', {
+          duration: 3000,
+          position: 'top-right'
+        })
+        toggleAddressForm()
+      } else {
+        toast.error('Error al guardar la dirección', {
+          duration: 3000,
+          position: 'top-right'
+        })
+      }
+    })
   }
 
   return (
@@ -379,28 +360,13 @@ export const CardAddressForm = ({ location }: Props) => {
         </article>
       </CardContent>
 
-      <CardFooter className="flex flex-col gap-y-3 sm:gap-y-0 sm:flex-row items-center justify-between">
-        <section className="flex items-center space-x-2">
-          <Checkbox
-            id="save-address"
-            disabled={isPending}
-            checked={isSaveAddressActive}
-            onCheckedChange={() => setIsSaveAddressActive(!isSaveAddressActive)}
-          />
-          <label
-            htmlFor="save-address"
-            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-          >
-            ¿Desear guardar esta dirección para futuras compras?
-          </label>
-        </section>
-
+      <CardFooter className="flex items-center justify-end">
         <Button
           type="submit"
           disabled={isPending}
           className="w-full sm:w-auto"
         >
-          {isPending ? 'Guardando dirección' : 'Continuar'}
+          {isPending ? 'Guardando dirección' : 'Guardar dirección'}
         </Button>
       </CardFooter>
     </form>
