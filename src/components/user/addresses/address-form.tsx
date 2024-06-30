@@ -33,11 +33,19 @@ type Props = {
   handleUpdateAddress?: (address: AddressType) => void
 }
 
-export const AddressForm = ({ location, address, handleUpdateAddress }: Props) => {
-  const [citiesOfDepartment, setCitiesOfDepartment] = useState<LocationType['cities']>([])
+export const AddressForm = ({
+  location,
+  address,
+  handleUpdateAddress
+}: Props) => {
+  const [citiesOfDepartment, setCitiesOfDepartment] = useState<
+    LocationType['cities']
+  >([])
   const [isPending, startTransition] = useTransition()
 
-  const toggleAddressForm = useAddressFormStore((state) => state.toggleAddressForm)
+  const toggleAddressForm = useAddressFormStore(
+    (state) => state.toggleAddressForm
+  )
 
   const {
     register,
