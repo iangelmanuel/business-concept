@@ -134,7 +134,7 @@ export async function placeOrder(
     return {
       ok: true,
       message: 'Pedido creado con éxito',
-      order: prismaTx.order
+      orderId: prismaTx.order.id
     }
   } catch (error) {
     console.log(error)
