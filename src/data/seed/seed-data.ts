@@ -14,7 +14,7 @@ export const data = {
         'https://res.cloudinary.com/dcmnvayfw/image/upload/v1676776545/tech%20store/earphones_a_4.webp'
       ],
       name: 'Audífonos deportivos',
-      price: 60
+      price: 259900
     },
     {
       type: 'auriculares',
@@ -27,7 +27,7 @@ export const data = {
         'https://res.cloudinary.com/dcmnvayfw/image/upload/v1676776545/tech%20store/earphones_b_2.webp'
       ],
       name: 'Audifonos inalambricos',
-      price: 80
+      price: 335000
     },
     {
       type: 'auriculares',
@@ -40,7 +40,7 @@ export const data = {
         'https://res.cloudinary.com/dcmnvayfw/image/upload/v1676776545/tech%20store/earphones_c_2.webp'
       ],
       name: 'Audifonos Sports',
-      price: 120
+      price: 500000
     },
     {
       type: 'auriculares',
@@ -53,7 +53,7 @@ export const data = {
         'https://res.cloudinary.com/dcmnvayfw/image/upload/v1676776545/tech%20store/headphones-a-2.webp'
       ],
       name: 'Audifonos Gamer',
-      price: 250
+      price: 1059000
     },
     {
       type: 'auriculares',
@@ -66,7 +66,7 @@ export const data = {
         'https://res.cloudinary.com/dcmnvayfw/image/upload/v1676832882/tech%20store/headphones_b_2.webp'
       ],
       name: 'Audifonos Bass',
-      price: 200
+      price: 800000
     },
     {
       type: 'auriculares',
@@ -79,7 +79,7 @@ export const data = {
         'https://res.cloudinary.com/dcmnvayfw/image/upload/v1676776545/tech%20store/headphones-c-2.png'
       ],
       name: 'Audifonos Bass',
-      price: 200
+      price: 840000
     },
     {
       type: 'celulares',
@@ -91,7 +91,7 @@ export const data = {
         'https://res.cloudinary.com/dcmnvayfw/image/upload/v1676776545/tech%20store/iphone-13-pro-1.png'
       ],
       name: 'Iphone 13 Pro',
-      price: 800
+      price: 3350900
     },
     {
       type: 'celulares',
@@ -104,7 +104,7 @@ export const data = {
         'https://res.cloudinary.com/dcmnvayfw/image/upload/v1676776546/tech%20store/iphone-14-pro-2.png'
       ],
       name: 'Iphone 14 Pro',
-      price: 1000
+      price: 4199900
     },
     {
       type: 'computadoras',
@@ -117,7 +117,7 @@ export const data = {
         'https://res.cloudinary.com/dcmnvayfw/image/upload/v1676776544/tech%20store/mac-studio-m1-2.png'
       ],
       name: 'Mac Studio M1',
-      price: 1200
+      price: 5014900
     },
     {
       type: 'computadoras',
@@ -130,7 +130,7 @@ export const data = {
         'https://res.cloudinary.com/dcmnvayfw/image/upload/v1676776546/tech%20store/macbook-air-m2-2.png'
       ],
       name: 'MacBook Air M2',
-      price: 900
+      price: 3800000
     },
     {
       type: 'consolas',
@@ -143,7 +143,7 @@ export const data = {
         'https://res.cloudinary.com/dcmnvayfw/image/upload/v1676776544/tech%20store/oculus-quest-2-2.png'
       ],
       name: 'Oculus Quest 2',
-      price: 600
+      price: 2520000
     },
     {
       type: 'consolas',
@@ -156,7 +156,7 @@ export const data = {
         'https://res.cloudinary.com/dcmnvayfw/image/upload/v1676776544/tech%20store/playstation-4-2.png'
       ],
       name: 'PlayStation 4 Slim',
-      price: 300
+      price: 1255500
     },
     {
       type: 'consolas',
@@ -169,7 +169,7 @@ export const data = {
         'https://res.cloudinary.com/dcmnvayfw/image/upload/v1676776544/tech%20store/playstation-5-2.png'
       ],
       name: 'PlayStation 5',
-      price: 550
+      price: 2298500
     },
     {
       type: 'consolas',
@@ -182,7 +182,7 @@ export const data = {
         'https://res.cloudinary.com/dcmnvayfw/image/upload/v1676776544/tech%20store/playstation-vr-2.png'
       ],
       name: 'PlayStation VR',
-      price: 500
+      price: 2100000
     },
     {
       type: 'consolas',
@@ -195,7 +195,7 @@ export const data = {
         'https://res.cloudinary.com/dcmnvayfw/image/upload/v1676776544/tech%20store/watch-2.png'
       ],
       name: 'SmartWatch Sport',
-      price: 70
+      price: 295500
     }
   ]
 }
