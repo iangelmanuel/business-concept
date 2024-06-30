@@ -18,24 +18,26 @@ import {
 } from '@/components'
 import { FORM_VALUES_ADDRESS } from '@/consts'
 import { useAddressFormStore } from '@/store'
-import type { AddressForm as AddressFormType, LocationType } from '@/types'
+import type {
+  AddressForm as AddressFormType,
+  AddressType,
+  LocationType
+} from '@/types'
 import { useState, useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
 type Props = {
   location: LocationType[]
+  address?: AddressType
+  handleUpdateAddress?: (address: AddressType) => void
 }
 
-export const AddressForm = ({ location }: Props) => {
-  const [citiesOfDepartment, setCitiesOfDepartment] = useState<
-    LocationType['cities']
-  >([])
+export const AddressForm = ({ location, address, handleUpdateAddress }: Props) => {
+  const [citiesOfDepartment, setCitiesOfDepartment] = useState<LocationType['cities']>([])
   const [isPending, startTransition] = useTransition()
 
-  const toggleAddressForm = useAddressFormStore(
-    (state) => state.toggleAddressForm
-  )
+  const toggleAddressForm = useAddressFormStore((state) => state.toggleAddressForm)
 
   const {
     register,
@@ -43,7 +45,7 @@ export const AddressForm = ({ location }: Props) => {
     formState: { errors },
     setValue
   } = useForm<AddressFormType>({
-    defaultValues: FORM_VALUES_ADDRESS
+    defaultValues: address ?? FORM_VALUES_ADDRESS
   })
 
   const getDepartmentValue = (value: LocationType['department']) => {
@@ -52,27 +54,44 @@ export const AddressForm = ({ location }: Props) => {
     setCitiesOfDepartment(cities)
   }
 
-  const onSubmit = (data: AddressFormType) => {
-    startTransition(async () => {
-      const response = await saveUserAddress(data)
-      if (response.ok) {
-        toast.success('Dirección guardada correctamente', {
-          duration: 3000,
-          position: 'top-right'
-        })
-        toggleAddressForm()
-      } else {
-        toast.error('Error al guardar la dirección', {
+  const onSubmit = (data: AddressFormType | AddressType) => {
+    if (address === undefined) {
+      startTransition(async () => {
+        const response = await saveUserAddress(data)
+        if (response.ok) {
+          toast.success(response.message, {
+            duration: 3000,
+            position: 'top-right'
+          })
+          toggleAddressForm()
+        } else {
+          toast.error(response.message, {
+            duration: 3000,
+            position: 'top-right'
+          })
+        }
+      })
+    } else {
+      const isAddressChange = JSON.stringify(address) === JSON.stringify(data)
+      if (isAddressChange) {
+        return toast.success('No se han realizado cambios', {
           duration: 3000,
           position: 'top-right'
         })
       }
-    })
+
+      if (handleUpdateAddress) {
+        handleUpdateAddress(data as AddressType)
+      }
+    }
   }
+
+  const isAddressExists = address !== undefined
 
   return (
     <form
       noValidate
+      id={isAddressExists ? 'update-address' : 'save-address'}
       onSubmit={handleSubmit(onSubmit)}
     >
       <CardContent className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -360,15 +379,17 @@ export const AddressForm = ({ location }: Props) => {
         </article>
       </CardContent>
 
-      <CardFooter className="flex items-center justify-end">
-        <Button
-          type="submit"
-          disabled={isPending}
-          className="w-full sm:w-auto"
-        >
-          {isPending ? 'Guardando dirección' : 'Guardar dirección'}
-        </Button>
-      </CardFooter>
+      {!isAddressExists && (
+        <CardFooter className="flex items-center justify-end">
+          <Button
+            type="submit"
+            disabled={isPending}
+            className="w-full sm:w-auto"
+          >
+            {isPending ? 'Guardando dirección' : 'Guardar dirección'}
+          </Button>
+        </CardFooter>
+      )}
     </form>
   )
 }

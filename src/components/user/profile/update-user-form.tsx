@@ -39,14 +39,13 @@ export const UpdateUserForm = ({ user }: Props) => {
 
   const onSubmit = async (data: UpdateUser) => {
     const compareDatas = JSON.stringify(data) === JSON.stringify(defaultValues)
-
     if (compareDatas) {
-      toast.error('No se han realizado cambios', {
+      return toast.error('No se han realizado cambios', {
         duration: 3000,
         position: 'top-right'
       })
-      return
     }
+
     startTransition(async () => {
       const response = await updateUser(data)
       if (response.ok) {

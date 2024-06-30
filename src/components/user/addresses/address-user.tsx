@@ -1,6 +1,6 @@
 'use client'
 
-import { deleteUserAddress } from '@/actions'
+import { deleteUserAddress, updateUserAddress } from '@/actions'
 import {
   AddressForm,
   AlertDialog,
@@ -18,11 +18,18 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
   buttonVariants
 } from '@/components'
 import { useAddressFormStore } from '@/store'
 import type { AddressType, LocationType } from '@/types'
-import { TrashIcon } from 'lucide-react'
+import { Pencil, TrashIcon } from 'lucide-react'
 import { useTransition } from 'react'
 import { toast } from 'sonner'
 
@@ -40,6 +47,23 @@ export const AddressUser = ({ location, addressDb }: Props) => {
   const toggleAddressForm = useAddressFormStore(
     (state) => state.toggleAddressForm
   )
+
+  const handleUpdateAddress = async (address: AddressType) => {
+    startTransition(async () => {
+      const response = await updateUserAddress(address)
+      if (response.ok) {
+        toast.success(response.message, {
+          duration: 3000,
+          position: 'top-right'
+        })
+      } else {
+        toast.error(response.message, {
+          duration: 3000,
+          position: 'top-right'
+        })
+      }
+    })
+  }
 
   const handleClickDelete = async (id: AddressType['id']) => {
     startTransition(async () => {
@@ -67,28 +91,63 @@ export const AddressUser = ({ location, addressDb }: Props) => {
       <article className="grid grid-cols-1 sm:grid-cols-2 p-5 gap-3">
         {addressDb.map((address) => (
           <Card key={address.id}>
-            <div>
-              <CardHeader>
-                <h2 className="text-xl font-semibold">
-                  {address.firstName} {address.lastName}
-                </h2>
-                <CardDescription>
-                  <span className="capitalize">
-                    {address.address}, {address.city}, {address.department}
-                  </span>
-                </CardDescription>
-              </CardHeader>
+            <CardHeader>
+              <h2 className="text-xl font-semibold">
+                {address.firstName} {address.lastName}
+              </h2>
+              <CardDescription>
+                <span className="capitalize">
+                  {address.address}, {address.city}, {address.department}
+                </span>
+              </CardDescription>
+            </CardHeader>
 
-              <CardContent>
-                <p>Télefono: {address.phone}</p>
-                <p>
-                  Identificación: {address.typeOfIdentification}{' '}
-                  {address.identification}
-                </p>
-              </CardContent>
-            </div>
+            <CardContent>
+              <p>Télefono: {address.phone}</p>
+              <p>
+                Identificación: {address.typeOfIdentification}{' '}
+                {address.identification}
+              </p>
+            </CardContent>
 
-            <CardFooter>
+            <CardFooter className="flex flex-col md:flex-row">
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    className="flex gap-2 items-center text-gray-500 text-xs"
+                  >
+                    <Pencil size={16} />
+                    Editar Dirección
+                  </Button>
+                </DialogTrigger>
+
+                <DialogContent className="sm:max-w-screen-lg">
+                  <DialogHeader>
+                    <DialogTitle>Editar dirección</DialogTitle>
+                    <DialogDescription>
+                      Actualiza tu dirección de envío.
+                    </DialogDescription>
+                  </DialogHeader>
+                  {/* Update Address Form */}
+                  <AddressForm
+                    location={location}
+                    address={address}
+                    handleUpdateAddress={handleUpdateAddress}
+                  />
+                  <DialogFooter>
+                    <Button
+                      type="submit"
+                      disabled={isPending}
+                      form="update-address"
+                    >
+                      {isPending ? 'Actualizando' : 'Guardar nueva dirección'}
+                    </Button>
+                    {/* Update Address Form */}
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
+
               <AlertDialog>
                 <AlertDialogTrigger asChild>
                   <Button
@@ -99,6 +158,7 @@ export const AddressUser = ({ location, addressDb }: Props) => {
                     Eliminar Dirección
                   </Button>
                 </AlertDialogTrigger>
+
                 <AlertDialogContent>
                   <AlertDialogHeader>
                     <AlertDialogTitle>

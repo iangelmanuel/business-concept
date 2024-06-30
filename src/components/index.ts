@@ -56,5 +56,6 @@ export * from './ui/checkbox'
 export * from './ui/alert-dialog'
 export * from './ui/progress'
 export * from './ui/badge'
+export * from './ui/dialog'
 
 export * from './shop/bar-progress'
