@@ -27,7 +27,6 @@ export async function placeOrder(
   }
 
   const { data: validProductData } = result
-
   const products = await prisma.product.findMany({
     where: {
       id: {
@@ -77,7 +76,6 @@ export async function placeOrder(
       })
 
       const updatedProducts = await Promise.all(updatedProductsPromises)
-
       updatedProducts.forEach((product) => {
         if (product.stock < 0) {
           return {

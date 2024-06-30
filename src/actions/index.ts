@@ -14,6 +14,7 @@ export { getLocationData } from './address/get-location-data'
 export { getUserAddress } from './address/get-user-address'
 export { saveUserAddress } from './address/save-user-address'
 export { deleteUserAddress } from './address/delete-user-address'
+export { updateUserAddress } from './address/update-user-address'
 
 export { updateUser } from './user/update-user'
 export { getUserById } from './user/get-user-by-id'
