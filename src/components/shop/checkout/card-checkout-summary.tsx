@@ -18,31 +18,23 @@ import { toast } from 'sonner'
 
 export const CardCheckoutSummary = () => {
   const [loading, setLoading] = useState(true)
+  const [isStoreEmpty, setIsStoreEmpty] = useState(true)
   const [isPending, startTransition] = useTransition()
 
   const router = useRouter()
 
   const address = useAddressStore((state) => state.address)
+  const clearAddress = useAddressStore((state) => state.clearAddress)
+
+  const cart = useCartStore((state) => state.cart)
+  const clearCart = useCartStore((state) => state.clearCart)
   const { subTotal, tax, total } = useCartStore((state) =>
     state.getSummaryInfo()
   )
 
-  const cart = useCartStore((state) => state.cart)
-
   useEffect(() => {
     setLoading(false)
   }, [])
-
-  const isAddressEmpty = Object.keys(address).length === 0
-
-  if (isAddressEmpty) {
-    router.push('/shop/address?redirect=/shop/checkout')
-    toast.error('No se puede acceder al pedido en este momento', {
-      duration: 3000,
-      description: 'Intenta agregando una dirección al pedido',
-      position: 'top-right'
-    })
-  }
 
   const handleClickNextStep = () => {
     const productsToOrder = cart.map((item) => ({
@@ -57,7 +49,12 @@ export const CardCheckoutSummary = () => {
           duration: 3000,
           position: 'top-right'
         })
-        router.push('/shop/payment')
+        if (response.orderId) {
+          setIsStoreEmpty(false)
+          router.push(`/shop/payment/${response.orderId}`)
+          clearCart()
+          clearAddress()
+        }
       } else {
         toast.error('Error al crear el pedido', {
           duration: 3000,
@@ -65,6 +62,18 @@ export const CardCheckoutSummary = () => {
           position: 'top-right'
         })
       }
+    })
+  }
+
+  const isAddressEmpty = Object.keys(address).length === 0
+  const isCartEmpty = cart.length === 0
+
+  if ((isAddressEmpty || isCartEmpty) && isStoreEmpty) {
+    router.push('/shop/address?redirect=/shop/checkout')
+    toast.error('No se puede acceder al pedido en este momento', {
+      duration: 3000,
+      description: 'Intenta agregando una dirección al pedido',
+      position: 'top-right'
     })
   }
 

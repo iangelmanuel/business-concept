@@ -137,7 +137,6 @@ export const UpdateUserForm = ({ user }: Props) => {
             <Label>Email:</Label>
             <Input
               type="email"
-              value={user.email}
               {...register('email', {
                 required: 'El campo email es requerido',
                 pattern: {

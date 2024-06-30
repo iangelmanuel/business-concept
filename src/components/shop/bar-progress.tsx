@@ -87,7 +87,7 @@ export const BarProgress = ({ step }: Props) => {
         </section>
 
         <section className="flex gap-2 items-center justify-evenly h-8 w-8 rounded-full ring-2 ring-emerald-500 bg-emerald-500">
-          <Link href="/shop/payment">
+          <Link href="/dashboard/purchases">
             {step > 4 ? (
               <CircleCheckBig size={24} />
             ) : (
