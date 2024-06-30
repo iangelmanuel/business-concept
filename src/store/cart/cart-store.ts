@@ -37,7 +37,7 @@ export const useCartStore = create<State>()(
           0
         )
 
-        const tax = subTotal * 0.15
+        const tax = subTotal * 0.035
         const discont = cart
           .map((item) => (item.discount ? item.discount : 0))
           .reduce((total, item) => total + item, 0)

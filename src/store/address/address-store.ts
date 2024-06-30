@@ -5,27 +5,20 @@ import { persist } from 'zustand/middleware'
 type State = {
   address: AddressForm
   setAddress: (address: AddressForm) => void
+  clearAddress: () => void
 }
 
 export const useAddressStore = create<State>()(
   persist(
     (set) => ({
-      address: {
-        firstName: '',
-        lastName: '',
-        city: '',
-        typeOfIdentification: '' as AddressForm['typeOfIdentification'],
-        identification: '',
-        phone: '',
-        address: '',
-        address2: '',
-        postalCode: '',
-        department: '',
-        extraData: ''
-      },
+      address: {} as AddressForm,
 
       setAddress: (address) => {
         set({ address })
+      },
+
+      clearAddress: () => {
+        set({ address: {} as AddressForm })
       }
     }),
     {
