@@ -8,6 +8,7 @@ export const dynamic = 'force-dynamic'
 export default async function ProfilePage() {
   const session = await auth()
   if (!session) return redirect('/auth/login')
+  if (!session.user) return redirect('/auth/login')
   const userIdSession = session?.user.id
 
   const userDb = await getUserById(userIdSession)
