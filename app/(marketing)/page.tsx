@@ -1,6 +1,6 @@
 import { getAllProducts } from '@/actions'
 import { Card, CardContent, CardDescription } from '@/components/ui/card'
-import { fontSans } from '@/config'
+import { titleFont } from '@/config'
 import type { ProductType } from '@/types'
 import { formatCurrency } from '@/utils'
 import type { Metadata } from 'next'
@@ -33,22 +33,22 @@ export default async function HomePage() {
   return (
     <>
       <section className="relative">
-        <article className="absolute z-10 w-full h-screen flex justify-center items-center">
+        <article className="absolute z-10 w-full h-screen flex flex-col sm:flex-row p-5 xl:p-0 justify-center items-center">
           <Image
             src="/logo.png"
             alt="Business Concept"
-            width={500}
-            height={500}
+            width={400}
+            height={400}
             quality={100}
           />
 
           <div className="max-w-screen-sm">
             <h1
-              className={`${fontSans.className} text-3xl lg:text-6xl font-bold text-purple-700`}
+              className={`${titleFont.className} text-3xl text-center sm:text-start lg:text-6xl font-bold text-purple-700`}
             >
               Bienvenido a Business Concept
             </h1>
-            <p className="text-lg lg:text-2xl font-bold">
+            <p className="text-lg text-center sm:text-start lg:text-2xl font-bold">
               Tu tienda online de productos tecnológicos y de oficina de
               confianza
             </p>
@@ -71,7 +71,9 @@ export default async function HomePage() {
         {Object.entries(categorizedProducts).map(
           ([category, productsOrder]) => (
             <article key={category}>
-              <h2 className="text-lg lg:text-4xl text-center font-bold mb-5 capitalize">
+              <h2
+                className={`${titleFont.className} text-lg lg:text-4xl text-center font-bold mb-5 capitalize`}
+              >
                 {category}
               </h2>
 
@@ -87,7 +89,9 @@ export default async function HomePage() {
                     />
                     <Link href={`/shop/product/${productOrder.slug}`}>
                       <CardContent className="text-xl font-bold text-center">
-                        <h3>{productOrder.name}</h3>
+                        <h3 className={titleFont.className}>
+                          {productOrder.name}
+                        </h3>
                       </CardContent>
                     </Link>
                     <CardDescription className="text-center text-lg">

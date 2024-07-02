@@ -1,6 +1,7 @@
 import { getUserById } from '@/actions'
 import { auth } from '@/auth.config'
 import { UpdateUserForm } from '@/components'
+import { titleFont } from '@/config'
 import type { Metadata } from 'next'
 import { redirect } from 'next/navigation'
 
@@ -23,7 +24,7 @@ export default async function ProfilePage() {
   const user = userDb.user!
   return (
     <article>
-      <h1 className="text-2xl font-bold">
+      <h1 className={`${titleFont.className} text-2xl font-bold`}>
         Cuenta de {user.name} {user.lastname}
       </h1>
 

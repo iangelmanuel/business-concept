@@ -8,6 +8,7 @@ import {
   CardHeader,
   CartSummaryLoading
 } from '@/components'
+import { titleFont } from '@/config'
 import { useCartStore } from '@/store'
 import { formatCurrency } from '@/utils'
 import { useSession } from 'next-auth/react'
@@ -45,7 +46,7 @@ export const CardCartSummary = () => {
     <section className="order-1 lg:order-2">
       <Card className="md:sticky md:top-0">
         <CardHeader>
-          <h2 className="text-xl font-bold mb-3">
+          <h2 className={`${titleFont.className} text-xl font-bold mb-3`}>
             Resumen de la compra ({itemsInCart})
           </h2>
         </CardHeader>

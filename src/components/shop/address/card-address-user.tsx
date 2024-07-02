@@ -20,6 +20,7 @@ import {
   CardHeader,
   buttonVariants
 } from '@/components'
+import { titleFont } from '@/config'
 import { useAddressStore, useCartStore } from '@/store'
 import type { AddressType, LocationType } from '@/types'
 import { TrashIcon } from 'lucide-react'
@@ -90,7 +91,7 @@ export const CardAddressUser = ({ location, addressDb }: Props) => {
           >
             <div onClick={() => handleClickSelect(address)}>
               <CardHeader>
-                <h2 className="text-xl font-semibold">
+                <h2 className={`${titleFont.className} text-xl font-semibold`}>
                   {address.firstName} {address.lastName}
                 </h2>
                 <CardDescription>

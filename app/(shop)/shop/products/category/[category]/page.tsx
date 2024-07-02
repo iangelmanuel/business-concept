@@ -7,7 +7,7 @@ import {
   CardHeader,
   ProductsButtonCart
 } from '@/components'
-import { fontSans } from '@/config'
+import { titleFont } from '@/config'
 import { formatCurrency } from '@/utils'
 import type { Metadata } from 'next'
 import Image from 'next/image'
@@ -36,7 +36,7 @@ export default async function CategoryProductPage({
   return (
     <section className="p-5 2xl:p-0 max-w-screen-2xl mx-auto mt-10">
       <article>
-        <h2 className={`text-xl font-bold ${fontSans.className} mb-2`}>
+        <h2 className={`text-xl font-bold ${titleFont.className} mb-2`}>
           Productos de la categoria{' '}
           <span className="capitalize">{params.category}</span>
         </h2>
@@ -56,7 +56,7 @@ export default async function CategoryProductPage({
               <CardContent className="space-y-1">
                 <Link
                   href={`/shop/product/${product.slug}`}
-                  className={`hover:underline font-bold ${fontSans.className}`}
+                  className={`hover:underline font-bold ${titleFont.className}`}
                 >
                   {product.name}
                 </Link>

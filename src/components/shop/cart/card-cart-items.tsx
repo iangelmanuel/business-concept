@@ -9,6 +9,7 @@ import {
   CardHeader,
   CartItemsLoading
 } from '@/components'
+import { titleFont } from '@/config'
 import { useCartStore } from '@/store'
 import type { Cart } from '@/types'
 import { formatCurrency } from '@/utils'
@@ -47,7 +48,7 @@ export const CardCartItems = () => {
     <Card className="lg:col-span-2 order-2 lg:order-1">
       {loaded && getTotalItems > 0 && (
         <CardHeader>
-          <h2 className="text-xl font-bold mb-3">
+          <h2 className={`${titleFont.className} text-xl font-bold mb-3`}>
             Mi carrito de compras ({getTotalItems})
           </h2>
         </CardHeader>
@@ -55,7 +56,7 @@ export const CardCartItems = () => {
 
       {loaded && getTotalItems === 0 && (
         <CardHeader>
-          <h2 className="text-xl font-bold mb-3">
+          <h2 className={`${titleFont.className} text-xl font-bold mb-3`}>
             Tu carrito de compras está vacío
           </h2>
           <Link
@@ -87,7 +88,7 @@ export const CardCartItems = () => {
                 <div>
                   <Link
                     href={`/shop/product/${item.slug}`}
-                    className="hover:underline"
+                    className={`${titleFont.className} hover:underline font-bold`}
                   >
                     {item.name}
                   </Link>

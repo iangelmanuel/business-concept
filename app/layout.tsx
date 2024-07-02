@@ -1,4 +1,4 @@
-import { fontSans } from '@/config'
+import { inter } from '@/config'
 import { Providers } from '@/providers'
 import type { Metadata } from 'next'
 import { Toaster } from 'sonner'
@@ -52,7 +52,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body
-        className={`${fontSans.className} selection:bg-black selection:dark:bg-white selection:text-white selection:dark:text-black`}
+        className={`${inter.className} selection:bg-black selection:dark:bg-white selection:text-white selection:dark:text-black`}
       >
         <Providers
           attribute="class"

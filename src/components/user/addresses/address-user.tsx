@@ -27,6 +27,7 @@ import {
   DialogTrigger,
   buttonVariants
 } from '@/components'
+import { titleFont } from '@/config'
 import { useAddressFormStore } from '@/store'
 import type { AddressType, LocationType } from '@/types'
 import { Pencil, TrashIcon } from 'lucide-react'
@@ -92,7 +93,7 @@ export const AddressUser = ({ location, addressDb }: Props) => {
         {addressDb.map((address) => (
           <Card key={address.id}>
             <CardHeader>
-              <h2 className="text-xl font-semibold">
+              <h2 className={`${titleFont.className} text-xl font-semibold`}>
                 {address.firstName} {address.lastName}
               </h2>
               <CardDescription>

@@ -6,6 +6,7 @@ import {
   CardDescription,
   CardHeader
 } from '@/components'
+import { titleFont } from '@/config'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -21,7 +22,9 @@ export default async function AddressesPage() {
   const location = await getLocationData()
   return (
     <article>
-      <h1 className="text-2xl font-bold mb-3">Detalles del envio</h1>
+      <h1 className={`${titleFont.className} text-2xl font-bold mb-3`}>
+        Detalles del envio
+      </h1>
       <section className="max-w-screen-lg mx-auto p-5 lg:p-0">
         <Card>
           <CardHeader>

@@ -1,5 +1,6 @@
 import { getProductBySlug } from '@/actions'
 import { AddProductCart, Card, CardDescription, CardHeader } from '@/components'
+import { titleFont } from '@/config'
 import type { ProductType } from '@/types'
 import { formatCurrency } from '@/utils'
 import { Headphones, Package, Undo2 } from 'lucide-react'
@@ -65,11 +66,13 @@ export default async function ProductSlugPage({
         <CardHeader>
           <article className="flex justify-between items-center">
             <section>
-              <h1 className="text-xl font-bold">{product.name}</h1>
+              <h1 className={`${titleFont.className} text-xl font-bold`}>
+                {product.name}
+              </h1>
             </section>
 
             <section>
-              <p className="text-xl font-extrabold">
+              <p className={`${titleFont.className} text-xl font-extrabold`}>
                 {formatCurrency(product.price)}
               </p>
             </section>

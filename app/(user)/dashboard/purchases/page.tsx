@@ -7,6 +7,7 @@ import {
   CardHeader,
   buttonVariants
 } from '@/components'
+import { titleFont } from '@/config'
 import { checkOrderStatus, formatCurrency, formatDate } from '@/utils'
 import type { Metadata } from 'next'
 import Link from 'next/link'
@@ -25,17 +26,23 @@ export default async function PurchasesPage() {
     <article>
       {orders.length !== 0 ? (
         <>
-          <h1 className="text-2xl font-bold mb-3">Mis compras</h1>
+          <h1 className={`${titleFont.className} text-2xl font-bold mb-3`}>
+            Mis compras
+          </h1>
 
           <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-5">
             {orders.map((order) => (
               <Card key={order.id}>
                 <CardHeader className="flex">
-                  <h2 className="font-bold">Orden: {order.id}</h2>
+                  <h2 className={`${titleFont.className} font-bold`}>
+                    Orden: {order.id}
+                  </h2>
                 </CardHeader>
 
                 <CardContent>
-                  <h3 className="font-bold">Información</h3>
+                  <h3 className={`${titleFont.className} font-bold`}>
+                    Información
+                  </h3>
                   <section className="text-sm text-muted-foreground">
                     <div>
                       <span className="font-bold">Importe:</span>{' '}

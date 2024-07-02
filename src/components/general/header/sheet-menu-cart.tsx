@@ -13,6 +13,7 @@ import {
   SheetTitle,
   SheetTrigger
 } from '@/components'
+import { titleFont } from '@/config'
 import { ShoppingBagIcon } from 'lucide-react'
 import { useState } from 'react'
 
@@ -31,7 +32,9 @@ export const SheetMenuCart = () => {
 
       <SheetContent className="overflow-y-auto">
         <SheetHeader>
-          <SheetTitle>Carrito de Compras</SheetTitle>
+          <SheetTitle className={titleFont.className}>
+            Carrito de Compras
+          </SheetTitle>
           <SheetDescription>
             Añade productos de tu interes a tu carrito de compras
           </SheetDescription>

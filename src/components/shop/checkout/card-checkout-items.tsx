@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardItemsLoading
 } from '@/components'
+import { titleFont } from '@/config'
 import { useCartStore } from '@/store'
 import { formatCurrency } from '@/utils'
 import Image from 'next/image'
@@ -25,7 +26,7 @@ export const CardCheckoutItems = () => {
   return (
     <Card className="lg:col-span-2 mt-10 order-2 lg:order-1">
       <CardHeader>
-        <h2 className="text-2xl font-bold">
+        <h2 className={`${titleFont.className} text-2xl font-bold`}>
           Detalles del resumen de la compra
         </h2>
         <CardDescription>
@@ -37,7 +38,9 @@ export const CardCheckoutItems = () => {
         <article>
           <section className="mt-4 space-y-3">
             <div>
-              <h3 className="text-lg font-bold mb-3">Productos</h3>
+              <h3 className={`${titleFont.className} text-lg font-bold mb-3`}>
+                Productos
+              </h3>
               <ul className="space-y-3">
                 {cart.map((item) => (
                   <li key={item.id}>
@@ -57,7 +60,7 @@ export const CardCheckoutItems = () => {
                           <div>
                             <Link
                               href={`/shop/product/${item.slug}`}
-                              className="hover:underline"
+                              className={`${titleFont.className} hover:underline font-bold`}
                             >
                               {item.name}
                             </Link>

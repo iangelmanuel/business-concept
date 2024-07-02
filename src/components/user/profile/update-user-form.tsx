@@ -10,6 +10,7 @@ import {
   Input,
   Label
 } from '@/components'
+import { titleFont } from '@/config'
 import type { AuthUser, UpdateUser } from '@/types'
 import { formatDate, getLettersName } from '@/utils'
 import { useTransition } from 'react'
@@ -64,7 +65,9 @@ export const UpdateUserForm = ({ user }: Props) => {
 
   return (
     <section className="mt-10">
-      <h2 className="text-xl font-bold">Actualizar datos:</h2>
+      <h2 className={`${titleFont.className} text-xl font-bold`}>
+        Actualizar datos:
+      </h2>
 
       <form
         onSubmit={handleSubmit(onSubmit)}

@@ -1,5 +1,5 @@
 import { ChangePasswordForm, DeleteUserAccount } from '@/components'
-import { fontSans } from '@/config'
+import { titleFont } from '@/config'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function SecurityPrivacyPage() {
   return (
     <article>
-      <h1 className={`${fontSans.className} text-2xl font-bold`}>
+      <h1 className={`${titleFont.className} text-2xl font-bold`}>
         Seguridad y Privacidad
       </h1>
 

@@ -6,6 +6,7 @@ import {
   CardHeader,
   buttonVariants
 } from '@/components'
+import { titleFont } from '@/config'
 import type { UserOrder } from '@/types'
 import { checkOrderStatus, formatCurrency } from '@/utils'
 import Image from 'next/image'
@@ -20,7 +21,7 @@ export const OrderItems = ({ order }: Props) => {
     <Card className="lg:col-span-2 order-2 lg:order-1">
       <CardHeader>
         <section className="flex justify-between items-center">
-          <h2 className="text-2xl font-bold">
+          <h2 className={`${titleFont.className} text-2xl font-bold`}>
             Detalles del resumen de la compra
           </h2>
 
@@ -56,7 +57,9 @@ export const OrderItems = ({ order }: Props) => {
       <CardContent>
         <section className="mt-4 space-y-3">
           <div>
-            <h3 className="text-lg font-bold mb-3">Productos</h3>
+            <h3 className={`${titleFont.className} text-lg font-bold mb-3`}>
+              Productos
+            </h3>
             <ul className="space-y-3">
               {order.OrderItem.map((item) => (
                 <li key={item.product.slug}>
@@ -73,7 +76,7 @@ export const OrderItems = ({ order }: Props) => {
                         <div>
                           <Link
                             href={`/shop/product/${item.product.slug}`}
-                            className="hover:underline"
+                            className={`${titleFont.className} hover:underline font-bold`}
                           >
                             {item.product.name}
                           </Link>

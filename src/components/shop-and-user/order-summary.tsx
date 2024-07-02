@@ -1,4 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader } from '@/components'
+import { titleFont } from '@/config'
 import type { UserOrder } from '@/types'
 import { formatCurrency } from '@/utils'
 import { notFound } from 'next/navigation'
@@ -16,7 +17,9 @@ export const OrderSummary = async ({ order }: Props) => {
     <section className="order-1 lg:order-2">
       <Card className="md:sticky md:top-0">
         <CardHeader>
-          <h2 className="text-2xl font-bold">Resumen de la compra</h2>
+          <h2 className={`${titleFont.className} text-2xl font-bold`}>
+            Resumen de la compra
+          </h2>
           <CardDescription>
             Por favor, revisa los productos seleccionados antes de proceder al
             pago.
@@ -25,7 +28,9 @@ export const OrderSummary = async ({ order }: Props) => {
 
         <CardContent>
           <article className="space-y-2">
-            <h3 className="text-lg font-bold mb-3">Dirección de envío</h3>
+            <h3 className={`${titleFont.className} text-lg font-bold mb-3`}>
+              Dirección de envío
+            </h3>
             <section className="mb-3 text-sm sm:text-base">
               <div className="flex justify-between">
                 <p>Recibe:</p>
@@ -81,7 +86,9 @@ export const OrderSummary = async ({ order }: Props) => {
               )}
             </section>
 
-            <h3 className="text-lg font-bold mb-3">Detalles de Precio</h3>
+            <h3 className={`${titleFont.className} text-lg font-bold mb-3`}>
+              Detalles de Precio
+            </h3>
             <section className="space-y-3 mb-3 text-sm sm:text-base">
               <div className="flex justify-between">
                 <p>Subtotal:</p>

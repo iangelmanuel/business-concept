@@ -3,6 +3,7 @@ import {
   TopMenuAuth,
   TopMenuNavigation
 } from '@/components'
+import { titleFont } from '@/config'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -20,7 +21,9 @@ export const Header = async () => {
             width={45}
             height={45}
           />
-          <span className="hidden md:block text-xl font-bold">
+          <span
+            className={`${titleFont.className} hidden md:block text-xl font-bold`}
+          >
             Business Concept
           </span>
         </Link>

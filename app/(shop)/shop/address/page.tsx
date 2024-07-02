@@ -8,6 +8,7 @@ import {
   CardDescription,
   CardHeader
 } from '@/components'
+import { titleFont } from '@/config'
 import type { Metadata } from 'next'
 import { redirect } from 'next/navigation'
 
@@ -29,7 +30,9 @@ export default async function AddressPage() {
       <section className="max-w-screen-lg mx-auto mt-10 p-5 lg:p-0">
         <Card>
           <CardHeader>
-            <h1 className="text-2xl font-semibold">Detalles del envio</h1>
+            <h1 className={`${titleFont.className} text-2xl font-semibold`}>
+              Detalles del envio
+            </h1>
             <CardDescription>
               ¡Necesitamos saber donde hacerte llegar tu pedido!
             </CardDescription>

@@ -2,6 +2,7 @@
 
 import { changeUserPassword } from '@/actions'
 import { Button, ErrorMessage, Input, Label } from '@/components'
+import { titleFont } from '@/config'
 import type { ChangeUserPassword } from '@/types'
 import { useTransition } from 'react'
 import { useForm } from 'react-hook-form'
@@ -38,7 +39,9 @@ export const ChangePasswordForm = () => {
 
   return (
     <section className="mt-10 max-w-screen-md mx-auto">
-      <h2 className="text-xl font-bold">Cambiar contraseña:</h2>
+      <h2 className={`${titleFont.className} text-xl font-bold`}>
+        Cambiar contraseña:
+      </h2>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="mt-3 space-y-5"

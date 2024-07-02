@@ -1,6 +1,6 @@
 import { getAllProducts } from '@/actions'
 import { Card, CardContent, CardDescription, CardHeader } from '@/components'
-import { fontSans } from '@/config'
+import { titleFont } from '@/config'
 import { formatCurrency } from '@/utils'
 import type { Metadata } from 'next'
 import Image from 'next/image'
@@ -24,7 +24,7 @@ export default async function ShopProductsPage() {
         <Card className="p-10 flex flex-col lg:flex-row gap-y-5 lg:gap-y-0 justify-center items-center">
           <section className="max-w-xl">
             <h1
-              className={`text-2xl md:text-3xl lg:text-5xl font-bold mb-2 ${fontSans.className}`}
+              className={`text-2xl md:text-3xl lg:text-5xl font-bold mb-2 ${titleFont.className}`}
             >
               Ahora la mágia de comprar en un sitio web rapido y seguro
             </h1>
@@ -49,7 +49,7 @@ export default async function ShopProductsPage() {
       </article>
 
       <article>
-        <h2 className={`text-xl font-bold ${fontSans.className} mb-2`}>
+        <h2 className={`text-xl font-bold ${titleFont.className} mb-2`}>
           Nuestros productos
         </h2>
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -57,7 +57,6 @@ export default async function ShopProductsPage() {
             <Link
               key={product.id}
               href={`/shop/product/${product.slug}`}
-              className={fontSans.className}
             >
               <Card>
                 <CardHeader>
@@ -71,7 +70,9 @@ export default async function ShopProductsPage() {
                 </CardHeader>
 
                 <CardContent className="space-y-1">
-                  <h3 className="font-bold">{product.name}</h3>
+                  <h3 className={`${titleFont.className} font-bold`}>
+                    {product.name}
+                  </h3>
 
                   <CardDescription className="truncate">
                     {product.description}

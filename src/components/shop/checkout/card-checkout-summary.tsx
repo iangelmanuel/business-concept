@@ -10,6 +10,7 @@ import {
   CardHeader,
   CardSummaryLoading
 } from '@/components'
+import { titleFont } from '@/config'
 import { useAddressStore, useCartStore } from '@/store'
 import { formatCurrency } from '@/utils'
 import { useRouter } from 'next/navigation'
@@ -65,7 +66,9 @@ export const CardCheckoutSummary = () => {
     <section className="mt-10 order-1 lg:order-2">
       <Card className="md:sticky md:top-0">
         <CardHeader>
-          <h2 className="text-2xl font-bold">Resumen de la compra</h2>
+          <h2 className={`${titleFont.className} text-2xl font-bold`}>
+            Resumen de la compra
+          </h2>
           <CardDescription>
             Por favor, revisa los productos seleccionados antes de proceder al
             pago.
@@ -74,7 +77,9 @@ export const CardCheckoutSummary = () => {
 
         <CardContent>
           <article className="space-y-2">
-            <h3 className="text-lg font-bold mb-3">Dirección de envío</h3>
+            <h3 className={`${titleFont.className} text-lg font-bold mb-3`}>
+              Dirección de envío
+            </h3>
             <section className="mb-3 text-sm sm:text-base">
               <div className="flex justify-between">
                 <p>Recibe:</p>
@@ -130,7 +135,9 @@ export const CardCheckoutSummary = () => {
               )}
             </section>
 
-            <h3 className="text-lg font-bold mb-3">Detalles de Precio</h3>
+            <h3 className={`${titleFont.className} text-lg font-bold mb-3`}>
+              Detalles de Precio
+            </h3>
             <section className="space-y-3 mb-3 text-sm sm:text-base">
               <div className="flex justify-between">
                 <p>Subtotal:</p>

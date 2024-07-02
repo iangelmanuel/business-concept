@@ -13,7 +13,7 @@ import {
 } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { fontSans } from '@/config'
+import { titleFont } from '@/config'
 import { useSession } from 'next-auth/react'
 import { useState, useTransition } from 'react'
 import { toast } from 'sonner'
@@ -48,12 +48,10 @@ export function DeleteUserAccount() {
   return (
     <section className="max-w-screen-md mx-auto flex flex-col sm:flex-row justify-between items-center mt-20">
       <div>
-        <h2 className={`${fontSans.className} text-xl font-bold`}>
+        <h2 className={`${titleFont.className} text-xl font-bold`}>
           Eliminar cuenta
         </h2>
-        <p className={fontSans.className}>
-          Si deseas eliminar tu cuenta, haz clic en el botón.
-        </p>
+        <p>Si deseas eliminar tu cuenta, haz clic en el botón.</p>
       </div>
 
       <div>

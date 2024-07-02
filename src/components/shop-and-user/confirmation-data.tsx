@@ -5,7 +5,7 @@ import {
   CardFooter,
   CardHeader
 } from '@/components'
-import { fontSans } from '@/config'
+import { titleFont } from '@/config'
 import type { EpaycoResponse } from '@/types'
 import { formatCurrency, formatDate } from '@/utils'
 import { CheckCircle, XCircleIcon } from 'lucide-react'
@@ -21,7 +21,7 @@ export const ConfirmationData = ({ dataPayco, refPayco }: Props) => {
     dataPayco.data.x_response_reason_text === 'Aprobada'
 
   return dataPayco.success ? (
-    <article className="max-w-screen-md mx-auto p-5">
+    <article className="max-w-screen-md mx-auto">
       <Card>
         <CardHeader>
           <section className="flex items-center justify-center">
@@ -38,11 +38,15 @@ export const ConfirmationData = ({ dataPayco, refPayco }: Props) => {
             )}
           </section>
 
-          <h1 className="text-3xl font-bold text-center">
+          <h1
+            className={`${titleFont.className} text-3xl font-bold text-center`}
+          >
             {isStatusOk ? 'Transacción Aceptada' : dataPayco.data.x_respuesta}
           </h1>
 
-          <h2 className="text-xl font-bold text-center text-gray-600">
+          <h2
+            className={`${titleFont.className} text-xl font-bold text-center text-gray-600`}
+          >
             Referencia ePayco #{dataPayco.data.x_ref_payco}
           </h2>
 
@@ -53,7 +57,7 @@ export const ConfirmationData = ({ dataPayco, refPayco }: Props) => {
 
         <CardContent>
           <h3
-            className={`text-xl font-bold mb-3 text-center ${fontSans.className}`}
+            className={`text-xl font-bold mb-3 text-center ${titleFont.className}`}
           >
             Medio de pago
           </h3>
@@ -64,24 +68,26 @@ export const ConfirmationData = ({ dataPayco, refPayco }: Props) => {
             </div>
 
             <div className="flex flex-col justify-center items-center">
-              <p className="font-bold">Transacción</p>
+              <p className={`${titleFont.className} font-bold`}>Transacción</p>
               <CardDescription>
                 {dataPayco.data.x_transaction_id}
               </CardDescription>
             </div>
 
             <div className="flex flex-col justify-center items-center">
-              <p className="font-bold">Tarjeta de crédito</p>
+              <p className={`${titleFont.className} font-bold`}>
+                Tarjeta de crédito
+              </p>
               <CardDescription>{dataPayco.data.x_cardnumber}</CardDescription>
             </div>
 
             <div className="flex flex-col justify-center items-center">
-              <p className="font-bold">Cuotas</p>
+              <p className={`${titleFont.className} font-bold`}>Cuotas</p>
               <CardDescription>{dataPayco.data.x_quotas}</CardDescription>
             </div>
 
             <div className="flex flex-col justify-center items-center">
-              <p className="font-bold">Estado</p>
+              <p className={`${titleFont.className} font-bold`}>Estado</p>
               <div className="flex gap-x-1 items-center">
                 {isStatusOk ? (
                   <CheckCircle
@@ -102,30 +108,32 @@ export const ConfirmationData = ({ dataPayco, refPayco }: Props) => {
           </section>
 
           <h3
-            className={`text-xl font-bold mt-8 mb-3 text-center ${fontSans.className}`}
+            className={`text-xl font-bold mt-8 mb-3 text-center ${titleFont.className}`}
           >
             Datos de la compra
           </h3>
           <section className="grid grid-cols-2 gap-5">
             <div className="flex flex-col justify-center items-center">
-              <p className="font-bold">Ref. Comercio</p>
+              <p className={`${titleFont.className} font-bold`}>
+                Ref. Comercio
+              </p>
               <CardDescription>{dataPayco.data.x_ref_payco}</CardDescription>
             </div>
 
             <div className="flex flex-col justify-center items-center">
-              <p className="font-bold">Descripción</p>
+              <p className={`${titleFont.className} font-bold`}>Descripción</p>
               <CardDescription>{dataPayco.data.x_description}</CardDescription>
             </div>
 
             <div className="flex flex-col justify-center items-center">
-              <p className="font-bold">Subtotal</p>
+              <p className={`${titleFont.className} font-bold`}>Subtotal</p>
               <CardDescription>
                 {formatCurrency(dataPayco.data.x_amount)}
               </CardDescription>
             </div>
 
             <div className="flex flex-col justify-center items-center">
-              <p className="font-bold">Valor Total</p>
+              <p className={`${titleFont.className} font-bold`}>Valor Total</p>
               <CardDescription>
                 {formatCurrency(dataPayco.data.x_amount_ok)}
               </CardDescription>
