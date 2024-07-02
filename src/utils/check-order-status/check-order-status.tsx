@@ -2,7 +2,7 @@ import type { UserOrder } from '@/types'
 import type { Order } from '@prisma/client'
 
 export function checkOrderStatus(orderItem: UserOrder | Order) {
-  if (orderItem.isPaid && orderItem.transactionId && orderItem.paidAt) {
+  if (orderItem.isPaid) {
     return 'success'
   }
 
