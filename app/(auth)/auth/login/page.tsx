@@ -5,6 +5,7 @@ import {
   CardHeader,
   CardLoginForm
 } from '@/components'
+import { titleFont } from '@/config'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -36,9 +37,10 @@ export default function LoginPage({
       )}
       <Card className="max-w-screen-sm">
         <CardHeader>
-          <h1 className="text-center text-5xl font-bold">
-            Inicia sesión en{' '}
-            <span className="text-gray-500">Business Concept</span>
+          <h1
+            className={`${titleFont.className} text-center text-5xl font-bold`}
+          >
+            Inicia sesión en Business Concept
           </h1>
           <CardDescription>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro nam
