@@ -20,7 +20,9 @@ export default function RootLayout({
       lang="es"
       suppressHydrationWarning
     >
-      <body className={fontSans.className}>
+      <body
+        className={`${fontSans.className} selection:bg-black selection:dark:bg-white selection:text-white selection:dark:text-black`}
+      >
         <Providers
           attribute="class"
           defaultTheme="system"

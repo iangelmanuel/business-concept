@@ -44,7 +44,7 @@ export default async function PurchasesPage() {
                         {checkOrderStatus(order) === 'success'
                           ? 'Aprobado'
                           : checkOrderStatus(order) === 'pending'
-                            ? 'Pendiente'
+                            ? 'Pendiente de Pago'
                             : 'Rechazado'}
                       </Badge>
                     </div>
@@ -53,7 +53,7 @@ export default async function PurchasesPage() {
 
                 <CardFooter className="flex justify-end items-center">
                   <Link
-                    href={`/dashboard/purchases/order/${order.id}`}
+                    href={`/dashboard/purchases/order?orderId=${order.id}`}
                     className={buttonVariants()}
                   >
                     Ver detalles
