@@ -14,8 +14,7 @@ export const CardLoginForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-    reset
+    formState: { errors }
   } = useForm<LoginUser>({
     defaultValues: DEFAULT_LOGIN_VALUES
   })
@@ -33,7 +32,6 @@ export const CardLoginForm = () => {
           duration: 5000,
           position: 'top-right'
         })
-        reset()
       }
     })
   }
