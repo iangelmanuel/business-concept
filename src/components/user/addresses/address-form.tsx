@@ -102,7 +102,7 @@ export const AddressForm = ({
       id={isAddressExists ? 'update-address' : 'save-address'}
       onSubmit={handleSubmit(onSubmit)}
     >
-      <CardContent className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <CardContent className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <article className="space-y-2">
           <section>
             <Label htmlFor="name">Nombres:</Label>

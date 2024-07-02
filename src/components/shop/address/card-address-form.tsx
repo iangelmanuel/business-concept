@@ -94,7 +94,7 @@ export const CardAddressForm = ({ location }: Props) => {
       noValidate
       onSubmit={handleSubmit(onSubmit)}
     >
-      <CardContent className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <CardContent className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <article className="space-y-2">
           <section>
             <Label htmlFor="name">Nombres:</Label>
@@ -379,7 +379,7 @@ export const CardAddressForm = ({ location }: Props) => {
         </article>
       </CardContent>
 
-      <CardFooter className="flex flex-col gap-y-3 sm:gap-y-0 sm:flex-row items-center justify-between">
+      <CardFooter className="flex flex-col items-center justify-between gap-y-3 sm:flex-row sm:gap-y-0">
         <section className="flex items-center space-x-2">
           <Checkbox
             id="save-address"

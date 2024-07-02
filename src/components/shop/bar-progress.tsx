@@ -71,14 +71,14 @@ export const BarProgress = ({ step }: Props) => {
   }
 
   return (
-    <section className="max-w-screen-2xl mx-auto p-5 2xl:p-0 mt-10 mb-3">
-      <article className="flex justify-between items-center relative text-white">
+    <section className="mx-auto mb-3 mt-10 max-w-screen-2xl p-5 2xl:p-0">
+      <article className="relative flex items-center justify-between text-white">
         <Progress
           value={progress}
-          className="absolute border-b-2 w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10"
+          className="absolute left-1/2 top-1/2 -z-10 w-full -translate-x-1/2 -translate-y-1/2 transform border-b-2"
         />
 
-        <section className="flex gap-2 items-center justify-evenly h-8 w-8 rounded-full ring-2 ring-emerald-500 bg-emerald-500">
+        <section className="flex h-8 w-8 items-center justify-evenly gap-2 rounded-full bg-emerald-500 ring-2 ring-emerald-500">
           <Link href="/shop/cart">
             {step > 1 ? (
               <CircleCheckBig size={24} />
@@ -88,13 +88,13 @@ export const BarProgress = ({ step }: Props) => {
           </Link>
         </section>
 
-        <section className="flex gap-2 items-center justify-evenly h-8 w-8 rounded-full ring-2 ring-emerald-500 bg-emerald-500">
+        <section className="flex h-8 w-8 items-center justify-evenly gap-2 rounded-full bg-emerald-500 ring-2 ring-emerald-500">
           <Link href="/shop/address">
             {step > 2 ? <CircleCheckBig size={24} /> : <MapPinIcon size={24} />}
           </Link>
         </section>
 
-        <section className="flex gap-2 items-center justify-evenly h-8 w-8 rounded-full ring-2 ring-emerald-500 bg-emerald-500">
+        <section className="flex h-8 w-8 items-center justify-evenly gap-2 rounded-full bg-emerald-500 ring-2 ring-emerald-500">
           <Link href="/shop/checkout">
             {step > 3 ? (
               <CircleCheckBig size={24} />
@@ -104,7 +104,7 @@ export const BarProgress = ({ step }: Props) => {
           </Link>
         </section>
 
-        <section className="flex gap-2 items-center justify-evenly h-8 w-8 rounded-full ring-2 ring-emerald-500 bg-emerald-500">
+        <section className="flex h-8 w-8 items-center justify-evenly gap-2 rounded-full bg-emerald-500 ring-2 ring-emerald-500">
           <Link href="/dashboard/purchases">
             {step > 4 ? (
               <CircleCheckBig size={24} />
@@ -114,7 +114,7 @@ export const BarProgress = ({ step }: Props) => {
           </Link>
         </section>
 
-        <section className="flex gap-2 items-center justify-evenly h-8 w-8 rounded-full ring-2 ring-emerald-500 bg-emerald-500">
+        <section className="flex h-8 w-8 items-center justify-evenly gap-2 rounded-full bg-emerald-500 ring-2 ring-emerald-500">
           <Link href="/dashboard/purchases">
             {step > 5 ? (
               <CircleCheckBig size={24} />

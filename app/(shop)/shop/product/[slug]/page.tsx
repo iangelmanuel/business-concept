@@ -48,7 +48,7 @@ export default async function ProductSlugPage({
   const { product } = await getProductBySlug(slug)
   if (!product) notFound()
   return (
-    <section className="flex flex-col sm:flex-row justify-center items-center min-h-screen max-w-screen-2xl mx-auto p-5 2xl:p-0">
+    <section className="mx-auto flex min-h-screen max-w-screen-2xl flex-col items-center justify-center p-5 sm:flex-row 2xl:p-0">
       <article className="mx-auto w-full">
         <Link href="/shop/products">
           <Undo2 size={26} />
@@ -64,7 +64,7 @@ export default async function ProductSlugPage({
 
       <Card className="mx-auto w-full">
         <CardHeader>
-          <article className="flex justify-between items-center">
+          <article className="flex items-center justify-between">
             <section>
               <h1 className={`${titleFont.className} text-xl font-bold`}>
                 {product.name}
@@ -78,7 +78,7 @@ export default async function ProductSlugPage({
             </section>
           </article>
 
-          <article className="flex justify-between items-center">
+          <article className="flex items-center justify-between">
             <section className="flex items-center justify-start gap-2">
               <Package size={24} />
               <span>{product.stock}</span>

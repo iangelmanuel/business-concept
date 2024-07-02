@@ -83,11 +83,11 @@ export const CardAddressUser = ({ location, addressDb }: Props) => {
 
   return (
     <>
-      <article className="grid grid-cols-1 sm:grid-cols-2 p-5 gap-3">
+      <article className="grid grid-cols-1 gap-3 p-5 sm:grid-cols-2">
         {addressDb.map((address) => (
           <Card
             key={address.id}
-            className="hover:border-gray-400 cursor-pointer"
+            className="cursor-pointer hover:border-gray-400"
           >
             <div onClick={() => handleClickSelect(address)}>
               <CardHeader>
@@ -115,7 +115,7 @@ export const CardAddressUser = ({ location, addressDb }: Props) => {
                 <AlertDialogTrigger asChild>
                   <Button
                     variant="ghost"
-                    className="flex gap-2 items-center text-gray-500 text-xs"
+                    className="flex items-center gap-2 text-xs text-gray-500"
                   >
                     <TrashIcon size={16} />
                     Eliminar Dirección

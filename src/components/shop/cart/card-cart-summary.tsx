@@ -46,7 +46,7 @@ export const CardCartSummary = () => {
     <section className="order-1 lg:order-2">
       <Card className="md:sticky md:top-0">
         <CardHeader>
-          <h2 className={`${titleFont.className} text-xl font-bold mb-3`}>
+          <h2 className={`${titleFont.className} mb-3 text-xl font-bold`}>
             Resumen de la compra ({itemsInCart})
           </h2>
         </CardHeader>

@@ -21,9 +21,9 @@ export default async function UserLayout({
     <main>
       <Header />
 
-      <section className="xl:grid xl:grid-cols-12 gap-10 p-5 2xl:p-0">
+      <section className="gap-10 p-5 xl:grid xl:grid-cols-12 2xl:p-0">
         <UserAside />
-        <Card className="xl:col-span-9 mt-5 p-3 xl:p-10 xl:max-h-[800px] overflow-y-auto">
+        <Card className="mt-5 overflow-y-auto p-3 xl:col-span-9 xl:max-h-[800px] xl:p-10">
           {children}
         </Card>
       </section>

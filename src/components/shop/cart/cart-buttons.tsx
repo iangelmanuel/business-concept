@@ -33,7 +33,7 @@ export const CartButtons = ({ setIsSheetOpen }: Props) => {
       </Button>
     </div>
   ) : (
-    <div className="flex gap-2 justify-center items-center">
+    <div className="flex items-center justify-center gap-2">
       <p className="text-sm">No hay productos en el carrito</p>
       <Button
         onClick={() => {

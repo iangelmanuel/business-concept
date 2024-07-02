@@ -10,7 +10,7 @@ export const CartSheetItems = () => {
   return cart.map((product) => (
     <div
       key={product.id}
-      className="flex gap-x-2 mb-2"
+      className="mb-2 flex gap-x-2"
     >
       <Image
         src={product.image[0].url}

@@ -34,13 +34,13 @@ export default async function CategoryProductPage({
   const { category } = params
   const products = await getProductByCategory(category)
   return (
-    <section className="p-5 2xl:p-0 max-w-screen-2xl mx-auto mt-10">
+    <section className="mx-auto mt-10 max-w-screen-2xl p-5 2xl:p-0">
       <article>
         <h2 className={`text-xl font-bold ${titleFont.className} mb-2`}>
           Productos de la categoria{' '}
           <span className="capitalize">{params.category}</span>
         </h2>
-        <section className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+        <section className="grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {products.map((product) => (
             <Card key={product.id}>
               <CardHeader>
@@ -49,14 +49,14 @@ export default async function CategoryProductPage({
                   alt={`producto ${product.name}`}
                   width={300}
                   height={300}
-                  className="w-80 h-40 object-cover"
+                  className="h-40 w-80 object-cover"
                 />
               </CardHeader>
 
               <CardContent className="space-y-1">
                 <Link
                   href={`/shop/product/${product.slug}`}
-                  className={`hover:underline font-bold ${titleFont.className}`}
+                  className={`font-bold hover:underline ${titleFont.className}`}
                 >
                   {product.name}
                 </Link>

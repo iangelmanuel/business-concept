@@ -75,7 +75,7 @@ export const CardLoginForm = () => {
           )}
         </div>
 
-        <div className="flex justify-end items-center">
+        <div className="flex items-center justify-end">
           <Button disabled={isPeding}>Iniciar Sesión</Button>
         </div>
       </form>

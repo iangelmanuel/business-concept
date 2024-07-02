@@ -17,10 +17,10 @@ export const metadata: Metadata = {
 
 export default function RegisterPage() {
   return (
-    <section className="grid place-content-center min-h-screen">
+    <section className="grid min-h-screen place-content-center">
       <Card className="max-w-screen-sm">
         <CardHeader>
-          <h1 className="text-5xl font-bold text-center">
+          <h1 className="text-center text-5xl font-bold">
             Registrate en{' '}
             <span className="text-gray-500">Business Concept</span>
           </h1>

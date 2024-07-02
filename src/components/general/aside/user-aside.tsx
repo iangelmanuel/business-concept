@@ -8,8 +8,8 @@ import { usePathname } from 'next/navigation'
 export const UserAside = () => {
   const pathname = usePathname()
   return (
-    <aside className="hidden xl:block col-span-2 h-screen border-r sticky top-0">
-      <section className="p-2 space-y-2 mt-5">
+    <aside className="sticky top-0 col-span-2 hidden h-screen border-r xl:block">
+      <section className="mt-5 space-y-2 p-2">
         {dropdownUser.map((item, index) => (
           <Link
             key={index}

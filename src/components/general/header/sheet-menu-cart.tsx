@@ -45,7 +45,7 @@ export const SheetMenuCart = () => {
         <SheetFooter>
           <SheetClose
             asChild
-            className="flex justify-center items-center"
+            className="flex items-center justify-center"
           >
             <CartButtons setIsSheetOpen={setIsSheetOpen} />
           </SheetClose>

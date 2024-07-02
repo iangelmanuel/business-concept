@@ -28,7 +28,7 @@ export const OrderSummary = async ({ order }: Props) => {
 
         <CardContent>
           <article className="space-y-2">
-            <h3 className={`${titleFont.className} text-lg font-bold mb-3`}>
+            <h3 className={`${titleFont.className} mb-3 text-lg font-bold`}>
               Dirección de envío
             </h3>
             <section className="mb-3 text-sm sm:text-base">
@@ -86,10 +86,10 @@ export const OrderSummary = async ({ order }: Props) => {
               )}
             </section>
 
-            <h3 className={`${titleFont.className} text-lg font-bold mb-3`}>
+            <h3 className={`${titleFont.className} mb-3 text-lg font-bold`}>
               Detalles de Precio
             </h3>
-            <section className="space-y-3 mb-3 text-sm sm:text-base">
+            <section className="mb-3 space-y-3 text-sm sm:text-base">
               <div className="flex justify-between">
                 <p>Subtotal:</p>
                 <p>{formatCurrency(order.subtotal)}</p>

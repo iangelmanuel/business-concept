@@ -169,7 +169,7 @@ export const CardRegisterForm = () => {
           )}
         </div>
 
-        <div className="flex justify-end items-center">
+        <div className="flex items-center justify-end">
           <Button disabled={isPending}>Registrarme</Button>
         </div>
       </form>

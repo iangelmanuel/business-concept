@@ -89,7 +89,7 @@ export const AddressUser = ({ location, addressDb }: Props) => {
 
   return (
     <>
-      <article className="grid grid-cols-1 sm:grid-cols-2 p-5 gap-3">
+      <article className="grid grid-cols-1 gap-3 p-5 sm:grid-cols-2">
         {addressDb.map((address) => (
           <Card key={address.id}>
             <CardHeader>
@@ -116,7 +116,7 @@ export const AddressUser = ({ location, addressDb }: Props) => {
                 <DialogTrigger asChild>
                   <Button
                     variant="ghost"
-                    className="flex gap-2 items-center text-gray-500 text-xs"
+                    className="flex items-center gap-2 text-xs text-gray-500"
                   >
                     <Pencil size={16} />
                     Editar Dirección
@@ -153,7 +153,7 @@ export const AddressUser = ({ location, addressDb }: Props) => {
                 <AlertDialogTrigger asChild>
                   <Button
                     variant="ghost"
-                    className="flex gap-2 items-center text-gray-500 text-xs"
+                    className="flex items-center gap-2 text-xs text-gray-500"
                   >
                     <TrashIcon size={16} />
                     Eliminar Dirección

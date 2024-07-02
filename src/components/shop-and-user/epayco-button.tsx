@@ -25,7 +25,7 @@ export const EpaycoButton = ({ order }: Props) => {
       {order.isPaid ? (
         <Badge
           variant="success"
-          className="flex justify-center items-center w-full py-2"
+          className="flex w-full items-center justify-center py-2"
         >
           Aprobado
         </Badge>

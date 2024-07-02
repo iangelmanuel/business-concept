@@ -45,10 +45,10 @@ export const CardCartItems = () => {
   }
 
   return (
-    <Card className="lg:col-span-2 order-2 lg:order-1">
+    <Card className="order-2 lg:order-1 lg:col-span-2">
       {loaded && getTotalItems > 0 && (
         <CardHeader>
-          <h2 className={`${titleFont.className} text-xl font-bold mb-3`}>
+          <h2 className={`${titleFont.className} mb-3 text-xl font-bold`}>
             Mi carrito de compras ({getTotalItems})
           </h2>
         </CardHeader>
@@ -56,7 +56,7 @@ export const CardCartItems = () => {
 
       {loaded && getTotalItems === 0 && (
         <CardHeader>
-          <h2 className={`${titleFont.className} text-xl font-bold mb-3`}>
+          <h2 className={`${titleFont.className} mb-3 text-xl font-bold`}>
             Tu carrito de compras está vacío
           </h2>
           <Link
@@ -76,8 +76,8 @@ export const CardCartItems = () => {
             key={item.id}
             className="p-6"
           >
-            <article className="flex flex-col md:flex-row justify-between items-center">
-              <section className="flex flex-col md:flex-row items-center md:gap-x-5">
+            <article className="flex flex-col items-center justify-between md:flex-row">
+              <section className="flex flex-col items-center md:flex-row md:gap-x-5">
                 <Image
                   src={item.image[0].url}
                   alt={`producto ${item.name}`}
@@ -88,13 +88,13 @@ export const CardCartItems = () => {
                 <div>
                   <Link
                     href={`/shop/product/${item.slug}`}
-                    className={`${titleFont.className} hover:underline font-bold`}
+                    className={`${titleFont.className} font-bold hover:underline`}
                   >
                     {item.name}
                   </Link>
                   <Button
                     variant="ghost"
-                    className="flex gap-x-2 text-gray-500 text-xs"
+                    className="flex gap-x-2 text-xs text-gray-500"
                     onClick={() => removeProductFromCart(item)}
                   >
                     <TrashIcon size={16} />
@@ -127,7 +127,7 @@ export const CardCartItems = () => {
                 </Card>
               </CardContent>
 
-              <CardFooter className="p-0 flex flex-col justify-center items-center">
+              <CardFooter className="flex flex-col items-center justify-center p-0">
                 <section>
                   <p className="font-bold">{formatCurrency(item.price)}</p>
                 </section>
@@ -136,7 +136,7 @@ export const CardCartItems = () => {
                     <p className="text-xs">
                       {formatCurrency(item.price - item.discount * item.price)}
                     </p>
-                    <p className="text-orange-500 text-xs">
+                    <p className="text-xs text-orange-500">
                       {item.discount * 100}%
                     </p>
                   </section>

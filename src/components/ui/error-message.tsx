@@ -1,3 +1,3 @@
 export const ErrorMessage = ({ children }: { children: React.ReactNode }) => {
-  return <span className="text-red-500 text-xs">{children}</span>
+  return <span className="text-xs text-red-500">{children}</span>
 }

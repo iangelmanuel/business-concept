@@ -72,10 +72,10 @@ export const UpdateUserForm = ({ user }: Props) => {
       <form
         onSubmit={handleSubmit(onSubmit)}
         id="update-user"
-        className="grid gap-5 grid-cols-1 lg:grid-cols-2 mt-3"
+        className="mt-3 grid grid-cols-1 gap-5 lg:grid-cols-2"
       >
-        <div className="flex justify-center items-center">
-          <Avatar className="mx-auto w-80 h-80 sm:w-96 sm:h-96">
+        <div className="flex items-center justify-center">
+          <Avatar className="mx-auto h-80 w-80 sm:h-96 sm:w-96">
             <AvatarImage
               src="/images/avatar.jpg"
               alt="avatar"
@@ -176,7 +176,7 @@ export const UpdateUserForm = ({ user }: Props) => {
           </section>
         </div>
       </form>
-      <div className="flex justify-end mt-5">
+      <div className="mt-5 flex justify-end">
         <Button
           type="submit"
           form="update-user"

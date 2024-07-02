@@ -21,7 +21,7 @@ export const ConfirmationData = ({ dataPayco, refPayco }: Props) => {
     dataPayco.data.x_response_reason_text === 'Aprobada'
 
   return dataPayco.success ? (
-    <article className="max-w-screen-md mx-auto">
+    <article className="mx-auto max-w-screen-md">
       <Card>
         <CardHeader>
           <section className="flex items-center justify-center">
@@ -39,13 +39,13 @@ export const ConfirmationData = ({ dataPayco, refPayco }: Props) => {
           </section>
 
           <h1
-            className={`${titleFont.className} text-3xl font-bold text-center`}
+            className={`${titleFont.className} text-center text-3xl font-bold`}
           >
             {isStatusOk ? 'Transacción Aceptada' : dataPayco.data.x_respuesta}
           </h1>
 
           <h2
-            className={`${titleFont.className} text-xl font-bold text-center text-gray-600`}
+            className={`${titleFont.className} text-center text-xl font-bold text-gray-600`}
           >
             Referencia ePayco #{dataPayco.data.x_ref_payco}
           </h2>
@@ -57,38 +57,38 @@ export const ConfirmationData = ({ dataPayco, refPayco }: Props) => {
 
         <CardContent>
           <h3
-            className={`text-xl font-bold mb-3 text-center ${titleFont.className}`}
+            className={`mb-3 text-center text-xl font-bold ${titleFont.className}`}
           >
             Medio de pago
           </h3>
           <section className="grid grid-cols-2 gap-5">
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col items-center justify-center">
               <p className="font-bold">Banco</p>
               <CardDescription>{dataPayco.data.x_bank_name}</CardDescription>
             </div>
 
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col items-center justify-center">
               <p className={`${titleFont.className} font-bold`}>Transacción</p>
               <CardDescription>
                 {dataPayco.data.x_transaction_id}
               </CardDescription>
             </div>
 
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col items-center justify-center">
               <p className={`${titleFont.className} font-bold`}>
                 Tarjeta de crédito
               </p>
               <CardDescription>{dataPayco.data.x_cardnumber}</CardDescription>
             </div>
 
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col items-center justify-center">
               <p className={`${titleFont.className} font-bold`}>Cuotas</p>
               <CardDescription>{dataPayco.data.x_quotas}</CardDescription>
             </div>
 
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col items-center justify-center">
               <p className={`${titleFont.className} font-bold`}>Estado</p>
-              <div className="flex gap-x-1 items-center">
+              <div className="flex items-center gap-x-1">
                 {isStatusOk ? (
                   <CheckCircle
                     className="text-green-500"
@@ -108,31 +108,31 @@ export const ConfirmationData = ({ dataPayco, refPayco }: Props) => {
           </section>
 
           <h3
-            className={`text-xl font-bold mt-8 mb-3 text-center ${titleFont.className}`}
+            className={`mb-3 mt-8 text-center text-xl font-bold ${titleFont.className}`}
           >
             Datos de la compra
           </h3>
           <section className="grid grid-cols-2 gap-5">
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col items-center justify-center">
               <p className={`${titleFont.className} font-bold`}>
                 Ref. Comercio
               </p>
               <CardDescription>{dataPayco.data.x_ref_payco}</CardDescription>
             </div>
 
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col items-center justify-center">
               <p className={`${titleFont.className} font-bold`}>Descripción</p>
               <CardDescription>{dataPayco.data.x_description}</CardDescription>
             </div>
 
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col items-center justify-center">
               <p className={`${titleFont.className} font-bold`}>Subtotal</p>
               <CardDescription>
                 {formatCurrency(dataPayco.data.x_amount)}
               </CardDescription>
             </div>
 
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col items-center justify-center">
               <p className={`${titleFont.className} font-bold`}>Valor Total</p>
               <CardDescription>
                 {formatCurrency(dataPayco.data.x_amount_ok)}
@@ -141,25 +141,22 @@ export const ConfirmationData = ({ dataPayco, refPayco }: Props) => {
           </section>
         </CardContent>
 
-        <CardFooter className="flex justify-center items-center">
-          <CardDescription className="text-xs text-center">
+        <CardFooter className="flex items-center justify-center">
+          <CardDescription className="text-center text-xs">
             Número de referencia: {refPayco}
           </CardDescription>
         </CardFooter>
       </Card>
     </article>
   ) : (
-    <article className="max-w-screen-md mx-auto p-5">
+    <article className="mx-auto max-w-screen-md p-5">
       <Card>
         <CardHeader>
           <XCircleIcon
             className="text-red-500"
             size={100}
           />
-          <h1
-            className="text-3xl font-bold text-center
-            text-red-500"
-          >
+          <h1 className="text-center text-3xl font-bold text-red-500">
             {dataPayco.title_response}
           </h1>
         </CardHeader>

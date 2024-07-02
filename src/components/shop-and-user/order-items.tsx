@@ -18,9 +18,9 @@ type Props = {
 
 export const OrderItems = ({ order }: Props) => {
   return (
-    <Card className="lg:col-span-2 order-2 lg:order-1">
+    <Card className="order-2 lg:order-1 lg:col-span-2">
       <CardHeader>
-        <section className="flex justify-between items-center">
+        <section className="flex items-center justify-between">
           <h2 className={`${titleFont.className} text-2xl font-bold`}>
             Detalles del resumen de la compra
           </h2>
@@ -38,7 +38,7 @@ export const OrderItems = ({ order }: Props) => {
           Por favor, revisa los detalles de tu compra antes de proceder al pago.
         </CardDescription>
 
-        <section className="flex justify-between items-center mt-4">
+        <section className="mt-4 flex items-center justify-between">
           {order.transactionId && (
             <p className="font-bold">Código de Rastreo del pedido:</p>
           )}
@@ -57,15 +57,15 @@ export const OrderItems = ({ order }: Props) => {
       <CardContent>
         <section className="mt-4 space-y-3">
           <div>
-            <h3 className={`${titleFont.className} text-lg font-bold mb-3`}>
+            <h3 className={`${titleFont.className} mb-3 text-lg font-bold`}>
               Productos
             </h3>
             <ul className="space-y-3">
               {order.OrderItem.map((item) => (
                 <li key={item.product.slug}>
                   <Card className="p-6">
-                    <section className="flex flex-col md:flex-row justify-between items-center">
-                      <article className="flex flex-col md:flex-row items-center md:gap-x-5">
+                    <section className="flex flex-col items-center justify-between md:flex-row">
+                      <article className="flex flex-col items-center md:flex-row md:gap-x-5">
                         <Image
                           src={item.product.productImage[0].url}
                           alt={`producto ${item.product.name}`}
@@ -76,14 +76,14 @@ export const OrderItems = ({ order }: Props) => {
                         <div>
                           <Link
                             href={`/shop/product/${item.product.slug}`}
-                            className={`${titleFont.className} hover:underline font-bold`}
+                            className={`${titleFont.className} font-bold hover:underline`}
                           >
                             {item.product.name}
                           </Link>
                         </div>
                       </article>
 
-                      <CardContent className="p-0 flex flex-col justify-center items-center">
+                      <CardContent className="flex flex-col items-center justify-center p-0">
                         <section>
                           <p className="font-bold">
                             {formatCurrency(item.price)}

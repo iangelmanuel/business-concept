@@ -9,7 +9,7 @@ import Link from 'next/link'
 
 export const Header = async () => {
   return (
-    <header className="flex justify-between items-center lg:px-7 py-1.5 w-full border-b">
+    <header className="flex w-full items-center justify-between border-b py-1.5 lg:px-7">
       <section className="flex items-center gap-x-2">
         <Link
           href="/"
@@ -22,7 +22,7 @@ export const Header = async () => {
             height={45}
           />
           <span
-            className={`${titleFont.className} hidden md:block text-xl font-bold`}
+            className={`${titleFont.className} hidden text-xl font-bold md:block`}
           >
             Business Concept
           </span>

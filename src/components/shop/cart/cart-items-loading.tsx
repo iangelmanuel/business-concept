@@ -10,9 +10,9 @@ const cart = [1, 2, 3, 4, 5]
 
 export const CartItemsLoading = () => {
   return (
-    <Card className="lg:col-span-2 mt-10 order-2 lg:order-1">
+    <Card className="order-2 mt-10 lg:order-1 lg:col-span-2">
       <CardHeader>
-        <Skeleton className="h-5 w-3/4 mb-3" />
+        <Skeleton className="mb-3 h-5 w-3/4" />
       </CardHeader>
 
       <CardContent className="space-y-5">
@@ -21,12 +21,12 @@ export const CartItemsLoading = () => {
             key={item}
             className="p-6"
           >
-            <article className="flex flex-col md:flex-row justify-between items-center">
-              <section className="flex flex-col md:flex-row items-center md:gap-x-5">
+            <article className="flex flex-col items-center justify-between md:flex-row">
+              <section className="flex flex-col items-center md:flex-row md:gap-x-5">
                 <Skeleton className="h-16 w-16" />
                 <div>
-                  <Skeleton className="h-5 w-full mb-3" />
-                  <div className="flex gap-x-2 text-gray-500 text-xs">
+                  <Skeleton className="mb-3 h-5 w-full" />
+                  <div className="flex gap-x-2 text-xs text-gray-500">
                     <Skeleton className="h-5 w-5 rounded-full" />
                     <Skeleton className="h-5 w-20" />
                   </div>
@@ -41,7 +41,7 @@ export const CartItemsLoading = () => {
                 </Card>
               </CardContent>
 
-              <CardFooter className="p-0 flex flex-col justify-center items-center">
+              <CardFooter className="flex flex-col items-center justify-center p-0">
                 <section className="mb-3">
                   <Skeleton className="h-5 w-20" />
                 </section>

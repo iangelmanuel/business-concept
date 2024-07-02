@@ -8,78 +8,78 @@ import {
 
 export const CardSummaryLoading = () => {
   return (
-    <article className="mt-10 order-1 lg:order-2">
+    <article className="order-1 mt-10 lg:order-2">
       <Card className="md:sticky md:top-0">
         <CardHeader>
-          <Skeleton className="w-40 h-5" />
-          <Skeleton className="w-80 h-5" />
+          <Skeleton className="h-5 w-40" />
+          <Skeleton className="h-5 w-80" />
         </CardHeader>
 
         <CardContent>
           <article className="flex flex-col">
-            <Skeleton className="w-40 h-5 mb-3" />
+            <Skeleton className="mb-3 h-5 w-40" />
             <section className="mb-3">
-              <div className="flex justify-between mb-2">
-                <Skeleton className="w-16 h-5" />
-                <Skeleton className="w-28 h-5" />
+              <div className="mb-2 flex justify-between">
+                <Skeleton className="h-5 w-16" />
+                <Skeleton className="h-5 w-28" />
               </div>
 
-              <div className="flex justify-between mb-2">
-                <Skeleton className="w-24 h-5" />
-                <Skeleton className="w-36 h-5" />
+              <div className="mb-2 flex justify-between">
+                <Skeleton className="h-5 w-24" />
+                <Skeleton className="h-5 w-36" />
               </div>
 
-              <div className="flex justify-between mb-2">
-                <Skeleton className="w-24 h-5" />
-                <Skeleton className="w-28 h-5" />
+              <div className="mb-2 flex justify-between">
+                <Skeleton className="h-5 w-24" />
+                <Skeleton className="h-5 w-28" />
               </div>
 
-              <div className="flex justify-between mb-2">
-                <Skeleton className="w-28 h-5" />
-                <Skeleton className="w-36 h-5" />
+              <div className="mb-2 flex justify-between">
+                <Skeleton className="h-5 w-28" />
+                <Skeleton className="h-5 w-36" />
               </div>
 
-              <div className="flex justify-between mb-2">
-                <Skeleton className="w-20 h-5" />
-                <Skeleton className="w-28 h-5" />
+              <div className="mb-2 flex justify-between">
+                <Skeleton className="h-5 w-20" />
+                <Skeleton className="h-5 w-28" />
               </div>
 
-              <div className="flex justify-between mb-2">
-                <Skeleton className="w-36 h-5" />
-                <Skeleton className="w-36 h-5" />
+              <div className="mb-2 flex justify-between">
+                <Skeleton className="h-5 w-36" />
+                <Skeleton className="h-5 w-36" />
               </div>
 
-              <div className="flex justify-between mb-2">
-                <Skeleton className="w-28 h-5" />
-                <Skeleton className="w-28 h-5" />
+              <div className="mb-2 flex justify-between">
+                <Skeleton className="h-5 w-28" />
+                <Skeleton className="h-5 w-28" />
               </div>
 
-              <div className="flex justify-between mb-2">
-                <Skeleton className="w-36 h-5" />
-                <Skeleton className="w-36 h-5" />
+              <div className="mb-2 flex justify-between">
+                <Skeleton className="h-5 w-36" />
+                <Skeleton className="h-5 w-36" />
               </div>
             </section>
 
-            <Skeleton className="w-40 h-5 mb-3" />
+            <Skeleton className="mb-3 h-5 w-40" />
             <section className="space-y-3">
               <div className="flex justify-between">
-                <Skeleton className="w-24 h-5" />
-                <Skeleton className="w-28 h-5" />
+                <Skeleton className="h-5 w-24" />
+                <Skeleton className="h-5 w-28" />
               </div>
 
               <div className="flex justify-between">
-                <Skeleton className="w-28 h-5" />
-                <Skeleton className="w-24 h-5" />
+                <Skeleton className="h-5 w-28" />
+                <Skeleton className="h-5 w-24" />
               </div>
 
               <div className="flex justify-between">
-                <Skeleton className="w-24 h-5" />
-                <Skeleton className="w-28 h-5" />
+                <Skeleton className="h-5 w-24" />
+                <Skeleton className="h-5 w-28" />
               </div>
 
               <div className="flex justify-between">
-                <Skeleton className="w-20 h-5" />
-                <Skeleton className="w-24 h-5" />
+                <Skeleton className="h-5 w-20" />
+                <Skeleton className="h-5 w-24" />
               </div>
             </section>
           </article>

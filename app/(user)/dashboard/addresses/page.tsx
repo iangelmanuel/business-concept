@@ -22,10 +22,10 @@ export default async function AddressesPage() {
   const location = await getLocationData()
   return (
     <article>
-      <h1 className={`${titleFont.className} text-2xl font-bold mb-3`}>
+      <h1 className={`${titleFont.className} mb-3 text-2xl font-bold`}>
         Detalles del envio
       </h1>
-      <section className="max-w-screen-lg mx-auto p-5 lg:p-0">
+      <section className="mx-auto max-w-screen-lg p-5 lg:p-0">
         <Card>
           <CardHeader>
             <CardDescription>

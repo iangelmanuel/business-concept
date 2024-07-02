@@ -26,11 +26,11 @@ export default async function PurchasesPage() {
     <article>
       {orders.length !== 0 ? (
         <>
-          <h1 className={`${titleFont.className} text-2xl font-bold mb-3`}>
+          <h1 className={`${titleFont.className} mb-3 text-2xl font-bold`}>
             Mis compras
           </h1>
 
-          <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-5">
+          <section className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4">
             {orders.map((order) => (
               <Card key={order.id}>
                 <CardHeader className="flex">
@@ -67,7 +67,7 @@ export default async function PurchasesPage() {
                   </section>
                 </CardContent>
 
-                <CardFooter className="flex justify-end items-center">
+                <CardFooter className="flex items-center justify-end">
                   <Link
                     href={`/dashboard/purchases/order?orderId=${order.id}`}
                     className={buttonVariants()}

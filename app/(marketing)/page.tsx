@@ -1,11 +1,11 @@
+import type { Metadata } from 'next'
+import Image from 'next/image'
+import Link from 'next/link'
 import { getAllProducts } from '@/actions'
 import { Card, CardContent, CardDescription } from '@/components/ui/card'
 import { titleFont } from '@/config'
 import type { ProductType } from '@/types'
 import { formatCurrency } from '@/utils'
-import type { Metadata } from 'next'
-import Image from 'next/image'
-import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Business Concept - Tienda Online',
@@ -33,7 +33,7 @@ export default async function HomePage() {
   return (
     <>
       <section className="relative">
-        <article className="absolute z-10 w-full h-screen flex flex-col sm:flex-row p-5 xl:p-0 justify-center items-center">
+        <article className="absolute z-10 flex h-screen w-full flex-col items-center justify-center p-5 sm:flex-row xl:p-0">
           <Image
             src="/logo.png"
             alt="Business Concept"
@@ -44,11 +44,11 @@ export default async function HomePage() {
 
           <div className="max-w-screen-sm">
             <h1
-              className={`${titleFont.className} text-3xl text-center sm:text-start lg:text-6xl font-bold text-purple-700`}
+              className={`${titleFont.className} text-center text-3xl font-bold text-purple-700 sm:text-start lg:text-6xl`}
             >
               Bienvenido a Business Concept
             </h1>
-            <p className="text-lg text-center sm:text-start lg:text-2xl font-bold">
+            <p className="text-center text-lg font-bold sm:text-start lg:text-2xl">
               Tu tienda online de productos tecnológicos y de oficina de
               confianza
             </p>
@@ -62,22 +62,22 @@ export default async function HomePage() {
             width={1920}
             height={1080}
             quality={100}
-            className="w-full h-screen object-cover opacity-35 dark:opacity-45"
+            className="h-screen w-full object-cover opacity-35 dark:opacity-45"
           />
         </article>
       </section>
 
-      <section className="space-y-20 mx-auto max-w-screen-2xl mt-10">
+      <section className="mx-auto mt-10 max-w-screen-2xl space-y-20">
         {Object.entries(categorizedProducts).map(
           ([category, productsOrder]) => (
             <article key={category}>
               <h2
-                className={`${titleFont.className} text-lg lg:text-4xl text-center font-bold mb-5 capitalize`}
+                className={`${titleFont.className} mb-5 text-center text-lg font-bold capitalize lg:text-4xl`}
               >
                 {category}
               </h2>
 
-              <section className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 place-content-center items-center p-5 lg:p-0">
+              <section className="grid grid-cols-2 place-content-center items-center gap-3 p-5 sm:grid-cols-3 lg:grid-cols-5 lg:p-0">
                 {productsOrder.map((productOrder) => (
                   <Card key={productOrder.id}>
                     <Image
@@ -85,10 +85,10 @@ export default async function HomePage() {
                       alt={`${productOrder.name}`}
                       width={1000}
                       height={1000}
-                      className="w-60 h-40 mx-auto object-cover rounded-lg"
+                      className="mx-auto h-40 w-60 rounded-lg object-cover"
                     />
                     <Link href={`/shop/product/${productOrder.slug}`}>
-                      <CardContent className="text-xl font-bold text-center">
+                      <CardContent className="text-center text-xl font-bold">
                         <h3 className={titleFont.className}>
                           {productOrder.name}
                         </h3>

@@ -47,7 +47,7 @@ export const AddProductCart = ({ product }: Props) => {
   return (
     <CardContent>
       <p>Elija una cantidad:</p>
-      <div className="flex justify-between items-center border mb-2">
+      <div className="mb-2 flex items-center justify-between border">
         <Button
           variant="ghost"
           onClick={handleSubtractAmount}

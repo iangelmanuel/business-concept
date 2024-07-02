@@ -46,7 +46,7 @@ export function DeleteUserAccount() {
   }
 
   return (
-    <section className="max-w-screen-md mx-auto flex flex-col sm:flex-row justify-between items-center mt-20">
+    <section className="mx-auto mt-20 flex max-w-screen-md flex-col items-center justify-between sm:flex-row">
       <div>
         <h2 className={`${titleFont.className} text-xl font-bold`}>
           Eliminar cuenta
@@ -69,7 +69,7 @@ export function DeleteUserAccount() {
                 Si deseas eliminar la cuenta sigue las siguientes instrucciones.
               </DialogDescription>
             </DialogHeader>
-            <div className="flex flex-col mb-5">
+            <div className="mb-5 flex flex-col">
               <Label
                 htmlFor="email-confirmer"
                 className="mb-2"

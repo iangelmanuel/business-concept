@@ -19,12 +19,12 @@ export default async function ShopProductsPage() {
   if (!products) return notFound()
 
   return (
-    <section className="p-5 2xl:p-0 max-w-screen-2xl mx-auto mt-10">
+    <section className="mx-auto mt-10 max-w-screen-2xl p-5 2xl:p-0">
       <article className="mb-10">
-        <Card className="p-10 flex flex-col lg:flex-row gap-y-5 lg:gap-y-0 justify-center items-center">
+        <Card className="flex flex-col items-center justify-center gap-y-5 p-10 lg:flex-row lg:gap-y-0">
           <section className="max-w-xl">
             <h1
-              className={`text-2xl md:text-3xl lg:text-5xl font-bold mb-2 ${titleFont.className}`}
+              className={`mb-2 text-2xl font-bold md:text-3xl lg:text-5xl ${titleFont.className}`}
             >
               Ahora la mágia de comprar en un sitio web rapido y seguro
             </h1>
@@ -52,7 +52,7 @@ export default async function ShopProductsPage() {
         <h2 className={`text-xl font-bold ${titleFont.className} mb-2`}>
           Nuestros productos
         </h2>
-        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <section className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {products.map((product) => (
             <Link
               key={product.id}

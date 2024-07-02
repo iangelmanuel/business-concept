@@ -25,7 +25,7 @@ export default function LoginPage({
 
   const isRegistered = !!registered
   return (
-    <section className="grid place-content-center min-h-screen">
+    <section className="grid min-h-screen place-content-center">
       {isRegistered && (
         <AlertMessage
           variant="success"
@@ -36,7 +36,7 @@ export default function LoginPage({
       )}
       <Card className="max-w-screen-sm">
         <CardHeader>
-          <h1 className="text-5xl font-bold text-center">
+          <h1 className="text-center text-5xl font-bold">
             Inicia sesión en{' '}
             <span className="text-gray-500">Business Concept</span>
           </h1>
