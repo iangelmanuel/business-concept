@@ -24,3 +24,6 @@ export { deleteUserAccount } from './user/delete-user-account'
 export { placeOrder } from './order/place-order'
 export { getOrdersByUser } from './order/get-order-by-user'
 export { getOrderById } from './order/get-order-by-id'
+
+export { getRefPaycoData } from './epayco/get-ref-epayco'
+export { saveRefEpayco } from './epayco/save-ref-epayco'
