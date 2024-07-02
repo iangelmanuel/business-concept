@@ -18,11 +18,17 @@
   "tabWidth": 2,
   "useTabs": false,
   "embeddedLanguageFormatting": "auto",
-  "plugins": [
-    "@trivago/prettier-plugin-sort-imports",
-    "prettier-plugin-tailwindcss"
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "importOrder": [
+    "^react$",
+    "^next",
+    "^next/(.*)$",
+    "^@/(.*)$",
+    "^@(.*)/types$",
+    "^[a-z]",
+    "^\\./",
+    "^.+\\.css$"
   ],
-  "importOrder": ["^@core/(.*)$", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
-  "importOrderSeparation": true,
+  "importOrderSeparation": false,
   "importOrderSortSpecifiers": true
 }
