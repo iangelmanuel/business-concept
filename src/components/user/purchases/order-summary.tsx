@@ -1,20 +1,15 @@
-import {
-  Badge,
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader
-} from '@/components'
+import { Card, CardContent, CardDescription, CardHeader } from '@/components'
 import type { UserOrder } from '@/types'
-import { checkOrderStatus, formatCurrency } from '@/utils'
+import { formatCurrency } from '@/utils'
 import { notFound } from 'next/navigation'
+
+import { EpaycoButton } from './epayco-button'
 
 type Props = {
   order: UserOrder
 }
 
-export const OrderSummary = ({ order }: Props) => {
+export const OrderSummary = async ({ order }: Props) => {
   const address = order.OrderAddress
   if (!address) return notFound()
   return (
@@ -106,18 +101,7 @@ export const OrderSummary = ({ order }: Props) => {
           </article>
         </CardContent>
 
-        <CardFooter>
-          <Badge
-            variant={checkOrderStatus(order)}
-            className="w-full flex justify-center items-center py-2"
-          >
-            {checkOrderStatus(order) === 'success'
-              ? 'Pago Completado'
-              : checkOrderStatus(order) === 'pending'
-                ? 'Pendiente de Pago'
-                : 'Pago Rechazado'}
-          </Badge>
-        </CardFooter>
+        <EpaycoButton order={order} />
       </Card>
     </section>
   )

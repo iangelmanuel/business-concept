@@ -1,7 +1,9 @@
 'use client'
 
 import { Progress } from '@/components'
+import { useAddressStore, useCartStore } from '@/store'
 import {
+  CalendarCheck,
   CircleCheckBig,
   CreditCardIcon,
   MapPinIcon,
@@ -25,12 +27,20 @@ export const BarProgress = ({ step }: Props) => {
       : pathname === '/shop/address'
         ? 0
         : pathname === '/shop/checkout'
-          ? 38
+          ? 25
           : pathname === '/shop/payment'
-            ? 66
-            : 0
+            ? 50
+            : pathname === '/shop/confirmation'
+              ? 100
+              : 0
 
   const [progress, setProgress] = useState(initialProgress)
+
+  const cart = useCartStore((state) => state.cart)
+  const clearCart = useCartStore((state) => state.clearCart)
+
+  const address = useAddressStore((state) => state.address)
+  const clearAddress = useAddressStore((state) => state.clearAddress)
 
   useEffect(() => {
     switch (step) {
@@ -38,19 +48,27 @@ export const BarProgress = ({ step }: Props) => {
         setTimeout(() => setProgress(0), 500)
         break
       case 2:
-        setTimeout(() => setProgress(34), 500)
+        setTimeout(() => setProgress(25), 500)
         break
       case 3:
-        setTimeout(() => setProgress(66), 500)
+        setTimeout(() => setProgress(50), 500)
         break
       case 4:
-        setTimeout(() => setProgress(100), 500)
+        setTimeout(() => setProgress(75), 500)
         break
       default:
-        setTimeout(() => setProgress(0), 500)
+        setTimeout(() => setProgress(100), 500)
         break
     }
   }, [step, pathname])
+
+  const isAddressEmpty = Object.keys(address).length === 0
+  const isCartEmpty = cart.length === 0
+
+  if (!isCartEmpty && !isAddressEmpty && pathname === '/shop/payment') {
+    clearCart()
+    clearAddress()
+  }
 
   return (
     <section className="max-w-screen-2xl mx-auto p-5 2xl:p-0 mt-10 mb-3">
@@ -92,6 +110,16 @@ export const BarProgress = ({ step }: Props) => {
               <CircleCheckBig size={24} />
             ) : (
               <CreditCardIcon size={24} />
+            )}
+          </Link>
+        </section>
+
+        <section className="flex gap-2 items-center justify-evenly h-8 w-8 rounded-full ring-2 ring-emerald-500 bg-emerald-500">
+          <Link href="/dashboard/purchases">
+            {step > 5 ? (
+              <CircleCheckBig size={24} />
+            ) : (
+              <CalendarCheck size={24} />
             )}
           </Link>
         </section>

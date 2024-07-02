@@ -3,7 +3,8 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardHeader
+  CardHeader,
+  buttonVariants
 } from '@/components'
 import type { UserOrder } from '@/types'
 import { checkOrderStatus, formatCurrency } from '@/utils'
@@ -26,7 +27,7 @@ export const OrderItems = ({ order }: Props) => {
             {checkOrderStatus(order) === 'success'
               ? 'Aprobado'
               : checkOrderStatus(order) === 'pending'
-                ? 'Pendiente'
+                ? 'Pendiente de Pago'
                 : 'Rechazado'}
           </Badge>
         </section>
@@ -34,6 +35,21 @@ export const OrderItems = ({ order }: Props) => {
         <CardDescription>
           Por favor, revisa los detalles de tu compra antes de proceder al pago.
         </CardDescription>
+
+        <section className="flex justify-between items-center mt-4">
+          {order.transactionId && (
+            <p className="font-bold">Código de Rastreo del pedido:</p>
+          )}
+
+          {order.transactionId && (
+            <Link
+              href={`/dashboard/purchases/order/${order.transactionId}`}
+              className={buttonVariants()}
+            >
+              Ver factura
+            </Link>
+          )}
+        </section>
       </CardHeader>
 
       <CardContent>
