@@ -13,7 +13,7 @@ type Props = {
 export const EpaycoButton = ({ order }: Props) => {
   useEffect(() => {
     const btnpay = document.getElementsByClassName('epayco-button-render')
-    if (btnpay) {
+    if (btnpay !== null && btnpay.length > 0) {
       setTimeout(() => {
         btnpay[0].setAttribute('id', 'epayco-pay')
       }, 1000)

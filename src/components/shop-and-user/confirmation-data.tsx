@@ -24,7 +24,7 @@ export const ConfirmationData = ({ dataPayco, refPayco }: Props) => {
     <article className="max-w-screen-md mx-auto p-5">
       <Card>
         <CardHeader>
-          <div className="flex items-center justify-center">
+          <section className="flex items-center justify-center">
             {isStatusOk ? (
               <CheckCircle
                 className="text-green-500"
@@ -36,7 +36,7 @@ export const ConfirmationData = ({ dataPayco, refPayco }: Props) => {
                 size={100}
               />
             )}
-          </div>
+          </section>
 
           <h1 className="text-3xl font-bold text-center">
             {isStatusOk ? 'Transacción Aceptada' : dataPayco.data.x_respuesta}

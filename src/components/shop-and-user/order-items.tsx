@@ -23,6 +23,7 @@ export const OrderItems = ({ order }: Props) => {
           <h2 className="text-2xl font-bold">
             Detalles del resumen de la compra
           </h2>
+
           <Badge variant={checkOrderStatus(order)}>
             {checkOrderStatus(order) === 'success'
               ? 'Aprobado'
@@ -53,48 +54,46 @@ export const OrderItems = ({ order }: Props) => {
       </CardHeader>
 
       <CardContent>
-        <article>
-          <section className="mt-4 space-y-3">
-            <div>
-              <h3 className="text-lg font-bold mb-3">Productos</h3>
-              <ul className="space-y-3">
-                {order.OrderItem.map((item) => (
-                  <li key={item.product.slug}>
-                    <Card className="p-6">
-                      <section className="flex flex-col md:flex-row justify-between items-center">
-                        <article className="flex flex-col md:flex-row items-center md:gap-x-5">
-                          <Image
-                            src={item.product.productImage[0].url}
-                            alt={`producto ${item.product.name}`}
-                            width={70}
-                            height={50}
-                            className="object-cover"
-                          />
-                          <div>
-                            <Link
-                              href={`/shop/product/${item.product.slug}`}
-                              className="hover:underline"
-                            >
-                              {item.product.name}
-                            </Link>
-                          </div>
-                        </article>
+        <section className="mt-4 space-y-3">
+          <div>
+            <h3 className="text-lg font-bold mb-3">Productos</h3>
+            <ul className="space-y-3">
+              {order.OrderItem.map((item) => (
+                <li key={item.product.slug}>
+                  <Card className="p-6">
+                    <section className="flex flex-col md:flex-row justify-between items-center">
+                      <article className="flex flex-col md:flex-row items-center md:gap-x-5">
+                        <Image
+                          src={item.product.productImage[0].url}
+                          alt={`producto ${item.product.name}`}
+                          width={70}
+                          height={50}
+                          className="object-cover"
+                        />
+                        <div>
+                          <Link
+                            href={`/shop/product/${item.product.slug}`}
+                            className="hover:underline"
+                          >
+                            {item.product.name}
+                          </Link>
+                        </div>
+                      </article>
 
-                        <CardContent className="p-0 flex flex-col justify-center items-center">
-                          <section>
-                            <p className="font-bold">
-                              {formatCurrency(item.price)}
-                            </p>
-                          </section>
-                        </CardContent>
-                      </section>
-                    </Card>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
-        </article>
+                      <CardContent className="p-0 flex flex-col justify-center items-center">
+                        <section>
+                          <p className="font-bold">
+                            {formatCurrency(item.price)}
+                          </p>
+                        </section>
+                      </CardContent>
+                    </section>
+                  </Card>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
       </CardContent>
     </Card>
   )
