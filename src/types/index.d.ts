@@ -11,3 +11,5 @@ export * from './data/navigation-items'
 export * from './category/category'
 
 export * from './order/order'
+
+export * from './epayco/epayco'
