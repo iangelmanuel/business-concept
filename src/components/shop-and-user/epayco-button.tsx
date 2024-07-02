@@ -59,10 +59,10 @@ export const EpaycoButton = ({ order }: Props) => {
               data-epayco-country="CO"
               data-epayco-test="true"
               data-epayco-external="false"
-              data-epayco-response=""
-              data-epayco-confirmation="https://10b4-181-236-155-150.ngrok-free.app/shop/cart"
-              data-epayco-button="https://c13b-181-236-155-150.ngrok-free.app/api/epayco"
               data-epayco-methodconfirmation="get"
+              data-epayco-confirmation={
+                process.env.NEXT_PUBLIC_PAYCO_RESPONSE_URL
+              }
               data-epayco-type-doc-billing={
                 order.OrderAddress?.typeOfIdentification
               }
