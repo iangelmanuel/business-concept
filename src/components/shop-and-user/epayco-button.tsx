@@ -13,12 +13,12 @@ type Props = {
 export const EpaycoButton = ({ order }: Props) => {
   useEffect(() => {
     const btnpay = document.getElementsByClassName('epayco-button-render')
-    if (btnpay !== null && btnpay.length > 0) {
+    if (!order.isPaid) {
       setTimeout(() => {
         btnpay[0].setAttribute('id', 'epayco-pay')
       }, 1000)
     }
-  }, [])
+  }, [order])
 
   return (
     <CardFooter>
