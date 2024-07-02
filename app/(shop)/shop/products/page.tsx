@@ -2,14 +2,22 @@ import { getAllProducts } from '@/actions'
 import { Card, CardContent, CardDescription, CardHeader } from '@/components'
 import { fontSans } from '@/config'
 import { formatCurrency } from '@/utils'
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+
+export const metadata: Metadata = {
+  title: 'Nuestros Productos - Business Concept',
+  description:
+    'Descubre todos los productos que tenemos en Business Concept. Desde productos de limpieza, hasta productos de oficina. ¡Descubre todo lo que tenemos para ti!'
+}
 
 export default async function ShopProductsPage() {
   const products = await getAllProducts()
   const lastProduct = products[products.length - 1]
   if (!products) return notFound()
+
   return (
     <section className="p-5 2xl:p-0 max-w-screen-2xl mx-auto mt-10">
       <article className="mb-10">

@@ -8,7 +8,16 @@ import {
   buttonVariants
 } from '@/components'
 import { checkOrderStatus, formatCurrency, formatDate } from '@/utils'
+import type { Metadata } from 'next'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Mis compras - Business Concept',
+  description:
+    'Revisa todas tus compras realizadas en Business Concept. Desde el importe, hasta el estado de tu compra. ¡Descubre todo lo que has comprado!',
+  keywords: 'compras, ordenes, estado, importe, Business Concept',
+  robots: 'noindex, nofollow'
+}
 
 export default async function PurchasesPage() {
   const orders = await getOrdersByUser()

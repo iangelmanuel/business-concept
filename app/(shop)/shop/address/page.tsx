@@ -8,7 +8,15 @@ import {
   CardDescription,
   CardHeader
 } from '@/components'
+import type { Metadata } from 'next'
 import { redirect } from 'next/navigation'
+
+export const metadata: Metadata = {
+  title: 'Detalles del envio - Business Concept',
+  description: '¡Necesitamos saber donde hacerte llegar tu pedido!',
+  keywords: 'envio, direccion, pedido, compra, tienda online, business concept',
+  robots: 'noindex, nofollow'
+}
 
 export default async function AddressPage() {
   const session = await auth()

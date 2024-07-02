@@ -9,15 +9,30 @@ import {
 } from '@/components'
 import { fontSans } from '@/config'
 import { formatCurrency } from '@/utils'
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+
+export async function generateMetadata({
+  params
+}: {
+  params: { category: string }
+}): Promise<Metadata> {
+  const { category } = params
+
+  return {
+    title: `Productos de la categoria ${category} - Business Concept`,
+    description: `Descubre todos los productos de la categoria ${category} que tenemos en Business Concept. Desde productos de limpieza, hasta productos de oficina. ¡Descubre todo lo que tenemos para ti!`
+  }
+}
 
 export default async function CategoryProductPage({
   params
 }: {
   params: { category: string }
 }) {
-  const products = await getProductByCategory(params.category)
+  const { category } = params
+  const products = await getProductByCategory(category)
   return (
     <section className="p-5 2xl:p-0 max-w-screen-2xl mx-auto mt-10">
       <article>

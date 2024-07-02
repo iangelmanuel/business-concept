@@ -2,8 +2,18 @@ import { getAllProducts } from '@/actions'
 import { Card, CardContent, CardDescription } from '@/components/ui/card'
 import type { ProductType } from '@/types'
 import { formatCurrency } from '@/utils'
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Business Concept - Tienda Online',
+  description:
+    'Business Concept es una tienda online donde puedes encontrar productos de calidad a precios accesibles.',
+  keywords:
+    'business concept, tienda online, productos, calidad, precios accesibles',
+  robots: 'index, follow'
+}
 
 export default async function HomePage() {
   const products = await getAllProducts()

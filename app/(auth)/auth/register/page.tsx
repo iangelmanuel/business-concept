@@ -4,7 +4,16 @@ import {
   CardHeader,
   CardRegisterForm
 } from '@/components'
+import type { Metadata } from 'next'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Registrate en Business Concept',
+  description:
+    'Registrate en Business Concept y accede a todas las funcionalidades de la plataforma.',
+  keywords: 'business concept, registrate, registro, cuenta, usuario, empresa',
+  robots: 'noindex, nofollow'
+}
 
 export default function RegisterPage() {
   return (

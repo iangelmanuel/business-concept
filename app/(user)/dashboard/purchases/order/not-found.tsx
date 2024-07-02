@@ -1,6 +1,15 @@
 // import Image from 'next/image'
 import { fontSans } from '@/config'
+import type { Metadata } from 'next'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Transacción no encontrada - Business Concept',
+  description:
+    'Lo sentimos mucho, pero la transacción que buscas no se encuentra en nuestra tienda. ¡Regresa al inicio!',
+  keywords: 'transaccion, no encontrado, no existe, no se encuentra',
+  robots: 'noindex, nofollow'
+}
 
 export default function PageNotFound() {
   return (

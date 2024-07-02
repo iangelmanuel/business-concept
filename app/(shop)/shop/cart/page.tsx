@@ -3,6 +3,15 @@ import {
   CardCartItems, // CartItemsLoading,
   CardCartSummary // CartSummaryLoading
 } from '@/components'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Carrito de compras - Business Concept',
+  description:
+    'Revisa los productos que has agregado al carrito de compras en Business Concept.',
+  keywords: 'carrito, compras, productos, tienda online, business concept',
+  robots: 'noindex, nofollow'
+}
 
 export default function CardPage() {
   return (

@@ -6,6 +6,15 @@ import {
   CardDescription,
   CardHeader
 } from '@/components'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Dirección de envío - Business Concept',
+  description:
+    'Agrega tu dirección de envío para que podamos enviarte tus compras.',
+  keywords: 'dirección, envío, agregar, compras, dirección de envío',
+  robots: 'noindex, nofollow'
+}
 
 export default async function AddressesPage() {
   const addresses = await getUserAddress()

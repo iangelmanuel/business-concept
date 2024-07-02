@@ -1,6 +1,15 @@
 // import Image from 'next/image'
 import { fontSans } from '@/config'
+import type { Metadata } from 'next'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Producto no encontrado - Business Concept',
+  description:
+    'Lo sentimos mucho, pero el producto que buscas no se encuentra en nuestra tienda. ¡Regresa al inicio!',
+  keywords: 'producto, no encontrado, no existe, no se encuentra',
+  robots: 'noindex, nofollow'
+}
 
 export default function PageNotFound() {
   return (

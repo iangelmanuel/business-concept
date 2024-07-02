@@ -1,9 +1,17 @@
 import { getUserById } from '@/actions'
 import { auth } from '@/auth.config'
 import { UpdateUserForm } from '@/components'
+import type { Metadata } from 'next'
 import { redirect } from 'next/navigation'
 
-export const dynamic = 'force-dynamic'
+export const metadata: Metadata = {
+  title: 'Perfil - Business Concept',
+  description:
+    'Actualiza tu información personal para que podamos enviarte tus compras.',
+  keywords:
+    'perfil, actualizar, información, personal, compras, dirección de envío',
+  robots: 'noindex, nofollow'
+}
 
 export default async function ProfilePage() {
   const session = await auth()

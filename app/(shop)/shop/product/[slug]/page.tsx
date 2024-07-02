@@ -1,17 +1,34 @@
 import { getProductBySlug } from '@/actions'
 import { AddProductCart, Card, CardDescription, CardHeader } from '@/components'
+import type { ProductType } from '@/types'
 import { formatCurrency } from '@/utils'
 import { Headphones, Package, Undo2 } from 'lucide-react'
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
-export default async function ShopProductPage({
+export async function generateMetadata({
+  params
+}: {
+  params: { slug: ProductType['slug'] }
+}): Promise<Metadata> {
+  const slug = params.slug
+  const { product } = await getProductBySlug(slug)
+
+  return {
+    title: `${product?.name} - Business Concept`,
+    description: `Información acerca de ${product?.name} en nuestra tienda de Business Concept. ${product?.description}`
+  }
+}
+
+export default async function ProductSlugPage({
   params
 }: {
   params: { slug: string }
 }) {
-  const { product } = await getProductBySlug(params.slug)
+  const { slug } = params
+  const { product } = await getProductBySlug(slug)
   if (!product) notFound()
   return (
     <section className="flex flex-col sm:flex-row justify-center items-center min-h-screen max-w-screen-2xl mx-auto p-5 2xl:p-0">

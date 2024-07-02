@@ -5,7 +5,16 @@ import {
   CardHeader,
   CardLoginForm
 } from '@/components'
+import type { Metadata } from 'next'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Inicia sesión en Business Concept',
+  description:
+    'Inicia sesión en Business Concept y accede a todas las funcionalidades de la plataforma.',
+  keywords: 'business concept, inicia sesion, login, cuenta, usuario, empresa',
+  robots: 'noindex, nofollow'
+}
 
 export default function LoginPage({
   searchParams
