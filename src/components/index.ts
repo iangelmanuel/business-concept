@@ -34,13 +34,12 @@ export * from './user/profile/update-user-form'
 export * from './user/security-privacy/change-password-form'
 export * from './user/security-privacy/delete-user-account'
 
-export * from './user/purchases/order-items'
-export * from './user/purchases/order-summary'
+export * from './shop-and-user/order-items'
+export * from './shop-and-user/order-summary'
+export * from './shop-and-user/confirmation-data'
 
 export * from './user/addresses/address-user'
 export * from './user/addresses/address-form'
-
-export * from './shop/confirmation/confirmation-data'
 
 export * from './ui/button'
 export * from './ui/card'
