@@ -49,9 +49,9 @@ export default async function ShopProductsPage() {
       </article>
 
       <article>
-        <h3 className={`text-xl font-bold ${fontSans.className} mb-2`}>
+        <h2 className={`text-xl font-bold ${fontSans.className} mb-2`}>
           Nuestros productos
-        </h3>
+        </h2>
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {products.map((product) => (
             <Link

@@ -20,9 +20,9 @@ export const Header = async () => {
             width={45}
             height={45}
           />
-          <h2 className="hidden md:block text-xl font-bold">
+          <span className="hidden md:block text-xl font-bold">
             Business Concept
-          </h2>
+          </span>
         </Link>
         <TopMenuNavigation />
         <DropdownPhoneNavigation />
