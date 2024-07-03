@@ -3,6 +3,19 @@ import { z } from 'zod'
 import { UserAddressSchema } from '../address/address-schema'
 import { OrderSchema } from '../order/order-schema'
 
+export const UserDataSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  lastname: z.string(),
+  email: z.string(),
+  phone: z.string(),
+  role: z.enum(['admin', 'user']),
+  isConfirmed: z.boolean(),
+  isUserDeleted: z.boolean(),
+  createdAt: z.date(),
+  updatedAt: z.date()
+})
+
 export const UserSchema = z.object({
   id: z.string(),
   name: z.string(),

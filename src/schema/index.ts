@@ -4,6 +4,8 @@ export * from './products/products-schema'
 
 export * from './cart/cart-schema'
 
+export * from './admin/user/admin-user-schema'
+
 export * from './user/user-schema'
 
 export * from './category/category-schema'
