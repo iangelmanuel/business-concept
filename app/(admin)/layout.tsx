@@ -1,28 +1,30 @@
 import { auth } from '@/auth.config'
-import { Card, Footer, Header, UserAside } from '@/components'
+import { AdminAside, Card, Footer, Header } from '@/components'
 import type { Metadata } from 'next'
 import { redirect } from 'next/navigation'
 
 export const metadata: Metadata = {
-  title: 'Business Concept',
-  description: 'Bienvenido a tu dashboard de usuario en Business Concept',
-  keywords: 'business concept, dashboard, usuario, productos, compras, ventas',
-  robots: 'noindex, nofollow'
+  title: 'Admin - Business Concept',
+  description: 'Administrador de la tienda en línea Business Concept',
+  robots: 'noindex, nofollow',
+  keywords:
+    'admin, dashboard, business concept, store, online, ecommerce, shop, products, orders, users, contacts, profile'
 }
 
-export default async function UserLayout({
+export default async function AdminLayout({
   children
 }: Readonly<{
   children: React.ReactNode
 }>) {
   const session = await auth()
-  if (!session) redirect('/auth/login')
+  const userRole = session?.user.role === 'user'
+  if (userRole || !session) return redirect('/auth/login')
   return (
     <>
       <Header />
       <main>
         <section className="gap-10 p-5 xl:grid xl:grid-cols-12 2xl:p-0">
-          <UserAside />
+          <AdminAside />
           <Card className="mt-5 overflow-y-auto p-3 xl:col-span-9 xl:max-h-[800px] xl:p-10">
             {children}
           </Card>
