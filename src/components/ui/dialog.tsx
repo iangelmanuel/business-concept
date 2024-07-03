@@ -1,5 +1,6 @@
 'use client'
 
+import { titleFont } from '@/config'
 import { cn } from '@/lib'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
 import { X } from 'lucide-react'
@@ -87,7 +88,7 @@ const DialogTitle = React.forwardRef<
   <DialogPrimitive.Title
     ref={ref}
     className={cn(
-      'text-lg font-semibold leading-none tracking-tight',
+      `${titleFont.className} text-lg font-semibold leading-none tracking-tight`,
       className
     )}
     {...props}

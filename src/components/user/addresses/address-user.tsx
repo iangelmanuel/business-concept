@@ -144,7 +144,6 @@ export const AddressUser = ({ location, addressDb }: Props) => {
                     >
                       {isPending ? 'Actualizando' : 'Guardar nueva dirección'}
                     </Button>
-                    {/* Update Address Form */}
                   </DialogFooter>
                 </DialogContent>
               </Dialog>
