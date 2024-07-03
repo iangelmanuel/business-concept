@@ -23,9 +23,7 @@ import {
   TableCell,
   TableHead,
   TableHeader,
-  TableRow
-} from '@/components/ui/table'
-import {
+  TableRow,
   AlertDialog,
   AlertDialogAction,
   AlertDialogCancel,
