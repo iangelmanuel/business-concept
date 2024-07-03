@@ -16,6 +16,12 @@ export { saveUserAddress } from './address/save-user-address'
 export { deleteUserAddress } from './address/delete-user-address'
 export { updateUserAddress } from './address/update-user-address'
 
+export { getAllUsers } from './admin/users/get-all-users'
+export { deleteManyUsers } from './admin/users/delete-many-users'
+export { deleteUserById } from './admin/users/delete-user-by-id'
+export { findUserById } from './admin/users/find-user-by-id'
+export { updateUserById } from './admin/users/update-user-by-id'
+
 export { updateUser } from './user/update-user'
 export { getUserById } from './user/get-user-by-id'
 export { changeUserPassword } from './user/change-user-password'
