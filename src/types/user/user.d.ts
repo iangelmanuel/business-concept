@@ -3,9 +3,12 @@ import type {
   ChangeUserPasswordSchema,
   LoginUserSchema,
   UpdateUserSchema,
-  UserCreateSchema
+  UserCreateSchema,
+  UserDataSchema
 } from '@/schema'
 import type { z } from 'zod'
+
+export type UserType = z.infer<typeof UserDataSchema>
 
 export type User = z.infer<typeof userSchema>
 
