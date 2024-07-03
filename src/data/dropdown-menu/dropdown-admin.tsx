@@ -1,7 +1,29 @@
+import { Contact, Headphones, Package, ShieldCheck, User } from 'lucide-react'
+
 export const dropdownAdmin = [
   {
-    label: 'Perfil',
+    label: 'Admin',
     href: '/admin/profile',
-    icon: 'UserIcon'
+    icon: <ShieldCheck className="mr-2 h-4 w-4" />
+  },
+  {
+    label: 'Usuarios',
+    href: '/admin/users',
+    icon: <User className="mr-2 h-4 w-4" />
+  },
+  {
+    label: 'Pedidos',
+    href: '/admin/orders',
+    icon: <Package className="mr-2 h-4 w-4" />
+  },
+  {
+    label: 'Productos',
+    href: '/admin/products',
+    icon: <Headphones className="mr-2 h-4 w-4" />
+  },
+  {
+    label: 'Contanctos',
+    href: '/admin/contacts',
+    icon: <Contact className="mr-2 h-4 w-4" />
   }
 ]

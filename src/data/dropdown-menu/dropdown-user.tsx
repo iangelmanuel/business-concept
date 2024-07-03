@@ -1,6 +1,6 @@
 import {
   BookUserIcon,
-  CreditCard,
+  // CreditCard,
   LockIcon,
   ShoppingBagIcon,
   User
@@ -22,11 +22,11 @@ export const dropdownUser = [
     href: '/dashboard/addresses',
     icon: <BookUserIcon className="mr-2 h-4 w-4" />
   },
-  {
-    label: 'Métodos de Pago',
-    href: '/dashboard/payment-methods',
-    icon: <CreditCard className="mr-2 h-4 w-4" />
-  },
+  // {
+  //   label: 'Métodos de Pago',
+  //   href: '/dashboard/payment-methods',
+  //   icon: <CreditCard className="mr-2 h-4 w-4" />
+  // },
   {
     label: 'Seguridad y Privacidad',
     href: '/dashboard/security-privacy',
