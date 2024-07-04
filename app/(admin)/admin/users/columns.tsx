@@ -161,7 +161,7 @@ export const columns: ColumnDef<UserType>[] = [
     },
     cell: ({ row }) => {
       const isConfirmed = row.getValue('isConfirmed')
-      const text = isConfirmed ? 'Confirmado' : 'Sin confirmado'
+      const text = isConfirmed ? 'Confirmado' : 'Sin confirmar'
       const variant = isConfirmed ? 'success' : 'destructive'
 
       return (
