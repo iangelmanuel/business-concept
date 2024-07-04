@@ -23,6 +23,7 @@ import type {
   AddressType,
   LocationType
 } from '@/types'
+import { capitalize } from '@/utils'
 import { useState, useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
@@ -160,7 +161,9 @@ export const AddressForm = ({
               })}
             >
               <SelectTrigger className="w-full">
-                <SelectValue placeholder="Selecciona" />
+                <SelectValue
+                  placeholder={address?.typeOfIdentification ?? 'Selecciona'}
+                />
               </SelectTrigger>
 
               <SelectContent>
@@ -306,7 +309,9 @@ export const AddressForm = ({
               })}
             >
               <SelectTrigger className="w-full">
-                <SelectValue placeholder="Selecciona" />
+                <SelectValue
+                  placeholder={capitalize(address?.department) ?? 'Selecciona'}
+                />
               </SelectTrigger>
 
               <SelectContent>
@@ -338,7 +343,9 @@ export const AddressForm = ({
               })}
             >
               <SelectTrigger className="w-full">
-                <SelectValue placeholder="Selecciona" />
+                <SelectValue
+                  placeholder={capitalize(address?.city) ?? 'Selecciona'}
+                />
               </SelectTrigger>
 
               <SelectContent>

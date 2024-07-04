@@ -8,17 +8,18 @@ import { useEffect } from 'react'
 
 type Props = {
   order: UserOrder
+  isAdmin: boolean
 }
 
-export const EpaycoButton = ({ order }: Props) => {
+export const EpaycoButton = ({ order, isAdmin }: Props) => {
   useEffect(() => {
     const btnpay = document.getElementsByClassName('epayco-button-render')
-    if (!order.isPaid) {
+    if (!order.isPaid && !isAdmin) {
       setTimeout(() => {
         btnpay[0].setAttribute('id', 'epayco-pay')
       }, 1000)
     }
-  }, [order])
+  }, [isAdmin, order])
 
   return (
     <CardFooter>
@@ -29,7 +30,7 @@ export const EpaycoButton = ({ order }: Props) => {
         >
           Aprobado
         </Badge>
-      ) : (
+      ) : !isAdmin ? (
         <>
           <Label
             htmlFor="epayco-pay"
@@ -70,13 +71,13 @@ export const EpaycoButton = ({ order }: Props) => {
                 order.OrderAddress?.identification
               }
               data-epayco-name-billing={`
-                ${order.OrderAddress?.firstName} ${order.OrderAddress?.lastName}
-              `}
+              ${order.OrderAddress?.firstName} ${order.OrderAddress?.lastName}
+            `}
               data-epayco-mobilephone-billing={order.OrderAddress?.phone}
             />
           </form>
         </>
-      )}
+      ) : null}
     </CardFooter>
   )
 }

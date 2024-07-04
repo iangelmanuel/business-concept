@@ -8,22 +8,27 @@ import { EpaycoButton } from './epayco-button'
 
 type Props = {
   order: UserOrder
+  isAdmin?: boolean
 }
 
-export const OrderSummary = async ({ order }: Props) => {
+export const OrderSummary = async ({ order, isAdmin = false }: Props) => {
   const address = order.OrderAddress
   if (!address) return notFound()
+
+  const isAdminTitle = isAdmin ? 'Orden del usuario' : 'Resumen de la compra'
+
+  const isAdminCardDescription = isAdmin
+    ? `Orden: ${order.id}`
+    : 'Por favor, revisa los productos seleccionados antes de proceder al pago.'
+
   return (
     <section className="order-1 lg:order-2">
       <Card className="md:sticky md:top-0">
         <CardHeader>
           <h2 className={`${titleFont.className} text-2xl font-bold`}>
-            Resumen de la compra
+            {isAdminTitle}
           </h2>
-          <CardDescription>
-            Por favor, revisa los productos seleccionados antes de proceder al
-            pago.
-          </CardDescription>
+          <CardDescription>{isAdminCardDescription}</CardDescription>
         </CardHeader>
 
         <CardContent>
@@ -108,7 +113,10 @@ export const OrderSummary = async ({ order }: Props) => {
           </article>
         </CardContent>
 
-        <EpaycoButton order={order} />
+        <EpaycoButton
+          order={order}
+          isAdmin={isAdmin}
+        />
       </Card>
     </section>
   )

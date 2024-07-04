@@ -14,15 +14,29 @@ import Link from 'next/link'
 
 type Props = {
   order: UserOrder
+  isAdmin?: boolean
+  userId?: string
 }
 
-export const OrderItems = ({ order }: Props) => {
+export const OrderItems = ({ order, isAdmin = false, userId = '' }: Props) => {
+  const isAdminTitle = isAdmin
+    ? 'Detalles del resumen de la compra del usuario'
+    : 'Detalles del resumen de la compra'
+
+  const isAdminCardDescription = isAdmin
+    ? 'Detalles de la compra del usuario.'
+    : 'Por favor, revisa los detalles de tu compra antes de proceder al pago.'
+
+  const isAdminHref = isAdmin
+    ? `/admin/users/${userId}/order/${order.transactionId}`
+    : `/dashboard/purchases/order/${order.transactionId}`
+
   return (
     <Card className="order-2 lg:order-1 lg:col-span-2">
       <CardHeader>
         <section className="flex items-center justify-between">
           <h2 className={`${titleFont.className} text-2xl font-bold`}>
-            Detalles del resumen de la compra
+            {isAdminTitle}
           </h2>
 
           <Badge variant={checkOrderStatus(order)}>
@@ -34,9 +48,7 @@ export const OrderItems = ({ order }: Props) => {
           </Badge>
         </section>
 
-        <CardDescription>
-          Por favor, revisa los detalles de tu compra antes de proceder al pago.
-        </CardDescription>
+        <CardDescription>{isAdminCardDescription}</CardDescription>
 
         <section className="mt-4 flex items-center justify-between">
           {order.transactionId && (
@@ -45,7 +57,7 @@ export const OrderItems = ({ order }: Props) => {
 
           {order.transactionId && (
             <Link
-              href={`/dashboard/purchases/order/${order.transactionId}`}
+              href={isAdminHref}
               className={buttonVariants()}
             >
               Ver factura

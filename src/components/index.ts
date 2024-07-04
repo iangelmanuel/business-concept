@@ -43,6 +43,8 @@ export * from './shop-and-user/confirmation-data'
 export * from './user/addresses/address-user'
 export * from './user/addresses/address-form'
 
+export * from './user/purchases/order-grid'
+
 export * from './ui/button'
 export * from './ui/card'
 export * from './ui/input'

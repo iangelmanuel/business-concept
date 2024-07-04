@@ -22,6 +22,7 @@ export const TopMenuAuth = () => {
         </section>
       ) : admin ? (
         <section className="flex items-center">
+          <SheetMenuCart />
           <DropdownMenuAdmin />
         </section>
       ) : (

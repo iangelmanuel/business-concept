@@ -18,7 +18,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger
 } from '@/components'
-import { dropdownAdmin } from '@/data'
+import { dropdownAdmin, dropdownUser } from '@/data'
 import { getLettersName } from '@/utils'
 import { Laptop2Icon, LogOut, Moon, Palette, Sun } from 'lucide-react'
 import { useSession } from 'next-auth/react'
@@ -65,6 +65,18 @@ export const DropdownMenuAdmin = () => {
 
         <DropdownMenuGroup>
           {dropdownAdmin.map((item) => (
+            <DropdownMenuItem
+              key={item.href}
+              onClick={() => router.push(item.href)}
+            >
+              {item.icon}
+              <span>{item.label}</span>
+            </DropdownMenuItem>
+          ))}
+
+          <DropdownMenuSeparator />
+
+          {dropdownUser.map((item) => (
             <DropdownMenuItem
               key={item.href}
               onClick={() => router.push(item.href)}

@@ -89,7 +89,7 @@ export const AddressUser = ({ location, addressDb }: Props) => {
 
   return (
     <>
-      <article className="grid grid-cols-1 gap-3 p-5 sm:grid-cols-2">
+      <article className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {addressDb.map((address) => (
           <Card key={address.id}>
             <CardHeader>
@@ -186,7 +186,7 @@ export const AddressUser = ({ location, addressDb }: Props) => {
         ))}
       </article>
 
-      <article>
+      <article className="mt-5">
         <section className={isAddressFormActive ? 'mb-10' : ''}>
           <Button
             onClick={handleClickShowForm}
