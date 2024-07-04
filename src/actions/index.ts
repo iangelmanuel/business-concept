@@ -22,6 +22,10 @@ export { deleteUserById } from './admin/users/delete-user-by-id'
 export { findUserById } from './admin/users/find-user-by-id'
 export { updateUserById } from './admin/users/update-user-by-id'
 
+export { getUserAddressById } from './admin/address/get-user-address-by-id'
+
+export { getUserOrdersById } from './admin/orders/get-user-orders-by-id'
+
 export { updateUser } from './user/update-user'
 export { getUserById } from './user/get-user-by-id'
 export { changeUserPassword } from './user/change-user-password'
