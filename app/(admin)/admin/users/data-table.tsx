@@ -95,12 +95,12 @@ export function DataTable<TData, TValue>({
     <>
       <div className="flex items-center justify-between py-4">
         <Input
-          placeholder="Filtrar todo..."
+          placeholder="Filtrar por email..."
           value={(table.getColumn('email')?.getFilterValue() as string) ?? ''}
-          onChange={(event) => {
+          onChange={(e) => {
             setSelectStatus('all')
-            table.getColumn('status')?.setFilterValue(undefined)
-            table.getColumn('email')?.setFilterValue(event.target.value)
+            // table.getColumn('isUserDeleted')?.setFilterValue(undefined)
+            table.getColumn('email')?.setFilterValue(e.target.value)
           }}
           className="max-w-sm"
         />
