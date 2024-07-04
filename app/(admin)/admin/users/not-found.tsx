@@ -4,10 +4,10 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Usuario no encontrado - Business Concept',
+  title: 'Datos no encontrado - Business Concept',
   description:
-    'Lo sentimos mucho, pero el usuario que buscas no se encuentra en nuestra base de datos. ¡Regresa al inicio!',
-  keywords: 'usuario, no encontrado, no existe, no se encuentra',
+    'Lo sentimos mucho, pero el dato que buscas no se encuentra en nuestra base de datos. ¡Regresa al inicio!',
+  keywords: 'dato, no encontrado, no existe, no se encuentra',
   robots: 'noindex, nofollow'
 }
 

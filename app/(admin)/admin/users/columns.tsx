@@ -111,10 +111,16 @@ export const columns: ColumnDef<UserType>[] = [
     },
     cell: ({ row }) => {
       const role = row.getValue('role') as string
-      const isAdminOrUserText = role === 'admin' ? 'Admin' : 'Usuario'
+      const textIsAdmin = role === 'admin' ? 'Admin' : 'Usuario'
+      const variantIsAdmin = role === 'admin' ? 'admin' : 'user'
       return (
         <section className="flex items-center justify-center">
-          <Badge className="uppercase">{isAdminOrUserText}</Badge>
+          <Badge
+            variant={variantIsAdmin}
+            className="uppercase"
+          >
+            {textIsAdmin}
+          </Badge>
         </section>
       )
     }
