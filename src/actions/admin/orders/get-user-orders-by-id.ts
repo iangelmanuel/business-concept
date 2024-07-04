@@ -2,16 +2,16 @@
 
 import { auth } from '@/auth.config'
 import { prisma } from '@/lib'
+import type { UserType } from '@/types'
 
-export const getOrdersByUser = async () => {
+export const getUserOrdersById = async (userId: UserType['id']) => {
   try {
     const session = await auth()
+    if (!session) return []
 
-    if (!session) {
-      return []
-    }
+    const isAdmin = session.user.role.includes('admin')
+    if (!isAdmin) return []
 
-    const userId = session.user.id
     const orders = await prisma.order.findMany({
       where: {
         userId

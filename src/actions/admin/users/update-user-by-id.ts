@@ -51,6 +51,7 @@ export async function updateUserById(
     })
 
     revalidatePath('/admin/users')
+    revalidatePath('/admin/users/[id]')
 
     return {
       ok: true,
