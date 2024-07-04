@@ -14,7 +14,10 @@ export const metadata: Metadata = {
     'business concept, productos, tecnología, oficina, empresa, negocio',
   robots: 'index, follow',
   alternates: {
-    canonical: 'https://business-concept.vercel.app'
+    canonical: 'https://business-concept.vercel.app',
+    languages: {
+      'es-CO': '/es-CO'
+    }
   },
   twitter: {
     site: '@iangelmanuel',
