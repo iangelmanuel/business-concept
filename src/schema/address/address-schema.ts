@@ -50,5 +50,24 @@ export const LocationSchema = z.object({
   department: z.string(),
   cities: z.array(z.string())
 })
-
 export const LocationsSchema = z.array(LocationSchema)
+
+export const OrderGridSchema = z.object({
+  OrderAddress: z
+    .object({
+      firstName: z.string(),
+      lastName: z.string()
+    })
+    .nullable(),
+  id: z.string(),
+  subtotal: z.number(),
+  tax: z.number(),
+  total: z.number(),
+  itemsInOrder: z.number(),
+  isPaid: z.boolean(),
+  paidAt: z.date().nullable(),
+  transactionId: z.string().nullable(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
+  userId: z.string()
+})
