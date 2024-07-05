@@ -11,7 +11,7 @@ type Props = {
   isAdmin?: boolean
 }
 
-export const OrderSummary = async ({ order, isAdmin = false }: Props) => {
+export const OrderSummary = ({ order, isAdmin = false }: Props) => {
   const address = order.OrderAddress
   if (!address) return notFound()
 
