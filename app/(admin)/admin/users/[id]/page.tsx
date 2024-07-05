@@ -150,7 +150,7 @@ export default async function UserIdPage({
           {/* Dialog de Editar Usuario */}
           <Dialog>
             <DialogTrigger>
-              <Button>Editar Usuario</Button>
+              <span className={buttonVariants()}>Editar Usuario</span>
             </DialogTrigger>
             <DialogContent className="sm:max-w-screen-md">
               <DialogHeader>
@@ -167,7 +167,9 @@ export default async function UserIdPage({
           {/* AlertDialog de Eliminar Usuario */}
           <AlertDialog>
             <AlertDialogTrigger>
-              <Button variant="ghost">Eliminar Usuario</Button>
+              <span className={buttonVariants({ variant: 'ghost' })}>
+                Eliminar Usuario
+              </span>
             </AlertDialogTrigger>
 
             <AlertDialogContent>

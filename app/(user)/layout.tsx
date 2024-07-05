@@ -1,5 +1,5 @@
 import { auth } from '@/auth.config'
-import { Card, Footer, Header, UserAside } from '@/components'
+import { Card, Footer, Header, AuthAside } from '@/components'
 import type { Metadata } from 'next'
 import { redirect } from 'next/navigation'
 
@@ -22,7 +22,7 @@ export default async function UserLayout({
       <Header />
       <main>
         <section className="gap-10 p-5 xl:grid xl:grid-cols-12 2xl:p-0">
-          <UserAside />
+          <AuthAside />
           <Card className="mt-5 overflow-y-auto p-3 xl:col-span-9 xl:max-h-[800px] xl:p-10">
             {children}
           </Card>
