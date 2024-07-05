@@ -9,8 +9,8 @@ export const OrderSchema = z.object({
   total: z.number(),
   itemsInOrder: z.number(),
   isPaid: z.boolean(),
-  paidAt: z.date(),
-  transactionId: z.string().optional(),
+  paidAt: z.date().nullable(),
+  transactionId: z.string().nullable(),
   createdAt: z.date(),
   updatedAt: z.date(),
   userId: z.string()
@@ -30,7 +30,7 @@ const ProductImage = z.object({
   url: z.string()
 })
 
-const OrderItemSchema = z.object({
+export const OrderItemSchema = z.object({
   price: z.number(),
   quantity: z.number(),
   product: z.object({
