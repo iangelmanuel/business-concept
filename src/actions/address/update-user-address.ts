@@ -46,8 +46,10 @@ export async function updateUserAddress(address: AddressType) {
       }
     })
 
-    revalidatePath('/dashboard/addresses')
     revalidatePath('/shop/address')
+    revalidatePath('/dashboard/addresses')
+    revalidatePath('/admin/users/[id]')
+
     return {
       ok: true,
       message: 'Dirección actualizada'

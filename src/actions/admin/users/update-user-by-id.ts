@@ -50,6 +50,7 @@ export async function updateUserById(
       }
     })
 
+    revalidatePath('/dashboard/profile')
     revalidatePath('/admin/users')
     revalidatePath('/admin/users/[id]')
 

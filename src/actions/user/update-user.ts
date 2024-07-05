@@ -4,6 +4,7 @@ import { auth } from '@/auth.config'
 import { prisma } from '@/lib'
 import { UpdateUserSchema } from '@/schema'
 import type { UpdateUser } from '@/types'
+import { revalidatePath } from 'next/cache'
 
 export const updateUser = async (data: UpdateUser) => {
   try {
@@ -32,6 +33,10 @@ export const updateUser = async (data: UpdateUser) => {
         email: data.email
       }
     })
+
+    revalidatePath('/dashboard/profile')
+    revalidatePath('/admin/users')
+    revalidatePath('/admin/users/[id]')
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { password: _, ...rest } = newUser

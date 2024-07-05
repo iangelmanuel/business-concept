@@ -3,6 +3,7 @@
 import { auth } from '@/auth.config'
 import { prisma } from '@/lib'
 import type { User } from '@/types'
+import { revalidatePath } from 'next/cache'
 
 export async function deleteUserAccount(id: User['id']) {
   try {
@@ -24,6 +25,10 @@ export async function deleteUserAccount(id: User['id']) {
       where: { id },
       data: { isUserDeleted: true }
     })
+
+    revalidatePath('/dashboard/profile')
+    revalidatePath('/admin/users')
+    revalidatePath('/admin/users/[id]')
 
     return {
       ok: true,
