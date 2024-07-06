@@ -137,7 +137,6 @@ export async function placeOrder(
       orderId: prismaTx.order.id
     }
   } catch (error) {
-    console.log(error)
     return {
       ok: false,
       message: 'Error al crear el pedido'

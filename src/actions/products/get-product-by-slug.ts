@@ -17,7 +17,6 @@ export async function getProductBySlug(slug: string) {
       product
     }
   } catch (error) {
-    console.log(error)
     return { ok: false }
   }
 }
