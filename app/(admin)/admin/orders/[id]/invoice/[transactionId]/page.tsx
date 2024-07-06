@@ -1,13 +1,13 @@
 import { getRefPaycoData } from '@/actions'
 import { ConfirmationData } from '@/components'
-import type { UserOrder } from '@/types'
+import type { UserOrderByAdmin } from '@/types'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 export async function generateMetadata({
   params
 }: {
-  params: { transactionId: UserOrder['transactionId'] }
+  params: { transactionId: UserOrderByAdmin['transactionId'] }
 }): Promise<Metadata> {
   const { transactionId } = params
   if (!transactionId) notFound()
@@ -24,19 +24,19 @@ export async function generateMetadata({
   }
 }
 
-export default async function OrderIdPage({
+export default async function InvoiceTransactionIdPage({
   params
 }: {
-  params: { transactionId: UserOrder['id'] }
+  params: { transactionId: UserOrderByAdmin['transactionId'] }
 }) {
   const { transactionId } = params
   if (!transactionId) notFound()
 
   const dataPaycoAction = await getRefPaycoData(transactionId)
+  console.log({ transactionId, dataPaycoAction })
   if (!dataPaycoAction.ok || !dataPaycoAction.dataPayco) notFound()
 
   const { dataPayco } = dataPaycoAction
-
   return (
     <section>
       <ConfirmationData

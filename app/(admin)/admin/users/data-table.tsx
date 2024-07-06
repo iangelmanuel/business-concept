@@ -95,11 +95,10 @@ export function DataTable<TData, TValue>({
     <>
       <div className="flex items-center justify-between py-4">
         <Input
-          placeholder="Filtrar por email..."
+          placeholder="Filtrar por correo..."
           value={(table.getColumn('email')?.getFilterValue() as string) ?? ''}
           onChange={(e) => {
             setSelectStatus('all')
-            // table.getColumn('isUserDeleted')?.setFilterValue(undefined)
             table.getColumn('email')?.setFilterValue(e.target.value)
           }}
           className="max-w-sm"
@@ -158,7 +157,7 @@ export function DataTable<TData, TValue>({
                 </AlertDialogHeader>
 
                 <AlertDialogFooter>
-                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                  <AlertDialogCancel>Cancelar</AlertDialogCancel>
 
                   <AlertDialogAction
                     onClick={() => {

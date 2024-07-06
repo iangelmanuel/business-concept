@@ -5,7 +5,7 @@ import type { UserOrderByAdmin } from '@/types'
 import { checkOrderStatus, formatCurrency, formatDate } from '@/utils'
 import type { ColumnDef, SortDirection } from '@tanstack/react-table'
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react'
-// import { ActionsButtons } from './ui/actions-buttons'
+import { ActionsButtons } from './ui/actions-buttons'
 
 const SorterIcon = ({ isSorted }: { isSorted: false | SortDirection }) => {
   if (isSorted === 'asc') {
@@ -170,10 +170,10 @@ export const columns: ColumnDef<UserOrderByAdmin>[] = [
 
   {
     accessorKey: 'actions',
-    header: 'Acciones'
-    // cell: ({ row }) => {
-    //   const order = row.original
-    //   return <ActionsButtons order={order} />
-    // }
+    header: 'Acciones',
+    cell: ({ row }) => {
+      const order = row.original
+      return <ActionsButtons order={order} />
+    }
   }
 ]

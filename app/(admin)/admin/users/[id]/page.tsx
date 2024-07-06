@@ -18,7 +18,6 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
   Badge,
-  Button,
   buttonVariants,
   Card,
   CardContent,
@@ -185,7 +184,7 @@ export default async function UserIdPage({
               </AlertDialogHeader>
 
               <AlertDialogFooter>
-                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                <AlertDialogCancel>Cancelar</AlertDialogCancel>
                 <form action={handleActionDeleteUser}>
                   <AlertDialogAction
                     className={buttonVariants({ variant: 'destructive' })}

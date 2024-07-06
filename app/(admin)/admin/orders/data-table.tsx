@@ -48,9 +48,9 @@ import {
   SelectValue,
   buttonVariants
 } from '@/components'
-import type { UserType } from '@/types'
+import type { UserOrderByAdmin } from '@/types'
 import React, { useState, useTransition } from 'react'
-import { deleteManyUsers } from '@/actions'
+import { deleteManyOrders } from '@/actions'
 import { toast } from 'sonner'
 
 type DataTableProps<TData, TValue> = {
@@ -95,7 +95,7 @@ export function DataTable<TData, TValue>({
     <>
       <div className="flex items-center justify-between py-4">
         <Input
-          placeholder="Filtrar por email..."
+          placeholder="Filtrar por correo..."
           value={
             (table.getColumn('user.email')?.getFilterValue() as string) ?? ''
           }
@@ -150,31 +150,31 @@ export function DataTable<TData, TValue>({
               <AlertDialogContent>
                 <AlertDialogHeader>
                   <AlertDialogTitle>
-                    ¿Estás seguro que quieres eliminar los usuarios
+                    ¿Estás seguro que quieres eliminar las ordenes
                     seleccionados?
                   </AlertDialogTitle>
 
                   <AlertDialogDescription>
                     Esta acción no se puede deshacer y eliminará permanentemente
-                    los usuarios seleccionados.
+                    las ordenes seleccionadas.
                   </AlertDialogDescription>
                 </AlertDialogHeader>
 
                 <AlertDialogFooter>
-                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                  <AlertDialogCancel>Cancelar</AlertDialogCancel>
 
                   <AlertDialogAction
                     onClick={() => {
-                      const usersIds = table
+                      const ordersId = table
                         .getSelectedRowModel()
                         .rows.map((row) => {
-                          const user = row.original as UserType
-                          const { id } = user
+                          const order = row.original as UserOrderByAdmin
+                          const { id } = order
                           return id
                         })
 
                       startTransition(async () => {
-                        const response = await deleteManyUsers(usersIds)
+                        const response = await deleteManyOrders(ordersId)
                         if (response.ok) {
                           toast.success(response.message, {
                             duration: 3000,
@@ -275,7 +275,7 @@ export function DataTable<TData, TValue>({
                   colSpan={columns.length}
                   className="h-24 text-center"
                 >
-                  No se encontraron usuarios.
+                  No se encontraron ordenes.
                 </TableCell>
               </TableRow>
             )}
@@ -310,17 +310,17 @@ export function DataTable<TData, TValue>({
 
         <Select onValueChange={(value) => table.setPageSize(Number(value))}>
           <SelectTrigger className="m-2 w-[180px]">
-            <SelectValue placeholder="10 Usuarios" />
+            <SelectValue placeholder="10 Ordenes" />
           </SelectTrigger>
 
           <SelectContent>
             <SelectGroup>
-              <SelectLabel>Usuarios por páginas</SelectLabel>
-              <SelectItem value="10">10 Usuarios</SelectItem>
-              <SelectItem value="20">20 Usuarios</SelectItem>
-              <SelectItem value="30">30 Usuarios</SelectItem>
-              <SelectItem value="50">50 Usuarios</SelectItem>
-              <SelectItem value="100">100 Usuarios</SelectItem>
+              <SelectLabel>Ordenes por páginas</SelectLabel>
+              <SelectItem value="10">10 Ordenes</SelectItem>
+              <SelectItem value="20">20 Ordenes</SelectItem>
+              <SelectItem value="30">30 Ordenes</SelectItem>
+              <SelectItem value="50">50 Ordenes</SelectItem>
+              <SelectItem value="100">100 Ordenes</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>
