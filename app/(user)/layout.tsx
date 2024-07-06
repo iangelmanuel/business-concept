@@ -23,7 +23,7 @@ export default async function UserLayout({
       <main>
         <section className="gap-10 p-5 xl:grid xl:grid-cols-12 2xl:p-0">
           <AuthAside />
-          <Card className="mt-5 overflow-y-auto p-3 xl:col-span-9 xl:max-h-[800px] xl:p-10">
+          <Card className="mt-5 overflow-y-auto p-3 xl:col-span-9 xl:h-[650px] xl:p-10 2xl:h-[850px]">
             {children}
           </Card>
         </section>

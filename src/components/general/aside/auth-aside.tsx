@@ -13,7 +13,7 @@ export const AuthAside = () => {
   const isAdmin = session?.user.role.includes('admin')
 
   return (
-    <aside className="sticky top-0 col-span-2 hidden h-screen border-r xl:block">
+    <aside className="sticky top-0 col-span-2 hidden border-b border-r xl:block">
       <section className="mt-5 space-y-2 p-2">
         {isAdmin &&
           dropdownAdmin.map((item, index) => (
