@@ -1,3 +1,5 @@
+import { useState, useTransition } from 'react'
+import Link from 'next/link'
 import { deleteUserById } from '@/actions'
 import {
   AlertDialog,
@@ -23,9 +25,7 @@ import {
   buttonVariants
 } from '@/components'
 import type { UserType } from '@/types'
-import { DotsHorizontalIcon } from '@radix-ui/react-icons'
-import Link from 'next/link'
-import { useState, useTransition } from 'react'
+import { Ellipsis } from 'lucide-react'
 import { toast } from 'sonner'
 import { UpdateUserFromAdminForm } from './update-user-from-admin-form'
 
@@ -49,7 +49,7 @@ export const ActionsButtons = ({ user }: Props) => {
             className="h-8 w-8 p-0"
           >
             <span className="sr-only">Abrir menu</span>
-            <DotsHorizontalIcon className="h-4 w-4" />
+            <Ellipsis className="h-4 w-4" />
           </Button>
         </DropdownMenuTrigger>
 
