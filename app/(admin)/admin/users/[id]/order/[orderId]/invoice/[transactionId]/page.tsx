@@ -27,7 +27,7 @@ export async function generateMetadata({
 export default async function OrderIdPage({
   params
 }: {
-  params: { transactionId: UserOrder['id'] }
+  params: { transactionId: UserOrder['transactionId'] }
 }) {
   const { transactionId } = params
   if (!transactionId) notFound()

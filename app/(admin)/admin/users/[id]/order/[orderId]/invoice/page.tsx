@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation'
 
-export default function OrderPage() {
+export default function InvoicePage() {
   return redirect('/admin/users')
 }
