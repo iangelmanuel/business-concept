@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { getOrderById } from '@/actions'
 import { OrderItems, OrderSummary } from '@/components'
 import type { UserOrder } from '@/types'
+import { ReturnPage } from '@/utils'
 
 export async function generateMetadata({
   params
@@ -29,11 +30,14 @@ export default async function PurchaseIdPage({
   if (!order) notFound()
 
   return (
-    <section>
-      <article className="mx-auto grid max-w-screen-2xl grid-cols-1 gap-5 p-5 lg:grid-cols-3">
-        <OrderItems order={order} />
-        <OrderSummary order={order} />
-      </article>
-    </section>
+    <>
+      <ReturnPage />
+      <section>
+        <article className="mx-auto grid max-w-screen-2xl grid-cols-1 gap-5 p-5 lg:grid-cols-3">
+          <OrderItems order={order} />
+          <OrderSummary order={order} />
+        </article>
+      </section>
+    </>
   )
 }

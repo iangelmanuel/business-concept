@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { getRefPaycoData } from '@/actions'
 import { ConfirmationData } from '@/components'
 import type { UserOrder } from '@/types'
+import { ReturnPage } from '@/utils'
 
 export async function generateMetadata({
   params
@@ -38,11 +39,14 @@ export default async function OrderIdPage({
   const { dataPayco } = dataPaycoAction
 
   return (
-    <section>
-      <ConfirmationData
-        dataPayco={dataPayco}
-        refPayco={transactionId}
-      />
-    </section>
+    <>
+      <ReturnPage />
+      <section>
+        <ConfirmationData
+          dataPayco={dataPayco}
+          refPayco={transactionId}
+        />
+      </section>
+    </>
   )
 }

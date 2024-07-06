@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { getOrderById } from '@/actions'
 import { OrderItems, OrderSummary } from '@/components'
 import type { UserOrderByAdmin } from '@/types'
+import { ReturnPage } from '@/utils'
 
 export async function generateMetadata({
   params
@@ -33,6 +34,7 @@ export default async function OrderIdPage({
 
   return (
     <article>
+      <ReturnPage />
       <section className="mx-auto grid max-w-screen-2xl grid-cols-1 gap-5 p-5 lg:grid-cols-3">
         <OrderItems
           order={order}
@@ -43,7 +45,6 @@ export default async function OrderIdPage({
           order={order}
           isAdmin
         />
-        {/* <ModalInvoce /> */}
       </section>
     </article>
   )

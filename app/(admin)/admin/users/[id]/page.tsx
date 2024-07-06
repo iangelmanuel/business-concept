@@ -37,6 +37,7 @@ import {
 } from '@/components'
 import { titleFont } from '@/config'
 import type { UserType } from '@/types'
+import { ReturnPage } from '@/utils'
 import { toast } from 'sonner'
 
 export async function generateMetadata({
@@ -100,6 +101,8 @@ export default async function UserIdPage({
       <h1 className={`${titleFont.className} mb-3 text-2xl font-bold`}>
         Datos del usuario {user.name} {user.lastname}
       </h1>
+
+      <ReturnPage />
 
       <Card className="mx-auto max-w-screen-lg">
         <CardHeader>
