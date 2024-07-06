@@ -20,7 +20,7 @@ export default function PageNotFound() {
         <p className="font-light">
           <span>Puedes regresar al </span>
           <Link
-            href="/"
+            href="/shop/products"
             className="font-normal transition-all hover:underline"
           >
             Inicio
