@@ -18,16 +18,16 @@ type Props = {
 }
 
 export const OrderGrid = ({ order, isAdmin, userId }: Props) => {
+  const orderId = order.id
+
   const isAdminHref = isAdmin
-    ? `/admin/users/${userId}/order?orderId=${order.id}`
-    : `/dashboard/purchases/order?orderId=${order.id}`
+    ? `/admin/users/${userId}/order/${orderId}`
+    : `/dashboard/purchases/${orderId}`
 
   return (
-    <Card key={order.id}>
+    <Card key={orderId}>
       <CardHeader className="flex">
-        <h2 className={`${titleFont.className} font-bold`}>
-          Orden: {order.id}
-        </h2>
+        <h2 className={`${titleFont.className} font-bold`}>Orden: {orderId}</h2>
       </CardHeader>
 
       <CardContent>

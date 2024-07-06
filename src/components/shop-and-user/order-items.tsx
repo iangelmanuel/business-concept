@@ -33,12 +33,15 @@ export const OrderItems = ({
     ? 'Detalles de la compra del usuario.'
     : 'Por favor, revisa los detalles de tu compra antes de proceder al pago.'
 
+  const orderId = order.id
+  const { transactionId } = order
+
   const isAdminHref =
     isAdminFromUser && userId
-      ? `/admin/users/${userId}/order/${order.transactionId}`
+      ? `/admin/users/${userId}/order/${orderId}/invoice/${transactionId}`
       : isAdminFromOrder
-        ? `/admin/orders/${order.id}/invoice/${order.transactionId}`
-        : `/dashboard/purchases/order/${order.transactionId}`
+        ? `/admin/orders/${order.id}/invoice/${transactionId}`
+        : `/dashboard/purchases/${orderId}/invoice/${transactionId}`
 
   return (
     <Card className="order-2 lg:order-1 lg:col-span-2">
