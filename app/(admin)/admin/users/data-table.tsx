@@ -1,4 +1,3 @@
-/* eslint-disable indent */
 'use client'
 
 import type {
@@ -50,10 +49,6 @@ import {
 } from '@/components'
 import type { UserType } from '@/types'
 import { toast } from 'sonner'
-
-/* eslint-disable indent */
-
-/* eslint-disable indent */
 
 type DataTableProps<TData, TValue> = {
   columns: ColumnDef<TData, TValue>[]
