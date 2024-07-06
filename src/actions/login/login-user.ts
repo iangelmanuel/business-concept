@@ -1,10 +1,10 @@
 'use server'
 
+import { AuthError } from 'next-auth'
 import { signIn } from '@/auth.config'
 import { prisma } from '@/lib'
 import { LoginUserSchema } from '@/schema'
 import type { LoginUser } from '@/types'
-import { AuthError } from 'next-auth'
 
 export async function loginUser(data: LoginUser) {
   try {

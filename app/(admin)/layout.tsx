@@ -1,7 +1,7 @@
-import { auth } from '@/auth.config'
-import { Card, Footer, Header, AuthAside } from '@/components'
 import type { Metadata } from 'next'
 import { redirect } from 'next/navigation'
+import { auth } from '@/auth.config'
+import { AuthAside, Card, Footer, Header } from '@/components'
 
 export const metadata: Metadata = {
   title: 'Admin - Business Concept',

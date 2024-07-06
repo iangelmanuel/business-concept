@@ -1,5 +1,8 @@
 'use client'
 
+import { useEffect, useState } from 'react'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 import {
   Button,
   Card,
@@ -11,9 +14,6 @@ import {
 import { titleFont } from '@/config'
 import { useCartStore } from '@/store'
 import { formatCurrency } from '@/utils'
-import { useSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
 
 export const CardCartSummary = () => {
   const [loaded, setLoaded] = useState(false)

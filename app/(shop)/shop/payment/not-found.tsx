@@ -1,7 +1,7 @@
 // import Image from 'next/image'
-import { titleFont } from '@/config'
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { titleFont } from '@/config'
 
 export const metadata: Metadata = {
   title: 'Pago no encontrado - Business Concept',

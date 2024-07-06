@@ -1,15 +1,15 @@
+import Link from 'next/link'
 import {
   Badge,
-  buttonVariants,
   Card,
   CardContent,
   CardFooter,
-  CardHeader
+  CardHeader,
+  buttonVariants
 } from '@/components'
 import { titleFont } from '@/config'
 import type { OrderGridType } from '@/types'
-import { formatCurrency, formatDate, checkOrderStatus } from '@/utils'
-import Link from 'next/link'
+import { checkOrderStatus, formatCurrency, formatDate } from '@/utils'
 
 type Props = {
   order: OrderGridType

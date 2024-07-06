@@ -1,5 +1,7 @@
 'use client'
 
+import { useEffect, useState, useTransition } from 'react'
+import { useRouter } from 'next/navigation'
 import { placeOrder } from '@/actions'
 import {
   Button,
@@ -13,8 +15,6 @@ import {
 import { titleFont } from '@/config'
 import { useAddressStore, useCartStore } from '@/store'
 import { formatCurrency } from '@/utils'
-import { useRouter } from 'next/navigation'
-import { useEffect, useState, useTransition } from 'react'
 import { toast } from 'sonner'
 
 export const CardCheckoutSummary = () => {

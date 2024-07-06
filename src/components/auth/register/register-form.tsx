@@ -1,11 +1,11 @@
 'use client'
 
+import { useTransition } from 'react'
+import { useRouter } from 'next/navigation'
 import { registerUser } from '@/actions'
 import { Button, CardContent, ErrorMessage, Input, Label } from '@/components'
 import { DEFAULT_REGISTER_VALUES } from '@/consts'
 import type { RegisterUser } from '@/types'
-import { useRouter } from 'next/navigation'
-import { useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 

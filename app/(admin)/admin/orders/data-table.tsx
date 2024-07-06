@@ -1,5 +1,4 @@
 /* eslint-disable indent */
-
 'use client'
 
 import type {
@@ -16,14 +15,9 @@ import {
   getSortedRowModel,
   useReactTable
 } from '@tanstack/react-table'
-
+import React, { useState, useTransition } from 'react'
+import { deleteManyOrders } from '@/actions'
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
   AlertDialog,
   AlertDialogAction,
   AlertDialogCancel,
@@ -46,12 +40,20 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
   buttonVariants
 } from '@/components'
 import type { UserOrderByAdmin } from '@/types'
-import React, { useState, useTransition } from 'react'
-import { deleteManyOrders } from '@/actions'
 import { toast } from 'sonner'
+
+/* eslint-disable indent */
+
+/* eslint-disable indent */
 
 type DataTableProps<TData, TValue> = {
   columns: ColumnDef<TData, TValue>[]

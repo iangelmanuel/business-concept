@@ -1,8 +1,8 @@
+import type { Metadata } from 'next'
 import { auth } from '@/auth.config'
 import { Card, CardContent, CardHeader } from '@/components'
 import { titleFont } from '@/config'
 import { formatDate } from '@/utils'
-import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Admin Perfil - Business Concept',

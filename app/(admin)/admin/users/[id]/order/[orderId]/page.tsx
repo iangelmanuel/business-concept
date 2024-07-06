@@ -1,7 +1,7 @@
+import { notFound } from 'next/navigation'
 import { getOrderById } from '@/actions'
 import { OrderItems, OrderSummary } from '@/components'
 import type { UserOrder } from '@/types'
-import { notFound } from 'next/navigation'
 
 export async function generateMetadata({
   params

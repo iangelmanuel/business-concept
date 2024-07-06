@@ -1,9 +1,9 @@
+import type { Metadata } from 'next'
+import { redirect } from 'next/navigation'
 import { getUserById } from '@/actions'
 import { auth } from '@/auth.config'
 import { UpdateUserForm } from '@/components'
 import { titleFont } from '@/config'
-import type { Metadata } from 'next'
-import { redirect } from 'next/navigation'
 
 export const metadata: Metadata = {
   title: 'Perfil - Business Concept',

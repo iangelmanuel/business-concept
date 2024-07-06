@@ -1,5 +1,6 @@
 'use client'
 
+import { useTransition } from 'react'
 import { updateUser } from '@/actions'
 import {
   Avatar,
@@ -13,7 +14,6 @@ import {
 import { titleFont } from '@/config'
 import type { AuthUser, UpdateUser } from '@/types'
 import { formatDate, getLettersName } from '@/utils'
-import { useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 

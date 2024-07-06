@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import {
   Button,
   CartButtons,
@@ -15,7 +16,6 @@ import {
 } from '@/components'
 import { titleFont } from '@/config'
 import { ShoppingBagIcon } from 'lucide-react'
-import { useState } from 'react'
 
 export const SheetMenuCart = () => {
   const [isSheetOpen, setIsSheetOpen] = useState(false)

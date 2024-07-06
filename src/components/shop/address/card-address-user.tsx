@@ -1,5 +1,7 @@
 'use client'
 
+import { useState, useTransition } from 'react'
+import { useRouter } from 'next/navigation'
 import { deleteUserAddress } from '@/actions'
 import {
   AlertDialog,
@@ -24,8 +26,6 @@ import { titleFont } from '@/config'
 import { useAddressStore, useCartStore } from '@/store'
 import type { AddressType, LocationType } from '@/types'
 import { TrashIcon } from 'lucide-react'
-import { useRouter } from 'next/navigation'
-import { useState, useTransition } from 'react'
 import { toast } from 'sonner'
 
 type Props = {

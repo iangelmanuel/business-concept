@@ -1,3 +1,5 @@
+import Image from 'next/image'
+import Link from 'next/link'
 import {
   Badge,
   Card,
@@ -9,8 +11,6 @@ import {
 import { titleFont } from '@/config'
 import type { UserOrder, UserOrderByAdmin } from '@/types'
 import { checkOrderStatus, formatCurrency } from '@/utils'
-import Image from 'next/image'
-import Link from 'next/link'
 
 type Props = {
   order: UserOrder | UserOrderByAdmin

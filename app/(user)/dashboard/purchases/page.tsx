@@ -1,7 +1,7 @@
+import type { Metadata } from 'next'
 import { getOrdersByUser } from '@/actions'
 import { OrderGrid } from '@/components'
 import { titleFont } from '@/config'
-import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Mis compras - Business Concept',

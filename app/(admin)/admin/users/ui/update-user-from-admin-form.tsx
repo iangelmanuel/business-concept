@@ -1,5 +1,7 @@
 'use client'
 
+import { useTransition } from 'react'
+import { updateUserById } from '@/actions'
 import {
   Button,
   DialogFooter,
@@ -14,12 +16,10 @@ import {
   SelectTrigger,
   SelectValue
 } from '@/components'
-import type { UserType, UpdateUserByAdminType } from '@/types'
+import type { UpdateUserByAdminType, UserType } from '@/types'
 import { formatDate } from '@/utils'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
-import { useTransition } from 'react'
-import { updateUserById } from '@/actions'
 
 interface Props {
   user: UserType

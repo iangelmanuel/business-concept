@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import NextAuth, { type NextAuthConfig } from 'next-auth'
+import Credentials from 'next-auth/providers/credentials'
 import { prisma } from '@/lib'
 import { LoginUserSchema } from '@/schema'
 import bcrypt from 'bcrypt'
-import NextAuth, { type NextAuthConfig } from 'next-auth'
-import Credentials from 'next-auth/providers/credentials'
 
 export const authConfig: NextAuthConfig = {
   pages: {

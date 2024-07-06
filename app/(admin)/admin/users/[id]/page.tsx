@@ -1,9 +1,12 @@
+import { UpdateUserFromAdminForm } from '../ui/update-user-from-admin-form'
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import {
   deleteUserById,
   findUserById,
   getLocationData,
-  getUserOrdersById,
-  getUserAddressById
+  getUserAddressById,
+  getUserOrdersById
 } from '@/actions'
 import {
   AddressForm,
@@ -18,7 +21,6 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
   Badge,
-  buttonVariants,
   Card,
   CardContent,
   CardDescription,
@@ -30,14 +32,12 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-  OrderGrid
+  OrderGrid,
+  buttonVariants
 } from '@/components'
 import { titleFont } from '@/config'
 import type { UserType } from '@/types'
-import { notFound } from 'next/navigation'
-import { UpdateUserFromAdminForm } from '../ui/update-user-from-admin-form'
 import { toast } from 'sonner'
-import type { Metadata } from 'next'
 
 export async function generateMetadata({
   params

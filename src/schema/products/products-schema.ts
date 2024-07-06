@@ -1,6 +1,5 @@
-import { z } from 'zod'
-
 import { CategorySchema } from '../category/category-schema'
+import { z } from 'zod'
 
 export const ProductImage = z.object({
   id: z.string(),

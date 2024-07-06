@@ -1,10 +1,10 @@
 'use server'
 
+import { revalidatePath } from 'next/cache'
 import { auth } from '@/auth.config'
 import { prisma } from '@/lib'
 import { UpdateUserByAdmin } from '@/schema'
 import type { UpdateUserByAdminType, UserType } from '@/types'
-import { revalidatePath } from 'next/cache'
 
 export async function updateUserById(
   id: UserType['id'],

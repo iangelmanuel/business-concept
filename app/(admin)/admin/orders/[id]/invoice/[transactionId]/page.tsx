@@ -1,8 +1,8 @@
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import { getRefPaycoData } from '@/actions'
 import { ConfirmationData } from '@/components'
 import type { UserOrderByAdmin } from '@/types'
-import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
 
 export async function generateMetadata({
   params

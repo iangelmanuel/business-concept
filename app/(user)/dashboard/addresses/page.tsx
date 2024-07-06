@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { getLocationData, getUserAddress } from '@/actions'
 import {
   AddressForm,
@@ -7,7 +8,6 @@ import {
   CardHeader
 } from '@/components'
 import { titleFont } from '@/config'
-import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Dirección de envío - Business Concept',

@@ -1,6 +1,6 @@
+import type { Metadata } from 'next'
 import { ChangePasswordForm, DeleteUserAccount } from '@/components'
 import { titleFont } from '@/config'
-import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Seguridad y Privacidad - Business Concept',

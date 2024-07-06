@@ -1,10 +1,10 @@
 'use server'
 
+import { revalidatePath } from 'next/cache'
 import { auth } from '@/auth.config'
 import { prisma } from '@/lib'
 import { UserAddressSchema } from '@/schema'
 import type { AddressType } from '@/types'
-import { revalidatePath } from 'next/cache'
 
 export async function updateUserAddress(address: AddressType) {
   try {

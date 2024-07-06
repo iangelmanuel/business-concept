@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useTransition } from 'react'
 import { saveUserAddress } from '@/actions'
 import {
   Button,
@@ -24,7 +25,6 @@ import type {
   LocationType
 } from '@/types'
 import { capitalize } from '@/utils'
-import { useState, useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 

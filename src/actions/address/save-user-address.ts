@@ -1,10 +1,10 @@
 'use server'
 
+import { revalidatePath } from 'next/cache'
 import { auth } from '@/auth.config'
 import { prisma } from '@/lib'
 import { AddressFormSchema } from '@/schema'
 import type { AddressForm } from '@/types'
-import { revalidatePath } from 'next/cache'
 
 export async function saveUserAddress(addressFormData: AddressForm) {
   try {

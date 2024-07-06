@@ -1,9 +1,9 @@
 'use client'
 
-import { useCartStore } from '@/store'
-import { formatCurrency } from '@/utils'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useCartStore } from '@/store'
+import { formatCurrency } from '@/utils'
 
 export const CartSheetItems = () => {
   const cart = useCartStore((state) => state.cart)

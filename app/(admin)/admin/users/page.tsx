@@ -1,9 +1,9 @@
-import { getAllUsers } from '@/actions'
-import { DataTable } from './data-table'
-import { columns } from './columns'
-import { notFound } from 'next/navigation'
-import { titleFont } from '@/config'
 import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import { getAllUsers } from '@/actions'
+import { titleFont } from '@/config'
+import { columns } from './columns'
+import { DataTable } from './data-table'
 
 export const metadata: Metadata = {
   title: 'Usuarios - Business Concept',

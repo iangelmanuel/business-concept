@@ -1,6 +1,6 @@
+import { redirect } from 'next/navigation'
 import { auth } from '@/auth.config'
 import { Footer, Header } from '@/components'
-import { redirect } from 'next/navigation'
 
 export default async function AuthLayout({
   children

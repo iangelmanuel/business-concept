@@ -1,11 +1,11 @@
-import { getAllProducts } from '@/actions'
-import { Card, CardContent, CardDescription, CardHeader } from '@/components'
-import { titleFont } from '@/config'
-import { formatCurrency } from '@/utils'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { getAllProducts } from '@/actions'
+import { Card, CardContent, CardDescription, CardHeader } from '@/components'
+import { titleFont } from '@/config'
+import { formatCurrency } from '@/utils'
 
 export const metadata: Metadata = {
   title: 'Nuestros Productos - Business Concept',

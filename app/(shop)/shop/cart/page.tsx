@@ -1,9 +1,9 @@
+import type { Metadata } from 'next'
 import {
   BarProgress,
   CardCartItems, // CartItemsLoading,
   CardCartSummary // CartSummaryLoading
 } from '@/components'
-import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Carrito de compras - Business Concept',

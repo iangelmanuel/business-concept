@@ -1,11 +1,11 @@
+import Image from 'next/image'
+import Link from 'next/link'
 import {
   DropdownPhoneNavigation,
   TopMenuAuth,
   TopMenuNavigation
 } from '@/components'
 import { titleFont } from '@/config'
-import Image from 'next/image'
-import Link from 'next/link'
 
 export const Header = async () => {
   return (

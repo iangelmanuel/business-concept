@@ -1,5 +1,8 @@
 'use client'
 
+import { useEffect, useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
 import {
   Card,
   CardContent,
@@ -10,9 +13,6 @@ import {
 import { titleFont } from '@/config'
 import { useCartStore } from '@/store'
 import { formatCurrency } from '@/utils'
-import Image from 'next/image'
-import Link from 'next/link'
-import { useEffect, useState } from 'react'
 
 export const CardCheckoutItems = () => {
   const [loading, setLoading] = useState(true)

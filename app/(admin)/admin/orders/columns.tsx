@@ -1,9 +1,9 @@
 'use client'
 
+import type { ColumnDef, SortDirection } from '@tanstack/react-table'
 import { Badge, Button, Checkbox } from '@/components'
 import type { UserOrderByAdmin } from '@/types'
 import { checkOrderStatus, formatCurrency, formatDate } from '@/utils'
-import type { ColumnDef, SortDirection } from '@tanstack/react-table'
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react'
 import { ActionsButtons } from './ui/actions-buttons'
 

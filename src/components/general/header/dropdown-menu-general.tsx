@@ -1,5 +1,7 @@
 'use client'
 
+import { useTheme } from 'next-themes'
+import { useRouter } from 'next/navigation'
 import {
   Button,
   DropdownMenu,
@@ -16,8 +18,6 @@ import {
 } from '@/components'
 import { dropdownGeneral } from '@/data'
 import { Laptop2Icon, MenuIcon, Moon, Palette, Sun } from 'lucide-react'
-import { useTheme } from 'next-themes'
-import { useRouter } from 'next/navigation'
 
 export const DropdownMenuGeneral = () => {
   const { setTheme } = useTheme()

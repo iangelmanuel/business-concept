@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+import { redirect } from 'next/navigation'
 import { getLocationData, getUserAddress } from '@/actions'
 import { auth } from '@/auth.config'
 import {
@@ -9,8 +11,6 @@ import {
   CardHeader
 } from '@/components'
 import { titleFont } from '@/config'
-import type { Metadata } from 'next'
-import { redirect } from 'next/navigation'
 
 export const metadata: Metadata = {
   title: 'Detalles del envio - Business Concept',

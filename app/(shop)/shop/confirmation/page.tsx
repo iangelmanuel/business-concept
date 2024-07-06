@@ -1,7 +1,7 @@
-import { getRefPaycoData, saveRefEpayco } from '@/actions'
-import { BarProgress, ConfirmationData } from '@/components'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { getRefPaycoData, saveRefEpayco } from '@/actions'
+import { BarProgress, ConfirmationData } from '@/components'
 
 export async function generateMetadata({
   searchParams

@@ -1,12 +1,12 @@
 'use client'
 
+import { useSession } from 'next-auth/react'
 import {
   DropdownMenuAdmin,
   DropdownMenuGeneral,
   DropdownMenuUser,
   SheetMenuCart
 } from '@/components'
-import { useSession } from 'next-auth/react'
 
 export const TopMenuAuth = () => {
   const { data: session } = useSession()

@@ -1,5 +1,8 @@
 'use client'
 
+import { useEffect, useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
 import {
   Button,
   Card,
@@ -14,9 +17,6 @@ import { useCartStore } from '@/store'
 import type { Cart } from '@/types'
 import { formatCurrency } from '@/utils'
 import { MinusCircle, PlusCircle, TrashIcon } from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { useEffect, useState } from 'react'
 
 export const CardCartItems = () => {
   const [loaded, setLoaded] = useState(false)

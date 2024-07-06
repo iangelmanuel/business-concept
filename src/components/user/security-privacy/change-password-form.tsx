@@ -1,10 +1,10 @@
 'use client'
 
+import { useTransition } from 'react'
 import { changeUserPassword } from '@/actions'
 import { Button, ErrorMessage, Input, Label } from '@/components'
 import { titleFont } from '@/config'
 import type { ChangeUserPassword } from '@/types'
-import { useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 

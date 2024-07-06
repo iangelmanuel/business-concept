@@ -1,9 +1,8 @@
+import { notFound } from 'next/navigation'
 import { Card, CardContent, CardDescription, CardHeader } from '@/components'
 import { titleFont } from '@/config'
 import type { UserOrder } from '@/types'
 import { formatCurrency } from '@/utils'
-import { notFound } from 'next/navigation'
-
 import { EpaycoButton } from './epayco-button'
 
 type Props = {

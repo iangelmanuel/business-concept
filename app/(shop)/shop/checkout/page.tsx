@@ -1,11 +1,11 @@
+import type { Metadata } from 'next'
+import { redirect } from 'next/navigation'
 import { auth } from '@/auth.config'
 import {
   BarProgress,
   CardCheckoutItems, // CardItemsLoading,
   CardCheckoutSummary // CardSummaryLoading
 } from '@/components'
-import type { Metadata } from 'next'
-import { redirect } from 'next/navigation'
 
 export const metadata: Metadata = {
   title: 'Revisión del Pedido - Business Concept',

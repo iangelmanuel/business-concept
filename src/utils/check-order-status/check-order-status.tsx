@@ -1,5 +1,5 @@
-import type { UserOrder } from '@/types'
 import type { Order } from '@prisma/client'
+import type { UserOrder } from '@/types'
 
 export function checkOrderStatus(orderItem: UserOrder | Order) {
   if (orderItem.isPaid) {

@@ -1,5 +1,7 @@
 'use client'
 
+import { useState, useTransition } from 'react'
+import { useSession } from 'next-auth/react'
 import { deleteUserAccount, logoutUser } from '@/actions'
 import { Button } from '@/components/ui/button'
 import {
@@ -14,8 +16,6 @@ import {
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { titleFont } from '@/config'
-import { useSession } from 'next-auth/react'
-import { useState, useTransition } from 'react'
 import { toast } from 'sonner'
 
 export function DeleteUserAccount() {

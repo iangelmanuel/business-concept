@@ -1,10 +1,10 @@
 'use client'
 
+import { useEffect } from 'react'
+import Script from 'next/script'
 import { Badge, CardFooter, Label, buttonVariants } from '@/components'
 import type { UserOrder } from '@/types'
 import { checkOrderStatus } from '@/utils'
-import Script from 'next/script'
-import { useEffect } from 'react'
 
 type Props = {
   order: UserOrder

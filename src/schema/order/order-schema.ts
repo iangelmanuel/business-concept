@@ -1,6 +1,5 @@
-import { z } from 'zod'
-
 import { OrderAddressSchema } from '../address/address-schema'
+import { z } from 'zod'
 
 export const OrderSchema = z.object({
   id: z.string(),

@@ -1,5 +1,9 @@
 'use client'
 
+import { useTransition } from 'react'
+import { useSession } from 'next-auth/react'
+import { useTheme } from 'next-themes'
+import { useRouter } from 'next/navigation'
 import { logoutUser } from '@/actions'
 import {
   Avatar,
@@ -21,10 +25,6 @@ import {
 import { dropdownUser } from '@/data'
 import { getLettersName } from '@/utils'
 import { Laptop2Icon, LogOut, Moon, Palette, Sun } from 'lucide-react'
-import { useSession } from 'next-auth/react'
-import { useTheme } from 'next-themes'
-import { useRouter } from 'next/navigation'
-import { useTransition } from 'react'
 
 export const DropdownMenuUser = () => {
   const [isPending, startTransition] = useTransition()

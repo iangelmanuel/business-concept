@@ -1,8 +1,8 @@
 'use client'
 
+import type { ColumnDef, SortDirection } from '@tanstack/react-table'
 import { Badge, Button, Checkbox } from '@/components'
 import type { UserType } from '@/types'
-import type { ColumnDef, SortDirection } from '@tanstack/react-table'
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react'
 import { ActionsButtons } from './ui/actions-buttons'
 

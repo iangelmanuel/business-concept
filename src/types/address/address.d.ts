@@ -1,8 +1,8 @@
 import type {
   AddressFormSchema,
   LocationSchema,
-  UserAddressSchema,
-  OrderGridSchema
+  OrderGridSchema,
+  UserAddressSchema
 } from '@/schema'
 import type { z } from 'zod'
 

@@ -1,8 +1,8 @@
 'use server'
 
+import { revalidatePath } from 'next/cache'
 import { auth } from '@/auth.config'
 import { prisma } from '@/lib'
-import { revalidatePath } from 'next/cache'
 
 export const deleteUserAddress = async (id: string) => {
   try {

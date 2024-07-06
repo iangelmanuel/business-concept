@@ -1,10 +1,10 @@
 'use server'
 
+import { revalidatePath } from 'next/cache'
 import { auth } from '@/auth.config'
 import { prisma } from '@/lib'
 import { UpdateUserSchema } from '@/schema'
 import type { UpdateUser } from '@/types'
-import { revalidatePath } from 'next/cache'
 
 export const updateUser = async (data: UpdateUser) => {
   try {

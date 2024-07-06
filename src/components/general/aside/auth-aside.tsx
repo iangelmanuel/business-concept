@@ -1,10 +1,10 @@
 'use client'
 
-import { dropdownAdmin, dropdownUser } from '@/data'
-import { cn } from '@/lib'
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { dropdownAdmin, dropdownUser } from '@/data'
+import { cn } from '@/lib'
 
 export const AuthAside = () => {
   const { data: session } = useSession()

@@ -1,9 +1,9 @@
 'use server'
 
+import { revalidatePath } from 'next/cache'
 import { auth } from '@/auth.config'
 import { prisma } from '@/lib'
 import type { UserOrderByAdmin } from '@/types'
-import { revalidatePath } from 'next/cache'
 
 export async function deleteManyOrders(ids: UserOrderByAdmin['id'][]) {
   try {

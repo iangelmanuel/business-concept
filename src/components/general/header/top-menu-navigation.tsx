@@ -1,5 +1,7 @@
 'use client'
 
+import React, { useEffect, useState } from 'react'
+import Link from 'next/link'
 import { getCategories } from '@/actions'
 import {
   NavigationMenu,
@@ -13,8 +15,6 @@ import {
 import { navigationItems } from '@/data'
 import { cn } from '@/lib'
 import type { CategoryType } from '@/types'
-import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
 
 export function TopMenuNavigation() {
   const [categories, setCategories] = useState<CategoryType[]>([])

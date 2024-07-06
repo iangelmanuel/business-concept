@@ -1,8 +1,8 @@
-import type { UserOrderByAdmin } from '@/types'
-import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import { getOrderById } from '@/actions'
 import { OrderItems, OrderSummary } from '@/components'
+import type { UserOrderByAdmin } from '@/types'
 
 export async function generateMetadata({
   params

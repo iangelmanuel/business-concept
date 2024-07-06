@@ -1,5 +1,6 @@
 'use client'
 
+import { useTransition } from 'react'
 import { deleteUserAddress, updateUserAddress } from '@/actions'
 import {
   AddressForm,
@@ -31,7 +32,6 @@ import { titleFont } from '@/config'
 import { useAddressFormStore } from '@/store'
 import type { AddressType, LocationType } from '@/types'
 import { Pencil, TrashIcon } from 'lucide-react'
-import { useTransition } from 'react'
 import { toast } from 'sonner'
 
 type Props = {

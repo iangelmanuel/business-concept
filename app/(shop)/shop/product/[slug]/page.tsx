@@ -1,13 +1,13 @@
+import type { Metadata } from 'next'
+import Image from 'next/image'
+import Link from 'next/link'
+import { notFound } from 'next/navigation'
 import { getProductBySlug } from '@/actions'
 import { AddProductCart, Card, CardDescription, CardHeader } from '@/components'
 import { titleFont } from '@/config'
 import type { ProductType } from '@/types'
 import { formatCurrency } from '@/utils'
 import { Headphones, Package, Undo2 } from 'lucide-react'
-import type { Metadata } from 'next'
-import Image from 'next/image'
-import Link from 'next/link'
-import { notFound } from 'next/navigation'
 
 export async function generateMetadata({
   params

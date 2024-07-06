@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+import Link from 'next/link'
 import {
   AlertMessage,
   Card,
@@ -6,8 +8,6 @@ import {
   CardLoginForm
 } from '@/components'
 import { titleFont } from '@/config'
-import type { Metadata } from 'next'
-import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Inicia sesión en Business Concept',

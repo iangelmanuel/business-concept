@@ -1,5 +1,8 @@
 'use client'
 
+import { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { Progress } from '@/components'
 import { useAddressStore, useCartStore } from '@/store'
 import {
@@ -10,9 +13,6 @@ import {
   ShoppingCart,
   UserCheckIcon
 } from 'lucide-react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
 
 type Props = {
   step: number

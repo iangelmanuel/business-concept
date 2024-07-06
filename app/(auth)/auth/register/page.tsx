@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+import Link from 'next/link'
 import {
   Card,
   CardDescription,
@@ -5,8 +7,6 @@ import {
   CardRegisterForm
 } from '@/components'
 import { titleFont } from '@/config'
-import type { Metadata } from 'next'
-import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Registrate en Business Concept',
