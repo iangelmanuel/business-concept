@@ -5,27 +5,27 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 export async function generateMetadata({
-  searchParams
+  params
 }: {
-  searchParams: { orderId: UserOrder['id'] }
+  params: { id: UserOrder['id'] }
 }): Promise<Metadata> {
-  const orderId = searchParams.orderId
+  const { id } = params
 
   return {
     title: 'Orden de compra - Business Concept',
-    description: `Mira el detalle de tu orden de compra con el numero de registro ${orderId} en Business Concept. ¡Descubre todo lo que has comprado!`,
+    description: `Mira el detalle de tu orden de compra con el numero de registro ${id} en Business Concept. ¡Descubre todo lo que has comprado!`,
     keywords: 'orden, compra, detalle, Business Concept',
     robots: 'noindex, nofollow'
   }
 }
 
-export default async function OrderIdPage({
-  searchParams
+export default async function PurchaseIdPage({
+  params
 }: {
-  searchParams: { orderId: UserOrder['id'] }
+  params: { id: UserOrder['id'] }
 }) {
-  const { orderId } = searchParams
-  const order = await getOrderById(orderId)
+  const { id } = params
+  const order = await getOrderById(id)
   if (!order) notFound()
 
   return (

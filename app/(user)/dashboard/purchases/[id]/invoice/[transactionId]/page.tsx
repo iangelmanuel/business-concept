@@ -25,7 +25,7 @@ export async function generateMetadata({
   }
 }
 
-export default async function OrderTransactionIdPage({
+export default async function TransactionIdPage({
   params
 }: {
   params: { transactionId: UserOrder['transactionId'] }
