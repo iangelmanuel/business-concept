@@ -7,29 +7,38 @@ import {
   buttonVariants
 } from '@/components'
 import { titleFont } from '@/config'
-import type { UserOrder } from '@/types'
+import type { UserOrder, UserOrderByAdmin } from '@/types'
 import { checkOrderStatus, formatCurrency } from '@/utils'
 import Image from 'next/image'
 import Link from 'next/link'
 
 type Props = {
-  order: UserOrder
-  isAdmin?: boolean
+  order: UserOrder | UserOrderByAdmin
+  isAdminFromUser?: boolean
+  isAdminFromOrder?: boolean
   userId?: string
 }
 
-export const OrderItems = ({ order, isAdmin = false, userId = '' }: Props) => {
-  const isAdminTitle = isAdmin
+export const OrderItems = ({
+  order,
+  isAdminFromUser = false,
+  isAdminFromOrder = false,
+  userId = ''
+}: Props) => {
+  const isAdminTitle = isAdminFromUser
     ? 'Detalles del resumen de la compra del usuario'
     : 'Detalles del resumen de la compra'
 
-  const isAdminCardDescription = isAdmin
+  const isAdminCardDescription = isAdminFromUser
     ? 'Detalles de la compra del usuario.'
     : 'Por favor, revisa los detalles de tu compra antes de proceder al pago.'
 
-  const isAdminHref = isAdmin
-    ? `/admin/users/${userId}/order/${order.transactionId}`
-    : `/dashboard/purchases/order/${order.transactionId}`
+  const isAdminHref =
+    isAdminFromUser && userId
+      ? `/admin/users/${userId}/order/${order.transactionId}`
+      : isAdminFromOrder
+        ? `/admin/orders/${order.id}/invoice/${order.transactionId}`
+        : `/dashboard/purchases/order/${order.transactionId}`
 
   return (
     <Card className="order-2 lg:order-1 lg:col-span-2">

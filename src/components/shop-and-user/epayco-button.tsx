@@ -8,10 +8,10 @@ import { useEffect } from 'react'
 
 type Props = {
   order: UserOrder
-  isAdmin: boolean
+  isAdmin?: boolean
 }
 
-export const EpaycoButton = ({ order, isAdmin }: Props) => {
+export const EpaycoButton = ({ order, isAdmin = false }: Props) => {
   useEffect(() => {
     const btnpay = document.getElementsByClassName('epayco-button-render')
     if (!order.isPaid && !isAdmin) {
