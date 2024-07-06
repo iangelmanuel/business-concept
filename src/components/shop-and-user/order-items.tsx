@@ -40,7 +40,7 @@ export const OrderItems = ({
     isAdminFromUser && userId
       ? `/admin/users/${userId}/order/${orderId}/invoice/${transactionId}`
       : isAdminFromOrder
-        ? `/admin/orders/${order.id}/invoice/${transactionId}`
+        ? `/admin/orders/${orderId}/invoice/${transactionId}`
         : `/dashboard/purchases/${orderId}/invoice/${transactionId}`
 
   return (
