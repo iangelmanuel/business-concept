@@ -36,7 +36,7 @@ export default async function InvoiceTransactionIdPage({
   if (!dataPaycoAction.ok || !dataPaycoAction.dataPayco) notFound()
 
   const { dataPayco } = dataPaycoAction
-  console.log({ dataPayco })
+
   return (
     <>
       <ReturnPage />
