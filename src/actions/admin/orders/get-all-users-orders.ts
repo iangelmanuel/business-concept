@@ -24,6 +24,9 @@ export async function getAllUsersOrders() {
             }
           }
         }
+      },
+      orderBy: {
+        createdAt: 'desc'
       }
     })
 

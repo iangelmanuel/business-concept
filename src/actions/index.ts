@@ -25,8 +25,9 @@ export { updateUserById } from './admin/users/update-user-by-id'
 export { getUserAddressById } from './admin/address/get-user-address-by-id'
 
 export { getUserOrdersById } from './admin/orders/get-user-orders-by-id'
-
 export { getAllUsersOrders } from './admin/orders/get-all-users-orders'
+export { deleteManyOrders } from './admin/orders/delete-many-orders'
+export { deleteOrderById } from './admin/orders/delete-order-by-id'
 
 export { updateUser } from './user/update-user'
 export { getUserById } from './user/get-user-by-id'
