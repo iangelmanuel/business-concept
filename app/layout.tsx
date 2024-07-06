@@ -1,8 +1,7 @@
+import type { Metadata } from 'next'
 import { inter } from '@/config'
 import { Providers } from '@/providers'
-import type { Metadata } from 'next'
 import { Toaster } from 'sonner'
-
 import '../src/styles/globals.css'
 
 export const metadata: Metadata = {
