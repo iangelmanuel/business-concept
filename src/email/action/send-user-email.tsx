@@ -5,7 +5,7 @@ import { auth } from '@/auth.config'
 import { SendEmailUserSchema } from '@/schema'
 import { Resend } from 'resend'
 
-type Props = {
+interface Props {
   subject: string
   email: string
   userFullName: string
