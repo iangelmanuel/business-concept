@@ -4,5 +4,12 @@ import { z } from 'zod'
 
 export const UserOrderByAdmin = z.object({
   ...UserOrderSchema.shape,
+  OrderTracking: z
+    .object({
+      id: z.string(),
+      company: z.string(),
+      trackingCode: z.string()
+    })
+    .nullable(),
   user: UserDataSchema
 })

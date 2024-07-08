@@ -49,5 +49,16 @@ export const OrderItemSchema = z.object({
 export const UserOrderSchema = z.object({
   ...OrderSchema.shape,
   OrderAddress: OrderAddressSchema.nullable(),
-  OrderItem: z.array(OrderItemSchema)
+  OrderItem: z.array(OrderItemSchema),
+  OrderTracking: z
+    .object({
+      company: z.string(),
+      trackingCode: z.string()
+    })
+    .nullable()
+})
+
+export const UserOrderTrackingSchema = z.object({
+  company: z.string(),
+  trackingCode: z.string()
 })
