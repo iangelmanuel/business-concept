@@ -17,11 +17,11 @@ export const metadata: Metadata = {
 export default async function ProfilePage() {
   const session = await auth()
   if (!session) return redirect('/auth/login')
-  if (!session.user) return redirect('/auth/login')
-  const userIdSession = session?.user.id
 
-  const userDb = await getUserById(userIdSession)
-  const user = userDb.user!
+  const userIdSession = session?.user.id
+  const user = await getUserById(userIdSession)
+  if (!user) return redirect('/auth/login')
+
   return (
     <article>
       <h1 className={`${titleFont.className} text-2xl font-bold`}>

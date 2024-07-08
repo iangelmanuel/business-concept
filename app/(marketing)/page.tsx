@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { getAllProducts } from '@/actions'
 import { Card, CardContent, CardDescription } from '@/components/ui/card'
 import { titleFont } from '@/config'
-import type { ProductType } from '@/types'
+import type { ProductAllType } from '@/types'
 import { formatCurrency } from '@/utils'
 
 export const metadata: Metadata = {
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export default async function HomePage() {
   const products = await getAllProducts()
 
-  const categorizedProducts = products.reduce<Record<string, ProductType[]>>(
+  const categorizedProducts = products.reduce<Record<string, ProductAllType[]>>(
     (acc, product) => {
       if (!acc[product.category.name.toLowerCase()]) {
         acc[product.category.name.toLowerCase()] = []
