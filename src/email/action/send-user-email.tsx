@@ -2,7 +2,7 @@
 
 import { UserEmailTemplate } from '../template/user-email-template'
 import { auth } from '@/auth.config'
-import { sendEmailUserSchema } from '@/schema'
+import { SendEmailUserSchema } from '@/schema'
 import { Resend } from 'resend'
 
 type Props = {
@@ -27,7 +27,7 @@ export async function sendUserEmail({
     const isAdmin = session.user.role.includes('admin')
     if (!isAdmin) return { ok: false, message: 'No autorizado' }
 
-    const result = sendEmailUserSchema.safeParse({
+    const result = SendEmailUserSchema.safeParse({
       subject,
       email,
       userFullName,
