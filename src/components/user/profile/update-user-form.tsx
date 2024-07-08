@@ -17,7 +17,7 @@ import { formatDate, getLettersName } from '@/utils'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
-type Props = {
+interface Props {
   user: UserType
 }
 

@@ -14,7 +14,7 @@ import {
   UserCheckIcon
 } from 'lucide-react'
 
-type Props = {
+interface Props {
   step: number
 }
 

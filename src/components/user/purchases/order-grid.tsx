@@ -12,7 +12,7 @@ import { orderStatusLang } from '@/consts'
 import type { OrderGridType } from '@/types'
 import { checkOrderStatusCn, formatCurrency, formatDate } from '@/utils'
 
-type Props = {
+interface Props {
   order: OrderGridType
   isAdmin?: boolean
   userId?: string

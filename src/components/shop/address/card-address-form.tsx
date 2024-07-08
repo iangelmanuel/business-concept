@@ -25,7 +25,7 @@ import type { AddressForm, LocationType } from '@/types'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
-type Props = {
+interface Props {
   location: LocationType[]
 }
 

@@ -7,7 +7,7 @@ import type { ProductAllType } from '@/types'
 import { MinusCircle, PlusCircle } from 'lucide-react'
 import { toast } from 'sonner'
 
-type Props = {
+interface Props {
   product: ProductAllType
 }
 

@@ -28,7 +28,7 @@ import type { AddressType, LocationType } from '@/types'
 import { TrashIcon } from 'lucide-react'
 import { toast } from 'sonner'
 
-type Props = {
+interface Props {
   location: LocationType[]
   addressDb: AddressType[]
 }

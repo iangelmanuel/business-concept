@@ -5,7 +5,7 @@ import type { UserOrder } from '@/types'
 import { formatCurrency } from '@/utils'
 import { EpaycoButton } from './epayco-button'
 
-type Props = {
+interface Props {
   order: UserOrder
   isAdmin?: boolean
 }

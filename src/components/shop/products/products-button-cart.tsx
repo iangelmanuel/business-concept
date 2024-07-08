@@ -5,7 +5,7 @@ import { useCartStore } from '@/store'
 import type { ProductAllType } from '@/types'
 import { toast } from 'sonner'
 
-type Props = {
+interface Props {
   product: ProductAllType
 }
 

@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { Button } from '@/components'
 import { useCartStore } from '@/store'
 
-type Props = {
+interface Props {
   setIsSheetOpen: Dispatch<SetStateAction<boolean>>
 }
 

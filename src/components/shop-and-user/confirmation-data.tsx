@@ -10,7 +10,7 @@ import type { EpaycoResponse } from '@/types'
 import { formatCurrency, formatDate } from '@/utils'
 import { CheckCircle, XCircleIcon } from 'lucide-react'
 
-type Props = {
+interface Props {
   dataPayco: EpaycoResponse
   refPayco: string
 }

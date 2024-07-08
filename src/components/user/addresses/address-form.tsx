@@ -28,7 +28,7 @@ import { capitalize } from '@/utils'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
-type Props = {
+interface Props {
   location: LocationType[]
   address?: AddressType
   handleUpdateAddress?: (address: AddressType) => void

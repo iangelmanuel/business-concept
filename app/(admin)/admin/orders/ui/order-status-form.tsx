@@ -20,7 +20,7 @@ import type { UserOrderByAdmin } from '@/types'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
-type Props = {
+interface Props {
   order: UserOrderByAdmin
 }
 

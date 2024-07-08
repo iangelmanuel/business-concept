@@ -1,7 +1,7 @@
 import { Alert, AlertDescription, AlertTitle } from '@/components'
 import { InfoIcon } from 'lucide-react'
 
-type Props = {
+interface Props {
   variant: 'default' | 'destructive' | 'success' | null | undefined
   title: string
   description: string

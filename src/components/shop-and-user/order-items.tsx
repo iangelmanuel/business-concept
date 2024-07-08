@@ -13,7 +13,7 @@ import { orderStatusLang } from '@/consts'
 import type { UserOrder, UserOrderByAdmin } from '@/types'
 import { checkOrderStatusCn, formatCurrency } from '@/utils'
 
-type Props = {
+interface Props {
   order: UserOrder | UserOrderByAdmin
   isAdminFromUser?: boolean
   isAdminFromOrder?: boolean

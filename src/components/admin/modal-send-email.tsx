@@ -20,7 +20,7 @@ import type { UserType } from '@/types'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
-type Props = {
+interface Props {
   email: UserType['email']
   userFullName: UserType['name'] | UserType['lastname']
   isOrder?: boolean

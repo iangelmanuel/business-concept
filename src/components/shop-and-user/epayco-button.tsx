@@ -7,7 +7,7 @@ import { orderStatusLang } from '@/consts'
 import type { UserOrder } from '@/types'
 import { checkOrderStatusCn } from '@/utils'
 
-type Props = {
+interface Props {
   order: UserOrder
   isAdmin?: boolean
 }
