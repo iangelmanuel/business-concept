@@ -2,8 +2,9 @@
 
 import type { ColumnDef, SortDirection } from '@tanstack/react-table'
 import { Badge, Button, Checkbox, SendEmail } from '@/components'
+import { orderStatusLang } from '@/consts'
 import type { UserOrderByAdmin } from '@/types'
-import { checkOrderStatus, formatCurrency, formatDate } from '@/utils'
+import { checkOrderStatusCn, formatCurrency, formatDate } from '@/utils'
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react'
 import { ActionsButtons } from './ui/actions-buttons'
 
@@ -136,13 +137,13 @@ export const columns: ColumnDef<UserOrderByAdmin>[] = [
     header: 'Fecha de Pago',
     cell: ({ row }) => {
       const paidAt = row.getValue('paidAt') as string
-      const isPaid = paidAt !== null ? formatDate(paidAt) : 'N/A'
-      return <p className="text-center">{isPaid}</p>
+      const isOrderPaidAt = paidAt !== null ? formatDate(paidAt) : 'N/A'
+      return <p className="text-center">{isOrderPaidAt}</p>
     }
   },
 
   {
-    accessorKey: 'isPaid',
+    accessorKey: 'orderStatus',
     header: ({ column }) => {
       return (
         <Button
@@ -155,15 +156,14 @@ export const columns: ColumnDef<UserOrderByAdmin>[] = [
       )
     },
     cell: ({ row }) => {
-      const order = row.original
+      const orderStatus = row.getValue(
+        'orderStatus'
+      ) as UserOrderByAdmin['orderStatus']
+
       return (
         <section className="flex items-center justify-center">
-          <Badge variant={checkOrderStatus(order)}>
-            {checkOrderStatus(order) === 'success'
-              ? 'Aprobado'
-              : checkOrderStatus(order) === 'pending'
-                ? 'Pendiente de Pago'
-                : 'Rechazado'}
+          <Badge variant={checkOrderStatusCn(orderStatus)}>
+            {orderStatusLang[orderStatus]}
           </Badge>
         </section>
       )

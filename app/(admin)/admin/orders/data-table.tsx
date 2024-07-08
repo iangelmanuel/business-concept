@@ -108,14 +108,14 @@ export function DataTable<TData, TValue>({
           value={selectStatus}
           onValueChange={(value) => {
             if (value === 'all') {
-              table.getColumn('isPaid')?.setFilterValue(undefined)
+              table.getColumn('orderStatus')?.setFilterValue(undefined)
               setSelectStatus('all')
               return
             }
             setSelectStatus(value)
             const status = value === 'aprobado'
 
-            table.getColumn('isPaid')?.setFilterValue(status)
+            table.getColumn('orderStatus')?.setFilterValue(status)
           }}
         >
           <SelectTrigger className="ml-2 w-[180px]">
