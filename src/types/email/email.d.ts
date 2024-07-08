@@ -1,3 +1,3 @@
-import type { sendEmailUserSchema } from '@/schema'
+import type { SendEmailUserSchema } from '@/schema'
 
-export type SendEmailUserSchema = z.infer<typeof sendEmailUserSchema>
+export type SendEmailUserType = z.infer<typeof SendEmailUserSchema>

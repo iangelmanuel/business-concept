@@ -1,8 +1,6 @@
-import type { ProductsSchema } from '@/schema'
+import type { ProductGeneralSchema, ProductsSchema } from '@/schema'
 import type { z } from 'zod'
 
-export type ProductType = z.infer<typeof ProductsSchema>
+export type ProductType = z.infer<typeof ProductGeneralSchema>
 
-export type ProductCategoryType = Omit<ProductType, 'productImage'>
-
-export type ProductImageType = Omit<ProductType, 'category'>
+export type ProductAllType = z.infer<typeof ProductsSchema>

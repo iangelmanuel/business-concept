@@ -1,4 +1,4 @@
-import type { CategorySchema } from '@/schema'
+import type { CategoryGenralSchema } from '@/schema'
 import type { z } from 'zod'
 
-export type CategoryType = z.infer<typeof CategorySchema>
+export type CategoryType = z.infer<typeof CategoryGenralSchema>

@@ -1,26 +1,22 @@
 import type {
-  AuthUserSchema,
   ChangeUserPasswordSchema,
   LoginUserSchema,
+  RegisterUserSchema,
   UpdateUserSchema,
-  UserCreateSchema,
-  UserDataSchema
+  UserGeneralSchema
 } from '@/schema'
 import type { z } from 'zod'
 
-export type UserType = z.infer<typeof UserDataSchema>
-
-export type User = z.infer<typeof userSchema>
+export type UserType = z.infer<typeof UserGeneralSchema>
 
 // Register
-export type RegisterUser = z.infer<typeof UserCreateSchema>
+export type RegisterUser = z.infer<typeof RegisterUserSchema>
 
 // Login
 export type LoginUser = z.infer<typeof LoginUserSchema>
 
-// Auth
-export type AuthUser = z.infer<typeof AuthUserSchema>
-
+// Update
 export type UpdateUser = z.infer<typeof UpdateUserSchema>
 
+// Change password
 export type ChangeUserPassword = z.infer<typeof ChangeUserPasswordSchema>

@@ -1,18 +1,20 @@
 import type {
-  OrderCreateSchema,
-  OrderSchema,
+  OrderGeneralSchema,
+  OrderGridSchema,
   ProductToOrderSchema,
   UserOrderSchema,
   UserOrderTrackingSchema
 } from '@/schema'
 import type { z } from 'zod'
 
-export type Order = z.infer<typeof OrderSchema>
+export type Order = z.infer<typeof OrderGeneralSchema>
+export type UserOrder = z.infer<typeof UserOrderSchema>
 
-export type OrderCreate = z.infer<typeof OrderCreateSchema>
 export type ProductToOrderType = z.infer<typeof ProductToOrderSchema>
 
-export type UserOrder = z.infer<typeof UserOrderSchema>
+export type UserOrderTracking = z.infer<typeof UserOrderTrackingSchema>
+
+export type OrderGridType = z.infer<typeof OrderGridSchema>
 
 export type OrderStatusLang = {
   pending: 'Pendiente'
@@ -22,5 +24,3 @@ export type OrderStatusLang = {
   delivered: 'Entregado'
   cancelled: 'Cancelado'
 }
-
-export type UserOrderTracking = z.infer<typeof UserOrderTrackingSchema>
