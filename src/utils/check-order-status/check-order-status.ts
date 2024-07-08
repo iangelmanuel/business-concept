@@ -18,10 +18,10 @@ export function checkOrderStatusCn(
       return 'success'
 
     case 'shipped':
-      return 'destructive'
+      return 'shipped'
 
     case 'delivered':
-      return 'success'
+      return 'delivered'
 
     default:
       return 'pending'
