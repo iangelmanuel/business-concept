@@ -16,17 +16,7 @@ export const UserDataSchema = z.object({
 })
 
 export const UserSchema = z.object({
-  id: z.string(),
-  name: z.string(),
-  lastname: z.string(),
-  email: z.string(),
-  phone: z.string(),
-  password: z.string(),
-  role: z.enum(['admin', 'user']),
-  isConfirmed: z.boolean(),
-  isUserDeleted: z.boolean(),
-  createdAt: z.string(),
-  updatedAt: z.string(),
+  ...UserDataSchema.shape,
   orders: z.array(OrderSchema),
   addresses: z.array(UserAddressSchema)
 })

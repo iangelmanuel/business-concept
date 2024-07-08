@@ -7,7 +7,14 @@ export const OrderSchema = z.object({
   tax: z.number(),
   total: z.number(),
   itemsInOrder: z.number(),
-  isPaid: z.boolean(),
+  orderStatus: z.enum([
+    'pending',
+    'processing',
+    'approved',
+    'shipped',
+    'delivered',
+    'cancelled'
+  ]),
   paidAt: z.date().nullable(),
   transactionId: z.string().nullable(),
   createdAt: z.date(),
@@ -40,17 +47,7 @@ export const OrderItemSchema = z.object({
 })
 
 export const UserOrderSchema = z.object({
-  id: z.string(),
-  subtotal: z.number(),
-  tax: z.number(),
-  total: z.number(),
-  itemsInOrder: z.number(),
-  isPaid: z.boolean(),
-  paidAt: z.date().nullable(),
-  transactionId: z.string().nullable(),
-  createdAt: z.date(),
-  updatedAt: z.date(),
-  userId: z.string(),
+  ...OrderSchema.shape,
   OrderAddress: OrderAddressSchema.nullable(),
   OrderItem: z.array(OrderItemSchema)
 })

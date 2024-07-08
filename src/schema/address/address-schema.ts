@@ -64,7 +64,14 @@ export const OrderGridSchema = z.object({
   tax: z.number(),
   total: z.number(),
   itemsInOrder: z.number(),
-  isPaid: z.boolean(),
+  orderStatus: z.enum([
+    'pending',
+    'processing',
+    'approved',
+    'shipped',
+    'delivered',
+    'cancelled'
+  ]),
   paidAt: z.date().nullable(),
   transactionId: z.string().nullable(),
   createdAt: z.date(),
