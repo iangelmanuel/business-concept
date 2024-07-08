@@ -1,29 +1,21 @@
 'use server'
 
 import { prisma } from '@/lib'
+import type { UserType } from '@/types'
 
-export async function getUserById(id: string) {
+export async function getUserById(id: UserType['id']) {
   try {
     const user = await prisma.user.findUnique({
-      where: { id },
-      select: {
-        id: true,
-        email: true,
-        name: true,
-        lastname: true,
-        role: true,
-        createdAt: true,
-        updatedAt: true
-      }
+      where: { id }
     })
-    return {
-      ok: true,
-      user
-    }
+
+    if (!user) return null
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { password: _, ...userWithoutPassword } = user
+
+    return userWithoutPassword
   } catch (error) {
-    return {
-      ok: false,
-      message: 'Error al obtener el usuario por id'
-    }
+    return null
   }
 }

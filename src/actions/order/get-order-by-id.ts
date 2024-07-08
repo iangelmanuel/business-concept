@@ -37,7 +37,13 @@ export const getOrderById = async (id: string) => {
             }
           }
         },
-        OrderTracking: true
+        OrderTracking: {
+          select: {
+            id: true,
+            company: true,
+            trackingCode: true
+          }
+        }
       }
     })
 

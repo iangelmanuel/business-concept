@@ -3,9 +3,9 @@
 import { revalidatePath } from 'next/cache'
 import { auth } from '@/auth.config'
 import { prisma } from '@/lib'
-import type { User } from '@/types'
+import type { UserType } from '@/types'
 
-export async function deleteUserAccount(id: User['id']) {
+export async function deleteUserAccount(id: UserType['id']) {
   try {
     const session = await auth()
     if (!session) {

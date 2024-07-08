@@ -3,7 +3,7 @@
 import { revalidatePath } from 'next/cache'
 import { auth } from '@/auth.config'
 import { prisma } from '@/lib'
-import { UserAddressSchema } from '@/schema'
+import { AddressGeneralSchema } from '@/schema'
 import type { AddressType } from '@/types'
 
 export async function updateUserAddress(address: AddressType) {
@@ -16,7 +16,7 @@ export async function updateUserAddress(address: AddressType) {
       return { ok: false, message: 'No autorizado' }
     }
 
-    const result = UserAddressSchema.safeParse(address)
+    const result = AddressGeneralSchema.safeParse(address)
     if (!result.success) {
       return { ok: false, message: 'Datos incorrectos' }
     }

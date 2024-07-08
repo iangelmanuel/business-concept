@@ -10,10 +10,12 @@ export async function getLocationData() {
         department: 'asc'
       }
     })
+
     const result = LocationsSchema.safeParse(locationData)
     if (!result.success) {
       return []
     }
+
     return result.data
   } catch (error) {
     return []
