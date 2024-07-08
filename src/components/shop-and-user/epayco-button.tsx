@@ -14,7 +14,7 @@ type Props = {
 export const EpaycoButton = ({ order, isAdmin = false }: Props) => {
   useEffect(() => {
     const btnpay = document.getElementsByClassName('epayco-button-render')
-    if (!order.isPaid && !isAdmin) {
+    if (!order.isPaid && isAdmin) {
       setTimeout(() => {
         btnpay[0].setAttribute('id', 'epayco-pay')
       }, 1000)
@@ -30,7 +30,7 @@ export const EpaycoButton = ({ order, isAdmin = false }: Props) => {
         >
           Aprobado
         </Badge>
-      ) : !isAdmin ? (
+      ) : isAdmin ? (
         <>
           <Label
             htmlFor="epayco-pay"
