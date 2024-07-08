@@ -58,7 +58,7 @@ export const UserEmailTemplate = ({
 
             <Text style={text}>
               Si tienes alguna pregunta, no dudes en ponerte en contacto con
-              nosotros por medio de
+              nosotros por medio de{' '}
               <Link
                 style={anchor}
                 href={`${baseUrl}/contact`}
