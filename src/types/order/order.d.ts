@@ -2,7 +2,8 @@ import type {
   OrderCreateSchema,
   OrderSchema,
   ProductToOrderSchema,
-  UserOrderSchema
+  UserOrderSchema,
+  UserOrderTrackingSchema
 } from '@/schema'
 import type { z } from 'zod'
 
@@ -16,8 +17,10 @@ export type UserOrder = z.infer<typeof UserOrderSchema>
 export type OrderStatusLang = {
   pending: 'Pendiente'
   processing: 'Procesando'
-  approved: 'Aprobada'
-  shipped: 'Enviada'
-  delivered: 'Entregada'
-  cancelled: 'Cancelada'
+  approved: 'Aprobado'
+  shipped: 'Enviado'
+  delivered: 'Entregado'
+  cancelled: 'Cancelado'
 }
+
+export type UserOrderTracking = z.infer<typeof UserOrderTrackingSchema>
