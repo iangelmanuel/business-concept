@@ -14,7 +14,8 @@ type Props = {
 export const EpaycoButton = ({ order, isAdmin = false }: Props) => {
   const { orderStatus } = order
 
-  const isOrderStatusOk = orderStatus !== 'pending'
+  const isOrderStatusOk =
+    orderStatus !== 'pending' && orderStatus !== 'cancelled'
 
   useEffect(() => {
     const btnpay = document.getElementsByClassName('epayco-button-render')
