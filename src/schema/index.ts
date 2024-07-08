@@ -12,3 +12,5 @@ export * from './user/user-schema'
 export * from './category/category-schema'
 
 export * from './order/order-schema'
+
+export * from './email/email-schema'
