@@ -38,7 +38,7 @@ export default async function ShopProductsPage() {
 
           <section>
             <Image
-              src={lastProduct.productImage[1].url}
+              src={lastProduct.productImage[0].url}
               alt={`producto ${lastProduct.name}`}
               width={500}
               height={500}

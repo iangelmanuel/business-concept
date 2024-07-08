@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import { getOrderById } from '@/actions'
 import { OrderItems, OrderSummary } from '@/components'
+import { orderStatusLang } from '@/consts'
 import type { UserOrder } from '@/types'
 import { ReturnPage } from '@/utils'
 
@@ -13,10 +14,10 @@ export async function generateMetadata({
   const order = await getOrderById(orderId)
   if (!order) notFound()
 
-  const isOrderPaid = order.isPaid ? 'pagada' : 'pendiente'
+  const { orderStatus } = order
 
   return {
-    title: `Orden ${isOrderPaid} - Business Concept `,
+    title: `Orden ${orderStatusLang[orderStatus]} - Business Concept `,
     description: `Detalles del pedido #${order.id} en Business Concept`
   }
 }
