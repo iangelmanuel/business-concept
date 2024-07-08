@@ -17,3 +17,5 @@ export * from './category/category'
 export * from './order/order'
 
 export * from './epayco/epayco'
+
+export * from './email/email'
