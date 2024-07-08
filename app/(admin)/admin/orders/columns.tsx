@@ -1,7 +1,7 @@
 'use client'
 
 import type { ColumnDef, SortDirection } from '@tanstack/react-table'
-import { Badge, Button, Checkbox } from '@/components'
+import { Badge, Button, Checkbox, SendEmail } from '@/components'
 import type { UserOrderByAdmin } from '@/types'
 import { checkOrderStatus, formatCurrency, formatDate } from '@/utils'
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react'
@@ -85,8 +85,21 @@ export const columns: ColumnDef<UserOrderByAdmin>[] = [
     },
     cell: ({ row }) => {
       const email = row.getValue('user.email') as string
-      // TODO: Enviar correos a los usuarios
-      return <p>{email}</p>
+      const orderAddres = row.original
+        .OrderAddress as UserOrderByAdmin['OrderAddress']
+
+      if (!orderAddres) return <span>{email}</span>
+
+      const { firstName, lastName } = orderAddres
+      const userFullName = `${firstName} ${lastName}`
+
+      return (
+        <SendEmail
+          userFullName={userFullName}
+          email={email}
+          isOrder
+        />
+      )
     }
   },
 

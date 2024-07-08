@@ -1,7 +1,7 @@
 'use client'
 
 import type { ColumnDef, SortDirection } from '@tanstack/react-table'
-import { Badge, Button, Checkbox } from '@/components'
+import { Badge, Button, Checkbox, SendEmail } from '@/components'
 import type { UserType } from '@/types'
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react'
 import { ActionsButtons } from './ui/actions-buttons'
@@ -81,6 +81,20 @@ export const columns: ColumnDef<UserType>[] = [
           Correo
           <SorterIcon isSorted={column.getIsSorted()} />
         </Button>
+      )
+    },
+    cell: ({ row }) => {
+      const email = row.getValue('email') as string
+      const name = row.getValue('name') as string
+      const lastname = row.getValue('lastname') as string
+
+      const userFullName = `${name} ${lastname}`
+
+      return (
+        <SendEmail
+          userFullName={userFullName}
+          email={email}
+        />
       )
     }
   },
