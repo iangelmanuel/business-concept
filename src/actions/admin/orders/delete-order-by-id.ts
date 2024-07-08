@@ -25,6 +25,12 @@ export async function deleteOrderById(orderId: UserOrderByAdmin['id']) {
       }
     })
 
+    await prisma.orderTracking.delete({
+      where: {
+        orderId
+      }
+    })
+
     await prisma.order.delete({
       where: {
         id: orderId

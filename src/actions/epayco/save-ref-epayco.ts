@@ -22,13 +22,15 @@ export async function saveRefEpayco(
     if (!isOrderExists) return { ok: false }
 
     const isOrderPaid = await checkIfOrderSuccess(refPayco)
+    const orderStatus = isOrderPaid ? 'approved' : 'cancelled'
+
     await prisma.order.update({
       where: {
         id: orderId
       },
       data: {
         transactionId: refPayco,
-        isPaid: isOrderPaid,
+        orderStatus,
         paidAt: new Date()
       }
     })

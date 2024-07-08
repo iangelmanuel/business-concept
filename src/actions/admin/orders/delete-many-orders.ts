@@ -29,6 +29,14 @@ export async function deleteManyOrders(ids: UserOrderByAdmin['id'][]) {
       }
     })
 
+    await prisma.orderTracking.deleteMany({
+      where: {
+        orderId: {
+          in: ids
+        }
+      }
+    })
+
     await prisma.order.deleteMany({
       where: {
         id: {
