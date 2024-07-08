@@ -96,7 +96,8 @@ export function DataTable<TData, TValue>({
           value={(table.getColumn('email')?.getFilterValue() as string) ?? ''}
           onChange={(e) => {
             setSelectStatus('all')
-            table.getColumn('email')?.setFilterValue(e.target.value)
+            const value = e.target.value
+            table.getColumn('email')?.setFilterValue(value)
           }}
           className="max-w-sm"
         />

@@ -113,9 +113,7 @@ export function DataTable<TData, TValue>({
               return
             }
             setSelectStatus(value)
-            const status = value === 'aprobado'
-
-            table.getColumn('orderStatus')?.setFilterValue(status)
+            table.getColumn('orderStatus')?.setFilterValue(value)
           }}
         >
           <SelectTrigger className="ml-2 w-[180px]">
@@ -125,8 +123,11 @@ export function DataTable<TData, TValue>({
             <SelectGroup>
               <SelectLabel>Estado de la Orden</SelectLabel>
               <SelectItem value="all">Todos</SelectItem>
-              <SelectItem value="aprobado">Aprobado</SelectItem>
-              <SelectItem value="no aprobados">No aprobados</SelectItem>
+              <SelectItem value="delivered">Entregados</SelectItem>
+              <SelectItem value="shipped">Enviados</SelectItem>
+              <SelectItem value="approved">Aprobados</SelectItem>
+              <SelectItem value="pending">Pendientes</SelectItem>
+              <SelectItem value="cancelled">Cancelados</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>
