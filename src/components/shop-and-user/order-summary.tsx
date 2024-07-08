@@ -114,7 +114,7 @@ export const OrderSummary = ({ order, isAdmin = false }: Props) => {
 
         <EpaycoButton
           order={order}
-          isAdmin
+          isAdmin={isAdmin}
         />
       </Card>
     </section>

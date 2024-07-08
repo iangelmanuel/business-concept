@@ -8,8 +8,9 @@ import {
   buttonVariants
 } from '@/components'
 import { titleFont } from '@/config'
+import { orderStatusLang } from '@/consts'
 import type { OrderGridType } from '@/types'
-import { checkOrderStatus, formatCurrency, formatDate } from '@/utils'
+import { checkOrderStatusCn, formatCurrency, formatDate } from '@/utils'
 
 type Props = {
   order: OrderGridType
@@ -23,6 +24,8 @@ export const OrderGrid = ({ order, isAdmin, userId }: Props) => {
   const isAdminHref = isAdmin
     ? `/admin/users/${userId}/order/${orderId}`
     : `/dashboard/purchases/${orderId}`
+
+  const { orderStatus } = order
 
   return (
     <Card key={orderId}>
@@ -45,12 +48,8 @@ export const OrderGrid = ({ order, isAdmin, userId }: Props) => {
 
           <div>
             <span className="font-bold">Estado:</span>{' '}
-            <Badge variant={checkOrderStatus(order)}>
-              {checkOrderStatus(order) === 'success'
-                ? 'Aprobado'
-                : checkOrderStatus(order) === 'pending'
-                  ? 'Pendiente de Pago'
-                  : 'Rechazado'}
+            <Badge variant={checkOrderStatusCn(orderStatus)}>
+              {orderStatusLang[orderStatus]}
             </Badge>
           </div>
         </section>

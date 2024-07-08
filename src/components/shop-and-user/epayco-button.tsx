@@ -3,8 +3,8 @@
 import { useEffect } from 'react'
 import Script from 'next/script'
 import { Badge, CardFooter, Label, buttonVariants } from '@/components'
+import { orderStatusLang } from '@/consts'
 import type { UserOrder } from '@/types'
-import { checkOrderStatus } from '@/utils'
 
 type Props = {
   order: UserOrder
@@ -12,33 +12,35 @@ type Props = {
 }
 
 export const EpaycoButton = ({ order, isAdmin = false }: Props) => {
+  const { orderStatus } = order
+
+  const isOrderStatusOk = orderStatus !== 'pending'
+
   useEffect(() => {
     const btnpay = document.getElementsByClassName('epayco-button-render')
-    if (!order.isPaid && isAdmin) {
+    if (isAdmin === false && !isOrderStatusOk) {
       setTimeout(() => {
         btnpay[0].setAttribute('id', 'epayco-pay')
       }, 1000)
     }
-  }, [isAdmin, order])
+  }, [isAdmin, isOrderStatusOk])
 
   return (
     <CardFooter>
-      {order.isPaid ? (
+      {isOrderStatusOk ? (
         <Badge
           variant="success"
           className="flex w-full items-center justify-center py-2"
         >
-          Aprobado
+          {orderStatusLang[orderStatus]}
         </Badge>
-      ) : isAdmin ? (
+      ) : isAdmin === false ? (
         <>
           <Label
             htmlFor="epayco-pay"
             className={`${buttonVariants()} w-full cursor-pointer`}
           >
-            {checkOrderStatus(order) === 'destructive'
-              ? 'Reintentar pago'
-              : 'Pagar con ePayco'}
+            {isOrderStatusOk ? 'Reintentar pago' : 'Pagar con ePayco'}
           </Label>
 
           <form>

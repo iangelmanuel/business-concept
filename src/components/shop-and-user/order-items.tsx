@@ -9,8 +9,9 @@ import {
   buttonVariants
 } from '@/components'
 import { titleFont } from '@/config'
+import { orderStatusLang } from '@/consts'
 import type { UserOrder, UserOrderByAdmin } from '@/types'
-import { checkOrderStatus, formatCurrency } from '@/utils'
+import { checkOrderStatusCn, formatCurrency } from '@/utils'
 
 type Props = {
   order: UserOrder | UserOrderByAdmin
@@ -34,7 +35,7 @@ export const OrderItems = ({
     : 'Por favor, revisa los detalles de tu compra antes de proceder al pago.'
 
   const orderId = order.id
-  const { transactionId } = order
+  const { transactionId, orderStatus } = order
 
   const isAdminHref =
     isAdminFromUser && userId
@@ -51,12 +52,8 @@ export const OrderItems = ({
             {isAdminTitle}
           </h2>
 
-          <Badge variant={checkOrderStatus(order)}>
-            {checkOrderStatus(order) === 'success'
-              ? 'Aprobado'
-              : checkOrderStatus(order) === 'pending'
-                ? 'Pendiente de Pago'
-                : 'Rechazado'}
+          <Badge variant={checkOrderStatusCn(orderStatus)}>
+            {orderStatusLang[orderStatus]}
           </Badge>
         </section>
 
