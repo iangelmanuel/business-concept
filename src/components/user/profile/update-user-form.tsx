@@ -12,13 +12,13 @@ import {
   Label
 } from '@/components'
 import { titleFont } from '@/config'
-import type { AuthUser, UpdateUser } from '@/types'
+import type { UpdateUser, UserType } from '@/types'
 import { formatDate, getLettersName } from '@/utils'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
 type Props = {
-  user: AuthUser
+  user: UserType
 }
 
 export const UpdateUserForm = ({ user }: Props) => {

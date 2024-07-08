@@ -3,12 +3,12 @@
 import { useState } from 'react'
 import { Button, CardContent } from '@/components'
 import { useCartStore } from '@/store'
-import type { ProductType } from '@/types'
+import type { ProductAllType } from '@/types'
 import { MinusCircle, PlusCircle } from 'lucide-react'
 import { toast } from 'sonner'
 
 type Props = {
-  product: ProductType
+  product: ProductAllType
 }
 
 export const AddProductCart = ({ product }: Props) => {

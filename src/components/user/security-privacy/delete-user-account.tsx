@@ -24,14 +24,14 @@ export function DeleteUserAccount() {
   const [isPeding, startTransition] = useTransition()
 
   const { data: session } = useSession()
-  const user = session?.user
+  const user = session!.user
 
   const isFormValid =
-    emailConfirmation === user?.email && textConfirmation === 'BORRAR CUENTA'
+    emailConfirmation === user!.email && textConfirmation === 'BORRAR CUENTA'
 
   const handleClickDeleteAccount = () => {
     startTransition(async () => {
-      const response = await deleteUserAccount(user?.id)
+      const response = await deleteUserAccount(user.id)
       if (response.ok) {
         toast.success(response.message, {
           duration: 3000,

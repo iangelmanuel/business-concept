@@ -14,7 +14,7 @@ import {
 } from '@/components'
 import { titleFont } from '@/config'
 import { useCartStore } from '@/store'
-import type { Cart } from '@/types'
+import type { CartType } from '@/types'
 import { formatCurrency } from '@/utils'
 import { MinusCircle, PlusCircle, TrashIcon } from 'lucide-react'
 
@@ -34,7 +34,7 @@ export const CardCartItems = () => {
 
   if (!loaded) return <CartItemsLoading />
 
-  const updateProductQuantity = (item: Cart, quantity: number) => {
+  const updateProductQuantity = (item: CartType, quantity: number) => {
     if (quantity > 5 || quantity > item.stock) return
 
     if (quantity <= 0) {

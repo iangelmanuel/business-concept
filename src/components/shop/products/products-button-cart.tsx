@@ -2,11 +2,11 @@
 
 import { Button } from '@/components'
 import { useCartStore } from '@/store'
-import type { ProductType } from '@/types'
+import type { ProductAllType } from '@/types'
 import { toast } from 'sonner'
 
 type Props = {
-  product: ProductType
+  product: ProductAllType
 }
 
 export const ProductsButtonCart = ({ product }: Props) => {
