@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export const sendEmailUserSchema = z.object({
+export const SendEmailUserSchema = z.object({
   subject: z.string(),
   email: z.string().email().trim(),
   userFullName: z.string(),

@@ -1,63 +1,44 @@
-import { UserAddressSchema } from '../address/address-schema'
-import { OrderSchema } from '../order/order-schema'
 import { z } from 'zod'
 
-export const UserDataSchema = z.object({
+export const UserGeneralSchema = z.object({
   id: z.string(),
-  name: z.string(),
-  lastname: z.string(),
-  email: z.string(),
-  phone: z.string(),
+  name: z.string().min(3).max(50),
+  lastname: z.string().min(3).max(50),
+  email: z
+    .string()
+    .email()
+    .trim()
+    .transform((value) => value.toLowerCase()),
+  phone: z.string().max(15),
   role: z.enum(['admin', 'user']),
-  isConfirmed: z.boolean(),
-  isUserDeleted: z.boolean(),
+  isConfirmed: z.boolean().default(false),
+  isUserDeleted: z.boolean().default(false),
   createdAt: z.date(),
   updatedAt: z.date()
 })
 
-export const UserSchema = z.object({
-  ...UserDataSchema.shape,
-  orders: z.array(OrderSchema),
-  addresses: z.array(UserAddressSchema)
-})
-
 export const RegisterUserSchema = z
   .object({
-    email: z
-      .string()
-      .email()
-      .trim()
-      .transform((value) => value.toLowerCase()),
-    name: z.string().min(3).max(50),
-    lastname: z.string().min(3).max(50),
+    email: UserGeneralSchema.shape.email,
+    name: UserGeneralSchema.shape.name,
+    lastname: UserGeneralSchema.shape.lastname,
+    phone: UserGeneralSchema.shape.phone,
     password: z.string().min(8),
-    repeatPassword: z.string(),
-    phone: z.string().max(15)
+    repeatPassword: z.string()
   })
   .refine((data) => data.password === data.repeatPassword, {
     path: ['repeatPassword']
   })
 
 export const LoginUserSchema = z.object({
-  email: z.string().email().trim(),
-  password: z.string()
-})
-
-export const authUserSchema = z.object({
-  id: z.string(),
-  email: z.string(),
-  name: z.string(),
-  lastname: z.string(),
-  role: z.enum(['admin', 'user']),
-  emailVerified: z.boolean().optional(),
-  createdAt: z.date(),
-  updatedAt: z.date()
+  email: UserGeneralSchema.shape.email,
+  password: z.string().min(8)
 })
 
 export const UpdateUserSchema = z.object({
-  name: z.string().min(3).max(50),
-  lastname: z.string().min(3).max(50),
-  email: z.string().email().trim()
+  name: UserGeneralSchema.shape.name,
+  lastname: UserGeneralSchema.shape.lastname,
+  email: UserGeneralSchema.shape.email
 })
 
 export const ChangeUserPasswordSchema = z.object({

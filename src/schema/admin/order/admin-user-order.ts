@@ -1,5 +1,5 @@
 import { UserOrderSchema } from '../../order/order-schema'
-import { UserDataSchema } from '../../user/user-schema'
+import { UserGeneralSchema } from '../../user/user-schema'
 import { z } from 'zod'
 
 export const UserOrderByAdmin = z.object({
@@ -11,5 +11,5 @@ export const UserOrderByAdmin = z.object({
       trackingCode: z.string()
     })
     .nullable(),
-  user: UserDataSchema
+  user: UserGeneralSchema
 })

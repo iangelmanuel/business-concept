@@ -1,11 +1,12 @@
+import { UserGeneralSchema } from '@/schema/user/user-schema'
 import { z } from 'zod'
 
 export const UpdateUserByAdmin = z.object({
-  name: z.string().min(3).max(50),
-  lastname: z.string().min(3).max(50),
-  email: z.string().email().trim(),
-  phone: z.string(),
-  role: z.enum(['user', 'admin']),
-  isConfirmed: z.boolean(),
-  isUserDeleted: z.boolean()
+  name: UserGeneralSchema.shape.name,
+  lastname: UserGeneralSchema.shape.lastname,
+  email: UserGeneralSchema.shape.email,
+  phone: UserGeneralSchema.shape.phone,
+  role: UserGeneralSchema.shape.role,
+  isConfirmed: UserGeneralSchema.shape.isConfirmed,
+  isUserDeleted: UserGeneralSchema.shape.isUserDeleted
 })
