@@ -1,4 +1,4 @@
-export type NavigationItem = {
+export interface NavigationItem {
   label: string
   href: string
   description: string

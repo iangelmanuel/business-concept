@@ -16,7 +16,7 @@ export type UserOrderTracking = z.infer<typeof UserOrderTrackingSchema>
 
 export type OrderGridType = z.infer<typeof OrderGridSchema>
 
-export type OrderStatusLang = {
+export interface OrderStatusLang {
   pending: 'Pendiente'
   processing: 'Procesando'
   approved: 'Aprobado'

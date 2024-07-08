@@ -1,4 +1,4 @@
-type Data = {
+interface Data {
   x_cust_id_cliente: number
   x_ref_payco: number
   x_id_factura: string
@@ -56,7 +56,7 @@ type Data = {
   x_type_payment: string
 }
 
-export type EpaycoResponse = {
+export interface EpaycoResponse {
   success: boolean
   title_response: string
   text_response: string
