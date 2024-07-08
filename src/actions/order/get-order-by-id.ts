@@ -36,7 +36,8 @@ export const getOrderById = async (id: string) => {
               }
             }
           }
-        }
+        },
+        OrderTracking: true
       }
     })
 

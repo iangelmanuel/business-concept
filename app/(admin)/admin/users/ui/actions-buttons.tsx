@@ -25,7 +25,7 @@ import {
   buttonVariants
 } from '@/components'
 import type { UserType } from '@/types'
-import { Ellipsis } from 'lucide-react'
+import { Ellipsis, Trash2, User, UserRoundCog } from 'lucide-react'
 import { toast } from 'sonner'
 import { UpdateUserFromAdminForm } from './update-user-from-admin-form'
 
@@ -56,7 +56,13 @@ export const ActionsButtons = ({ user }: Props) => {
         <DropdownMenuContent align="end">
           <DropdownMenuLabel>Acciones</DropdownMenuLabel>
           <DropdownMenuItem>
-            <Link href={`/admin/users/${id}`}>Ver usuario</Link>
+            <Link
+              href={`/admin/users/${id}`}
+              className="flex items-center"
+            >
+              <User className="mr-2 h-4 w-4" />
+              Ver usuario
+            </Link>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem>
@@ -64,7 +70,9 @@ export const ActionsButtons = ({ user }: Props) => {
             <button
               disabled={isPending}
               onClick={() => setIsEditOptionOpen(true)}
+              className="flex items-center"
             >
+              <UserRoundCog className="mr-2 h-4 w-4" />
               Editar usuario
             </button>
           </DropdownMenuItem>
@@ -74,7 +82,9 @@ export const ActionsButtons = ({ user }: Props) => {
             <button
               disabled={isPending}
               onClick={() => setIsDeleteOptionOpen(true)}
+              className="flex items-center text-destructive"
             >
+              <Trash2 className="mr-2 h-4 w-4 text-destructive" />
               Eliminar usuario
             </button>
           </DropdownMenuItem>

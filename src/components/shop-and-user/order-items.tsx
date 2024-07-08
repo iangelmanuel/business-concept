@@ -59,9 +59,17 @@ export const OrderItems = ({
 
         <CardDescription>{isAdminCardDescription}</CardDescription>
 
-        <section className="mt-4 flex items-center justify-between">
-          {order.transactionId && (
-            <p className="font-bold">Código de Rastreo del pedido:</p>
+        <section className="flex items-center justify-between">
+          {order.OrderTracking && (
+            <>
+              <div>
+                <p className="font-bold">Código de rastreo:</p>
+                <span className="capitalize">
+                  {order.OrderTracking.company} -{' '}
+                </span>
+                <span>{order.OrderTracking.trackingCode}</span>
+              </div>
+            </>
           )}
 
           {order.transactionId && (

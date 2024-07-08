@@ -144,17 +144,7 @@ export const columns: ColumnDef<UserOrderByAdmin>[] = [
 
   {
     accessorKey: 'orderStatus',
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-        >
-          Estado de la orden
-          <SorterIcon isSorted={column.getIsSorted()} />
-        </Button>
-      )
-    },
+    header: 'Estado de la orden',
     cell: ({ row }) => {
       const orderStatus = row.getValue(
         'orderStatus'

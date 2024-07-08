@@ -5,6 +5,7 @@ import Script from 'next/script'
 import { Badge, CardFooter, Label, buttonVariants } from '@/components'
 import { orderStatusLang } from '@/consts'
 import type { UserOrder } from '@/types'
+import { checkOrderStatusCn } from '@/utils'
 
 type Props = {
   order: UserOrder
@@ -30,7 +31,7 @@ export const EpaycoButton = ({ order, isAdmin = false }: Props) => {
     <CardFooter>
       {isOrderStatusOk ? (
         <Badge
-          variant="success"
+          variant={checkOrderStatusCn(orderStatus)}
           className="flex w-full items-center justify-center py-2"
         >
           {orderStatusLang[orderStatus]}

@@ -14,6 +14,13 @@ export async function getAllUsersOrders() {
     const usersOrders = await prisma.order.findMany({
       include: {
         OrderAddress: true,
+        OrderTracking: {
+          select: {
+            id: true,
+            company: true,
+            trackingCode: true
+          }
+        },
         user: true,
         OrderItem: {
           include: {
