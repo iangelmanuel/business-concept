@@ -1,7 +1,17 @@
 import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+import Link from 'next/link'
+import { notFound, redirect } from 'next/navigation'
 import { getRefPaycoData, saveRefEpayco } from '@/actions'
-import { BarProgress, ConfirmationData } from '@/components'
+import {
+  AlertMessage,
+  BarProgress,
+  Button,
+  ConfirmationData,
+  Input,
+  Label,
+  buttonVariants
+} from '@/components'
+import { sendInvoice } from '@/email'
 
 export async function generateMetadata({
   searchParams
@@ -27,9 +37,9 @@ export async function generateMetadata({
 export default async function ConfirmationPage({
   searchParams
 }: {
-  searchParams: { ref_payco: string }
+  searchParams: { ref_payco: string; emailSend: string }
 }) {
-  const refPayco = searchParams.ref_payco
+  const { ref_payco: refPayco, emailSend } = searchParams
   if (refPayco === 'undefined') notFound()
 
   const dataPaycoAction = await getRefPaycoData(refPayco)
@@ -41,14 +51,76 @@ export default async function ConfirmationPage({
   const saveRef = await saveRefEpayco(refPayco, orderId)
   if (!saveRef.ok) notFound()
 
+  const sendInvoiceEmail = async (formData: FormData) => {
+    'use server'
+    const email = formData.get('email') as string
+    const response = await sendInvoice(email, dataPayco)
+    redirect(
+      `/shop/confirmation?ref_payco=${refPayco}&emailSend=${response.ok}`
+    )
+  }
+
   return (
-    <section>
+    <section className="p-3">
       <BarProgress step={5} />
 
       <ConfirmationData
         dataPayco={dataPayco}
-        refPayco={searchParams.ref_payco}
+        refPayco={refPayco}
       />
+
+      {emailSend === 'true' ? (
+        <div className="mx-auto mt-3 max-w-screen-md">
+          <AlertMessage
+            variant="success"
+            title="¡Todo salió bien!"
+            description="Se envio un correo con su factura correctamente."
+          />
+        </div>
+      ) : emailSend === 'false' ? (
+        <div className="mx-auto mt-3 max-w-screen-md">
+          <AlertMessage
+            variant="destructive"
+            title="Ocurrio un problema"
+            description="No se pudo enviar su factura, por favor intente de nuevo."
+          />
+        </div>
+      ) : null}
+
+      <div className="mx-auto mt-3 flex max-w-screen-md justify-between">
+        {emailSend !== 'true' ? (
+          <form
+            action={sendInvoiceEmail}
+            className="flex-1"
+          >
+            <Label>Enviar factura al correo:</Label>
+            <section className="flex">
+              <Input
+                type="email"
+                name="email"
+                autoComplete="email"
+                placeholder="Ej. ejemplo@correo.com"
+              />
+              <Button type="submit">Enviar factura</Button>
+            </section>
+            <section className="mt-5">
+              <Link
+                href="/dashboard/purchases"
+                className={buttonVariants({ variant: 'secondary' })}
+              >
+                Ver mis compras
+              </Link>
+            </section>
+          </form>
+        ) : (
+          <Link
+            href="/dashboard/purchases"
+            className={buttonVariants({ variant: 'secondary' })}
+          >
+            Ver mis compras
+          </Link>
+        )}
+      </div>
     </section>
   )
 }
