@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { redirect } from 'next/navigation'
 import { auth } from '@/auth.config'
-import { AuthAside, Card, Footer, Header } from '@/components'
+import { Card, Footer, Header, UserAside } from '@/components'
 
 export const metadata: Metadata = {
   title: 'Business Concept',
@@ -22,7 +22,7 @@ export default async function UserLayout({
       <Header />
       <main>
         <section className="gap-10 p-5 xl:grid xl:grid-cols-12 2xl:p-0">
-          <AuthAside />
+          <UserAside />
           <Card className="mt-5 overflow-y-auto p-3 xl:col-span-9 xl:h-[650px] xl:p-10 2xl:h-[850px]">
             {children}
           </Card>
