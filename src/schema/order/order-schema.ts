@@ -90,3 +90,13 @@ export const OrderGridSchema = z.object({
   updatedAt: OrderGeneralSchema.shape.updatedAt,
   userId: OrderGeneralSchema.shape.userId
 })
+
+export const ChangeOrderStatusSchema = z.object({
+  orderId: OrderGeneralSchema.shape.id,
+  orderStatus: OrderGeneralSchema.shape.orderStatus
+})
+
+export const DeleteOrderTracking = z.object({
+  orderId: OrderGeneralSchema.shape.id,
+  orderTrackingId: OrderTrackingGeneralSchema.shape.id
+})
