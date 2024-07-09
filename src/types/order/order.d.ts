@@ -9,11 +9,8 @@ import type { z } from 'zod'
 
 export type Order = z.infer<typeof OrderGeneralSchema>
 export type UserOrder = z.infer<typeof UserOrderSchema>
-
 export type ProductToOrderType = z.infer<typeof ProductToOrderSchema>
-
 export type UserOrderTracking = z.infer<typeof UserOrderTrackingSchema>
-
 export type OrderGridType = z.infer<typeof OrderGridSchema>
 
 export interface OrderStatusLang {
@@ -23,4 +20,8 @@ export interface OrderStatusLang {
   shipped: 'Enviado'
   delivered: 'Entregado'
   cancelled: 'Cancelado'
+}
+
+interface OrderStatusFormValues {
+  orderStatus: UserOrder['orderStatus']
 }
