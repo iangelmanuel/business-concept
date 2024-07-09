@@ -24,7 +24,6 @@ export const CardLoginForm = () => {
       const response = await loginUser(data)
 
       if (response.ok) {
-        // TODO: BUSCAR SOLUCION
         window.location.replace('/shop/products?registered=true')
       } else {
         toast.error('Ocurrio un problema', {
