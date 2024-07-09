@@ -3,7 +3,7 @@
 import { revalidatePath } from 'next/cache'
 import { auth } from '@/auth.config'
 import { prisma } from '@/lib'
-import { z } from 'zod'
+import { DeleteOrderTracking } from '@/schema'
 
 export async function deleteOrderTrackingById(
   orderId: string,
@@ -16,15 +16,7 @@ export async function deleteOrderTrackingById(
     const isAdmin = session.user.role.includes('admin')
     if (!isAdmin) return { ok: false, message: 'No autorizado' }
 
-    // TODO: arreglar este schema
-
-    const result = z
-      .object({
-        orderId: z.string(),
-        orderTrackingId: z.string()
-      })
-      .safeParse({ orderId, orderTrackingId })
-
+    const result = DeleteOrderTracking.safeParse({ orderId, orderTrackingId })
     if (!result.success) {
       return {
         ok: false,

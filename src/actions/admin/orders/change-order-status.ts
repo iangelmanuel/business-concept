@@ -3,11 +3,11 @@
 import { revalidatePath } from 'next/cache'
 import { auth } from '@/auth.config'
 import { prisma } from '@/lib'
+import { ChangeOrderStatusSchema } from '@/schema'
 import type { UserOrderByAdmin } from '@/types'
-import { z } from 'zod'
 
 export async function changeOrderStatus(
-  id: UserOrderByAdmin['id'],
+  orderId: UserOrderByAdmin['id'],
   orderStatus: UserOrderByAdmin['orderStatus']
 ) {
   try {
@@ -17,21 +17,7 @@ export async function changeOrderStatus(
     const isAdmin = session.user.role.includes('admin')
     if (!isAdmin) return { ok: false, message: 'No autorizado' }
 
-    // TODO: Arreglar este schema
-
-    const result = z
-      .object({
-        id: z.string(),
-        orderStatus: z.enum([
-          'pending',
-          'processing',
-          'approved',
-          'shipped',
-          'delivered',
-          'cancelled'
-        ])
-      })
-      .safeParse({ id, orderStatus })
+    const result = ChangeOrderStatusSchema.safeParse({ orderId, orderStatus })
     if (!result.success) {
       return { ok: false, message: 'No se pudo cambiar el estado de la orden' }
     }
@@ -40,7 +26,7 @@ export async function changeOrderStatus(
 
     await prisma.order.update({
       where: {
-        id: data.id
+        id: data.orderId
       },
       data: {
         orderStatus: data.orderStatus
