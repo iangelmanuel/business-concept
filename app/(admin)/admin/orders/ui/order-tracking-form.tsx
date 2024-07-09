@@ -16,6 +16,7 @@ import {
   SelectTrigger,
   SelectValue
 } from '@/components'
+import { selectOrderTrackingCompanyData } from '@/data'
 import type { UserOrderByAdmin, UserOrderTracking } from '@/types'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
@@ -23,15 +24,6 @@ import { toast } from 'sonner'
 interface Props {
   order: UserOrderByAdmin
 }
-
-// TODO: Arreglar esta variable
-const SELECT_OPTION = [
-  { value: 'envia', label: 'Envia' },
-  { value: 'servientrega', label: 'ServiEntrega' },
-  { value: 'inter rapidísimo', label: 'Inter Rapidísimo' },
-  { value: 'coordinadora', label: 'Coordinadora' },
-  { value: 'dhl', label: 'DHL' }
-]
 
 export const OrderTrackingForm = ({ order }: Props) => {
   const [isPending, startTransition] = useTransition()
@@ -96,7 +88,7 @@ export const OrderTrackingForm = ({ order }: Props) => {
             <SelectContent>
               <SelectGroup>
                 <SelectLabel>Empresa de envio</SelectLabel>
-                {SELECT_OPTION.map((option) => (
+                {selectOrderTrackingCompanyData.map((option) => (
                   <SelectItem
                     key={option.value}
                     value={option.value}

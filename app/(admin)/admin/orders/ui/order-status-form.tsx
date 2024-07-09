@@ -16,28 +16,14 @@ import {
   SelectValue
 } from '@/components'
 import { orderStatusLang } from '@/consts'
-import type { UserOrderByAdmin } from '@/types'
+import { selectOrderStatusData } from '@/data'
+import type { OrderStatusFormValues, UserOrderByAdmin } from '@/types'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
 interface Props {
   order: UserOrderByAdmin
 }
-
-// TODO: Arreglar este tipo
-type OrderStatusFormValues = {
-  orderStatus: UserOrderByAdmin['orderStatus']
-}
-
-// TODO: Arreglar esta constante
-const SELECT_OPTION = [
-  { value: 'delivered', label: 'Entregado' },
-  { value: 'shipped', label: 'Enviado' },
-  { value: 'approved', label: 'Aprobado' },
-  { value: 'pending', label: 'Pendiente' },
-  { value: 'processing', label: 'Procesando' },
-  { value: 'cancelled', label: 'Cancelado' }
-]
 
 export const OrderStatusForm = ({ order }: Props) => {
   const [isPending, startTransition] = useTransition()
@@ -99,7 +85,7 @@ export const OrderStatusForm = ({ order }: Props) => {
             <SelectContent>
               <SelectGroup>
                 <SelectLabel>Estados para el rastreo:</SelectLabel>
-                {SELECT_OPTION.map((option) => (
+                {selectOrderStatusData.map((option) => (
                   <SelectItem
                     key={option.value}
                     value={option.value}
