@@ -3,9 +3,9 @@ import { z } from 'zod'
 
 export const CartGeneralSchema = z.object({
   id: z.string(),
-  slug: z.string(),
-  name: z.string(),
-  price: z.number(),
+  slug: z.string().min(3).max(50),
+  name: z.string().min(3).max(50),
+  price: z.number().min(0),
   discount: z.number().optional(),
   stock: z.number(),
   quantity: z.number(),

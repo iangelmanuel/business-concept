@@ -2,8 +2,8 @@ import { z } from 'zod'
 
 export const AddressGeneralSchema = z.object({
   id: z.string(),
-  firstName: z.string(),
-  lastName: z.string(),
+  firstName: z.string().min(3).max(50),
+  lastName: z.string().min(3).max(50),
   typeOfIdentification: z.string(),
   identification: z.string(),
   address: z.string(),
@@ -11,7 +11,7 @@ export const AddressGeneralSchema = z.object({
   postalCode: z.string(),
   department: z.string(),
   city: z.string(),
-  phone: z.string(),
+  phone: z.string().max(15),
   extraData: z.string().nullable(),
   userId: z.string()
 })

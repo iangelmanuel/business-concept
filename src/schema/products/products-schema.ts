@@ -3,11 +3,11 @@ import { z } from 'zod'
 
 export const ProductGeneralSchema = z.object({
   id: z.string(),
-  name: z.string(),
-  description: z.string(),
-  price: z.number(),
+  name: z.string().min(3).max(50),
+  description: z.string().min(5).max(500),
+  price: z.number().min(0),
   stock: z.number(),
-  slug: z.string(),
+  slug: z.string().min(3).max(50),
   createdAt: z.date(),
   updatedAt: z.date()
 })
