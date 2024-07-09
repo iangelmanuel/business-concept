@@ -23,13 +23,15 @@ export const ChangePasswordForm = () => {
     startTransition(async () => {
       const response = await changeUserPassword(data)
       if (response.ok) {
-        toast.success(response.message, {
+        toast.success('¡Todo salió bien!', {
+          description: response.message,
           duration: 3000,
           position: 'top-right'
         })
         reset()
       } else {
-        toast.error(response.message, {
+        toast.error('Ocurrio un problema', {
+          description: response.message,
           duration: 3000,
           position: 'top-right'
         })

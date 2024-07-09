@@ -55,9 +55,9 @@ export const CardAddressForm = ({ location }: Props) => {
 
   if (isCartEmpty) {
     router.push('/shop/cart?redirect=/shop/address')
-    toast.error('No se puede agregar direcciones en este momento', {
-      duration: 3000,
+    toast.error('El carrito esta vacio', {
       description: 'Intenta agregando productos al carrito',
+      duration: 3000,
       position: 'top-right'
     })
   }
@@ -73,12 +73,14 @@ export const CardAddressForm = ({ location }: Props) => {
       startTransition(async () => {
         const response = await saveUserAddress(data)
         if (response.ok) {
-          toast.success('Dirección guardada correctamente', {
+          toast.success('¡Todo salió bien!', {
+            description: response.message,
             duration: 3000,
             position: 'top-right'
           })
         } else {
-          toast.error('Error al guardar la dirección', {
+          toast.error('Ocurrio un problema', {
+            description: response.message,
             duration: 3000,
             position: 'top-right'
           })

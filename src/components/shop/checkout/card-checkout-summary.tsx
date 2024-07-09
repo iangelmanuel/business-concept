@@ -43,7 +43,8 @@ export const CardCheckoutSummary = () => {
     startTransition(async () => {
       const response = await placeOrder(productsToOrder, address)
       if (response.ok) {
-        toast.success('Pedido creado con éxito', {
+        toast.success('¡Todo salió bien!', {
+          description: response.message,
           duration: 3000,
           position: 'top-right'
         })
@@ -51,9 +52,9 @@ export const CardCheckoutSummary = () => {
           router.push(`/shop/payment/?orderId=${response.orderId}`)
         }
       } else {
-        toast.error('Error al crear el pedido', {
-          duration: 3000,
+        toast.error('Ocurrio un problema', {
           description: response.message,
+          duration: 3000,
           position: 'top-right'
         })
       }

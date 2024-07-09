@@ -27,7 +27,7 @@ export const CardLoginForm = () => {
         // TODO: BUSCAR SOLUCION
         window.location.replace('/shop/products?registered=true')
       } else {
-        toast.error('¡Algo falló!', {
+        toast.error('Ocurrio un problema', {
           description: response.message,
           duration: 5000,
           position: 'top-right'

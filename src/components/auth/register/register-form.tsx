@@ -27,13 +27,13 @@ export const CardRegisterForm = () => {
       const response = await registerUser(data)
       if (response.ok) {
         router.push('/auth/login?registered=true')
-        toast.success('¡Registrado!', {
+        toast.success('¡Estas registrado!', {
           description: response.message,
           duration: 5000,
           position: 'top-right'
         })
       } else {
-        toast.success('¡Algo fallo!', {
+        toast.success('Ocurrio un problema', {
           description: response.message,
           duration: 5000,
           position: 'top-right'

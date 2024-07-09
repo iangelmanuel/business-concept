@@ -28,7 +28,7 @@ export const AddProductCart = ({ product }: Props) => {
     })
     toast.success('Producto añadido al carrito', {
       duration: 2500,
-      position: 'top-right'
+      position: 'top-center'
     })
   }
 

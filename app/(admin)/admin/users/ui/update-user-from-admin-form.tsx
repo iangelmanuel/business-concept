@@ -53,12 +53,14 @@ export const UpdateUserFromAdminForm = ({ user }: Props) => {
 
       const response = await updateUserById(id, data)
       if (response.ok) {
-        toast.success(response.message, {
+        toast.success('¡Todo salió bien!', {
+          description: response.message,
           duration: 3000,
           position: 'top-right'
         })
       } else {
-        toast.error(response.message, {
+        toast.error('Ocurrio un problema', {
+          description: response.message,
           duration: 3000,
           position: 'top-right'
         })
