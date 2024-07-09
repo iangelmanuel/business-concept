@@ -56,7 +56,6 @@ export async function sendUserEmail({
       message: 'Correo electrónico enviado'
     }
   } catch (error) {
-    console.log(error)
     return {
       ok: false,
       message: 'No se pudo enviar el correo electrónico'

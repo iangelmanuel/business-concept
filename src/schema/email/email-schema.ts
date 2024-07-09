@@ -1,4 +1,3 @@
-import { ZapOff } from 'lucide-react'
 import { z } from 'zod'
 
 export const SendEmailUserSchema = z.object({
