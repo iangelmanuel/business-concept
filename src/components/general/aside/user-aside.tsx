@@ -1,16 +1,12 @@
 'use client'
 
-import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { dropdownAdmin, dropdownUser } from '@/data'
+import { dropdownUser } from '@/data'
 import { cn } from '@/lib'
 
 export const UserAside = () => {
-  const { data: session } = useSession()
   const pathname = usePathname()
-
-  const isAdmin = session?.user.role.includes('admin')
 
   return (
     <aside className="sticky top-0 col-span-2 hidden border-b border-r xl:block">

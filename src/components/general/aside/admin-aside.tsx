@@ -3,7 +3,7 @@
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { dropdownAdmin, dropdownUser } from '@/data'
+import { dropdownAdmin } from '@/data'
 import { cn } from '@/lib'
 
 export const AdminAside = () => {
