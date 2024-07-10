@@ -68,5 +68,6 @@ export * from './ui/badge'
 export * from './ui/dialog'
 export * from './ui/table'
 export * from './ui/textarea'
+export * from './ui/resizable'
 
 export * from './shop/bar-progress'
