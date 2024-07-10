@@ -125,16 +125,7 @@ export const DropdownMenuAdmin = () => {
           onClick={handleLogout}
         >
           <LogOut className="mr-2 h-4 w-4" />
-          <span>
-            {isPending ? (
-              <>
-                Cerrando sesión
-                <Spinner />
-              </>
-            ) : (
-              'Cerrar sesión'
-            )}
-          </span>
+          <span>{isPending ? 'Cerrando sesión' : 'Cerrar sesión'}</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
