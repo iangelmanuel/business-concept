@@ -2,14 +2,21 @@
 
 import { useTransition } from 'react'
 import { loginUser } from '@/actions'
-import { Button, CardContent, ErrorMessage, Input, Label } from '@/components'
+import {
+  Button,
+  CardContent,
+  ErrorMessage,
+  Input,
+  Label,
+  Spinner
+} from '@/components'
 import { DEFAULT_LOGIN_VALUES } from '@/consts'
 import type { LoginUser } from '@/types'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
 export const CardLoginForm = () => {
-  const [isPeding, startTransition] = useTransition()
+  const [isPending, startTransition] = useTransition()
 
   const {
     register,
@@ -75,7 +82,16 @@ export const CardLoginForm = () => {
         </div>
 
         <div className="flex items-center justify-end">
-          <Button disabled={isPeding}>Iniciar Sesión</Button>
+          <Button disabled={isPending}>
+            {isPending ? (
+              <>
+                Iniciando sesión
+                <Spinner />
+              </>
+            ) : (
+              'Iniciar Sesión'
+            )}
+          </Button>
         </div>
       </form>
     </CardContent>

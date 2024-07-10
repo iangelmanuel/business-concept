@@ -20,7 +20,8 @@ import {
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
-  DropdownMenuTrigger
+  DropdownMenuTrigger,
+  Spinner
 } from '@/components'
 import { dropdownAdmin, dropdownUser } from '@/data'
 import { getLettersName } from '@/utils'
@@ -124,7 +125,16 @@ export const DropdownMenuAdmin = () => {
           onClick={handleLogout}
         >
           <LogOut className="mr-2 h-4 w-4" />
-          <span>Cerrar sesión</span>
+          <span>
+            {isPending ? (
+              <>
+                Cerrando sesión
+                <Spinner />
+              </>
+            ) : (
+              'Cerrar sesión'
+            )}
+          </span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

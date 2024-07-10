@@ -3,6 +3,7 @@
 import { useState, useTransition } from 'react'
 import { useSession } from 'next-auth/react'
 import { deleteUserAccount, logoutUser } from '@/actions'
+import { Spinner } from '@/components'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -21,7 +22,7 @@ import { toast } from 'sonner'
 export function DeleteUserAccount() {
   const [emailConfirmation, setEmailConfirmation] = useState('')
   const [textConfirmation, setTextConfirmation] = useState('')
-  const [isPeding, startTransition] = useTransition()
+  const [isPending, startTransition] = useTransition()
 
   const { data: session } = useSession()
   const user = session!.user
@@ -112,10 +113,17 @@ export function DeleteUserAccount() {
               <Button
                 type="submit"
                 variant="destructive"
-                disabled={!isFormValid || isPeding}
+                disabled={!isFormValid || isPending}
                 onClick={handleClickDeleteAccount}
               >
-                Eliminar cuenta
+                {isPending ? (
+                  <>
+                    Eliminando cuenta
+                    <Spinner />
+                  </>
+                ) : (
+                  'Eliminar cuenta'
+                )}
               </Button>
             </DialogFooter>
           </DialogContent>

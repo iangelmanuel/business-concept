@@ -13,6 +13,7 @@ import {
   ErrorMessage,
   Input,
   Label,
+  Spinner,
   Textarea
 } from '@/components'
 import { sendUserEmail } from '@/email'
@@ -157,6 +158,14 @@ export const SendEmail = ({ email, userFullName, isOrder = false }: Props) => {
             type="submit"
             disabled={isPending}
           >
+            {isPending ? (
+              <>
+                Enviando correo
+                <Spinner />
+              </>
+            ) : (
+              'Enviar correo'
+            )}
             Enviar correo
           </Button>
         </DialogFooter>

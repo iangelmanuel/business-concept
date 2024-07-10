@@ -9,7 +9,8 @@ import {
   Button,
   ErrorMessage,
   Input,
-  Label
+  Label,
+  Spinner
 } from '@/components'
 import { titleFont } from '@/config'
 import type { UpdateUser, UserType } from '@/types'
@@ -184,7 +185,14 @@ export const UpdateUserForm = ({ user }: Props) => {
           form="update-user"
           disabled={isPending}
         >
-          {isPending ? 'Actualizando datos' : 'Actualizar datos'}
+          {isPending ? (
+            <>
+              Actualizando datos
+              <Spinner />
+            </>
+          ) : (
+            'Actualizar datos'
+          )}
         </Button>
       </div>
     </section>

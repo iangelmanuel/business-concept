@@ -20,6 +20,7 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
+  Spinner,
   buttonVariants
 } from '@/components'
 import { titleFont } from '@/config'
@@ -137,10 +138,18 @@ export const CardAddressUser = ({ location, addressDb }: Props) => {
                   <AlertDialogFooter>
                     <AlertDialogCancel>Cancelar</AlertDialogCancel>
                     <AlertDialogAction
+                      disabled={isPending}
                       onClick={() => handleClickDelete(address.id)}
                       className={buttonVariants({ variant: 'destructive' })}
                     >
-                      Eliminar
+                      {isPending ? (
+                        <>
+                          Eliminando
+                          <Spinner />
+                        </>
+                      ) : (
+                        'Eliminar'
+                      )}
                     </AlertDialogAction>
                   </AlertDialogFooter>
                 </AlertDialogContent>

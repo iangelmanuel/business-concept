@@ -17,7 +17,8 @@ import {
   SelectItem,
   SelectLabel,
   SelectTrigger,
-  SelectValue
+  SelectValue,
+  Spinner
 } from '@/components'
 import { FORM_VALUES_ADDRESS } from '@/consts'
 import { useAddressStore, useCartStore } from '@/store'
@@ -396,13 +397,25 @@ export const CardAddressForm = ({ location }: Props) => {
             ¿Desear guardar esta dirección para futuras compras?
           </label>
         </section>
-
+        {/* TODO: Check */}
         <Button
           type="submit"
           disabled={isPending}
           className="w-full sm:w-auto"
         >
-          {isPending ? 'Guardando dirección' : 'Continuar'}
+          {isPending && isSaveAddressActive ? (
+            <>
+              Guardando dirección
+              <Spinner />
+            </>
+          ) : isPending ? (
+            <>
+              Continuando
+              <Spinner />
+            </>
+          ) : (
+            'Continuar'
+          )}
         </Button>
       </CardFooter>
     </form>

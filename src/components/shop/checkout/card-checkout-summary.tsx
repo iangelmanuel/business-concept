@@ -10,7 +10,8 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardSummaryLoading
+  CardSummaryLoading,
+  Spinner
 } from '@/components'
 import { titleFont } from '@/config'
 import { useAddressStore, useCartStore } from '@/store'
@@ -164,7 +165,14 @@ export const CardCheckoutSummary = () => {
             onClick={handleClickNextStep}
             disabled={isPending}
           >
-            {isPending ? 'Procesando' : 'Continuar al pago'}
+            {isPending ? (
+              <>
+                Creando orden
+                <Spinner />
+              </>
+            ) : (
+              'Continuar al pago'
+            )}
           </Button>
         </CardFooter>
       </Card>

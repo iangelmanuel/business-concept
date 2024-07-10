@@ -15,7 +15,8 @@ import {
   SelectItem,
   SelectLabel,
   SelectTrigger,
-  SelectValue
+  SelectValue,
+  Spinner
 } from '@/components'
 import { FORM_VALUES_ADDRESS } from '@/consts'
 import { useAddressFormStore } from '@/store'
@@ -207,7 +208,7 @@ export const AddressForm = ({
             <Input
               type="tel"
               id="phone"
-              autoComplete="tel"
+              autoComplete="tel-national"
               placeholder="Ej. 312 345 6789"
               {...register('phone', {
                 required: 'El campo teléfono es obligatorio',
@@ -403,7 +404,14 @@ export const AddressForm = ({
             disabled={isPending}
             className="w-full sm:w-auto"
           >
-            {isPending ? 'Guardando dirección' : 'Guardar dirección'}
+            {isPending ? (
+              <>
+                Guardando dirección
+                <Spinner />
+              </>
+            ) : (
+              'Guardar dirección'
+            )}
           </Button>
         </CardFooter>
       )}

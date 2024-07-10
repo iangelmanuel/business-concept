@@ -1,6 +1,7 @@
 export * from './auth/register/register-form'
 export * from './auth/login/login-form'
 
+export * from './general/spinner/spinner'
 export * from './general/header/dropdown-menu-user'
 export * from './general/header/dropdown-menu-admin'
 export * from './general/header/dropdown-menu-general'

@@ -2,7 +2,7 @@
 
 import { useTransition } from 'react'
 import { changeUserPassword } from '@/actions'
-import { Button, ErrorMessage, Input, Label } from '@/components'
+import { Button, ErrorMessage, Input, Label, Spinner } from '@/components'
 import { titleFont } from '@/config'
 import type { ChangeUserPassword } from '@/types'
 import { useForm } from 'react-hook-form'
@@ -104,7 +104,14 @@ export const ChangePasswordForm = () => {
             disabled={isPending}
             className="w-full sm:w-auto"
           >
-            {isPending ? 'Cambiando contraseña' : 'Cambiar contraseña'}
+            {isPending ? (
+              <>
+                Cambiando contraseña
+                <Spinner />
+              </>
+            ) : (
+              'Cambiar contraseña'
+            )}
           </Button>
         </div>
       </form>

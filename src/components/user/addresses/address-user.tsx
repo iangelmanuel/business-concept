@@ -26,6 +26,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  Spinner,
   buttonVariants
 } from '@/components'
 import { titleFont } from '@/config'
@@ -146,7 +147,14 @@ export const AddressUser = ({ location, addressDb }: Props) => {
                       disabled={isPending}
                       form="update-address"
                     >
-                      {isPending ? 'Actualizando' : 'Guardar nueva dirección'}
+                      {isPending ? (
+                        <>
+                          Actualizando dirección
+                          <Spinner />
+                        </>
+                      ) : (
+                        'Guardar nueva dirección'
+                      )}
                     </Button>
                   </DialogFooter>
                 </DialogContent>

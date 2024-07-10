@@ -3,7 +3,14 @@
 import { useTransition } from 'react'
 import { useRouter } from 'next/navigation'
 import { registerUser } from '@/actions'
-import { Button, CardContent, ErrorMessage, Input, Label } from '@/components'
+import {
+  Button,
+  CardContent,
+  ErrorMessage,
+  Input,
+  Label,
+  Spinner
+} from '@/components'
 import { DEFAULT_REGISTER_VALUES } from '@/consts'
 import type { RegisterUser } from '@/types'
 import { useForm } from 'react-hook-form'
@@ -170,7 +177,16 @@ export const CardRegisterForm = () => {
         </div>
 
         <div className="flex items-center justify-end">
-          <Button disabled={isPending}>Registrarme</Button>
+          <Button disabled={isPending}>
+            {isPending ? (
+              <>
+                Registrando
+                <Spinner />
+              </>
+            ) : (
+              'Registrarse'
+            )}
+          </Button>
         </div>
       </form>
     </CardContent>
