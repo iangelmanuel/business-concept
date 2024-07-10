@@ -14,7 +14,8 @@ import {
   SelectItem,
   SelectLabel,
   SelectTrigger,
-  SelectValue
+  SelectValue,
+  Spinner
 } from '@/components'
 import type { UpdateUserByAdminType, UserType } from '@/types'
 import { formatDate } from '@/utils'
@@ -277,7 +278,14 @@ export const UpdateUserFromAdminForm = ({ user }: Props) => {
           form="update-user-from-admin-form"
           disabled={isPending}
         >
-          Guardar Cambios
+          {isPending ? (
+            <>
+              Actualizando
+              <Spinner />
+            </>
+          ) : (
+            'Guardar Cambios'
+          )}
         </Button>
       </DialogFooter>
     </>

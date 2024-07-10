@@ -39,6 +39,7 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
+  Spinner,
   Table,
   TableBody,
   TableCell,
@@ -137,7 +138,14 @@ export function DataTable<TData, TValue>({
                   disabled={isPending}
                   className="ml-2"
                 >
-                  Eliminar Seleccionados
+                  {isPending ? (
+                    <>
+                      Eliminando
+                      <Spinner />
+                    </>
+                  ) : (
+                    'Eliminar Seleccionados'
+                  )}
                 </Button>
               </AlertDialogTrigger>
 

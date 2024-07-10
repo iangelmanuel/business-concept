@@ -13,7 +13,8 @@ import {
   SelectItem,
   SelectLabel,
   SelectTrigger,
-  SelectValue
+  SelectValue,
+  Spinner
 } from '@/components'
 import { orderStatusLang } from '@/consts'
 import { selectOrderStatusData } from '@/data'
@@ -107,7 +108,14 @@ export const OrderStatusForm = ({ order }: Props) => {
           form="change-order-status"
           disabled={isPending}
         >
-          Cambiar estado
+          {isPending ? (
+            <>
+              Cambiando estado
+              <Spinner />
+            </>
+          ) : (
+            'Cambiar estado'
+          )}
         </Button>
       </DialogFooter>
     </>

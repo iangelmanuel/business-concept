@@ -14,7 +14,8 @@ import {
   SelectItem,
   SelectLabel,
   SelectTrigger,
-  SelectValue
+  SelectValue,
+  Spinner
 } from '@/components'
 import { selectOrderTrackingCompanyData } from '@/data'
 import type { UserOrderByAdmin, UserOrderTracking } from '@/types'
@@ -123,6 +124,14 @@ export const OrderTrackingForm = ({ order }: Props) => {
           form="add-tracking-code"
           disabled={isPending}
         >
+          {isPending ? (
+            <>
+              Añadiendo código
+              <Spinner />
+            </>
+          ) : (
+            'Añadir código'
+          )}
           Añadir código
         </Button>
       </DialogFooter>
