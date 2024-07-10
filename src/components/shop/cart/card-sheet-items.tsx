@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import { titleFont } from '@/config'
 import { useCartStore } from '@/store'
 import { formatCurrency } from '@/utils'
 
@@ -22,7 +23,7 @@ export const CartSheetItems = () => {
       <div>
         <Link
           href={`/shop/product/${product.slug}`}
-          className="font-bold hover:underline"
+          className={`${titleFont.className} font-bold hover:underline`}
         >
           {product.name}
         </Link>
