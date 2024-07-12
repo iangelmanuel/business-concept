@@ -166,7 +166,6 @@ export const SendEmail = ({ email, userFullName, isOrder = false }: Props) => {
             ) : (
               'Enviar correo'
             )}
-            Enviar correo
           </Button>
         </DialogFooter>
       </DialogContent>
