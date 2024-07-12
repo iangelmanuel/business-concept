@@ -197,7 +197,7 @@ export const UpdateUserFromAdminForm = ({ user }: Props) => {
           </section>
 
           <section>
-            <Label>Estado de Cuenta:</Label>
+            <Label>Estado de cuenta:</Label>
             <Select
               onValueChange={(value) =>
                 setValue('isUserDeleted', value === 'true')

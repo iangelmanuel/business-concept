@@ -140,7 +140,7 @@ export default async function UserIdPage({
           </div>
 
           <div className="flex items-center justify-between">
-            <strong>Estado de Cuenta:</strong>{' '}
+            <strong>Estado de cuenta:</strong>{' '}
             <Badge variant={variantIsDeleted}>{textIsDeleted}</Badge>
           </div>
 

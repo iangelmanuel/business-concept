@@ -1,12 +1,37 @@
 'use client'
 
 import type { ColumnDef, SortDirection } from '@tanstack/react-table'
-import { Badge, Button, Checkbox, SendEmail } from '@/components'
+import {
+  Badge,
+  Button,
+  Checkbox,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+  SendEmail
+} from '@/components'
 import type { UserType } from '@/types'
-import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react'
+import {
+  ChevronDownIcon,
+  ChevronUp,
+  ChevronUpIcon,
+  ChevronsUpDown,
+  CircleCheckBig,
+  CircleDot,
+  CircleX,
+  EyeOff,
+  ShieldCheck,
+  User,
+  Users
+} from 'lucide-react'
 import { ActionsButtons } from './ui/actions-buttons'
 
 const SorterIcon = ({ isSorted }: { isSorted: false | SortDirection }) => {
+  if (!isSorted) {
+    return <ChevronsUpDown className="h-4 w-4" />
+  }
   if (isSorted === 'asc') {
     return <ChevronUpIcon className="h-4 w-4" />
   }
@@ -44,13 +69,61 @@ export const columns: ColumnDef<UserType>[] = [
     accessorKey: 'name',
     header: ({ column }) => {
       return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-        >
-          Nombres
-          <SorterIcon isSorted={column.getIsSorted()} />
-        </Button>
+        <section className="flex items-center justify-center">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                className="flex items-center gap-x-1"
+              >
+                Nombres
+                <SorterIcon isSorted={column.getIsSorted()} />
+              </Button>
+            </DropdownMenuTrigger>
+
+            <DropdownMenuContent align="center">
+              <DropdownMenuItem>
+                <button
+                  onClick={() => column.toggleSorting(false)}
+                  className="flex items-center"
+                >
+                  <ChevronUp className="mr-1.5 h-4 w-4" />
+                  Asc
+                </button>
+              </DropdownMenuItem>
+
+              <DropdownMenuItem>
+                <button
+                  onClick={() => column.toggleSorting(true)}
+                  className="flex items-center"
+                >
+                  <ChevronDownIcon className="mr-1.5 h-4 w-4" />
+                  Desc
+                </button>
+              </DropdownMenuItem>
+
+              <DropdownMenuSeparator />
+
+              <DropdownMenuItem>
+                <button
+                  onClick={() => column.toggleVisibility(false)}
+                  className="flex items-center"
+                >
+                  <EyeOff className="mr-1.5 h-3 w-3" />
+                  Ocultar
+                </button>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </section>
+      )
+    },
+    cell: ({ row }) => {
+      const name = row.getValue('name') as string
+      return (
+        <section className="flex items-center justify-center">
+          <span>{name}</span>
+        </section>
       )
     }
   },
@@ -59,13 +132,61 @@ export const columns: ColumnDef<UserType>[] = [
     accessorKey: 'lastname',
     header: ({ column }) => {
       return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-        >
-          Apellidos
-          <SorterIcon isSorted={column.getIsSorted()} />
-        </Button>
+        <section className="flex items-center justify-center">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                className="flex items-center gap-x-1"
+              >
+                Apellidos
+                <SorterIcon isSorted={column.getIsSorted()} />
+              </Button>
+            </DropdownMenuTrigger>
+
+            <DropdownMenuContent align="center">
+              <DropdownMenuItem>
+                <button
+                  onClick={() => column.toggleSorting(false)}
+                  className="flex items-center"
+                >
+                  <ChevronUp className="mr-1.5 h-4 w-4" />
+                  Asc
+                </button>
+              </DropdownMenuItem>
+
+              <DropdownMenuItem>
+                <button
+                  onClick={() => column.toggleSorting(true)}
+                  className="flex items-center"
+                >
+                  <ChevronDownIcon className="mr-1.5 h-4 w-4" />
+                  Desc
+                </button>
+              </DropdownMenuItem>
+
+              <DropdownMenuSeparator />
+
+              <DropdownMenuItem>
+                <button
+                  onClick={() => column.toggleVisibility(false)}
+                  className="flex items-center"
+                >
+                  <EyeOff className="mr-1.5 h-3 w-3" />
+                  Ocultar
+                </button>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </section>
+      )
+    },
+    cell: ({ row }) => {
+      const lastname = row.getValue('lastname') as string
+      return (
+        <section className="flex items-center justify-center">
+          <span>{lastname}</span>
+        </section>
       )
     }
   },
@@ -74,13 +195,53 @@ export const columns: ColumnDef<UserType>[] = [
     accessorKey: 'email',
     header: ({ column }) => {
       return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-        >
-          Correo
-          <SorterIcon isSorted={column.getIsSorted()} />
-        </Button>
+        <section className="flex items-center justify-center">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                className="flex items-center gap-x-1"
+              >
+                Correo
+                <SorterIcon isSorted={column.getIsSorted()} />
+              </Button>
+            </DropdownMenuTrigger>
+
+            <DropdownMenuContent align="center">
+              <DropdownMenuItem>
+                <button
+                  onClick={() => column.toggleSorting(false)}
+                  className="flex items-center"
+                >
+                  <ChevronUp className="mr-1.5 h-4 w-4" />
+                  Asc
+                </button>
+              </DropdownMenuItem>
+
+              <DropdownMenuItem>
+                <button
+                  onClick={() => column.toggleSorting(true)}
+                  className="flex items-center"
+                >
+                  <ChevronDownIcon className="mr-1.5 h-4 w-4" />
+                  Desc
+                </button>
+              </DropdownMenuItem>
+
+              <DropdownMenuSeparator />
+
+              <DropdownMenuItem>
+                <button
+                  onClick={() => column.toggleVisibility(false)}
+                  className="flex items-center"
+                >
+                  <EyeOff className="mr-1.5 h-3 w-3" />
+                  Ocultar
+                </button>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </section>
       )
     },
     cell: ({ row }) => {
@@ -91,22 +252,34 @@ export const columns: ColumnDef<UserType>[] = [
       const userFullName = `${name} ${lastname}`
 
       return (
-        <SendEmail
-          userFullName={userFullName}
-          email={email}
-        />
+        <section className="flex items-center justify-center">
+          <SendEmail
+            userFullName={userFullName}
+            email={email}
+          />
+        </section>
       )
     }
   },
 
   {
     accessorKey: 'phone',
-    header: 'Teléfono',
+    header: () => {
+      return (
+        <section className="flex items-center justify-center">
+          <span>Teléfono</span>
+        </section>
+      )
+    },
     cell: ({ row }) => {
       const phone = row.getValue('phone') as string
       const data = phone || 'N/A'
 
-      return <span>{data}</span>
+      return (
+        <section className="flex items-center justify-center">
+          <span>{data}</span>
+        </section>
+      )
     }
   },
 
@@ -114,13 +287,69 @@ export const columns: ColumnDef<UserType>[] = [
     accessorKey: 'role',
     header: ({ column }) => {
       return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-        >
-          Rol
-          <SorterIcon isSorted={column.getIsSorted()} />
-        </Button>
+        <section className="flex items-center justify-center">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                className="flex items-center gap-x-1"
+              >
+                Rol
+                <SorterIcon isSorted={column.getIsSorted()} />
+              </Button>
+            </DropdownMenuTrigger>
+
+            <DropdownMenuContent align="center">
+              <DropdownMenuItem>
+                <button
+                  onClick={() => column.setFilterValue(undefined)}
+                  className="flex items-center"
+                >
+                  <Users className="mr-2 h-4 w-4" />
+                  Todos
+                </button>
+              </DropdownMenuItem>
+
+              <DropdownMenuItem>
+                <button
+                  onClick={() => {
+                    column.setFilterValue(undefined)
+                    column.setFilterValue('admin')
+                  }}
+                  className="flex items-center"
+                >
+                  <ShieldCheck className="mr-2 h-4 w-4" />
+                  Administrador
+                </button>
+              </DropdownMenuItem>
+
+              <DropdownMenuItem>
+                <button
+                  onClick={() => {
+                    column.setFilterValue(undefined)
+                    column.setFilterValue('user')
+                  }}
+                  className="flex items-center"
+                >
+                  <User className="mr-2 h-4 w-4" />
+                  Usuario
+                </button>
+              </DropdownMenuItem>
+
+              <DropdownMenuSeparator />
+
+              <DropdownMenuItem>
+                <button
+                  onClick={() => column.toggleVisibility(false)}
+                  className="flex items-center"
+                >
+                  <EyeOff className="mr-2 h-4 w-4" />
+                  Ocultar
+                </button>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </section>
       )
     },
     cell: ({ row }) => {
@@ -144,13 +373,69 @@ export const columns: ColumnDef<UserType>[] = [
     accessorKey: 'isUserDeleted',
     header: ({ column }) => {
       return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-        >
-          Estado Cuenta
-          <SorterIcon isSorted={column.getIsSorted()} />
-        </Button>
+        <section className="flex items-center justify-center">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                className="flex items-center gap-x-1"
+              >
+                Estado de cuenta
+                <SorterIcon isSorted={column.getIsSorted()} />
+              </Button>
+            </DropdownMenuTrigger>
+
+            <DropdownMenuContent align="center">
+              <DropdownMenuItem>
+                <button
+                  onClick={() => column.setFilterValue(undefined)}
+                  className="flex items-center"
+                >
+                  <CircleDot className="mr-2 h-4 w-4" />
+                  Todos
+                </button>
+              </DropdownMenuItem>
+
+              <DropdownMenuItem>
+                <button
+                  onClick={() => {
+                    column.setFilterValue(undefined)
+                    column.setFilterValue(false)
+                  }}
+                  className="flex items-center"
+                >
+                  <CircleCheckBig className="mr-2 h-4 w-4" />
+                  Activas
+                </button>
+              </DropdownMenuItem>
+
+              <DropdownMenuItem>
+                <button
+                  onClick={() => {
+                    column.setFilterValue(undefined)
+                    column.setFilterValue(true)
+                  }}
+                  className="flex items-center"
+                >
+                  <CircleX className="mr-2 h-4 w-4" />
+                  Eliminadas
+                </button>
+              </DropdownMenuItem>
+
+              <DropdownMenuSeparator />
+
+              <DropdownMenuItem>
+                <button
+                  onClick={() => column.toggleVisibility(false)}
+                  className="flex items-center"
+                >
+                  <EyeOff className="mr-2 h-4 w-4" />
+                  Ocultar
+                </button>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </section>
       )
     },
     cell: ({ row }) => {
@@ -170,13 +455,69 @@ export const columns: ColumnDef<UserType>[] = [
     accessorKey: 'isConfirmed',
     header: ({ column }) => {
       return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-        >
-          Confirmación
-          <SorterIcon isSorted={column.getIsSorted()} />
-        </Button>
+        <section className="flex items-center justify-center">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                className="flex items-center gap-x-1"
+              >
+                Confirmación
+                <SorterIcon isSorted={column.getIsSorted()} />
+              </Button>
+            </DropdownMenuTrigger>
+
+            <DropdownMenuContent align="center">
+              <DropdownMenuItem>
+                <button
+                  onClick={() => column.setFilterValue(undefined)}
+                  className="flex items-center"
+                >
+                  <CircleDot className="mr-2 h-4 w-4" />
+                  Todos
+                </button>
+              </DropdownMenuItem>
+
+              <DropdownMenuItem>
+                <button
+                  onClick={() => {
+                    column.setFilterValue(undefined)
+                    column.setFilterValue(true)
+                  }}
+                  className="flex items-center"
+                >
+                  <CircleCheckBig className="mr-2 h-4 w-4" />
+                  Confirmados
+                </button>
+              </DropdownMenuItem>
+
+              <DropdownMenuItem>
+                <button
+                  onClick={() => {
+                    column.setFilterValue(undefined)
+                    column.setFilterValue(false)
+                  }}
+                  className="flex items-center"
+                >
+                  <CircleX className="mr-2 h-4 w-4" />
+                  No confirmados
+                </button>
+              </DropdownMenuItem>
+
+              <DropdownMenuSeparator />
+
+              <DropdownMenuItem>
+                <button
+                  onClick={() => column.toggleVisibility(false)}
+                  className="flex items-center"
+                >
+                  <EyeOff className="mr-2 h-4 w-4" />
+                  Ocultar
+                </button>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </section>
       )
     },
     cell: ({ row }) => {
@@ -197,7 +538,11 @@ export const columns: ColumnDef<UserType>[] = [
     header: 'Acciones',
     cell: ({ row }) => {
       const user = row.original
-      return <ActionsButtons user={user} />
+      return (
+        <section className="flex items-center justify-center">
+          <ActionsButtons user={user} />
+        </section>
+      )
     }
   }
 ]
