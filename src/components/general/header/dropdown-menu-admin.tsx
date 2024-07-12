@@ -20,8 +20,7 @@ import {
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
-  DropdownMenuTrigger,
-  Spinner
+  DropdownMenuTrigger
 } from '@/components'
 import { dropdownAdmin, dropdownUser } from '@/data'
 import { getLettersName } from '@/utils'
