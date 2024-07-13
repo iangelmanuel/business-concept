@@ -12,7 +12,6 @@ import {
   ProductsButtonCart
 } from '@/components'
 import { titleFont } from '@/config'
-import { formatCurrency } from '@/utils'
 
 export async function generateMetadata({
   params

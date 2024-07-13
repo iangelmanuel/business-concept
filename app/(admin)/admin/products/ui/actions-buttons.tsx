@@ -25,13 +25,7 @@ import {
   buttonVariants
 } from '@/components'
 import type { ProductAllType } from '@/types'
-import {
-  Ellipsis,
-  Headphones,
-  Settings,
-  Trash2,
-  UserRoundCog
-} from 'lucide-react'
+import { Ellipsis, Headphones, Settings, Trash2 } from 'lucide-react'
 import { toast } from 'sonner'
 import { UpdateProductFromAdminForm } from './update-product-from-admin-form'
 

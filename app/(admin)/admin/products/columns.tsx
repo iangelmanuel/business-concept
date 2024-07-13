@@ -23,7 +23,7 @@ import {
 import { titleFont } from '@/config'
 import { data } from '@/data'
 import type { ProductAllType } from '@/types'
-import { formatCurrency, utilDiscountConverter } from '@/utils'
+import { formatCurrency } from '@/utils'
 import {
   BadgeDollarSign,
   BadgePercent,
