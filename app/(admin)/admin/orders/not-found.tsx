@@ -7,8 +7,7 @@ export const metadata: Metadata = {
   title: 'Orden no encontrado - Business Concept',
   description:
     'Lo sentimos mucho, pero la orden que buscas no se encuentra en nuestra base de datos. ¡Regresa al inicio!',
-  keywords: 'orden, no encontrado, no existe, no se encuentra',
-  robots: 'noindex, nofollow'
+  keywords: 'orden, no encontrado, no existe, no se encuentra'
 }
 
 export default function PageNotFound() {
