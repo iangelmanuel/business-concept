@@ -15,7 +15,7 @@ import {
   useReactTable
 } from '@tanstack/react-table'
 import { useState, useTransition } from 'react'
-import { deleteManyUsers } from '@/actions'
+import { deleteManyProducts } from '@/actions'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -27,6 +27,12 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
   Button,
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
@@ -48,11 +54,12 @@ import {
   TableRow,
   buttonVariants
 } from '@/components'
-import type { UserType } from '@/types'
+import type { ProductAllType } from '@/types'
 import { ChevronLeft, ChevronRight, Settings2 } from 'lucide-react'
 import { toast } from 'sonner'
+import { AddProductsDiscount } from './ui/add-products-discount'
 
-type DataTableProps<TData, TValue> = {
+interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
 }
@@ -68,7 +75,7 @@ export function DataTable<TData, TValue>({
 
   const [isPending, startTransition] = useTransition()
 
-  const isDeleteVisible = Object.keys(rowSelection).length > 0
+  const isDeleteOrDiscountVisible = Object.keys(rowSelection).length > 0
 
   const table = useReactTable({
     data,
@@ -89,21 +96,50 @@ export function DataTable<TData, TValue>({
     }
   })
 
+  const productsIds = table.getSelectedRowModel().rows.map((row) => {
+    const product = row.original as ProductAllType
+    const { id } = product
+    return id
+  })
+
   return (
     <>
       <section className="flex items-center justify-between py-4">
         <Input
-          placeholder="Filtrar por correo electrónico"
-          value={(table.getColumn('email')?.getFilterValue() as string) ?? ''}
+          placeholder="Filtrar por nombre de producto"
+          value={(table.getColumn('name')?.getFilterValue() as string) ?? ''}
           onChange={(e) => {
             const value = e.target.value
-            table.getColumn('email')?.setFilterValue(value)
+            table.getColumn('name')?.setFilterValue(value)
           }}
           className="max-w-sm"
         />
 
-        {isDeleteVisible && (
+        {isDeleteOrDiscountVisible && (
           <>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button className="ml-2">Añadir descuentos</Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[450px]">
+                <DialogHeader>
+                  <DialogTitle>
+                    Añade descuentos a multiples productos
+                  </DialogTitle>
+                  <DialogDescription>
+                    Aquí puedes agregar descuentos a múltiples productos
+                    seleccionados. Ingresa el porcentaje de descuento y haz clic
+                    en &quot;Guardar cambios&quot; para aplicar los descuentos.
+                  </DialogDescription>
+                </DialogHeader>
+                {/* Formulario para añadir descuentos a multiples productos */}
+                <AddProductsDiscount
+                  productsIds={productsIds}
+                  table={table}
+                />
+              </DialogContent>
+            </Dialog>
+
             <AlertDialog>
               <AlertDialogTrigger asChild>
                 <Button
@@ -125,7 +161,7 @@ export function DataTable<TData, TValue>({
               <AlertDialogContent>
                 <AlertDialogHeader>
                   <AlertDialogTitle>
-                    ¿Estás seguro que quieres eliminar los usuarios
+                    ¿Estás seguro que quieres eliminar los productos
                     seleccionados?
                   </AlertDialogTitle>
 
@@ -140,16 +176,8 @@ export function DataTable<TData, TValue>({
 
                   <AlertDialogAction
                     onClick={() => {
-                      const usersIds = table
-                        .getSelectedRowModel()
-                        .rows.map((row) => {
-                          const user = row.original as UserType
-                          const { id } = user
-                          return id
-                        })
-
                       startTransition(async () => {
-                        const response = await deleteManyUsers(usersIds)
+                        const response = await deleteManyProducts(productsIds)
                         if (response.ok) {
                           toast.success('¡Todo salió bien!', {
                             description: response.message,
@@ -253,7 +281,7 @@ export function DataTable<TData, TValue>({
                   colSpan={columns.length}
                   className="h-24 text-center"
                 >
-                  No se encontraron usuarios.
+                  No se encontraron productos.
                 </TableCell>
               </TableRow>
             )}
