@@ -8,6 +8,8 @@ export * from './admin/user/admin-user'
 
 export * from './admin/order/admin-order'
 
+export * from './admin/product/admin-product'
+
 export * from './user/user'
 
 export * from './data/navigation-items'
