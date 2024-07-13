@@ -6,6 +6,7 @@ export const ProductGeneralSchema = z.object({
   name: z.string().min(3).max(50),
   description: z.string().min(5).max(500),
   price: z.number().min(0),
+  discount: z.number().min(0).max(1),
   stock: z.number(),
   slug: z.string().min(3).max(50),
   createdAt: z.date(),

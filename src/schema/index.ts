@@ -6,6 +6,7 @@ export * from './cart/cart-schema'
 
 export * from './admin/user/admin-user-schema'
 export * from './admin/order/admin-user-order'
+export * from './admin/product/admin-product-schema'
 
 export * from './user/user-schema'
 
