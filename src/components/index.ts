@@ -42,6 +42,9 @@ export * from './shop-and-user/order-items'
 export * from './shop-and-user/order-summary'
 export * from './shop-and-user/confirmation-data'
 
+export * from './shop-and-admin/product-slug'
+export * from './shop-and-admin/price-data-with-posible-discount'
+
 export * from './user/addresses/address-user'
 export * from './user/addresses/address-form'
 
@@ -69,5 +72,6 @@ export * from './ui/dialog'
 export * from './ui/table'
 export * from './ui/textarea'
 export * from './ui/resizable'
+export * from './ui/hover-card'
 
 export * from './shop/bar-progress'
