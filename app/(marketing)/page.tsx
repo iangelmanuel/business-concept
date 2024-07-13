@@ -2,10 +2,10 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { getAllProducts } from '@/actions'
+import { PriceWithPosibleDiscount } from '@/components'
 import { Card, CardContent, CardDescription } from '@/components/ui/card'
 import { titleFont } from '@/config'
 import type { ProductAllType } from '@/types'
-import { formatCurrency } from '@/utils'
 
 export const metadata: Metadata = {
   title: 'Business Concept - Tienda Online',
@@ -85,7 +85,6 @@ export default async function HomePage() {
                       alt={`${productOrder.name}`}
                       width={1000}
                       height={1000}
-                      className="mx-auto h-40 w-60 rounded-lg object-cover"
                     />
                     <Link href={`/shop/product/${productOrder.slug}`}>
                       <CardContent className="text-center text-xl font-bold">
@@ -95,7 +94,10 @@ export default async function HomePage() {
                       </CardContent>
                     </Link>
                     <CardDescription className="text-center text-lg">
-                      {formatCurrency(productOrder.price)}
+                      <PriceWithPosibleDiscount
+                        price={productOrder.price}
+                        discount={productOrder.discount}
+                      />
                     </CardDescription>
                   </Card>
                 ))}

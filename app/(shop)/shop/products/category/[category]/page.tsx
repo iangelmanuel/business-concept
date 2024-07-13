@@ -8,6 +8,7 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
+  PriceWithPosibleDiscount,
   ProductsButtonCart
 } from '@/components'
 import { titleFont } from '@/config'
@@ -63,7 +64,10 @@ export default async function CategoryProductPage({
                 <CardDescription className="truncate">
                   {product.description}
                 </CardDescription>
-                <p>{formatCurrency(product.price)}</p>
+                <PriceWithPosibleDiscount
+                  price={product.price}
+                  discount={product.discount}
+                />
               </CardContent>
 
               <CardFooter>

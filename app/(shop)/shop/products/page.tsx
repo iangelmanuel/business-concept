@@ -3,9 +3,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getAllProducts } from '@/actions'
-import { Card, CardContent, CardDescription, CardHeader } from '@/components'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  PriceWithPosibleDiscount
+} from '@/components'
 import { titleFont } from '@/config'
-import { formatCurrency } from '@/utils'
 
 export const metadata: Metadata = {
   title: 'Nuestros Productos - Business Concept',
@@ -77,7 +82,10 @@ export default async function ShopProductsPage() {
                   <CardDescription className="truncate">
                     {product.description}
                   </CardDescription>
-                  <p>{formatCurrency(product.price)}</p>
+                  <PriceWithPosibleDiscount
+                    price={product.price}
+                    discount={product.discount}
+                  />
                 </CardContent>
               </Card>
             </Link>
