@@ -25,9 +25,10 @@ import {
   buttonVariants
 } from '@/components'
 import type { ProductAllType } from '@/types'
-import { Ellipsis, Headphones, Settings, Trash2 } from 'lucide-react'
+import { Ellipsis, Headphones, ImageIcon, Settings, Trash2 } from 'lucide-react'
 import { toast } from 'sonner'
 import { UpdateProductFromAdminForm } from './update-product-from-admin-form'
+import { UpdateProductImageForm } from './update-product-image-form'
 
 interface Props {
   product: ProductAllType
@@ -36,6 +37,7 @@ interface Props {
 export const ActionsButtons = ({ product }: Props) => {
   const [isDeleteOptionOpen, setIsDeleteOptionOpen] = useState(false)
   const [isEditOptionOpen, setIsEditOptionOpen] = useState(false)
+  const [isEditImgOptionOpen, setIsEditImgOptionOpen] = useState(false)
   const [isPending, startTransition] = useTransition()
 
   const { id, slug } = product
@@ -64,7 +66,9 @@ export const ActionsButtons = ({ product }: Props) => {
               Ver producto
             </Link>
           </DropdownMenuItem>
+
           <DropdownMenuSeparator />
+
           <DropdownMenuItem>
             {/* Boton de Editar */}
             <button
@@ -74,6 +78,18 @@ export const ActionsButtons = ({ product }: Props) => {
             >
               <Settings className="mr-2 h-4 w-4" />
               Editar producto
+            </button>
+          </DropdownMenuItem>
+
+          <DropdownMenuItem>
+            {/* Boton de Editar */}
+            <button
+              disabled={isPending}
+              onClick={() => setIsEditImgOptionOpen(true)}
+              className="flex items-center"
+            >
+              <ImageIcon className="mr-2 h-4 w-4" />
+              Editar imagen
             </button>
           </DropdownMenuItem>
 
@@ -104,6 +120,22 @@ export const ActionsButtons = ({ product }: Props) => {
           </DialogHeader>
           {/* Usar el formulario para editar el producto */}
           <UpdateProductFromAdminForm product={product} />
+        </DialogContent>
+      </Dialog>
+
+      <Dialog
+        open={isEditImgOptionOpen}
+        onOpenChange={setIsEditImgOptionOpen}
+      >
+        <DialogContent className="max-w-screen-sm">
+          <DialogHeader>
+            <DialogTitle>Editar imagen</DialogTitle>
+            <DialogDescription>
+              Modifica las imagenes que deseas que se muestren en el producto.
+            </DialogDescription>
+          </DialogHeader>
+          {/* Usar el formulario para editar la imagen del producto */}
+          <UpdateProductImageForm product={product} />
         </DialogContent>
       </Dialog>
 
