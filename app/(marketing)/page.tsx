@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { getAllProducts } from '@/actions'
 import { PriceWithPosibleDiscount } from '@/components'
-import { Card, CardContent, CardDescription } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { titleFont } from '@/config'
 import type { ProductAllType } from '@/types'
 
@@ -93,12 +93,11 @@ export default async function HomePage() {
                         </h3>
                       </CardContent>
                     </Link>
-                    <CardDescription className="text-center text-lg">
-                      <PriceWithPosibleDiscount
-                        price={productOrder.price}
-                        discount={productOrder.discount}
-                      />
-                    </CardDescription>
+                    <PriceWithPosibleDiscount
+                      price={productOrder.price}
+                      discount={productOrder.discount}
+                      className="text-center text-sm text-muted-foreground"
+                    />
                   </Card>
                 ))}
               </section>
