@@ -1,5 +1,9 @@
 import style from '@/styles/spinner.module.css'
 
-export const Spinner = () => {
-  return <div className={style.loader} />
+interface Props {
+  className?: string
+}
+
+export const Spinner = ({ className = '' }: Props) => {
+  return <div className={`${style.loader} ${className}`} />
 }
