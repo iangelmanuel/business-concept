@@ -73,5 +73,6 @@ export * from './ui/table'
 export * from './ui/textarea'
 export * from './ui/resizable'
 export * from './ui/hover-card'
+export * from './ui/carousel'
 
 export * from './shop/bar-progress'
