@@ -10,6 +10,11 @@ import {
   CardDescription,
   CardHeader,
   Checkbox,
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
@@ -36,6 +41,7 @@ import {
   Package
 } from 'lucide-react'
 import { ActionsButtons } from './ui/actions-buttons'
+import { ImageCarousel } from './ui/image-carousel'
 
 const SorterIcon = ({ isSorted }: { isSorted: false | SortDirection }) => {
   if (!isSorted) {
@@ -77,7 +83,7 @@ export const columns: ColumnDef<ProductAllType>[] = [
   {
     accessorKey: 'image',
     id: 'image',
-    accessorFn: (row) => row.productImage[0].url,
+    accessorFn: (row) => row.productImage,
     header: () => {
       return (
         <section className="flex items-center justify-center">
@@ -87,16 +93,12 @@ export const columns: ColumnDef<ProductAllType>[] = [
     },
     cell: ({ row }) => {
       const product = row.original
-      const image = row.getValue('image') as string
+      const images = row.getValue('image') as ProductAllType['productImage']
       return (
-        <section className="flex items-center justify-center">
-          <Image
-            src={image}
-            alt={product.name}
-            width={50}
-            height={50}
-          />
-        </section>
+        <ImageCarousel
+          images={images}
+          productName={product.name}
+        />
       )
     }
   },
