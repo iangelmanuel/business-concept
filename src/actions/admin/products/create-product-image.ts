@@ -1,21 +1,23 @@
 'use server'
 
+import { revalidatePath } from 'next/cache'
 import { auth } from '@/auth.config'
-// import { prisma } from '@/lib'
+import { prisma } from '@/lib'
 import type { ProductAllType } from '@/types'
+import type { UploadApiResponse } from 'cloudinary'
 import { v2 as cloudinary } from 'cloudinary'
 
-interface ImageBase64 {
-  name: string
-  type: string
-  base64: unknown
-}
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+})
 
 export async function createProductImage(
-  imageBase64: ImageBase64[],
-  id: ProductAllType['id']
+  formData: FormData,
+  id: ProductAllType['id'],
+  slug: ProductAllType['slug']
 ) {
-  console.log({ imageBase64, id })
   try {
     const session = await auth()
     if (!session) {
@@ -33,35 +35,60 @@ export async function createProductImage(
       }
     }
 
-    cloudinary.config({
-      cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-      api_key: process.env.CLOUDINARY_API_KEY,
-      api_secret: process.env.CLOUDINARY_API_SECRET
+    const images = formData.getAll('images') as File[]
+    if (!images) {
+      return {
+        ok: false,
+        message: 'Datos incorrectos'
+      }
+    }
+
+    images.forEach(async (image) => {
+      const byte = await image.arrayBuffer()
+      const buffer = Buffer.from(byte)
+
+      const cloudinaryResponse = (await new Promise((resolve, reject) => {
+        cloudinary.uploader
+          .upload_stream(
+            {
+              folder: 'Business Concept',
+              public_id: `${slug}-${id}-${Date.now()}`,
+              resource_type: 'image'
+            },
+            (error, result) => {
+              if (error) {
+                reject(error)
+              }
+
+              resolve(result)
+            }
+          )
+          .end(buffer)
+      })) as UploadApiResponse | undefined
+
+      if (!cloudinaryResponse) {
+        return {
+          ok: false,
+          message: 'Error al subir la imagen del producto'
+        }
+      }
+
+      await prisma.product.update({
+        where: {
+          id
+        },
+        data: {
+          productImage: {
+            create: {
+              url: cloudinaryResponse.secure_url,
+              publicId: cloudinaryResponse.public_id
+            }
+          }
+        }
+      })
     })
 
-    // TODO: Finish de image upload
-    // image.forEach(async (file) => {
-    //   const cloudinaryResponse = await cloudinary.uploader.upload(file.name, {
-    //     folder: 'Busines Concept',
-    //     use_filename: true,
-    //     unique_filename: false,
-    //     overwrite: false
-    //   })
-
-    //   await prisma.product.update({
-    //     where: {
-    //       id
-    //     },
-    //     data: {
-    //       productImage: {
-    //         create: {
-    //           url: cloudinaryResponse.secure_url,
-    //           publicId: cloudinaryResponse.public_id
-    //         }
-    //       }
-    //     }
-    //   })
-    // })
+    revalidatePath('/admin/products')
 
     return {
       ok: true,

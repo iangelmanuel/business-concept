@@ -37,6 +37,7 @@ export { deleteProductById } from './admin/products/delete-product-by-id'
 export { updateProductById } from './admin/products/update-product-by-id'
 export { addProductsDiscount } from './admin/products/add-products-discount'
 export { createProductImage } from './admin/products/create-product-image'
+export { deleteProductImage } from './admin/products/delete-product-image'
 
 export { updateUser } from './user/update-user'
 export { getUserById } from './user/get-user-by-id'
