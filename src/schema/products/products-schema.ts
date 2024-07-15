@@ -17,6 +17,7 @@ export const ProductGeneralSchema = z.object({
 export const ProductImage = z.object({
   id: z.string(),
   url: z.string().startsWith('http'),
+  publicId: z.string().nullable(),
   productId: ProductGeneralSchema.shape.id
 })
 
