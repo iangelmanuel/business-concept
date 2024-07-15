@@ -2,19 +2,27 @@
 
 import { useState, useTransition } from 'react'
 import Image from 'next/image'
-import { createProductImage } from '@/actions'
+import { createProductImage, deleteProductImage } from '@/actions'
 import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
   Button,
   Card,
   CardDescription,
   DialogFooter,
   ErrorMessage,
   Label,
-  Spinner
+  Spinner,
+  buttonVariants
 } from '@/components'
-import type { ProductAllType } from '@/types'
-import { toBase64 } from '@/utils'
-import { ChevronDown, Upload } from 'lucide-react'
+import type { ProductAllType, ProductImage } from '@/types'
+import { ChevronDown, CircleX, Upload } from 'lucide-react'
 import Dropzone from 'react-dropzone'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
@@ -29,6 +37,7 @@ interface ImageFormData {
 
 export const UpdateProductImageForm = ({ product }: Props) => {
   const [image, setImage] = useState<File[] | null>(null)
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
   const [isPending, startTransition] = useTransition()
 
   const {
@@ -43,30 +52,45 @@ export const UpdateProductImageForm = ({ product }: Props) => {
   })
 
   const onSubmit = async (data: ImageFormData) => {
-    const { id } = product
+    const { id, slug } = product
+    const { image: formDataImages } = data
 
-    const files = await Promise.all(
-      Array.from(data.image).map(async (file) => {
-        const base64 = await toBase64(file)
-        return {
-          name: file.name,
-          type: file.type,
-          base64
-        }
-      })
-    )
+    const formData = new FormData()
+    formDataImages.forEach((file) => {
+      formData.append('images', file)
+    })
 
     startTransition(async () => {
-      const response = await createProductImage(files, id)
+      const response = await createProductImage(formData, id, slug)
       if (response.ok) {
-        toast.success('', {
+        toast.success('¡Todo salió bien!', {
           description: response.message,
           duration: 3000,
           position: 'top-right'
         })
         setImage(null)
       } else {
-        toast.error('', {
+        toast.error('Ocurrio un problema', {
+          description: response.message,
+          duration: 3000,
+          position: 'top-right'
+        })
+      }
+    })
+  }
+
+  const handleClickDeleteImage = (imageId: ProductImage['id']) => {
+    startTransition(async () => {
+      const response = await deleteProductImage(imageId)
+      if (response.ok) {
+        toast.success('¡Todo salió bien!', {
+          description: response.message,
+          duration: 3000,
+          position: 'top-right'
+        })
+        setIsDeleteModalOpen(false)
+      } else {
+        toast.error('Ocurrio un problema', {
           description: response.message,
           duration: 3000,
           position: 'top-right'
@@ -81,15 +105,56 @@ export const UpdateProductImageForm = ({ product }: Props) => {
         <Label>Imagen del producto actual:</Label>
         <section className="grid grid-cols-2 gap-2 sm:grid-cols-4">
           {product.productImage.map((image) => (
-            <Card key={image.id}>
-              <Image
-                src={image.url}
-                alt={product.name}
-                width={100}
-                height={100}
-                className="h-auto w-auto"
-              />
-            </Card>
+            <div
+              key={image.id}
+              className="relative mt-2"
+            >
+              <div onClick={() => setIsDeleteModalOpen(true)}>
+                <CircleX
+                  size={20}
+                  className="absolute -right-1 -top-2 cursor-pointer text-muted-foreground transition-colors hover:text-destructive"
+                />
+              </div>
+
+              <Card>
+                <Image
+                  src={image.url}
+                  alt={product.name}
+                  width={100}
+                  height={100}
+                  className="h-auto w-auto"
+                />
+              </Card>
+
+              <AlertDialog
+                open={isDeleteModalOpen}
+                onOpenChange={setIsDeleteModalOpen}
+              >
+                <AlertDialogContent>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>
+                      ¿Estás seguro que quieres eliminar la imagen del producto?
+                    </AlertDialogTitle>
+
+                    <AlertDialogDescription>
+                      Esta acción no se puede deshacer y eliminará
+                      permanentemente la imagen del producto.
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+
+                  <AlertDialogFooter>
+                    <AlertDialogCancel>Cancelar</AlertDialogCancel>
+
+                    <AlertDialogAction
+                      onClick={() => handleClickDeleteImage(image.id)}
+                      className={buttonVariants({ variant: 'destructive' })}
+                    >
+                      Eliminar
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
+            </div>
           ))}
         </section>
       </article>
