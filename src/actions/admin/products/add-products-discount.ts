@@ -46,7 +46,11 @@ export async function addProductsDiscount(
       }
     })
 
-    revalidatePath('/api/products')
+    revalidatePath('/admin/products')
+    revalidatePath('/shop/products')
+    revalidatePath('/shop/cart')
+    revalidatePath('/shop/checkout')
+    revalidatePath('/')
 
     return {
       ok: true,
