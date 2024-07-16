@@ -117,6 +117,7 @@ export const OrderItems = ({
                         <PriceWithPosibleDiscount
                           price={item.price}
                           discount={item.discount}
+                          className={`${titleFont.className} font-bold`}
                         />
                       </CardContent>
                     </section>
