@@ -36,8 +36,10 @@ export async function saveRefEpayco(
     })
 
     revalidatePath('/shop/payment')
+    revalidatePath('/admin/orders')
+    revalidatePath('/dashboard/purchases')
     revalidatePath('/dashboard/purchases/order')
-    revalidatePath('/dashboard/purchases/order/[id]')
+    revalidatePath('/dashboard/purchases/order/[id]', 'page')
 
     return { ok: true }
   } catch (error) {

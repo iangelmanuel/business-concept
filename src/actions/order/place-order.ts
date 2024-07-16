@@ -1,5 +1,6 @@
 'use server'
 
+import { revalidatePath } from 'next/cache'
 import { auth } from '@/auth.config'
 import { prisma } from '@/lib'
 import { ProductsToOrderSchema } from '@/schema'
@@ -37,12 +38,19 @@ export async function placeOrder(
 
   const itemsInOrder = validProductData.reduce((acc, p) => acc + p.quantity, 0)
 
-  const { subtotal, tax, total } = validProductData.reduce(
+  const { subtotal, discount, tax, total } = validProductData.reduce(
     (acc, items) => {
       const productQuantity = items.quantity
       const product = products.find((p) => p.id === items.productId)
 
       if (!product) throw new Error(`${items.productId} no existe - 500`)
+
+      if (product.discount !== 1) {
+        const productDiscount = product.discount * product.price
+        acc.discount += productDiscount * productQuantity
+      } else {
+        acc.discount = 1
+      }
 
       const subtotal = product.price * productQuantity
       acc.subtotal += subtotal
@@ -51,7 +59,7 @@ export async function placeOrder(
 
       return acc
     },
-    { subtotal: 0, tax: 0, total: 0 }
+    { subtotal: 0, discount: 0, tax: 0, total: 0 }
   )
 
   try {
@@ -90,6 +98,7 @@ export async function placeOrder(
           userId,
           itemsInOrder,
           subtotal,
+          discount,
           tax,
           total,
           OrderItem: {
@@ -97,6 +106,8 @@ export async function placeOrder(
               data: validProductData.map((p) => ({
                 quantity: p.quantity,
                 productId: p.productId,
+                discount: products.find((product) => product.id === p.productId)
+                  ?.discount,
                 price:
                   products.find((product) => product.id === p.productId)
                     ?.price ?? 0
@@ -130,6 +141,9 @@ export async function placeOrder(
         orderAddress
       }
     })
+
+    revalidatePath('/dashboard/purchases')
+    revalidatePath('/admin/orders')
 
     return {
       ok: true,
