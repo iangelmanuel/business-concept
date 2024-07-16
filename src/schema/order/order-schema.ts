@@ -8,6 +8,7 @@ import { z } from 'zod'
 export const OrderGeneralSchema = z.object({
   id: z.string(),
   subtotal: z.number(),
+  discount: z.number().default(0),
   tax: z.number(),
   total: z.number(),
   itemsInOrder: z.number(),
@@ -50,6 +51,7 @@ export const UserOrderSchema = z.object({
       id: z.string(),
       price: z.number(),
       quantity: ProductToOrderSchema.shape.quantity,
+      discount: z.number().default(1),
 
       product: z.object({
         name: ProductGeneralSchema.shape.name,
