@@ -99,14 +99,23 @@ export const OrderSummary = ({ order, isAdmin = false }: Props) => {
                 <p>{formatCurrency(order.subtotal)}</p>
               </div>
 
+              {order.discount > 0 && (
+                <div className="flex justify-between">
+                  <p>Descuento:</p>
+                  <p>{formatCurrency(order.discount)}</p>
+                </div>
+              )}
+
               <div className="flex justify-between">
                 <p>Impuestos:</p>
                 <p>{formatCurrency(order.tax)}</p>
               </div>
 
               <div className="flex justify-between">
-                <p>Total:</p>
-                <p className="font-bold">{formatCurrency(order.total)}</p>
+                <p className={`${titleFont.className} font-bold`}>Total:</p>
+                <p className={`${titleFont.className} font-bold`}>
+                  {formatCurrency(order.total)}
+                </p>
               </div>
             </section>
           </article>

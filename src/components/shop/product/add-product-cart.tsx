@@ -16,12 +16,13 @@ export const AddProductCart = ({ product }: Props) => {
   const addProductToCart = useCartStore((state) => state.addProductToCart)
 
   const handleAddProductCart = () => {
-    const { id, name, price, stock, slug, productImage } = product
+    const { id, name, price, stock, discount, slug, productImage } = product
     addProductToCart({
       id,
       name,
       price,
       stock,
+      discount,
       slug,
       image: productImage,
       quantity

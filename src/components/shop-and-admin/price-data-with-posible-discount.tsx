@@ -24,8 +24,6 @@ export const PriceWithPosibleDiscount = ({
   const isAdminDashboard = isAdmin ? 'N/A' : priceBeforeFormatted
 
   return isProductWithDiscount ? (
-    <p className={className}>{isAdminDashboard}</p>
-  ) : (
     <>
       <p className="text-muted-foreground line-through">
         {priceBeforeFormatted}
@@ -37,5 +35,7 @@ export const PriceWithPosibleDiscount = ({
         </span>
       </div>
     </>
+  ) : (
+    <p className={className}>{isAdminDashboard}</p>
   )
 }

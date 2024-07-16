@@ -27,7 +27,7 @@ export const CardCheckoutSummary = () => {
   const address = useAddressStore((state) => state.address)
 
   const cart = useCartStore((state) => state.cart)
-  const { subTotal, tax, total } = useCartStore((state) =>
+  const { subTotal, discount, tax, total } = useCartStore((state) =>
     state.getSummaryInfo()
   )
 
@@ -146,14 +146,23 @@ export const CardCheckoutSummary = () => {
                 <p>{formatCurrency(subTotal)}</p>
               </div>
 
+              {discount > 0 && (
+                <section className="flex justify-between">
+                  <p>Descuento</p>
+                  <p>{formatCurrency(discount)}</p>
+                </section>
+              )}
+
               <div className="flex justify-between">
                 <p>Impuestos:</p>
                 <p>{formatCurrency(tax)}</p>
               </div>
 
               <div className="flex justify-between">
-                <p>Total:</p>
-                <p className="font-bold">{formatCurrency(total)}</p>
+                <p className={`${titleFont.className} font-bold`}>Total:</p>
+                <p className={`${titleFont.className} font-bold`}>
+                  {formatCurrency(total)}
+                </p>
               </div>
             </section>
           </article>

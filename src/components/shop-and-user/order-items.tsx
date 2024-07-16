@@ -6,12 +6,13 @@ import {
   CardContent,
   CardDescription,
   CardHeader,
+  PriceWithPosibleDiscount,
   buttonVariants
 } from '@/components'
 import { titleFont } from '@/config'
 import { orderStatusLang } from '@/consts'
 import type { UserOrder, UserOrderByAdmin } from '@/types'
-import { checkOrderStatusCn, formatCurrency } from '@/utils'
+import { checkOrderStatusCn } from '@/utils'
 
 interface Props {
   order: UserOrder | UserOrderByAdmin
@@ -113,11 +114,10 @@ export const OrderItems = ({
                       </article>
 
                       <CardContent className="flex flex-col items-center justify-center p-0">
-                        <section>
-                          <p className="font-bold">
-                            {formatCurrency(item.price)}
-                          </p>
-                        </section>
+                        <PriceWithPosibleDiscount
+                          price={item.price}
+                          discount={item.discount}
+                        />
                       </CardContent>
                     </section>
                   </Card>

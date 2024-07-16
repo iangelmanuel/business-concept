@@ -10,12 +10,12 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  CartItemsLoading
+  CartItemsLoading,
+  PriceWithPosibleDiscount
 } from '@/components'
 import { titleFont } from '@/config'
 import { useCartStore } from '@/store'
 import type { CartType } from '@/types'
-import { formatCurrency } from '@/utils'
 import { MinusCircle, PlusCircle, TrashIcon } from 'lucide-react'
 
 export const CardCartItems = () => {
@@ -128,19 +128,11 @@ export const CardCartItems = () => {
               </CardContent>
 
               <CardFooter className="flex flex-col items-center justify-center p-0">
-                <section>
-                  <p className="font-bold">{formatCurrency(item.price)}</p>
-                </section>
-                {item.discount && item.discount > 0 && (
-                  <section className="flex gap-x-2">
-                    <p className="text-xs">
-                      {formatCurrency(item.price - item.discount * item.price)}
-                    </p>
-                    <p className="text-xs text-orange-500">
-                      {item.discount * 100}%
-                    </p>
-                  </section>
-                )}
+                <PriceWithPosibleDiscount
+                  price={item.price}
+                  discount={item.discount}
+                  className={`${titleFont.className} text-lg font-bold`}
+                />
               </CardFooter>
             </article>
           </Card>

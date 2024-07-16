@@ -8,7 +8,8 @@ import {
   CardContent,
   CardDescription,
   CardHeader,
-  CardItemsLoading
+  CardItemsLoading,
+  PriceWithPosibleDiscount
 } from '@/components'
 import { titleFont } from '@/config'
 import { useCartStore } from '@/store'
@@ -69,9 +70,11 @@ export const CardCheckoutItems = () => {
 
                         <CardContent className="flex flex-col items-center justify-center p-0">
                           <section>
-                            <p className="font-bold">
-                              {formatCurrency(item.price)}
-                            </p>
+                            <PriceWithPosibleDiscount
+                              price={item.price}
+                              discount={item.discount}
+                              className={`${titleFont.className} text-lg font-bold`}
+                            />
                           </section>
                         </CardContent>
                       </section>

@@ -21,8 +21,8 @@ export const CardCartSummary = () => {
 
   const router = useRouter()
 
-  const { subTotal, discont, tax, total, itemsInCart } = useCartStore((state) =>
-    state.getSummaryInfo()
+  const { subTotal, discount, tax, total, itemsInCart } = useCartStore(
+    (state) => state.getSummaryInfo()
   )
   const cart = useCartStore((state) => state.cart)
 
@@ -58,15 +58,15 @@ export const CardCartSummary = () => {
               <p>{formatCurrency(subTotal)}</p>
             </section>
 
-            {discont && discont > 0 ? (
+            {discount > 0 && (
               <section className="flex justify-between">
                 <p>Descuento</p>
-                <p>{formatCurrency(discont)}</p>
+                <p>{formatCurrency(discount)}</p>
               </section>
-            ) : null}
+            )}
 
             <section className="flex justify-between">
-              <p>Tarifa de Compra</p>
+              <p>Impuestos</p>
               <p>{formatCurrency(tax)}</p>
             </section>
 
