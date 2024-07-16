@@ -54,6 +54,9 @@ export async function addOrUpdateOrderTrackingCode(
     }
 
     revalidatePath('/admin/orders')
+    revalidatePath('/admin/orders/[id]', 'page')
+    revalidatePath('/dashboard/purchases')
+    revalidatePath('/dashboard/purchases/[id]', 'page')
 
     const orderTrackingNotification = orderTrackingExists
       ? 'actualizado'

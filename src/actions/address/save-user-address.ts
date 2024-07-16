@@ -36,9 +36,9 @@ export async function saveUserAddress(addressFormData: AddressForm) {
       }
     })
 
-    revalidatePath('/shop/address')
+    revalidatePath('/admin/users/[id]', 'page')
     revalidatePath('/dashboard/addresses')
-    revalidatePath('/admin/users/[id]')
+    revalidatePath('/shop/address')
 
     return { ok: true, message: 'Dirección guardada correctamente' }
   } catch (error) {

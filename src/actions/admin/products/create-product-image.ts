@@ -89,6 +89,12 @@ export async function createProductImage(
     })
 
     revalidatePath('/admin/products')
+    revalidatePath('/')
+    revalidatePath('/shop/products')
+    revalidatePath('/shop/products/[category]', 'page')
+    revalidatePath('/shop/product/[slug]', 'page')
+    revalidatePath('/shop/cart')
+    revalidatePath('/shop/checkout')
 
     return {
       ok: true,

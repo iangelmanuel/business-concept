@@ -38,6 +38,9 @@ export async function deleteOrderById(orderId: UserOrderByAdmin['id']) {
     })
 
     revalidatePath('/admin/orders')
+    revalidatePath('/admin/orders/[id]', 'page')
+    revalidatePath('/dashboard/purchases')
+    revalidatePath('/dashboard/purchases/[id]', 'page')
 
     return {
       ok: true,

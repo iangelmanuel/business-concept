@@ -34,9 +34,9 @@ export const updateUser = async (data: UpdateUser) => {
       }
     })
 
-    revalidatePath('/dashboard/profile')
     revalidatePath('/admin/users')
-    revalidatePath('/admin/users/[id]')
+    revalidatePath('/admin/users/[id]', 'page')
+    revalidatePath('/dashboard/profile')
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { password: _, ...rest } = newUser

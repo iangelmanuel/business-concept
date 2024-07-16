@@ -26,9 +26,9 @@ export async function deleteUserAccount(id: UserType['id']) {
       data: { isUserDeleted: true }
     })
 
-    revalidatePath('/dashboard/profile')
     revalidatePath('/admin/users')
-    revalidatePath('/admin/users/[id]')
+    revalidatePath('/admin/users/[id]', 'page')
+    revalidatePath('/dashboard/profile')
 
     return {
       ok: true,

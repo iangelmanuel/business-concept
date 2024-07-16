@@ -35,11 +35,11 @@ export async function saveRefEpayco(
       }
     })
 
-    revalidatePath('/shop/payment')
     revalidatePath('/admin/orders')
     revalidatePath('/dashboard/purchases')
     revalidatePath('/dashboard/purchases/order')
     revalidatePath('/dashboard/purchases/order/[id]', 'page')
+    revalidatePath('/shop/payment')
 
     return { ok: true }
   } catch (error) {

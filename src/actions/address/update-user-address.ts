@@ -46,9 +46,9 @@ export async function updateUserAddress(address: AddressType) {
       }
     })
 
-    revalidatePath('/shop/address')
+    revalidatePath('/admin/users/[id]', 'page')
     revalidatePath('/dashboard/addresses')
-    revalidatePath('/admin/users/[id]')
+    revalidatePath('/shop/address')
 
     return {
       ok: true,
