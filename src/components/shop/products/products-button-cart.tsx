@@ -11,10 +11,27 @@ interface Props {
 
 export const ProductsButtonCart = ({ product }: Props) => {
   const addProductToCart = useCartStore((state) => state.addProductToCart)
-  const { id, slug, name, price, stock, productImage: image } = product
+  const {
+    id,
+    slug,
+    name,
+    discount,
+    price,
+    stock,
+    productImage: image
+  } = product
 
   const handleClick = () => {
-    addProductToCart({ id, slug, name, price, stock, quantity: 1, image })
+    addProductToCart({
+      id,
+      slug,
+      name,
+      discount,
+      price,
+      stock,
+      quantity: 1,
+      image
+    })
     toast.success('Producto añadido al carrito', {
       duration: 3000,
       position: 'top-right'
