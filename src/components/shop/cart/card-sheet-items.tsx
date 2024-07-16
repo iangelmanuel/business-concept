@@ -2,23 +2,24 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import { PriceWithPosibleDiscount } from '@/components/shop-and-admin/price-data-with-posible-discount'
 import { titleFont } from '@/config'
 import { useCartStore } from '@/store'
-import { formatCurrency } from '@/utils'
 
 export const CartSheetItems = () => {
   const cart = useCartStore((state) => state.cart)
+
   return cart.map((product) => (
     <div
       key={product.id}
-      className="mb-2 flex gap-x-2"
+      className="mb-2 grid grid-cols-2 gap-x-2"
     >
       <Image
         src={product.image[0].url}
-        alt={product.name}
-        width={100}
-        height={100}
-        className="object-cover"
+        alt={`Imagen de ${product.name}`}
+        width={200}
+        height={200}
+        className="my-auto object-cover"
       />
       <div>
         <Link
@@ -29,7 +30,11 @@ export const CartSheetItems = () => {
         </Link>
         <p className="font-bold">
           Precio:{' '}
-          <span className="font-normal">{formatCurrency(product.price)}</span>
+          <PriceWithPosibleDiscount
+            price={product.price}
+            discount={product.discount}
+            className={`${titleFont.className} font-font-bold`}
+          />
         </p>
 
         <p className="font-bold">
