@@ -48,8 +48,6 @@ export async function placeOrder(
       if (product.discount !== 1) {
         const productDiscount = product.discount * product.price
         acc.discount += productDiscount * productQuantity
-      } else {
-        acc.discount = 1
       }
 
       const subtotal = product.price * productQuantity
