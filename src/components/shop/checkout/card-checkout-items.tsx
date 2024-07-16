@@ -13,7 +13,6 @@ import {
 } from '@/components'
 import { titleFont } from '@/config'
 import { useCartStore } from '@/store'
-import { formatCurrency } from '@/utils'
 
 export const CardCheckoutItems = () => {
   const [loading, setLoading] = useState(true)
