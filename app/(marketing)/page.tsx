@@ -2,8 +2,13 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { getAllProducts } from '@/actions'
-import { PriceWithPosibleDiscount } from '@/components'
-import { Card, CardContent } from '@/components/ui/card'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  PriceWithPosibleDiscount
+} from '@/components'
 import { titleFont } from '@/config'
 import type { ProductAllType } from '@/types'
 
@@ -77,28 +82,40 @@ export default async function HomePage() {
                 {category}
               </h2>
 
-              <section className="grid grid-cols-2 place-content-center items-center gap-3 p-5 sm:grid-cols-3 lg:grid-cols-5 lg:p-0">
+              <section className="grid grid-cols-2 gap-3 p-5 sm:grid-cols-3 lg:grid-cols-5 lg:p-0">
                 {productsOrder.map((productOrder) => (
-                  <Card key={productOrder.id}>
-                    <Image
-                      src={productOrder.productImage[0].url}
-                      alt={`${productOrder.name}`}
-                      width={1000}
-                      height={1000}
-                    />
-                    <Link href={`/shop/product/${productOrder.slug}`}>
-                      <CardContent className="text-center text-xl font-bold">
-                        <h3 className={titleFont.className}>
+                  <Link
+                    key={productOrder.id}
+                    href={`/shop/product/${productOrder.slug}`}
+                  >
+                    <Card className="flex min-h-full flex-col justify-center">
+                      <CardHeader>
+                        <Image
+                          src={productOrder.productImage[0].url}
+                          alt={`producto ${productOrder.name}`}
+                          width={800}
+                          height={800}
+                          className="mx-auto h-auto w-full object-cover p-10"
+                        />
+                      </CardHeader>
+
+                      <CardContent className="space-y-1">
+                        <h3 className={`${titleFont.className} font-bold`}>
                           {productOrder.name}
                         </h3>
+
+                        <CardDescription className="truncate">
+                          {productOrder.description}
+                        </CardDescription>
+
+                        <PriceWithPosibleDiscount
+                          price={productOrder.price}
+                          discount={productOrder.discount}
+                          className={`${titleFont.className} font-bold`}
+                        />
                       </CardContent>
-                    </Link>
-                    <PriceWithPosibleDiscount
-                      price={productOrder.price}
-                      discount={productOrder.discount}
-                      className="text-center text-sm text-muted-foreground"
-                    />
-                  </Card>
+                    </Card>
+                  </Link>
                 ))}
               </section>
             </article>

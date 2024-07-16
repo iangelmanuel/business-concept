@@ -48,7 +48,7 @@ export default async function ShopProductsPage() {
               width={500}
               height={500}
               className="object-cover"
-            ></Image>
+            />
           </section>
         </Card>
       </article>
@@ -57,20 +57,20 @@ export default async function ShopProductsPage() {
         <h2 className={`text-xl font-bold ${titleFont.className} mb-2`}>
           Nuestros productos
         </h2>
-        <section className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <section className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
           {products.map((product) => (
             <Link
               key={product.id}
               href={`/shop/product/${product.slug}`}
             >
-              <Card>
+              <Card className="flex min-h-full flex-col justify-center">
                 <CardHeader>
                   <Image
                     src={product.productImage[0].url}
                     alt={`producto ${product.name}`}
-                    width={500}
-                    height={500}
-                    className="object-cover"
+                    width={800}
+                    height={800}
+                    className="mx-auto h-auto w-full object-cover p-10"
                   />
                 </CardHeader>
 
