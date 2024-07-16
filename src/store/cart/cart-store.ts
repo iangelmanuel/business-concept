@@ -8,7 +8,7 @@ type State = {
   getSummaryInfo: () => {
     subTotal: number
     tax: number
-    discont: number
+    discount: number
     total: number
     itemsInCart: number
   }
@@ -33,21 +33,25 @@ export const useCartStore = create<State>()(
         const { cart } = get()
 
         const subTotal = cart.reduce(
-          (subtotal, product) => product.quantity * product.price + subtotal,
+          (acc, product) => product.quantity * product.price + acc,
           0
         )
 
-        const tax = subTotal * 0.035
-        const discont = cart
-          .map((item) => (item.discount ? item.discount : 0))
-          .reduce((total, item) => total + item, 0)
+        const discount = cart.reduce((acc, product) => {
+          if (product.discount !== 1) {
+            const discount = product.discount * product.price
+            return discount * product.quantity + acc
+          }
+          return acc
+        }, 0)
 
-        const total = subTotal + tax - discont
+        const tax = subTotal * 0.035
+        const total = subTotal - discount + tax
         const itemsInCart = cart.reduce(
           (total, item) => total + item.quantity,
           0
         )
-        return { subTotal, tax, discont, total, itemsInCart }
+        return { subTotal, discount, tax, total, itemsInCart }
       },
 
       addProductToCart: (product: CartType) => {
