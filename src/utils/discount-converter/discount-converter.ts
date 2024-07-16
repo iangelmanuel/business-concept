@@ -24,8 +24,8 @@ export function utilDiscountConverter(
   discount: ProductType['price'],
   price: ProductType['discount']
 ) {
-  const isProductWithDiscount = discount !== 1 // TRUE OR FALSE
-  const priceWithDiscount = getProductDiscount(price, discount) // NUMBER
+  const isProductWithDiscount = discount !== 1
+  const priceWithDiscount = getProductDiscount(price, discount)
 
   const priceBeforeFormatted = formatCurrency(price)
   const priceAfterFormatted = formatCurrency(price - priceWithDiscount)
