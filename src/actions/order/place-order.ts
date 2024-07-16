@@ -48,12 +48,14 @@ export async function placeOrder(
       if (product.discount !== 1) {
         const productDiscount = product.discount * product.price
         acc.discount += productDiscount * productQuantity
+      } else {
+        acc.discount += 0
       }
 
       const subtotal = product.price * productQuantity
       acc.subtotal += subtotal
       acc.tax += subtotal * 0.035
-      acc.total += subtotal * 0.035 + subtotal
+      acc.total += subtotal * 0.035 + subtotal - acc.discount
 
       return acc
     },
