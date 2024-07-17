@@ -51,6 +51,7 @@ export * from './user/addresses/address-form'
 export * from './user/purchases/order-grid'
 
 export * from './admin/modal-send-email'
+export * from './admin/product/new-product-form'
 
 export * from './ui/button'
 export * from './ui/card'
