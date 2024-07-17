@@ -6,9 +6,6 @@ export const formValuesCreateProduct: ProductCreateForm = {
   price: 0,
   discount: 1,
   stock: 0,
-  category: {
-    id: '',
-    name: ''
-  },
+  categoryId: '',
   images: []
 }
