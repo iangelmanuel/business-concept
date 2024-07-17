@@ -15,6 +15,7 @@ import {
   useReactTable
 } from '@tanstack/react-table'
 import { useState, useTransition } from 'react'
+import Link from 'next/link'
 import { deleteManyProducts } from '@/actions'
 import {
   AlertDialog,
@@ -55,7 +56,7 @@ import {
   buttonVariants
 } from '@/components'
 import type { ProductAllType } from '@/types'
-import { ChevronLeft, ChevronRight, Settings2 } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Plus, Settings2 } from 'lucide-react'
 import { toast } from 'sonner'
 import { AddProductsDiscount } from './ui/add-products-discount'
 
@@ -105,136 +106,149 @@ export function DataTable<TData, TValue>({
   return (
     <>
       <section className="flex items-center justify-between py-4">
-        <Input
-          placeholder="Filtrar por nombre de producto"
-          value={(table.getColumn('name')?.getFilterValue() as string) ?? ''}
-          onChange={(e) => {
-            const value = e.target.value
-            table.getColumn('name')?.setFilterValue(value)
-          }}
-          className="max-w-sm"
-        />
+        <div className="flex items-center">
+          <Input
+            placeholder="Filtrar por nombre de producto"
+            value={(table.getColumn('name')?.getFilterValue() as string) ?? ''}
+            onChange={(e) => {
+              const value = e.target.value
+              table.getColumn('name')?.setFilterValue(value)
+            }}
+            className="max-w-sm"
+          />
 
-        {isDeleteOrDiscountVisible && (
-          <>
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button className="ml-2">Añadir descuentos</Button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[450px]">
-                <DialogHeader>
-                  <DialogTitle>
-                    Añade descuentos a multiples productos
-                  </DialogTitle>
-                  <DialogDescription>
-                    Aquí puedes agregar descuentos a múltiples productos
-                    seleccionados. Ingresa el porcentaje de descuento y haz clic
-                    en &quot;Guardar cambios&quot; para aplicar los descuentos.
-                  </DialogDescription>
-                </DialogHeader>
-                {/* Formulario para añadir descuentos a multiples productos */}
-                <AddProductsDiscount
-                  productsIds={productsIds}
-                  table={table}
-                />
-              </DialogContent>
-            </Dialog>
+          {isDeleteOrDiscountVisible && (
+            <>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button className="ml-2">Añadir descuentos</Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[450px]">
+                  <DialogHeader>
+                    <DialogTitle>
+                      Añade descuentos a multiples productos
+                    </DialogTitle>
+                    <DialogDescription>
+                      Aquí puedes agregar descuentos a múltiples productos
+                      seleccionados. Ingresa el porcentaje de descuento y haz
+                      clic en &quot;Guardar cambios&quot; para aplicar los
+                      descuentos.
+                    </DialogDescription>
+                  </DialogHeader>
+                  {/* Formulario para añadir descuentos a multiples productos */}
+                  <AddProductsDiscount
+                    productsIds={productsIds}
+                    table={table}
+                  />
+                </DialogContent>
+              </Dialog>
 
-            <AlertDialog>
-              <AlertDialogTrigger asChild>
-                <Button
-                  variant="destructive"
-                  disabled={isPending}
-                  className="ml-2"
-                >
-                  {isPending ? (
-                    <>
-                      Eliminando
-                      <Spinner />
-                    </>
-                  ) : (
-                    'Eliminar'
-                  )}
-                </Button>
-              </AlertDialogTrigger>
-
-              <AlertDialogContent>
-                <AlertDialogHeader>
-                  <AlertDialogTitle>
-                    ¿Estás seguro que quieres eliminar los productos
-                    seleccionados?
-                  </AlertDialogTitle>
-
-                  <AlertDialogDescription>
-                    Esta acción no se puede deshacer y eliminará permanentemente
-                    los usuarios seleccionados.
-                  </AlertDialogDescription>
-                </AlertDialogHeader>
-
-                <AlertDialogFooter>
-                  <AlertDialogCancel>Cancelar</AlertDialogCancel>
-
-                  <AlertDialogAction
-                    onClick={() => {
-                      startTransition(async () => {
-                        const response = await deleteManyProducts(productsIds)
-                        if (response.ok) {
-                          toast.success('¡Todo salió bien!', {
-                            description: response.message,
-                            duration: 3000,
-                            position: 'top-right'
-                          })
-                          setRowSelection({})
-                        } else {
-                          toast.error('Ocurrio un problema', {
-                            description: response.message,
-                            duration: 3000,
-                            position: 'top-right'
-                          })
-                        }
-                      })
-                    }}
-                    className={buttonVariants({ variant: 'destructive' })}
+              <AlertDialog>
+                <AlertDialogTrigger asChild>
+                  <Button
+                    variant="destructive"
+                    disabled={isPending}
+                    className="ml-2"
                   >
-                    Eliminar
-                  </AlertDialogAction>
-                </AlertDialogFooter>
-              </AlertDialogContent>
-            </AlertDialog>
-          </>
-        )}
+                    {isPending ? (
+                      <>
+                        Eliminando
+                        <Spinner />
+                      </>
+                    ) : (
+                      'Eliminar'
+                    )}
+                  </Button>
+                </AlertDialogTrigger>
 
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button
-              variant="outline"
-              className="ml-auto flex items-center gap-x-1"
-            >
-              <Settings2 size={16} />
-              Columnas
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            {table
-              .getAllColumns()
-              .filter((column) => column.getCanHide())
-              .filter((column) => column.id !== 'actions')
-              .map((column) => {
-                return (
-                  <DropdownMenuCheckboxItem
-                    key={column.id}
-                    className="capitalize"
-                    checked={column.getIsVisible()}
-                    onCheckedChange={(value) =>
-                      column.toggleVisibility(!!value)
-                    }
-                  >
-                    {column.id}
-                  </DropdownMenuCheckboxItem>
-                )
-              })}
-          </DropdownMenuContent>
-        </DropdownMenu>
+                <AlertDialogContent>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>
+                      ¿Estás seguro que quieres eliminar los productos
+                      seleccionados?
+                    </AlertDialogTitle>
+
+                    <AlertDialogDescription>
+                      Esta acción no se puede deshacer y eliminará
+                      permanentemente los usuarios seleccionados.
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+
+                  <AlertDialogFooter>
+                    <AlertDialogCancel>Cancelar</AlertDialogCancel>
+
+                    <AlertDialogAction
+                      onClick={() => {
+                        startTransition(async () => {
+                          const response = await deleteManyProducts(productsIds)
+                          if (response.ok) {
+                            toast.success('¡Todo salió bien!', {
+                              description: response.message,
+                              duration: 3000,
+                              position: 'top-right'
+                            })
+                            setRowSelection({})
+                          } else {
+                            toast.error('Ocurrio un problema', {
+                              description: response.message,
+                              duration: 3000,
+                              position: 'top-right'
+                            })
+                          }
+                        })
+                      }}
+                      className={buttonVariants({ variant: 'destructive' })}
+                    >
+                      Eliminar
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
+            </>
+          )}
+        </div>
+
+        <div className="flex items-center gap-x-2">
+          <Link
+            className={`${buttonVariants()} flex items-center gap-x-1`}
+            href="/admin/products/new"
+          >
+            <Plus size={16} />
+            Agregar producto
+          </Link>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="outline"
+                className="ml-auto flex items-center gap-x-1"
+              >
+                <Settings2 size={16} />
+                Columnas
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              {table
+                .getAllColumns()
+                .filter((column) => column.getCanHide())
+                .filter((column) => column.id !== 'actions')
+                .map((column) => {
+                  return (
+                    <DropdownMenuCheckboxItem
+                      key={column.id}
+                      className="capitalize"
+                      checked={column.getIsVisible()}
+                      onCheckedChange={(value) =>
+                        column.toggleVisibility(!!value)
+                      }
+                    >
+                      {column.id}
+                    </DropdownMenuCheckboxItem>
+                  )
+                })}
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       </section>
 
       <section className="rounded-md border">

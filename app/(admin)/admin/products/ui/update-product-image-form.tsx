@@ -184,7 +184,7 @@ export const UpdateProductImageForm = ({ product }: Props) => {
           }}
         >
           {({ getRootProps, getInputProps, isDragActive }) => (
-            <Card className="p-3">
+            <Card className="cursor-pointer p-3">
               <div {...getRootProps()}>
                 <input
                   id="image"
