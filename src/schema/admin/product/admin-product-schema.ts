@@ -4,17 +4,22 @@ import { z } from 'zod'
 
 export const ProductCreateSchema = ProductGeneralSchema.omit({
   id: true,
+  slug: true,
   createdAt: true,
   updatedAt: true
+}).extend({
+  categoryId: CategoryGenralSchema.shape.id
 })
 
-export const ProductUpdateSchema = ProductCreateSchema.omit({
+export const ProductUpdateSchema = ProductGeneralSchema.omit({
   slug: true
-}).extend({ category: CategoryGenralSchema })
+}).extend({
+  category: CategoryGenralSchema
+})
 
 export const ProductUpdateActionSchema = z.object({
   categoryId: CategoryGenralSchema.shape.id,
-  ...ProductUpdateSchema.omit({ category: true }).shape
+  ...ProductCreateSchema.omit({ categoryId: true }).shape
 })
 
 export const AddProductsDiscount = z.object({
