@@ -1,4 +1,11 @@
-import { Contact, Headphones, Package, ShieldCheck, User } from 'lucide-react'
+import {
+  Contact,
+  FileAudio2,
+  Headphones,
+  Package,
+  ShieldCheck,
+  User
+} from 'lucide-react'
 
 export const dropdownAdmin = [
   {
@@ -20,6 +27,11 @@ export const dropdownAdmin = [
     label: 'Productos',
     href: '/admin/products',
     icon: <Headphones className="mr-2 h-4 w-4" />
+  },
+  {
+    label: 'Productos archivados',
+    href: '/admin/products-archived',
+    icon: <FileAudio2 className="mr-2 h-4 w-4" />
   },
   {
     label: 'Contanctos',
