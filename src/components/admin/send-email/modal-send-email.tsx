@@ -92,6 +92,7 @@ export const SendEmail = ({ email, userFullName, isOrder = false }: Props) => {
 
         {/* Formulario para envio de correo al usuario */}
         <form
+          noValidate
           id="send-email"
           onSubmit={handleSubmit(onSubmit)}
           className="space-y-2"
@@ -152,6 +153,7 @@ export const SendEmail = ({ email, userFullName, isOrder = false }: Props) => {
             )}
           </section>
         </form>
+
         <DialogFooter>
           <Button
             form="send-email"

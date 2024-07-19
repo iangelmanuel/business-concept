@@ -64,9 +64,9 @@ export const AddProductsDiscount = ({ productsIds, table }: Props) => {
   return (
     <>
       <form
+        noValidate
         id="add-products-discount"
         onSubmit={handleSubmit(onSubmit)}
-        noValidate
       >
         <section>
           <Label
@@ -79,6 +79,7 @@ export const AddProductsDiscount = ({ productsIds, table }: Props) => {
           <Input
             type="number"
             id="discount"
+            placeholder="Ej. 0.1 para un 10% de descuento"
             {...register('discount', {
               required: 'El campo descuento campo es requerido',
               min: {

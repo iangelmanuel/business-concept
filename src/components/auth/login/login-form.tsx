@@ -45,8 +45,9 @@ export const CardLoginForm = () => {
   return (
     <CardContent>
       <form
-        className="space-y-2"
+        noValidate
         onSubmit={handleSubmit(onSubmit)}
+        className="space-y-2"
       >
         <div>
           <Label htmlFor="email">Correo Electrónico:</Label>
@@ -54,7 +55,7 @@ export const CardLoginForm = () => {
             type="email"
             id="email"
             autoComplete="email"
-            placeholder="Ej. correo@correo.com"
+            placeholder="Ej. ejemplo@correo.com"
             {...register('email', {
               required: 'El campo email es requerido',
               pattern: {

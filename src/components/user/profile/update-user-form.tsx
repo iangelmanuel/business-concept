@@ -73,8 +73,9 @@ export const UpdateUserForm = ({ user }: Props) => {
       </h2>
 
       <form
-        onSubmit={handleSubmit(onSubmit)}
+        noValidate
         id="update-user"
+        onSubmit={handleSubmit(onSubmit)}
         className="mt-3 grid grid-cols-1 gap-5 lg:grid-cols-2"
       >
         <div className="flex items-center justify-center">
@@ -91,9 +92,11 @@ export const UpdateUserForm = ({ user }: Props) => {
 
         <div className="space-y-4">
           <section>
-            <Label>Nombre:</Label>
+            <Label htmlFor="name">Nombre:</Label>
             <Input
               type="text"
+              id="name"
+              placeholder="Ej. Angel"
               {...register('name', {
                 required: 'El campo nombre es requerido',
                 minLength: {
@@ -110,9 +113,11 @@ export const UpdateUserForm = ({ user }: Props) => {
           </section>
 
           <section>
-            <Label>Apellido:</Label>
+            <Label htmlFor="lastname">Apellido:</Label>
             <Input
               type="text"
+              id="lastname"
+              placeholder="Ej. Montaño"
               {...register('lastname', {
                 required: 'El campo apellido es requerido',
                 minLength: {
@@ -131,7 +136,7 @@ export const UpdateUserForm = ({ user }: Props) => {
           </section>
 
           <section>
-            <Label>Role:</Label>
+            <Label>Rol:</Label>
             <Input
               type="text"
               disabled
@@ -140,9 +145,11 @@ export const UpdateUserForm = ({ user }: Props) => {
           </section>
 
           <section>
-            <Label>Email:</Label>
+            <Label htmlFor="email">Email:</Label>
             <Input
               type="email"
+              id="email"
+              placeholder="Ej. ejemplo@correo.com"
               {...register('email', {
                 required: 'El campo email es requerido',
                 pattern: {
@@ -179,6 +186,7 @@ export const UpdateUserForm = ({ user }: Props) => {
           </section>
         </div>
       </form>
+
       <div className="mt-5 flex justify-end">
         <Button
           type="submit"

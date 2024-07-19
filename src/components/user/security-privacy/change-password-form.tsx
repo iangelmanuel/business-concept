@@ -45,14 +45,16 @@ export const ChangePasswordForm = () => {
         Cambiar contraseña:
       </h2>
       <form
+        noValidate
         onSubmit={handleSubmit(onSubmit)}
         className="mt-3 space-y-5"
       >
-        <div>
+        <section>
           <Label htmlFor="password">Contraseña actual:</Label>
           <Input
             type="password"
             id="password"
+            placeholder="Coloca tu contraseña actual"
             {...register('password', {
               required: 'El campo contraseña es requerido'
             })}
@@ -60,13 +62,14 @@ export const ChangePasswordForm = () => {
           {errors.password && (
             <ErrorMessage>{errors.password.message}</ErrorMessage>
           )}
-        </div>
+        </section>
 
-        <div>
+        <section>
           <Label htmlFor="new-password">Nueva contraseña:</Label>
           <Input
             type="password"
             id="new-password"
+            placeholder="Coloca tu nueva contraseña"
             {...register('newPassword', {
               required: 'El campo nueva contraseña es requerido',
               minLength: {
@@ -78,13 +81,14 @@ export const ChangePasswordForm = () => {
           {errors.newPassword && (
             <ErrorMessage>{errors.newPassword.message}</ErrorMessage>
           )}
-        </div>
+        </section>
 
-        <div>
+        <section>
           <Label htmlFor="confirm-password">Confirmar nueva contraseña:</Label>
           <Input
             type="password"
             id="confirm-password"
+            placeholder="Confirma tu nueva contraseña"
             {...register('confirmNewPassword', {
               required: 'El campo confirmar contraseña es requerido',
               validate: (value) =>
@@ -96,9 +100,9 @@ export const ChangePasswordForm = () => {
           {errors.confirmNewPassword && (
             <ErrorMessage>{errors.confirmNewPassword.message}</ErrorMessage>
           )}
-        </div>
+        </section>
 
-        <div className="flex justify-end">
+        <section className="flex justify-end">
           <Button
             type="submit"
             disabled={isPending}
@@ -113,7 +117,7 @@ export const ChangePasswordForm = () => {
               'Cambiar contraseña'
             )}
           </Button>
-        </div>
+        </section>
       </form>
     </section>
   )

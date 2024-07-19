@@ -67,9 +67,10 @@ export const OrderTrackingForm = ({ order }: Props) => {
   return (
     <>
       <form
+        noValidate
         id="add-tracking-code"
-        className="space-y-2"
         onSubmit={handleSubmit(onSubmit)}
+        className="space-y-2"
       >
         <section>
           <Label>Empresa de rastreo</Label>
@@ -106,9 +107,10 @@ export const OrderTrackingForm = ({ order }: Props) => {
         </section>
 
         <section>
-          <Label>Código de rastreo</Label>
+          <Label htmlFor="trackingCode">Código de rastreo</Label>
           <Input
             type="text"
+            id="trackingCode"
             placeholder="Agregar número de rastreo"
             {...register('trackingCode', {
               required: 'El campo número de rastreo es requerido'
@@ -119,6 +121,7 @@ export const OrderTrackingForm = ({ order }: Props) => {
           )}
         </section>
       </form>
+
       <DialogFooter>
         <Button
           form="add-tracking-code"

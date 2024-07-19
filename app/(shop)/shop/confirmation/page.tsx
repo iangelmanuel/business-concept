@@ -90,19 +90,22 @@ export default async function ConfirmationPage({
       <div className="mx-auto mt-3 flex max-w-screen-md justify-between">
         {emailSend !== 'true' ? (
           <form
+            noValidate
             action={sendInvoiceEmail}
             className="flex-1"
           >
-            <Label>Enviar factura al correo:</Label>
+            <Label htmlFor="email">Enviar factura al correo:</Label>
             <section className="flex">
               <Input
                 type="email"
+                id="email"
                 name="email"
                 autoComplete="email"
                 placeholder="Ej. ejemplo@correo.com"
               />
               <Button type="submit">Enviar factura</Button>
             </section>
+
             <section className="mt-5">
               <Link
                 href="/dashboard/purchases"

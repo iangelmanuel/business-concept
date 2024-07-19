@@ -105,8 +105,8 @@ export const UpdateProductFromAdminForm = ({ product }: Props) => {
   return (
     <>
       <form
-        id="update-product-from-admin-form"
         noValidate
+        id="update-product-from-admin-form"
         onSubmit={handleSubmit(onSubmit)}
         className="grid grid-cols-2 gap-4"
       >
@@ -116,6 +116,7 @@ export const UpdateProductFromAdminForm = ({ product }: Props) => {
             <Input
               id="name"
               type="text"
+              placeholder="Ej. iPhone 15 Pro Max"
               {...register('name', {
                 required: 'El campo nombre es requerido'
               })}
@@ -128,6 +129,7 @@ export const UpdateProductFromAdminForm = ({ product }: Props) => {
             <Input
               id="stock"
               type="number"
+              placeholder="Ej. 10"
               {...register('stock', {
                 required: 'El campo disponibilidad es requerido'
               })}
@@ -142,6 +144,7 @@ export const UpdateProductFromAdminForm = ({ product }: Props) => {
             <Input
               id="price"
               type="number"
+              placeholder="Ej. 3600000"
               {...register('price', {
                 required: 'El campo disponibilidad es requerido'
               })}
@@ -163,6 +166,7 @@ export const UpdateProductFromAdminForm = ({ product }: Props) => {
             <Input
               id="discount"
               type="number"
+              placeholder="Ej. 0.1 para un 10% de descuento"
               {...register('discount', {
                 required: 'El campo descuento campo es requerido',
                 min: {
@@ -217,6 +221,7 @@ export const UpdateProductFromAdminForm = ({ product }: Props) => {
             <Textarea
               id="description"
               rows={18}
+              placeholder="Ej. El iPhone 15 Pro Max es el mejor teléfono que jamás hayamos creado. Con una pantalla Super Retina XDR de 6.7 pulgadas, el chip A15 Bionic, el sistema de cámara Pro y mucho más, es un verdadero prodigio de la tecnología."
               {...register('description', {
                 required: 'El campo descripción es requerido'
               })}

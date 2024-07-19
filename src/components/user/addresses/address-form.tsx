@@ -131,6 +131,7 @@ export const AddressForm = ({
               <ErrorMessage>{errors.firstName?.message}</ErrorMessage>
             )}
           </section>
+
           <section>
             <Label htmlFor="lastname">Apellidos:</Label>
             <Input
@@ -154,6 +155,7 @@ export const AddressForm = ({
               <ErrorMessage>{errors.lastName?.message}</ErrorMessage>
             )}
           </section>
+
           <section>
             <Label>Tipo de documento:</Label>
             <Select
@@ -184,6 +186,7 @@ export const AddressForm = ({
               </ErrorMessage>
             )}
           </section>
+
           <section>
             <Label htmlFor="identification">Cédula:</Label>
             <Input
@@ -203,6 +206,7 @@ export const AddressForm = ({
               <ErrorMessage>{errors.identification?.message}</ErrorMessage>
             )}
           </section>
+
           <section>
             <Label htmlFor="phone">Télefono:</Label>
             <Input
@@ -252,6 +256,7 @@ export const AddressForm = ({
               <ErrorMessage>{errors.address?.message}</ErrorMessage>
             )}
           </section>
+
           <section>
             <Label htmlFor="address2">Dirección 2 (opcional):</Label>
             <Input
@@ -274,6 +279,7 @@ export const AddressForm = ({
               <ErrorMessage>{errors.address2?.message}</ErrorMessage>
             )}
           </section>
+
           <section>
             <Label htmlFor="postal-code">Código Postal:</Label>
             <Input
@@ -299,6 +305,7 @@ export const AddressForm = ({
               <ErrorMessage>{errors.postalCode?.message}</ErrorMessage>
             )}
           </section>
+
           <section>
             <Label>Departamento:</Label>
             <Select
@@ -336,6 +343,7 @@ export const AddressForm = ({
               <ErrorMessage>{errors.department?.message}</ErrorMessage>
             )}
           </section>
+
           <section>
             <Label>Ciudad:</Label>
             <Select
@@ -368,6 +376,7 @@ export const AddressForm = ({
             </Select>
             {errors.city && <ErrorMessage>{errors.city?.message}</ErrorMessage>}
           </section>
+
           <section>
             <Label htmlFor="extra-data">
               Información Adicional (opcional):

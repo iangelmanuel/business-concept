@@ -74,8 +74,8 @@ export const UpdateUserFromAdminForm = ({ user }: Props) => {
   return (
     <>
       <form
-        id="update-user-from-admin-form"
         noValidate
+        id="update-user-from-admin-form"
         onSubmit={handleSubmit(onSubmit)}
         className="grid grid-cols-2 gap-4"
       >
@@ -95,6 +95,7 @@ export const UpdateUserFromAdminForm = ({ user }: Props) => {
             <Input
               type="text"
               id="name"
+              placeholder="Ej. Angel"
               {...register('name', {
                 required: 'El campo nombre es requerido',
                 minLength: {
@@ -115,6 +116,7 @@ export const UpdateUserFromAdminForm = ({ user }: Props) => {
             <Input
               type="text"
               id="lastname"
+              placeholder="Ej. Montaño"
               {...register('lastname', {
                 required: 'El campo apellido es requerido',
                 minLength: {
@@ -137,6 +139,7 @@ export const UpdateUserFromAdminForm = ({ user }: Props) => {
             <Input
               type="email"
               id="email"
+              placeholder="Ej. ejemplo@correo.com"
               {...register('email', {
                 required: 'El campo email es requerido',
                 pattern: {
@@ -155,6 +158,7 @@ export const UpdateUserFromAdminForm = ({ user }: Props) => {
             <Input
               type="tel"
               id="phone"
+              placeholder="Ej. 312 345 6789"
               {...register('phone', {
                 required: 'El campo télefono es requerido',
                 pattern: {
@@ -255,8 +259,8 @@ export const UpdateUserFromAdminForm = ({ user }: Props) => {
             <Input
               type="text"
               id="createdAt"
-              value={formatDate(user.createdAt)}
               disabled
+              value={formatDate(user.createdAt)}
             />
           </section>
 

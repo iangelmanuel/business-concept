@@ -123,8 +123,8 @@ export const CardRegisterForm = () => {
           <Input
             type="email"
             id="email"
-            autoComplete="username"
-            placeholder="Ej. correo@correo.com"
+            autoComplete="email"
+            placeholder="Ej. ejemplo@correo.com"
             {...register('email', {
               required: 'El campo email es requerido',
               pattern: {

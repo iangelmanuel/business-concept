@@ -161,9 +161,9 @@ export const UpdateProductImageForm = ({ product }: Props) => {
 
       <article>
         <form
+          noValidate
           id="update-product-image-form"
           onSubmit={handleSubmit(onSubmit)}
-          noValidate
         >
           <input
             type="hidden"
