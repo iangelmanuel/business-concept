@@ -5,7 +5,7 @@ import { auth } from '@/auth.config'
 import { prisma } from '@/lib'
 import type { ProductAllType } from '@/types'
 
-export async function deleteProductById(id: ProductAllType['id']) {
+export async function archiveManyProducts(id: ProductAllType['id'][]) {
   try {
     const session = await auth()
     if (!session) {
@@ -23,9 +23,11 @@ export async function deleteProductById(id: ProductAllType['id']) {
       }
     }
 
-    await prisma.product.update({
+    await prisma.product.updateMany({
       where: {
-        id
+        id: {
+          in: id
+        }
       },
       data: {
         isProductDeleted: true
@@ -43,12 +45,12 @@ export async function deleteProductById(id: ProductAllType['id']) {
 
     return {
       ok: true,
-      message: 'Producto eliminado correctamente'
+      message: 'Productos eliminados correctamente'
     }
   } catch (error) {
     return {
       ok: false,
-      message: 'Error al eliminar el producto'
+      message: 'Error al eliminar los productos'
     }
   }
 }
