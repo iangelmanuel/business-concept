@@ -1,23 +1,23 @@
-export * from './address/address'
+export * from './address'
 
-export * from './cart/card'
+export * from './card'
 
-export * from './products/products'
+export * from './products'
 
-export * from './admin/user/admin-user'
+export * from './admin/admin-user'
 
-export * from './admin/order/admin-order'
+export * from './admin/admin-order'
 
-export * from './admin/product/admin-product'
+export * from './admin/admin-product'
 
-export * from './user/user'
+export * from './user'
 
-export * from './data/navigation-items'
+export * from './navigation-items'
 
-export * from './category/category'
+export * from './category'
 
-export * from './order/order'
+export * from './order'
 
-export * from './epayco/epayco'
+export * from './epayco'
 
-export * from './email/email'
+export * from './email'
