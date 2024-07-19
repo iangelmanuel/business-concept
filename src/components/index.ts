@@ -52,6 +52,7 @@ export * from './user/purchases/order-grid'
 
 export * from './admin/modal-send-email'
 export * from './admin/product/new-product-form'
+export * from './admin/product/product-deleted-grid'
 
 export * from './ui/button'
 export * from './ui/card'
