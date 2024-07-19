@@ -135,7 +135,6 @@ export const OrderTrackingForm = ({ order }: Props) => {
           ) : (
             'Añadir código'
           )}
-          Añadir código
         </Button>
       </DialogFooter>
     </>
