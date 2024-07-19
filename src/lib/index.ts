@@ -1,2 +1,2 @@
-export * from './cn/utils'
-export * from './prisma/prisma-config'
+export * from './cn'
+export * from './prisma-config'
