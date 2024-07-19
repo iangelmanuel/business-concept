@@ -78,15 +78,16 @@ model Category {
 }
 
 model Product {
-  id          String   @id @default(uuid())
-  name        String
-  description String
-  price       Float
-  stock       Int
-  slug        String
-  discount    Float    @default(1)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id               String   @id @default(uuid())
+  name             String
+  description      String
+  price            Float
+  stock            Int
+  slug             String
+  discount         Float    @default(1)
+  isProductDeleted Boolean  @default(false)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
 
   categoryId String
   category   Category @relation(fields: [categoryId], references: [id])
