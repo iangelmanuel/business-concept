@@ -9,6 +9,7 @@ export const ProductGeneralSchema = z.object({
   discount: z.number().min(0).max(1),
   stock: z.number(),
   slug: z.string().min(3).max(50),
+  isProductDeleted: z.boolean().default(false),
   createdAt: z.date(),
   updatedAt: z.date()
 })

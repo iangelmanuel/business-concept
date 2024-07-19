@@ -6,7 +6,8 @@ export const ProductCreateSchema = ProductGeneralSchema.omit({
   id: true,
   slug: true,
   createdAt: true,
-  updatedAt: true
+  updatedAt: true,
+  isProductDeleted: true
 }).extend({
   categoryId: CategoryGenralSchema.shape.id
 })
