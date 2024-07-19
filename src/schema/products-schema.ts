@@ -1,5 +1,5 @@
-import { CategoryGenralSchema } from '../category/category-schema'
 import { z } from 'zod'
+import { CategoryGenralSchema } from './category-schema'
 
 export const ProductGeneralSchema = z.object({
   id: z.string(),
