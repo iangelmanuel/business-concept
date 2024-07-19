@@ -50,6 +50,7 @@ export const ProductDeletedButton = ({ productId }: Props) => {
           duration: 3000,
           position: 'top-right'
         })
+        setIsProductDeletedModalOpen(false)
       } else {
         toast.error('Ocurrio un problema', {
           description: response.message,
@@ -64,7 +65,7 @@ export const ProductDeletedButton = ({ productId }: Props) => {
     <>
       <CardFooter className="flex items-center justify-end">
         <Button onClick={() => setIsProductDeletedModalOpen(true)}>
-          Recuperando producto
+          Recuperar producto
         </Button>
 
         <Dialog
