@@ -1,6 +1,6 @@
 import { departamentsWithCities } from '../src/data/seed/departament-city'
 import { data } from '../src/data/seed/seed-data'
-import { prisma } from '../src/lib/prisma/prisma-config'
+import { prisma } from '../src/lib/prisma-config'
 
 async function main() {
   await prisma.orderAddress.deleteMany()
