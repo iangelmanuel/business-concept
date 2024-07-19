@@ -1,4 +1,4 @@
-import { formatCurrency } from '../format-currency/format-currency'
+import { formatCurrency } from '../format-currency'
 import type { ProductType } from '@/types'
 
 function discountConverter(discount: ProductType['discount']) {
