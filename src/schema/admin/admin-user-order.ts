@@ -1,5 +1,5 @@
-import { UserOrderSchema } from '../../order/order-schema'
-import { UserGeneralSchema } from '../../user/user-schema'
+import { UserOrderSchema } from '../order-schema'
+import { UserGeneralSchema } from '../user-schema'
 import { z } from 'zod'
 
 export const UserOrderByAdmin = z.object({

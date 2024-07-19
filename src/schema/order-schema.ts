@@ -1,9 +1,6 @@
-import {
-  AddressGeneralSchema,
-  OrderAddressSchema
-} from '../address/address-schema'
 import { ProductGeneralSchema, ProductImage } from '../products/products-schema'
 import { z } from 'zod'
+import { AddressGeneralSchema, OrderAddressSchema } from './address-schema'
 
 export const OrderGeneralSchema = z.object({
   id: z.string(),
