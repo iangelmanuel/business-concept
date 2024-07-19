@@ -3,9 +3,12 @@
 import { revalidatePath } from 'next/cache'
 import { auth } from '@/auth.config'
 import { prisma } from '@/lib'
-import type { ProductAllType } from '@/types'
+import type { ProductType } from '@/types'
 
-export async function deleteManyProducts(id: ProductAllType['id'][]) {
+export async function recoverProductDeleted(
+  productId: ProductType['id'],
+  stock: ProductType['stock']
+) {
   try {
     const session = await auth()
     if (!session) {
@@ -23,14 +26,13 @@ export async function deleteManyProducts(id: ProductAllType['id'][]) {
       }
     }
 
-    await prisma.product.updateMany({
+    await prisma.product.update({
       where: {
-        id: {
-          in: id
-        }
+        id: productId
       },
       data: {
-        isProductDeleted: true
+        isProductDeleted: false,
+        stock
       }
     })
 
@@ -40,17 +42,15 @@ export async function deleteManyProducts(id: ProductAllType['id'][]) {
     revalidatePath('/shop/products')
     revalidatePath('/shop/products/[category]', 'page')
     revalidatePath('/shop/product/[slug]', 'page')
-    revalidatePath('/shop/cart')
-    revalidatePath('/shop/checkout')
 
     return {
       ok: true,
-      message: 'Productos eliminados correctamente'
+      message: 'Producto recuperado correctamente'
     }
   } catch (error) {
     return {
       ok: false,
-      message: 'Error al eliminar los productos'
+      message: 'Error al recuperar el producto'
     }
   }
 }

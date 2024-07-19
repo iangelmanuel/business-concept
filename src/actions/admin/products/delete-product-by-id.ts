@@ -33,6 +33,7 @@ export async function deleteProductById(id: ProductAllType['id']) {
     })
 
     revalidatePath('/admin/products')
+    revalidatePath('/admin/products-archived')
     revalidatePath('/')
     revalidatePath('/shop/products')
     revalidatePath('/shop/products/[category]', 'page')
