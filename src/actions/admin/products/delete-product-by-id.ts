@@ -23,9 +23,12 @@ export async function deleteProductById(id: ProductAllType['id']) {
       }
     }
 
-    await prisma.product.delete({
+    await prisma.product.update({
       where: {
         id
+      },
+      data: {
+        isProductDeleted: true
       }
     })
 

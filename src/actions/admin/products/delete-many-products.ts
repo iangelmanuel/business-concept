@@ -23,11 +23,14 @@ export async function deleteManyProducts(id: ProductAllType['id'][]) {
       }
     }
 
-    await prisma.product.deleteMany({
+    await prisma.product.updateMany({
       where: {
         id: {
           in: id
         }
+      },
+      data: {
+        isProductDeleted: true
       }
     })
 

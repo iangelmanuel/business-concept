@@ -5,7 +5,10 @@ import { prisma } from '@/lib'
 export async function getProductBySlug(slug: string) {
   try {
     const product = await prisma.product.findFirst({
-      where: { slug },
+      where: {
+        slug,
+        isProductDeleted: false
+      },
       include: {
         category: true,
         productImage: true

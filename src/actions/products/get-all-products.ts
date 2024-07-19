@@ -7,7 +7,8 @@ export async function getAllProducts() {
     where: {
       stock: {
         gt: 0
-      }
+      },
+      isProductDeleted: false
     },
     include: {
       productImage: true,

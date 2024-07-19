@@ -12,6 +12,9 @@ export async function getAllProductsByAdmin() {
     if (!isAdmin) return null
 
     const products = await prisma.product.findMany({
+      where: {
+        isProductDeleted: false
+      },
       include: {
         category: true,
         productImage: true

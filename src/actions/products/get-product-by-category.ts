@@ -9,7 +9,8 @@ export async function getProductByCategory(category: Category['name']) {
       where: {
         category: {
           name: category
-        }
+        },
+        isProductDeleted: false
       },
       include: {
         productImage: true,
