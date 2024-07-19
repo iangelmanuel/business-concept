@@ -1,6 +1,6 @@
 import { useState, useTransition } from 'react'
 import Link from 'next/link'
-import { deleteProductById } from '@/actions'
+import { archiveProductById } from '@/actions'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -25,7 +25,13 @@ import {
   buttonVariants
 } from '@/components'
 import type { ProductAllType } from '@/types'
-import { Ellipsis, Headphones, ImageIcon, Settings, Trash2 } from 'lucide-react'
+import {
+  Archive,
+  Ellipsis,
+  Headphones,
+  ImageIcon,
+  Settings
+} from 'lucide-react'
 import { toast } from 'sonner'
 import { UpdateProductFromAdminForm } from './update-product-from-admin-form'
 import { UpdateProductImageForm } from './update-product-image-form'
@@ -93,15 +99,15 @@ export const ActionsButtons = ({ product }: Props) => {
             </button>
           </DropdownMenuItem>
 
-          {/* Boton de Eliminar */}
+          {/* Boton de Archivar */}
           <DropdownMenuItem>
             <button
               disabled={isPending}
               onClick={() => setIsDeleteOptionOpen(true)}
               className="flex items-center text-destructive"
             >
-              <Trash2 className="mr-2 h-4 w-4 text-destructive" />
-              Eliminar producto
+              <Archive className="mr-2 h-4 w-4 text-destructive" />
+              Archivar producto
             </button>
           </DropdownMenuItem>
         </DropdownMenuContent>
@@ -139,7 +145,7 @@ export const ActionsButtons = ({ product }: Props) => {
         </DialogContent>
       </Dialog>
 
-      {/* AlertDialog de Eliminar Producto */}
+      {/* AlertDialog de Archivar producto */}
       <AlertDialog
         open={isDeleteOptionOpen}
         onOpenChange={setIsDeleteOptionOpen}
@@ -147,12 +153,12 @@ export const ActionsButtons = ({ product }: Props) => {
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle>
-              ¿Estás seguro que quieres eliminar el producto?
+              ¿Estás seguro que quieres archivar el producto?
             </AlertDialogTitle>
 
             <AlertDialogDescription>
-              Esta acción no se puede deshacer y eliminará permanentemente el
-              producto.
+              Esta acción se puede deshacer y se puede revertir en cualquier
+              momento.
             </AlertDialogDescription>
           </AlertDialogHeader>
 
@@ -164,7 +170,7 @@ export const ActionsButtons = ({ product }: Props) => {
                 setIsDeleteOptionOpen(false)
 
                 startTransition(async () => {
-                  const response = await deleteProductById(id)
+                  const response = await archiveProductById(id)
                   if (response.ok) {
                     toast.success('¡Todo salió bien!', {
                       description: response.message,
@@ -182,7 +188,7 @@ export const ActionsButtons = ({ product }: Props) => {
               }}
               className={buttonVariants({ variant: 'destructive' })}
             >
-              Eliminar
+              Archivar
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

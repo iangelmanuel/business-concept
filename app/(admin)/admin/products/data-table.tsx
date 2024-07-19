@@ -16,7 +16,7 @@ import {
 } from '@tanstack/react-table'
 import { useState, useTransition } from 'react'
 import Link from 'next/link'
-import { deleteManyProducts } from '@/actions'
+import { archiveManyProducts } from '@/actions'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -152,11 +152,11 @@ export function DataTable<TData, TValue>({
                   >
                     {isPending ? (
                       <>
-                        Eliminando
+                        Archivando
                         <Spinner />
                       </>
                     ) : (
-                      'Eliminar'
+                      'Archivar productos'
                     )}
                   </Button>
                 </AlertDialogTrigger>
@@ -164,13 +164,13 @@ export function DataTable<TData, TValue>({
                 <AlertDialogContent>
                   <AlertDialogHeader>
                     <AlertDialogTitle>
-                      ¿Estás seguro que quieres eliminar los productos
+                      ¿Estás seguro que quieres archivar los productos
                       seleccionados?
                     </AlertDialogTitle>
 
                     <AlertDialogDescription>
-                      Esta acción no se puede deshacer y eliminará
-                      permanentemente los usuarios seleccionados.
+                      Esta acción se puede deshacer y se puede revertir en
+                      cualquier momento.
                     </AlertDialogDescription>
                   </AlertDialogHeader>
 
@@ -180,7 +180,8 @@ export function DataTable<TData, TValue>({
                     <AlertDialogAction
                       onClick={() => {
                         startTransition(async () => {
-                          const response = await deleteManyProducts(productsIds)
+                          const response =
+                            await archiveManyProducts(productsIds)
                           if (response.ok) {
                             toast.success('¡Todo salió bien!', {
                               description: response.message,
@@ -199,7 +200,7 @@ export function DataTable<TData, TValue>({
                       }}
                       className={buttonVariants({ variant: 'destructive' })}
                     >
-                      Eliminar
+                      Archivar
                     </AlertDialogAction>
                   </AlertDialogFooter>
                 </AlertDialogContent>
