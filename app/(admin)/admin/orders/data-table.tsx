@@ -91,17 +91,17 @@ export function DataTable<TData, TValue>({
 
   return (
     <>
-      <section className="flex items-center justify-between py-4">
+      <section className="flex flex-col-reverse items-center justify-center gap-y-2 py-4 sm:flex-row sm:justify-between sm:gap-y-0">
         <Input
-          placeholder="Filtrar por correo electrónico"
           value={
             (table.getColumn('user.email')?.getFilterValue() as string) ?? ''
           }
+          placeholder="Filtrar por correo electrónico"
           onChange={(e) => {
             const value = e.target.value
             table.getColumn('user.email')?.setFilterValue(value)
           }}
-          className="max-w-sm"
+          className="w-full sm:max-w-sm"
         />
 
         {isDeleteVisible && (
@@ -111,7 +111,7 @@ export function DataTable<TData, TValue>({
                 <Button
                   variant="destructive"
                   disabled={isPending}
-                  className="ml-2"
+                  className="w-full sm:ml-2 sm:w-auto"
                 >
                   {isPending ? (
                     <>

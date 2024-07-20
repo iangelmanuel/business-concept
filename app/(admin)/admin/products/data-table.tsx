@@ -105,25 +105,27 @@ export function DataTable<TData, TValue>({
 
   return (
     <>
-      <section className="flex items-center justify-between py-4">
-        <div className="flex items-center">
+      <section className="flex flex-col-reverse items-center justify-center gap-2 py-4 md:flex-row md:justify-between">
+        <div className="flex w-full flex-col items-center gap-2 sm:w-auto sm:flex-row">
           <Input
-            placeholder="Filtrar por nombre de producto"
             value={(table.getColumn('name')?.getFilterValue() as string) ?? ''}
+            placeholder="Filtrar por nombre de producto"
             onChange={(e) => {
               const value = e.target.value
               table.getColumn('name')?.setFilterValue(value)
             }}
-            className="max-w-sm"
+            className="w-full md:max-w-sm"
           />
 
           {isDeleteOrDiscountVisible && (
             <>
               <Dialog>
                 <DialogTrigger asChild>
-                  <Button className="ml-2">Añadir descuentos</Button>
+                  <Button className="w-full md:ml-2 md:w-auto">
+                    Añadir descuentos
+                  </Button>
                 </DialogTrigger>
-                <DialogContent className="sm:max-w-[450px]">
+                <DialogContent className="md:max-w-[450px]">
                   <DialogHeader>
                     <DialogTitle>
                       Añade descuentos a multiples productos
@@ -148,7 +150,7 @@ export function DataTable<TData, TValue>({
                   <Button
                     variant="destructive"
                     disabled={isPending}
-                    className="ml-2"
+                    className="w-full md:ml-2 md:w-auto"
                   >
                     {isPending ? (
                       <>
@@ -209,10 +211,10 @@ export function DataTable<TData, TValue>({
           )}
         </div>
 
-        <div className="flex items-center gap-x-2">
+        <div className="flex w-full flex-col items-center gap-2 sm:w-auto sm:flex-row">
           <Link
-            className={`${buttonVariants()} flex items-center gap-x-1`}
             href="/admin/products/new"
+            className={`${buttonVariants()} flex w-full items-center gap-x-1 sm:w-auto`}
           >
             <Plus size={16} />
             Agregar producto
@@ -222,7 +224,7 @@ export function DataTable<TData, TValue>({
             <DropdownMenuTrigger asChild>
               <Button
                 variant="outline"
-                className="ml-auto flex items-center gap-x-1"
+                className="flex w-full items-center gap-x-1 sm:ml-auto sm:w-auto"
               >
                 <Settings2 size={16} />
                 Columnas
