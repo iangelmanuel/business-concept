@@ -41,6 +41,7 @@ export { deleteProductImage } from './admin/products/delete-product-image'
 export { createProduct } from './admin/products/create-product'
 export { getProductDeleted } from './admin/products/get-product-deleted'
 export { recoverProductDeleted } from './admin/products/recover-product-deleted'
+export * from './admin/profile/get-dashboard-profile-info'
 
 export { updateUser } from './user/update-user'
 export { getUserById } from './user/get-user-by-id'
