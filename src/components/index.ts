@@ -54,6 +54,10 @@ export * from './admin/send-email/modal-send-email'
 export * from './admin/product/new-product-form'
 export * from './admin/product/product-deleted-grid'
 
+export * from './admin/profile/general-finance-cards'
+export * from './admin/profile/order-with-approve-status'
+export * from './admin/profile/principal-content'
+
 export * from './ui/button'
 export * from './ui/card'
 export * from './ui/input'
@@ -76,5 +80,6 @@ export * from './ui/textarea'
 export * from './ui/resizable'
 export * from './ui/hover-card'
 export * from './ui/carousel'
+export * from './ui/chart'
 
 export * from './shop/bar-progress'
