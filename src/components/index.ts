@@ -1,3 +1,5 @@
+export * from './contact/contact-form'
+
 export * from './auth/register/register-form'
 export * from './auth/login/login-form'
 
