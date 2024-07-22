@@ -21,3 +21,5 @@ export * from './order'
 export * from './epayco'
 
 export * from './email'
+
+export * from './contact'
