@@ -1,3 +1,5 @@
+export { createUserContact } from './contact/create-user-contact'
+
 export { getAllProducts } from './products/get-all-products'
 export { getProductBySlug } from './products/get-product-by-slug'
 export { getProductByCategory } from './products/get-product-by-category'
