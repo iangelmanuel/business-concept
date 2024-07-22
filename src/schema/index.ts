@@ -15,3 +15,5 @@ export * from './category-schema'
 export * from './order-schema'
 
 export * from './email-schema'
+
+export * from './contact-schema'
