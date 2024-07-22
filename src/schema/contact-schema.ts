@@ -22,3 +22,10 @@ export const ContactFullDataSchema = z.object({
     })
   )
 })
+
+export const CreateContactSchema = z.object({
+  fullName: ContactGeneralSchema.shape.fullName,
+  phone: ContactGeneralSchema.shape.phone,
+  email: ContactGeneralSchema.shape.email,
+  message: z.string().max(255)
+})
