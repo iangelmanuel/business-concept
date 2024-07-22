@@ -1,7 +1,6 @@
 'use client'
 
 import { useTransition } from 'react'
-import { useSession } from 'next-auth/react'
 import { createUserContact } from '@/actions'
 import {
   Button,
