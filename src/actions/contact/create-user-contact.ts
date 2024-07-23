@@ -8,7 +8,7 @@ import type { ContactFormType } from '@/types'
 export async function createUserContact(data: ContactFormType) {
   try {
     const session = await auth()
-    const userId = session?.user?.id ? session.user.id : ''
+    const userId = session?.user?.id ?? null
 
     const result = CreateContactSchema.safeParse(data)
     if (!result.success) {
