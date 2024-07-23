@@ -18,7 +18,7 @@ export const ContactFullDataSchema = z.object({
       message: z.string().max(255),
       createdAt: ContactGeneralSchema.shape.createdAt,
       contactId: ContactGeneralSchema.shape.id,
-      user: UserGeneralSchema
+      user: UserGeneralSchema.nullable()
     })
   )
 })
