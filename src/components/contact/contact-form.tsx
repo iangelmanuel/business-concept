@@ -26,7 +26,8 @@ export const ContactForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
+    reset
   } = useForm<ContactFormType>({
     defaultValues: {
       fullName: '',
@@ -45,6 +46,7 @@ export const ContactForm = () => {
           duration: 3000,
           position: 'top-right'
         })
+        reset()
       } else {
         toast.error('Ocurrio un problema', {
           description: response.message,

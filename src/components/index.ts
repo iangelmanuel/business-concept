@@ -60,6 +60,9 @@ export * from './admin/profile/general-finance-cards'
 export * from './admin/profile/order-with-approve-status'
 export * from './admin/profile/principal-content'
 
+export * from './admin/contact/contact-info-grid'
+export * from './admin/contact/contact-delete-button'
+
 export * from './ui/button'
 export * from './ui/card'
 export * from './ui/input'
