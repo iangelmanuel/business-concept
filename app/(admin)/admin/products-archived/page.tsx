@@ -1,12 +1,21 @@
+import type { Metadata } from 'next'
 import { getProductDeleted } from '@/actions'
 import { ProductDeletedGrid } from '@/components'
 import { titleFont } from '@/config'
 
+export const metadata: Metadata = {
+  title: 'Business Concept - Productos Archivados',
+  description: 'Administra los productos archivados de la tienda',
+  keywords:
+    'business concept, tienda online, productos, calidad, precios accesibles',
+  robots: 'noindex, nofollow'
+}
+
 export default async function ProductArchivedPage() {
-  const productsDeleted = await getProductDeleted()
+  const productArchived = await getProductDeleted()
 
   const isEmptyTitleDescription =
-    productsDeleted?.length === 0
+    productArchived?.length === 0
       ? 'No hay productos archivados'
       : 'Productos archivados'
 
@@ -17,8 +26,8 @@ export default async function ProductArchivedPage() {
       </h1>
 
       <section className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4">
-        {productsDeleted?.length !== 0 ? (
-          productsDeleted?.map((product) => (
+        {productArchived?.length !== 0 ? (
+          productArchived?.map((product) => (
             <ProductDeletedGrid
               key={product.id}
               product={product}
@@ -26,8 +35,7 @@ export default async function ProductArchivedPage() {
           ))
         ) : (
           <p className="text-sm text-muted-foreground">
-            Realiza una compra y tendrás tus registros de ordenes en esta
-            sección.
+            No has archivado ningún producto.
           </p>
         )}
       </section>
