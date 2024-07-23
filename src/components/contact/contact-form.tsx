@@ -63,7 +63,8 @@ export const ContactForm = () => {
         </h2>
 
         <CardDescription>
-          Rellena este formulario para contactar con nosotros
+          Rellena este formulario para contactar con nosotros y te responderemos
+          lo antes posible vía correo electrónico.
         </CardDescription>
       </CardHeader>
 
