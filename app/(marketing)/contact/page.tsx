@@ -1,6 +1,16 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import { ContactForm } from '@/components'
 import { titleFont } from '@/config'
+
+export const metadata: Metadata = {
+  title: 'Business Concept - Contacto',
+  description:
+    'Ponte en contacto con nosotros si tienes alguna duda o problema',
+  keywords:
+    'business concept, tienda online, productos, calidad, precios accesibles',
+  robots: 'index, follow'
+}
 
 export default function ContactPage() {
   return (
