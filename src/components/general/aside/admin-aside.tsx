@@ -9,7 +9,7 @@ import {
   ResizablePanel,
   ResizablePanelGroup
 } from '@/components'
-import { dropdownAdmin } from '@/data'
+import { adminNavigation } from '@/data'
 import { cn } from '@/lib'
 
 interface Props {
@@ -43,7 +43,7 @@ export const AdminAside = ({ children }: Props) => {
       >
         <aside className="sticky top-0 hidden xl:block">
           <section className="mt-5 space-y-2 p-3">
-            {dropdownAdmin.map((item) => (
+            {adminNavigation.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}

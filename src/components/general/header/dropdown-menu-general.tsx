@@ -16,7 +16,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger
 } from '@/components'
-import { dropdownGeneral } from '@/data'
+import { notUserNavigation } from '@/data'
 import { Laptop2Icon, MenuIcon, Moon, Palette, Sun } from 'lucide-react'
 
 export const DropdownMenuGeneral = () => {
@@ -35,7 +35,7 @@ export const DropdownMenuGeneral = () => {
         <DropdownMenuSeparator />
 
         <DropdownMenuGroup>
-          {dropdownGeneral.map((item) => (
+          {notUserNavigation.map((item) => (
             <DropdownMenuItem
               key={item.href}
               onClick={() => router.push(item.href)}

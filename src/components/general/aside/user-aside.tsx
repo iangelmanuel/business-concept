@@ -9,7 +9,7 @@ import {
   ResizablePanel,
   ResizablePanelGroup
 } from '@/components'
-import { dropdownUser } from '@/data'
+import { userNavigation } from '@/data'
 import { cn } from '@/lib'
 
 interface Props {
@@ -43,7 +43,7 @@ export const UserAside = ({ children }: Props) => {
       >
         <aside className="sticky top-0 hidden xl:block">
           <section className="mt-5 space-y-2 p-3">
-            {dropdownUser.map((item, index) => (
+            {userNavigation.map((item, index) => (
               <Link
                 key={index}
                 href={item.href}

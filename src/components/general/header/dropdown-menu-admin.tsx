@@ -22,7 +22,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger
 } from '@/components'
-import { dropdownAdmin, dropdownUser } from '@/data'
+import { adminNavigation, userNavigation } from '@/data'
 import { getLettersName } from '@/utils'
 import { Laptop2Icon, LogOut, Moon, Palette, Sun } from 'lucide-react'
 
@@ -64,7 +64,7 @@ export const DropdownMenuAdmin = () => {
         <DropdownMenuSeparator />
 
         <DropdownMenuGroup>
-          {dropdownAdmin.map((item) => (
+          {adminNavigation.map((item) => (
             <DropdownMenuItem
               key={item.href}
               onClick={() => router.push(item.href)}
@@ -76,7 +76,7 @@ export const DropdownMenuAdmin = () => {
 
           <DropdownMenuSeparator />
 
-          {dropdownUser.map((item) => (
+          {userNavigation.map((item) => (
             <DropdownMenuItem
               key={item.href}
               onClick={() => router.push(item.href)}

@@ -7,7 +7,7 @@ import {
   User
 } from 'lucide-react'
 
-export const dropdownAdmin = [
+export const adminNavigation = [
   {
     label: 'Admin',
     href: '/admin/profile',

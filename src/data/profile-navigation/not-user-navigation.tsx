@@ -1,6 +1,6 @@
 import { User, UserRoundPlus } from 'lucide-react'
 
-export const dropdownGeneral = [
+export const notUserNavigation = [
   {
     label: 'Iniciar Sesión',
     href: '/auth/login',

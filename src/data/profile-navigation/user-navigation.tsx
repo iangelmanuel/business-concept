@@ -5,7 +5,7 @@ import {
   User
 } from 'lucide-react'
 
-export const dropdownUser = [
+export const userNavigation = [
   {
     label: 'Cuenta',
     href: '/dashboard/profile',
