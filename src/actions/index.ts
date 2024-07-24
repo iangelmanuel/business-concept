@@ -46,6 +46,7 @@ export { recoverProductDeleted } from './admin/product/recover-product-deleted'
 export * from './admin/profile/get-dashboard-profile-info'
 export { getUserContacts } from './admin/contact/get-user-contacts'
 export { deleteUserContact } from './admin/contact/delete-user-contact'
+export { getContactById } from './admin/contact/get-contact-by-id'
 
 export { updateUser } from './user/update-user'
 export { getUserById } from './user/get-user-by-id'
