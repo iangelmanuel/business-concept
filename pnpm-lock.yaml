@@ -71,6 +71,9 @@ importers:
       cmdk:
         specifier: 1.0.0
         version: 1.0.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      embla-carousel-autoplay:
+        specifier: ^8.1.6
+        version: 8.1.6(embla-carousel@8.1.6)
       embla-carousel-react:
         specifier: 8.1.6
         version: 8.1.6(react@18.3.1)
@@ -1837,6 +1840,11 @@ packages:
 
   electron-to-chromium@1.4.827:
     resolution: {integrity: sha512-VY+J0e4SFcNfQy19MEoMdaIcZLmDCprqvBtkii1WTCTQHpRvf5N8+3kTYCgL/PcntvwQvmMJWTuDPsq+IlhWKQ==}
+
+  embla-carousel-autoplay@8.1.6:
+    resolution: {integrity: sha512-e5n9f4q+DVeBPiPPT3gwzqpiqfae8aP8fQACS4OZkPFvFLdsVhnWcw+cwtewryP7snWJGKPXEMA1GOjieEKv+w==}
+    peerDependencies:
+      embla-carousel: 8.1.6
 
   embla-carousel-react@8.1.6:
     resolution: {integrity: sha512-DHxwFzF63yVrU95Eo58E9Xr5b6Y9ul6TTsqb/rtwMi+jXudAmIqN1i9iBxQ73i8jKuUVxll/ziNYMmnWvrdQJQ==}
@@ -5400,6 +5408,10 @@ snapshots:
 
   electron-to-chromium@1.4.827:
     optional: true
+
+  embla-carousel-autoplay@8.1.6(embla-carousel@8.1.6):
+    dependencies:
+      embla-carousel: 8.1.6
 
   embla-carousel-react@8.1.6(react@18.3.1):
     dependencies:
