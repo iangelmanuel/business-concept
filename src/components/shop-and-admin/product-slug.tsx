@@ -6,11 +6,11 @@ import {
   PriceWithPosibleDiscount
 } from '..'
 import React from 'react'
-import Image from 'next/image'
 import { titleFont } from '@/config'
 import type { ProductAllType } from '@/types'
 import { ReturnPage } from '@/utils'
 import { Headphones, Package } from 'lucide-react'
+import { ImageProductCarousel } from './image-product-carousel'
 
 interface Props {
   product: ProductAllType
@@ -24,13 +24,7 @@ export const ProductSlug = ({ product, isAdmin = false }: Props) => {
     <section className="mx-auto flex min-h-screen max-w-screen-2xl flex-col items-center justify-center p-5 sm:flex-row 2xl:p-0">
       <article className="mx-auto w-full">
         <ReturnPage />
-
-        <Image
-          src={product.productImage[0].url}
-          alt={`imagen de ${product.name}`}
-          width={1000}
-          height={1000}
-        />
+        <ImageProductCarousel product={product} />
       </article>
 
       <Card className="mx-auto w-full">
