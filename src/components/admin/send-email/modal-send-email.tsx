@@ -109,7 +109,7 @@ export const SendEmail = ({ email, userFullName, isOrder = false }: Props) => {
           </section>
 
           <section>
-            <Label htmlFor="subject">Asunto</Label>
+            <Label htmlFor="subject">Asunto:</Label>
             <Input
               type="text"
               id="subject"
@@ -132,7 +132,7 @@ export const SendEmail = ({ email, userFullName, isOrder = false }: Props) => {
           </section>
 
           <section>
-            <Label htmlFor="message">Número de rastreo</Label>
+            <Label htmlFor="message">Número de rastreo:</Label>
             <Textarea
               id="message"
               placeholder="Escribe el mensaje que deseas enviar al cliente"
