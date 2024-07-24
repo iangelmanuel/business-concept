@@ -48,7 +48,7 @@ export const UserAside = ({ children }: Props) => {
                 key={index}
                 href={item.href}
                 className={cn(
-                  'flex items-center p-3',
+                  'flex items-center rounded-lg p-3',
                   defaultSize <= 5 && 'justify-center',
                   pathname === item.href
                     ? 'bg-gray-100 dark:bg-accent'

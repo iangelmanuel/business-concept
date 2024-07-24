@@ -48,7 +48,7 @@ export const AdminAside = ({ children }: Props) => {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  'flex w-full items-center p-3',
+                  'flex w-full items-center rounded-lg p-3',
                   defaultSize <= 5 && 'justify-center',
                   pathname === item.href
                     ? 'bg-gray-100 dark:bg-accent'

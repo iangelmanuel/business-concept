@@ -1,5 +1,5 @@
 import type { NavigationItem } from '@/types'
-import { HomeIcon, MailIcon, Package2, PersonStanding } from 'lucide-react'
+import { HomeIcon, MailIcon, PersonStanding } from 'lucide-react'
 
 export const navigationItems: NavigationItem[] = [
   {
@@ -19,11 +19,11 @@ export const navigationItems: NavigationItem[] = [
     href: '/contact',
     description: 'Contáctanos',
     icon: <MailIcon className="mr-2 h-4 w-4" />
-  },
-  {
-    label: 'Productos',
-    href: '/shop/products',
-    description: 'Explora nuestros productos',
-    icon: <Package2 className="mr-2 h-4 w-4" />
   }
+  // {
+  //   label: 'Productos',
+  //   href: '/shop/products',
+  //   description: 'Explora nuestros productos',
+  //   icon: <Package2 className="mr-2 h-4 w-4" />
+  // }
 ]
