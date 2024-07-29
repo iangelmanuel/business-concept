@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
-import { useTransition } from 'react'
-import { updateUserById } from '@/actions'
+import { useTransition } from "react"
+import { updateUserById } from "@/actions"
 import {
   Button,
   DialogFooter,
@@ -16,11 +16,11 @@ import {
   SelectTrigger,
   SelectValue,
   Spinner
-} from '@/components'
-import type { UpdateUserByAdminType, UserType } from '@/types'
-import { formatDate } from '@/utils'
-import { useForm } from 'react-hook-form'
-import { toast } from 'sonner'
+} from "@/components"
+import type { UpdateUserByAdminType, UserType } from "@/types"
+import { formatDate } from "@/utils"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 
 interface Props {
   user: UserType
@@ -43,9 +43,9 @@ export const UpdateUserFromAdminForm = ({ user }: Props) => {
   const onSubmit = (data: UpdateUserByAdminType) => {
     const compareDatas = JSON.stringify(data) === JSON.stringify(restOfUser)
     if (compareDatas) {
-      return toast.error('No se han realizado cambios', {
+      return toast.error("No se han realizado cambios", {
         duration: 3000,
-        position: 'top-right'
+        position: "top-right"
       })
     }
 
@@ -54,22 +54,22 @@ export const UpdateUserFromAdminForm = ({ user }: Props) => {
 
       const response = await updateUserById(id, data)
       if (response.ok) {
-        toast.success('¡Todo salió bien!', {
+        toast.success("¡Todo salió bien!", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       } else {
-        toast.error('Ocurrio un problema', {
+        toast.error("Ocurrio un problema", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       }
     })
   }
 
-  const userRole = user.role === 'user' ? 'Usuario' : 'Administrador'
+  const userRole = user.role === "user" ? "Usuario" : "Administrador"
 
   return (
     <>
@@ -96,15 +96,15 @@ export const UpdateUserFromAdminForm = ({ user }: Props) => {
               type="text"
               id="name"
               placeholder="Ej. Angel"
-              {...register('name', {
-                required: 'El campo nombre es requerido',
+              {...register("name", {
+                required: "El campo nombre es requerido",
                 minLength: {
                   value: 3,
-                  message: 'El nombre debe tener al menos 3 caracteres'
+                  message: "El nombre debe tener al menos 3 caracteres"
                 },
                 maxLength: {
                   value: 50,
-                  message: 'El nombre debe tener menos de 100 caracteres'
+                  message: "El nombre debe tener menos de 100 caracteres"
                 }
               })}
             />
@@ -117,15 +117,15 @@ export const UpdateUserFromAdminForm = ({ user }: Props) => {
               type="text"
               id="lastname"
               placeholder="Ej. Montaño"
-              {...register('lastname', {
-                required: 'El campo apellido es requerido',
+              {...register("lastname", {
+                required: "El campo apellido es requerido",
                 minLength: {
                   value: 3,
-                  message: 'El apellido debe tener al menos 3 caracteres'
+                  message: "El apellido debe tener al menos 3 caracteres"
                 },
                 maxLength: {
                   value: 50,
-                  message: 'El apellido debe tener menos de 100 caracteres'
+                  message: "El apellido debe tener menos de 100 caracteres"
                 }
               })}
             />
@@ -140,11 +140,11 @@ export const UpdateUserFromAdminForm = ({ user }: Props) => {
               type="email"
               id="email"
               placeholder="Ej. ejemplo@correo.com"
-              {...register('email', {
-                required: 'El campo email es requerido',
+              {...register("email", {
+                required: "El campo email es requerido",
                 pattern: {
                   value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
-                  message: 'El correo electrónico no es válido'
+                  message: "El correo electrónico no es válido"
                 }
               })}
             />
@@ -159,11 +159,11 @@ export const UpdateUserFromAdminForm = ({ user }: Props) => {
               type="tel"
               id="phone"
               placeholder="Ej. 312 345 6789"
-              {...register('phone', {
-                required: 'El campo télefono es requerido',
+              {...register("phone", {
+                required: "El campo télefono es requerido",
                 pattern: {
                   value: /^[0-9]{7,10}$/,
-                  message: 'El télefono no es válido'
+                  message: "El télefono no es válido"
                 }
               })}
             />
@@ -178,9 +178,9 @@ export const UpdateUserFromAdminForm = ({ user }: Props) => {
             <Label>Rol:</Label>
             <Select
               onValueChange={(value) =>
-                setValue('role', value as UpdateUserByAdminType['role'])
+                setValue("role", value as UpdateUserByAdminType["role"])
               }
-              {...register('role')}
+              {...register("role")}
             >
               <SelectTrigger className="w-full">
                 <SelectValue
@@ -204,13 +204,13 @@ export const UpdateUserFromAdminForm = ({ user }: Props) => {
             <Label>Estado de cuenta:</Label>
             <Select
               onValueChange={(value) =>
-                setValue('isUserDeleted', value === 'true')
+                setValue("isUserDeleted", value === "true")
               }
-              {...register('isUserDeleted')}
+              {...register("isUserDeleted")}
             >
               <SelectTrigger className="w-full">
                 <SelectValue
-                  placeholder={`${user.isUserDeleted ? 'Eliminada' : 'Activa'}`}
+                  placeholder={`${user.isUserDeleted ? "Eliminada" : "Activa"}`}
                 />
               </SelectTrigger>
 
@@ -231,13 +231,13 @@ export const UpdateUserFromAdminForm = ({ user }: Props) => {
             <Label>Confirmación:</Label>
             <Select
               onValueChange={(value) =>
-                setValue('isConfirmed', value === 'true')
+                setValue("isConfirmed", value === "true")
               }
-              {...register('isConfirmed')}
+              {...register("isConfirmed")}
             >
               <SelectTrigger className="w-full">
                 <SelectValue
-                  placeholder={`${user.isConfirmed ? 'Confirmado' : 'Sin confirmar'}`}
+                  placeholder={`${user.isConfirmed ? "Confirmado" : "Sin confirmar"}`}
                 />
               </SelectTrigger>
 
@@ -288,7 +288,7 @@ export const UpdateUserFromAdminForm = ({ user }: Props) => {
               <Spinner />
             </>
           ) : (
-            'Guardar Cambios'
+            "Guardar Cambios"
           )}
         </Button>
       </DialogFooter>

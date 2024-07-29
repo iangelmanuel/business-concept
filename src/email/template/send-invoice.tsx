@@ -10,12 +10,12 @@ import {
   Section,
   Tailwind,
   Text
-} from '@react-email/components'
-import { titleFont } from '@/config'
-import type { EpaycoResponse } from '@/types'
-import { formatCurrency, formatDate } from '@/utils'
-import { CheckCircle, XCircleIcon } from 'lucide-react'
-import process from 'process'
+} from "@react-email/components"
+import { titleFont } from "@/config"
+import type { EpaycoResponse } from "@/types"
+import { formatCurrency, formatDate } from "@/utils"
+import { CheckCircle, XCircleIcon } from "lucide-react"
+import process from "process"
 
 interface Props {
   dataPayco: EpaycoResponse
@@ -25,21 +25,21 @@ interface Props {
 
 const { VERCEL_URL } = process.env
 
-const baseUrl = VERCEL_URL ? `https://${VERCEL_URL}` : ''
+const baseUrl = VERCEL_URL ? `https://${VERCEL_URL}` : ""
 
 export const SendInvoiceTemplate = ({ dataPayco }: Props) => {
   const isStatusOk =
-    dataPayco.data.x_response === 'Aceptada' &&
-    dataPayco.data.x_response_reason_text === 'Aprobada'
+    dataPayco.data.x_response === "Aceptada" &&
+    dataPayco.data.x_response_reason_text === "Aprobada"
 
   return (
     <Html>
       <Head />
       <Preview>
-        Hola,{' '}
+        Hola,{" "}
         {isStatusOk
-          ? '¡Tu transacción ha sido exitosa!'
-          : 'Lo sentimos, tu transacción ha sido rechazada.'}
+          ? "¡Tu transacción ha sido exitosa!"
+          : "Lo sentimos, tu transacción ha sido rechazada."}
       </Preview>
       <Tailwind>
         <Body className="bg-[#f6f9fc] py-3">
@@ -54,8 +54,8 @@ export const SendInvoiceTemplate = ({ dataPayco }: Props) => {
               <Text>Hola,</Text>
               <Text>
                 {isStatusOk
-                  ? '¡Tu transacción ha sido exitosa! A continuación, te mostramos los detalles de la transacción.'
-                  : 'Lo sentimos, tu transacción ha sido rechazada. A continuación, te mostramos los detalles de la transacción.'}
+                  ? "¡Tu transacción ha sido exitosa! A continuación, te mostramos los detalles de la transacción."
+                  : "Lo sentimos, tu transacción ha sido rechazada. A continuación, te mostramos los detalles de la transacción."}
               </Text>
             </Section>
 
@@ -80,7 +80,7 @@ export const SendInvoiceTemplate = ({ dataPayco }: Props) => {
                     className={`${titleFont.className} text-center text-3xl font-bold`}
                   >
                     {isStatusOk
-                      ? 'Transacción Aceptada'
+                      ? "Transacción Aceptada"
                       : dataPayco.data.x_respuesta}
                   </Heading>
 
@@ -205,7 +205,7 @@ export const SendInvoiceTemplate = ({ dataPayco }: Props) => {
                   <Section>
                     <Text>
                       Si tienes alguna pregunta, no dudes en ponerte en contacto
-                      con nosotros por medio de{' '}
+                      con nosotros por medio de{" "}
                       <Link
                         href={`${baseUrl}/contact`}
                         className="text-blue-500 underline"

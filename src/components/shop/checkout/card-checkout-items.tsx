@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import { useEffect, useState } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
+import { useEffect, useState } from "react"
+import Image from "next/image"
+import Link from "next/link"
 import {
   Card,
   CardContent,
@@ -10,9 +10,9 @@ import {
   CardHeader,
   CardItemsLoading,
   PriceWithPosibleDiscount
-} from '@/components'
-import { titleFont } from '@/config'
-import { useCartStore } from '@/store'
+} from "@/components"
+import { titleFont } from "@/config"
+import { useCartStore } from "@/store"
 
 export const CardCheckoutItems = () => {
   const [loading, setLoading] = useState(true)

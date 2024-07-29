@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import { useState, useTransition } from 'react'
-import { useRouter } from 'next/navigation'
-import { deleteUserAddress } from '@/actions'
+import { useState, useTransition } from "react"
+import { useRouter } from "next/navigation"
+import { deleteUserAddress } from "@/actions"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -22,12 +22,12 @@ import {
   CardHeader,
   Spinner,
   buttonVariants
-} from '@/components'
-import { titleFont } from '@/config'
-import { useAddressStore, useCartStore } from '@/store'
-import type { AddressType, LocationType } from '@/types'
-import { TrashIcon } from 'lucide-react'
-import { toast } from 'sonner'
+} from "@/components"
+import { titleFont } from "@/config"
+import { useAddressStore, useCartStore } from "@/store"
+import type { AddressType, LocationType } from "@/types"
+import { TrashIcon } from "lucide-react"
+import { toast } from "sonner"
 
 interface Props {
   location: LocationType[]
@@ -46,11 +46,11 @@ export const CardAddressUser = ({ location, addressDb }: Props) => {
   const isCartEmpty = cart.length === 0
 
   if (isCartEmpty) {
-    router.push('/shop/cart?redirect=/shop/address')
-    toast.error('El carrito esta vacio', {
-      description: 'Intenta agregando productos al carrito',
+    router.push("/shop/cart?redirect=/shop/address")
+    toast.error("El carrito esta vacio", {
+      description: "Intenta agregando productos al carrito",
       duration: 3000,
-      position: 'top-right'
+      position: "top-right"
     })
   }
 
@@ -58,23 +58,23 @@ export const CardAddressUser = ({ location, addressDb }: Props) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { id, userId, ...restAddress } = address
     setAddress(restAddress)
-    router.push('/shop/checkout')
+    router.push("/shop/checkout")
   }
 
-  const handleClickDelete = async (id: AddressType['id']) => {
+  const handleClickDelete = async (id: AddressType["id"]) => {
     startTransition(async () => {
       const response = await deleteUserAddress(id)
       if (response.ok) {
-        toast.success('¡Todo salió bien!', {
+        toast.success("¡Todo salió bien!", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       } else {
-        toast.error('Ocurrio un problema', {
+        toast.error("Ocurrio un problema", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       }
     })
@@ -107,7 +107,7 @@ export const CardAddressUser = ({ location, addressDb }: Props) => {
               <CardContent>
                 <p>Télefono: {address.phone}</p>
                 <p>
-                  Identificación: {address.typeOfIdentification}{' '}
+                  Identificación: {address.typeOfIdentification}{" "}
                   {address.identification}
                 </p>
               </CardContent>
@@ -140,7 +140,7 @@ export const CardAddressUser = ({ location, addressDb }: Props) => {
                     <AlertDialogAction
                       disabled={isPending}
                       onClick={() => handleClickDelete(address.id)}
-                      className={buttonVariants({ variant: 'destructive' })}
+                      className={buttonVariants({ variant: "destructive" })}
                     >
                       {isPending ? (
                         <>
@@ -148,7 +148,7 @@ export const CardAddressUser = ({ location, addressDb }: Props) => {
                           <Spinner />
                         </>
                       ) : (
-                        'Eliminar'
+                        "Eliminar"
                       )}
                     </AlertDialogAction>
                   </AlertDialogFooter>
@@ -160,13 +160,13 @@ export const CardAddressUser = ({ location, addressDb }: Props) => {
       </article>
 
       <article>
-        <section className={isFormActive ? 'mb-10' : ''}>
+        <section className={isFormActive ? "mb-10" : ""}>
           <Button
             onClick={handleClickShowForm}
             disabled={isCartEmpty || isPending}
             className="w-full"
           >
-            {isFormActive ? 'Ocultar formulario' : 'Agregar dirección'}
+            {isFormActive ? "Ocultar formulario" : "Agregar dirección"}
           </Button>
         </section>
 

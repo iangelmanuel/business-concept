@@ -1,24 +1,24 @@
-import type { Metadata } from 'next'
-import Image from 'next/image'
-import Link from 'next/link'
-import { getAllProducts } from '@/actions'
+import type { Metadata } from "next"
+import Image from "next/image"
+import Link from "next/link"
+import { getAllProducts } from "@/actions"
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   PriceWithPosibleDiscount
-} from '@/components'
-import { titleFont } from '@/config'
-import type { ProductAllType } from '@/types'
+} from "@/components"
+import { titleFont } from "@/config"
+import type { ProductAllType } from "@/types"
 
 export const metadata: Metadata = {
-  title: 'Business Concept - Tienda Online',
+  title: "Business Concept - Tienda Online",
   description:
-    'Business Concept es una tienda online donde puedes encontrar productos de calidad a precios accesibles.',
+    "Business Concept es una tienda online donde puedes encontrar productos de calidad a precios accesibles.",
   keywords:
-    'business concept, tienda online, productos, calidad, precios accesibles',
-  robots: 'index, follow'
+    "business concept, tienda online, productos, calidad, precios accesibles",
+  robots: "index, follow"
 }
 
 export default async function HomePage() {

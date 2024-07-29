@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
-import { useTransition } from 'react'
-import { deleteUserAddress, updateUserAddress } from '@/actions'
+import { useTransition } from "react"
+import { deleteUserAddress, updateUserAddress } from "@/actions"
 import {
   AddressForm,
   AlertDialog,
@@ -28,12 +28,12 @@ import {
   DialogTrigger,
   Spinner,
   buttonVariants
-} from '@/components'
-import { titleFont } from '@/config'
-import { useAddressFormStore } from '@/store'
-import type { AddressType, LocationType } from '@/types'
-import { Pencil, TrashIcon } from 'lucide-react'
-import { toast } from 'sonner'
+} from "@/components"
+import { titleFont } from "@/config"
+import { useAddressFormStore } from "@/store"
+import type { AddressType, LocationType } from "@/types"
+import { Pencil, TrashIcon } from "lucide-react"
+import { toast } from "sonner"
 
 interface Props {
   location: LocationType[]
@@ -54,35 +54,35 @@ export const AddressUser = ({ location, addressDb }: Props) => {
     startTransition(async () => {
       const response = await updateUserAddress(address)
       if (response.ok) {
-        toast.success('¡Todo salió bien!', {
+        toast.success("¡Todo salió bien!", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       } else {
-        toast.error('Ocurrio un problema', {
+        toast.error("Ocurrio un problema", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       }
     })
   }
 
-  const handleClickDelete = async (id: AddressType['id']) => {
+  const handleClickDelete = async (id: AddressType["id"]) => {
     startTransition(async () => {
       const response = await deleteUserAddress(id)
       if (response.ok) {
-        toast.success('¡Todo salió bien!', {
+        toast.success("¡Todo salió bien!", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       } else {
-        toast.error('Ocurrio un problema', {
+        toast.error("Ocurrio un problema", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       }
     })
@@ -111,7 +111,7 @@ export const AddressUser = ({ location, addressDb }: Props) => {
             <CardContent>
               <p>Télefono: {address.phone}</p>
               <p>
-                Identificación: {address.typeOfIdentification}{' '}
+                Identificación: {address.typeOfIdentification}{" "}
                 {address.identification}
               </p>
             </CardContent>
@@ -153,7 +153,7 @@ export const AddressUser = ({ location, addressDb }: Props) => {
                           <Spinner />
                         </>
                       ) : (
-                        'Guardar nueva dirección'
+                        "Guardar nueva dirección"
                       )}
                     </Button>
                   </DialogFooter>
@@ -186,7 +186,7 @@ export const AddressUser = ({ location, addressDb }: Props) => {
                     <AlertDialogCancel>Cancelar</AlertDialogCancel>
                     <AlertDialogAction
                       onClick={() => handleClickDelete(address.id)}
-                      className={buttonVariants({ variant: 'destructive' })}
+                      className={buttonVariants({ variant: "destructive" })}
                     >
                       Eliminar
                     </AlertDialogAction>
@@ -199,13 +199,13 @@ export const AddressUser = ({ location, addressDb }: Props) => {
       </article>
 
       <article className="mt-5">
-        <section className={isAddressFormActive ? 'mb-10' : ''}>
+        <section className={isAddressFormActive ? "mb-10" : ""}>
           <Button
             onClick={handleClickShowForm}
             disabled={isPending}
             className="w-full"
           >
-            {isAddressFormActive ? 'Ocultar formulario' : 'Agregar dirección'}
+            {isAddressFormActive ? "Ocultar formulario" : "Agregar dirección"}
           </Button>
         </section>
 

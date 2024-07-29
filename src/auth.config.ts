@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import NextAuth, { type NextAuthConfig } from 'next-auth'
-import Credentials from 'next-auth/providers/credentials'
-import { prisma } from '@/lib'
-import { LoginUserSchema } from '@/schema'
-import bcrypt from 'bcrypt'
+import NextAuth, { type NextAuthConfig } from "next-auth"
+import Credentials from "next-auth/providers/credentials"
+import { prisma } from "@/lib"
+import { LoginUserSchema } from "@/schema"
+import bcrypt from "bcrypt"
 
 export const authConfig: NextAuthConfig = {
   pages: {
-    signIn: '/auth/login',
-    newUser: '/auth/regiser'
+    signIn: "/auth/login",
+    newUser: "/auth/regiser"
   },
   callbacks: {
     jwt({ token, user, account, profile, session }) {

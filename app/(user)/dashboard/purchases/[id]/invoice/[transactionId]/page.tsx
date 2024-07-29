@@ -1,14 +1,14 @@
-import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
-import { getRefPaycoData } from '@/actions'
-import { ConfirmationData } from '@/components'
-import type { UserOrder } from '@/types'
-import { ReturnPage } from '@/utils'
+import type { Metadata } from "next"
+import { notFound } from "next/navigation"
+import { getRefPaycoData } from "@/actions"
+import { ConfirmationData } from "@/components"
+import type { UserOrder } from "@/types"
+import { ReturnPage } from "@/utils"
 
 export async function generateMetadata({
   params
 }: {
-  params: { transactionId: UserOrder['transactionId'] }
+  params: { transactionId: UserOrder["transactionId"] }
 }): Promise<Metadata> {
   const { transactionId } = params
   if (!transactionId) notFound()
@@ -27,7 +27,7 @@ export async function generateMetadata({
 export default async function TransactionIdPage({
   params
 }: {
-  params: { transactionId: UserOrder['transactionId'] }
+  params: { transactionId: UserOrder["transactionId"] }
 }) {
   const { transactionId } = params
   if (!transactionId) notFound()

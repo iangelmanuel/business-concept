@@ -1,10 +1,10 @@
-'use client'
+"use client"
 
-import { useTransition } from 'react'
-import { useSession } from 'next-auth/react'
-import { useTheme } from 'next-themes'
-import { useRouter } from 'next/navigation'
-import { logoutUser } from '@/actions'
+import { useTransition } from "react"
+import { useSession } from "next-auth/react"
+import { useTheme } from "next-themes"
+import { useRouter } from "next/navigation"
+import { logoutUser } from "@/actions"
 import {
   Avatar,
   AvatarFallback,
@@ -21,10 +21,10 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger
-} from '@/components'
-import { userNavigation } from '@/data'
-import { getLettersName } from '@/utils'
-import { Laptop2Icon, LogOut, Moon, Palette, Sun } from 'lucide-react'
+} from "@/components"
+import { userNavigation } from "@/data"
+import { getLettersName } from "@/utils"
+import { Laptop2Icon, LogOut, Moon, Palette, Sun } from "lucide-react"
 
 export const DropdownMenuUser = () => {
   const [isPending, startTransition] = useTransition()
@@ -86,17 +86,17 @@ export const DropdownMenuUser = () => {
 
             <DropdownMenuPortal>
               <DropdownMenuSubContent>
-                <DropdownMenuItem onClick={() => setTheme('system')}>
+                <DropdownMenuItem onClick={() => setTheme("system")}>
                   <Laptop2Icon className="mr-2 h-4 w-4" />
                   <span>Sistema</span>
                 </DropdownMenuItem>
 
-                <DropdownMenuItem onClick={() => setTheme('ligth')}>
+                <DropdownMenuItem onClick={() => setTheme("ligth")}>
                   <Sun className="mr-2 h-4 w-4" />
                   <span>Claro</span>
                 </DropdownMenuItem>
 
-                <DropdownMenuItem onClick={() => setTheme('dark')}>
+                <DropdownMenuItem onClick={() => setTheme("dark")}>
                   <Moon className="mr-2 h-4 w-4" />
                   <span>Oscuro</span>
                 </DropdownMenuItem>
@@ -112,7 +112,7 @@ export const DropdownMenuUser = () => {
           onClick={handleLogout}
         >
           <LogOut className="mr-2 h-4 w-4" />
-          <span>{isPending ? 'Cerrando sesión' : 'Cerrar sesión'}</span>
+          <span>{isPending ? "Cerrando sesión" : "Cerrar sesión"}</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import { useEffect, useState } from 'react'
-import { useSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
+import { useEffect, useState } from "react"
+import { useSession } from "next-auth/react"
+import { useRouter } from "next/navigation"
 import {
   Button,
   Card,
@@ -10,10 +10,10 @@ import {
   CardFooter,
   CardHeader,
   CartSummaryLoading
-} from '@/components'
-import { titleFont } from '@/config'
-import { useCartStore } from '@/store'
-import { formatCurrency } from '@/utils'
+} from "@/components"
+import { titleFont } from "@/config"
+import { useCartStore } from "@/store"
+import { formatCurrency } from "@/utils"
 
 export const CardCartSummary = () => {
   const [loaded, setLoaded] = useState(false)
@@ -32,9 +32,9 @@ export const CardCartSummary = () => {
 
   const handleClickNextStep = () => {
     if (!session) {
-      router.push('/auth/login?callbackUrl=/shop/checkout')
+      router.push("/auth/login?callbackUrl=/shop/checkout")
     } else {
-      router.push('/shop/address')
+      router.push("/shop/address")
     }
   }
 
@@ -84,10 +84,10 @@ export const CardCartSummary = () => {
             className="w-full"
           >
             {isAuth
-              ? 'Continuar'
+              ? "Continuar"
               : isCartEmpty
-                ? 'Carrito vacío'
-                : 'Iniciar sesión'}
+                ? "Carrito vacío"
+                : "Iniciar sesión"}
           </Button>
         </CardFooter>
       </Card>

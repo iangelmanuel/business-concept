@@ -1,10 +1,10 @@
-'use client'
+"use client"
 
-import { useState, useTransition } from 'react'
-import { useSession } from 'next-auth/react'
-import { deleteUserAccount, logoutUser } from '@/actions'
-import { Spinner } from '@/components'
-import { Button } from '@/components/ui/button'
+import { useState, useTransition } from "react"
+import { useSession } from "next-auth/react"
+import { deleteUserAccount, logoutUser } from "@/actions"
+import { Spinner } from "@/components"
+import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogContent,
@@ -13,39 +13,39 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger
-} from '@/components/ui/dialog'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { titleFont } from '@/config'
-import { toast } from 'sonner'
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { titleFont } from "@/config"
+import { toast } from "sonner"
 
 export function DeleteUserAccount() {
-  const [emailConfirmation, setEmailConfirmation] = useState('')
-  const [textConfirmation, setTextConfirmation] = useState('')
+  const [emailConfirmation, setEmailConfirmation] = useState("")
+  const [textConfirmation, setTextConfirmation] = useState("")
   const [isPending, startTransition] = useTransition()
 
   const { data: session } = useSession()
   const user = session!.user
 
   const isFormValid =
-    emailConfirmation === user!.email && textConfirmation === 'BORRAR CUENTA'
+    emailConfirmation === user!.email && textConfirmation === "BORRAR CUENTA"
 
   const handleClickDeleteAccount = () => {
     startTransition(async () => {
       const response = await deleteUserAccount(user.id)
       if (response.ok) {
-        toast.success('¡Todo salió bien!', {
+        toast.success("¡Todo salió bien!", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
         await logoutUser()
-        window.location.replace('/auth/login')
+        window.location.replace("/auth/login")
       } else {
-        toast.error('Ocurrio un problema', {
+        toast.error("Ocurrio un problema", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       }
     })
@@ -80,8 +80,8 @@ export function DeleteUserAccount() {
                 htmlFor="email-confirmer"
                 className="mb-2"
               >
-                Escribe tu correo{' '}
-                <span className="font-bold">&quot;{user?.email}&quot;</span>{' '}
+                Escribe tu correo{" "}
+                <span className="font-bold">&quot;{user?.email}&quot;</span>{" "}
                 para confirmar
               </Label>
               <Input
@@ -97,8 +97,8 @@ export function DeleteUserAccount() {
                 htmlFor="text-confirmer"
                 className="mb-2"
               >
-                Escribe{' '}
-                <span className="font-bold">&quot;BORRAR CUENTA&quot;</span>{' '}
+                Escribe{" "}
+                <span className="font-bold">&quot;BORRAR CUENTA&quot;</span>{" "}
                 para confirmar
               </Label>
               <Input
@@ -122,7 +122,7 @@ export function DeleteUserAccount() {
                     <Spinner />
                   </>
                 ) : (
-                  'Eliminar cuenta'
+                  "Eliminar cuenta"
                 )}
               </Button>
             </DialogFooter>

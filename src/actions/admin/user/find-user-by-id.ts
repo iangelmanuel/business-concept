@@ -1,15 +1,15 @@
-'use server'
+"use server"
 
-import { auth } from '@/auth.config'
-import { prisma } from '@/lib'
-import type { UserType } from '@/types'
+import { auth } from "@/auth.config"
+import { prisma } from "@/lib"
+import type { UserType } from "@/types"
 
-export async function findUserById(id: UserType['id']) {
+export async function findUserById(id: UserType["id"]) {
   try {
     const session = await auth()
     if (!session) return null
 
-    const isAdmin = session.user.role.includes('admin')
+    const isAdmin = session.user.role.includes("admin")
     if (!isAdmin) return null
 
     const user = await prisma.user.findUnique({

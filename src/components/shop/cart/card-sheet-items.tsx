@@ -1,10 +1,10 @@
-'use client'
+"use client"
 
-import Image from 'next/image'
-import Link from 'next/link'
-import { PriceWithPosibleDiscount } from '@/components/shop-and-admin/price-data-with-posible-discount'
-import { titleFont } from '@/config'
-import { useCartStore } from '@/store'
+import Image from "next/image"
+import Link from "next/link"
+import { PriceWithPosibleDiscount } from "@/components/shop-and-admin/price-data-with-posible-discount"
+import { titleFont } from "@/config"
+import { useCartStore } from "@/store"
 
 export const CartSheetItems = () => {
   const cart = useCartStore((state) => state.cart)
@@ -29,7 +29,7 @@ export const CartSheetItems = () => {
           {product.name}
         </Link>
         <p className="font-bold">
-          Precio:{' '}
+          Precio:{" "}
           <PriceWithPosibleDiscount
             price={product.price}
             discount={product.discount}

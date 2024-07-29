@@ -1,15 +1,15 @@
-import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
-import { getOrderById } from '@/actions'
-import { OrderItems, OrderSummary } from '@/components'
-import { orderStatusLang } from '@/consts'
-import type { UserOrderByAdmin } from '@/types'
-import { ReturnPage } from '@/utils'
+import type { Metadata } from "next"
+import { notFound } from "next/navigation"
+import { getOrderById } from "@/actions"
+import { OrderItems, OrderSummary } from "@/components"
+import { orderStatusLang } from "@/consts"
+import type { UserOrderByAdmin } from "@/types"
+import { ReturnPage } from "@/utils"
 
 export async function generateMetadata({
   params
 }: {
-  params: { id: UserOrderByAdmin['id'] }
+  params: { id: UserOrderByAdmin["id"] }
 }): Promise<Metadata> {
   const { id } = params
   const order = await getOrderById(id)
@@ -26,7 +26,7 @@ export async function generateMetadata({
 export default async function OrderIdPage({
   params
 }: {
-  params: { id: UserOrderByAdmin['id'] }
+  params: { id: UserOrderByAdmin["id"] }
 }) {
   const { id } = params
 

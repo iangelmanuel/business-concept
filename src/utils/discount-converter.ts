@@ -1,17 +1,17 @@
-import type { ProductType } from '@/types'
-import { formatCurrency } from './format-currency'
+import type { ProductType } from "@/types"
+import { formatCurrency } from "./format-currency"
 
-function discountConverter(discount: ProductType['discount']) {
+function discountConverter(discount: ProductType["discount"]) {
   if (discount === 1) {
-    return '0%'
+    return "0%"
   } else {
     return `${discount * 100}%`
   }
 }
 
 function getProductDiscount(
-  price: ProductType['price'],
-  discount: ProductType['discount']
+  price: ProductType["price"],
+  discount: ProductType["discount"]
 ) {
   if (discount === 1) {
     return price
@@ -21,8 +21,8 @@ function getProductDiscount(
 }
 
 export function utilDiscountConverter(
-  discount: ProductType['price'],
-  price: ProductType['discount']
+  discount: ProductType["price"],
+  price: ProductType["discount"]
 ) {
   const isProductWithDiscount = discount !== 1
   const priceWithDiscount = getProductDiscount(price, discount)

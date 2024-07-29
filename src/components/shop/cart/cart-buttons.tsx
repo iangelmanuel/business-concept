@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import type { Dispatch, SetStateAction } from 'react'
-import { useRouter } from 'next/navigation'
-import { Button } from '@/components'
-import { useCartStore } from '@/store'
+import type { Dispatch, SetStateAction } from "react"
+import { useRouter } from "next/navigation"
+import { Button } from "@/components"
+import { useCartStore } from "@/store"
 
 interface Props {
   setIsSheetOpen: Dispatch<SetStateAction<boolean>>
@@ -20,7 +20,7 @@ export const CartButtons = ({ setIsSheetOpen }: Props) => {
       <Button
         onClick={() => {
           setIsSheetOpen((prevState) => !prevState)
-          router.push('/shop/cart')
+          router.push("/shop/cart")
         }}
       >
         Ir al Carrito
@@ -38,7 +38,7 @@ export const CartButtons = ({ setIsSheetOpen }: Props) => {
       <Button
         onClick={() => {
           setIsSheetOpen((prevState) => !prevState)
-          router.push('/shop/products')
+          router.push("/shop/products")
         }}
       >
         Ir a la Tienda

@@ -1,11 +1,11 @@
-'use client'
+"use client"
 
-import { useEffect } from 'react'
-import Script from 'next/script'
-import { Badge, CardFooter, Label, buttonVariants } from '@/components'
-import { orderStatusLang } from '@/consts'
-import type { UserOrder } from '@/types'
-import { checkOrderStatusCn } from '@/utils'
+import { useEffect } from "react"
+import Script from "next/script"
+import { Badge, CardFooter, Label, buttonVariants } from "@/components"
+import { orderStatusLang } from "@/consts"
+import type { UserOrder } from "@/types"
+import { checkOrderStatusCn } from "@/utils"
 
 interface Props {
   order: UserOrder
@@ -16,13 +16,13 @@ export const EpaycoButton = ({ order, isAdmin = false }: Props) => {
   const { orderStatus } = order
 
   const isOrderStatusOk =
-    orderStatus !== 'pending' && orderStatus !== 'cancelled'
+    orderStatus !== "pending" && orderStatus !== "cancelled"
 
   useEffect(() => {
-    const btnpay = document.getElementsByClassName('epayco-button-render')
+    const btnpay = document.getElementsByClassName("epayco-button-render")
     if (isAdmin === false && !isOrderStatusOk) {
       setTimeout(() => {
-        btnpay[0].setAttribute('id', 'epayco-pay')
+        btnpay[0].setAttribute("id", "epayco-pay")
       }, 1000)
     }
   }, [isAdmin, isOrderStatusOk])
@@ -42,12 +42,12 @@ export const EpaycoButton = ({ order, isAdmin = false }: Props) => {
             htmlFor="epayco-pay"
             className={`${buttonVariants()} w-full cursor-pointer`}
           >
-            {isOrderStatusOk ? 'Reintentar pago' : 'Pagar con ePayco'}
+            {isOrderStatusOk ? "Reintentar pago" : "Pagar con ePayco"}
           </Label>
 
           <form>
             <Script
-              src={'https://checkout.epayco.co/checkout.js'}
+              src={"https://checkout.epayco.co/checkout.js"}
               data-epayco-key={process.env.NEXT_PUBLIC_EPAYCO_KEY}
               data-epayco-private-key={
                 process.env.NEXT_PUBLIC_EPAYCO_PRIVATE_KEY

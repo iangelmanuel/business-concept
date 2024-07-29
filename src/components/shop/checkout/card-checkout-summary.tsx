@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import { useEffect, useState, useTransition } from 'react'
-import { useRouter } from 'next/navigation'
-import { placeOrder } from '@/actions'
+import { useEffect, useState, useTransition } from "react"
+import { useRouter } from "next/navigation"
+import { placeOrder } from "@/actions"
 import {
   Button,
   Card,
@@ -12,11 +12,11 @@ import {
   CardHeader,
   CardSummaryLoading,
   Spinner
-} from '@/components'
-import { titleFont } from '@/config'
-import { useAddressStore, useCartStore } from '@/store'
-import { formatCurrency } from '@/utils'
-import { toast } from 'sonner'
+} from "@/components"
+import { titleFont } from "@/config"
+import { useAddressStore, useCartStore } from "@/store"
+import { formatCurrency } from "@/utils"
+import { toast } from "sonner"
 
 export const CardCheckoutSummary = () => {
   const [loading, setLoading] = useState(true)
@@ -44,19 +44,19 @@ export const CardCheckoutSummary = () => {
     startTransition(async () => {
       const response = await placeOrder(productsToOrder, address)
       if (response.ok) {
-        toast.success('¡Todo salió bien!', {
+        toast.success("¡Todo salió bien!", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
         if (response.orderId) {
           router.push(`/shop/payment/?orderId=${response.orderId}`)
         }
       } else {
-        toast.error('Ocurrio un problema', {
+        toast.error("Ocurrio un problema", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       }
     })
@@ -180,7 +180,7 @@ export const CardCheckoutSummary = () => {
                 <Spinner />
               </>
             ) : (
-              'Continuar al pago'
+              "Continuar al pago"
             )}
           </Button>
         </CardFooter>

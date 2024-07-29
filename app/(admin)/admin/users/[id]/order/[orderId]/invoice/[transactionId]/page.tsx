@@ -1,14 +1,14 @@
-import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
-import { getRefPaycoData } from '@/actions'
-import { ConfirmationData } from '@/components'
-import type { UserOrder } from '@/types'
-import { ReturnPage } from '@/utils'
+import type { Metadata } from "next"
+import { notFound } from "next/navigation"
+import { getRefPaycoData } from "@/actions"
+import { ConfirmationData } from "@/components"
+import type { UserOrder } from "@/types"
+import { ReturnPage } from "@/utils"
 
 export async function generateMetadata({
   params
 }: {
-  params: { transactionId: UserOrder['transactionId'] }
+  params: { transactionId: UserOrder["transactionId"] }
 }): Promise<Metadata> {
   const { transactionId } = params
   if (!transactionId) notFound()
@@ -21,14 +21,14 @@ export async function generateMetadata({
   return {
     title: `Compra ${dataPayco.data.x_response} - Business Concept`,
     description: `Compra ${dataPayco.data.x_response} en Business Concept. La razón de la compra es: ${dataPayco.data.x_response_reason_text}`,
-    keywords: 'compra, epayco, business concept, tienda online, pago exitoso'
+    keywords: "compra, epayco, business concept, tienda online, pago exitoso"
   }
 }
 
 export default async function OrderIdPage({
   params
 }: {
-  params: { transactionId: UserOrder['transactionId'] }
+  params: { transactionId: UserOrder["transactionId"] }
 }) {
   const { transactionId } = params
   if (!transactionId) notFound()

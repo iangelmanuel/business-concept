@@ -1,14 +1,14 @@
-import { notFound } from 'next/navigation'
-import { getOrderById } from '@/actions'
-import { OrderItems, OrderSummary } from '@/components'
-import { orderStatusLang } from '@/consts'
-import type { UserOrder } from '@/types'
-import { ReturnPage } from '@/utils'
+import { notFound } from "next/navigation"
+import { getOrderById } from "@/actions"
+import { OrderItems, OrderSummary } from "@/components"
+import { orderStatusLang } from "@/consts"
+import type { UserOrder } from "@/types"
+import { ReturnPage } from "@/utils"
 
 export async function generateMetadata({
   params
 }: {
-  params: { orderId: UserOrder['id'] }
+  params: { orderId: UserOrder["id"] }
 }) {
   const { orderId } = params
   const order = await getOrderById(orderId)
@@ -25,7 +25,7 @@ export async function generateMetadata({
 export default async function OrderIdPage({
   params
 }: {
-  params: { orderId: UserOrder['id'] }
+  params: { orderId: UserOrder["id"] }
 }) {
   const { orderId } = params
   const order = await getOrderById(orderId)

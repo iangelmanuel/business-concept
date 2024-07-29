@@ -1,6 +1,6 @@
-import { redirect } from 'next/navigation'
-import { auth } from '@/auth.config'
-import { Footer, Header } from '@/components'
+import { redirect } from "next/navigation"
+import { auth } from "@/auth.config"
+import { Footer, Header } from "@/components"
 
 export default async function AuthLayout({
   children
@@ -8,7 +8,7 @@ export default async function AuthLayout({
   children: React.ReactNode
 }>) {
   const session = await auth()
-  if (session?.user) redirect('/')
+  if (session?.user) redirect("/")
   return (
     <>
       <Header />

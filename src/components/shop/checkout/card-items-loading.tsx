@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, Skeleton } from '@/components'
+import { Card, CardContent, CardHeader, Skeleton } from "@/components"
 
 const cart = [1, 2, 3, 4, 5]
 

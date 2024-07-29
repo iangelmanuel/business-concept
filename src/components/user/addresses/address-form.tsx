@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
-import { useState, useTransition } from 'react'
-import { saveUserAddress } from '@/actions'
+import { useState, useTransition } from "react"
+import { saveUserAddress } from "@/actions"
 import {
   Button,
   CardContent,
@@ -17,17 +17,17 @@ import {
   SelectTrigger,
   SelectValue,
   Spinner
-} from '@/components'
-import { FORM_VALUES_ADDRESS } from '@/consts'
-import { useAddressFormStore } from '@/store'
+} from "@/components"
+import { FORM_VALUES_ADDRESS } from "@/consts"
+import { useAddressFormStore } from "@/store"
 import type {
   AddressForm as AddressFormType,
   AddressType,
   LocationType
-} from '@/types'
-import { capitalize } from '@/utils'
-import { useForm } from 'react-hook-form'
-import { toast } from 'sonner'
+} from "@/types"
+import { capitalize } from "@/utils"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 
 interface Props {
   location: LocationType[]
@@ -41,7 +41,7 @@ export const AddressForm = ({
   handleUpdateAddress
 }: Props) => {
   const [citiesOfDepartment, setCitiesOfDepartment] = useState<
-    LocationType['cities']
+    LocationType["cities"]
   >([])
   const [isPending, startTransition] = useTransition()
 
@@ -58,7 +58,7 @@ export const AddressForm = ({
     defaultValues: address ?? FORM_VALUES_ADDRESS
   })
 
-  const getDepartmentValue = (value: LocationType['department']) => {
+  const getDepartmentValue = (value: LocationType["department"]) => {
     const department = location.filter((item) => item.department === value)
     const cities = department[0].cities
     setCitiesOfDepartment(cities)
@@ -69,26 +69,26 @@ export const AddressForm = ({
       startTransition(async () => {
         const response = await saveUserAddress(data)
         if (response.ok) {
-          toast.success('¡Todo salió bien!', {
+          toast.success("¡Todo salió bien!", {
             description: response.message,
             duration: 3000,
-            position: 'top-right'
+            position: "top-right"
           })
           toggleAddressForm()
         } else {
-          toast.error('Ocurrio un problema', {
+          toast.error("Ocurrio un problema", {
             description: response.message,
             duration: 3000,
-            position: 'top-right'
+            position: "top-right"
           })
         }
       })
     } else {
       const isAddressChange = JSON.stringify(address) === JSON.stringify(data)
       if (isAddressChange) {
-        return toast.success('No se han realizado cambios', {
+        return toast.success("No se han realizado cambios", {
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       }
 
@@ -103,7 +103,7 @@ export const AddressForm = ({
   return (
     <form
       noValidate
-      id={isAddressExists ? 'update-address' : 'save-address'}
+      id={isAddressExists ? "update-address" : "save-address"}
       onSubmit={handleSubmit(onSubmit)}
     >
       <CardContent className="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -115,15 +115,15 @@ export const AddressForm = ({
               id="name"
               autoComplete="additional-name"
               placeholder="Ej. Angel"
-              {...register('firstName', {
-                required: 'El campo nombres es obligatorio',
+              {...register("firstName", {
+                required: "El campo nombres es obligatorio",
                 minLength: {
                   value: 3,
-                  message: 'El campo nombres debe tener al menos 3 caracteres'
+                  message: "El campo nombres debe tener al menos 3 caracteres"
                 },
                 maxLength: {
                   value: 50,
-                  message: 'El campo nombres debe tener máximo 50 caracteres'
+                  message: "El campo nombres debe tener máximo 50 caracteres"
                 }
               })}
             />
@@ -139,15 +139,15 @@ export const AddressForm = ({
               id="lastname"
               autoComplete="family-name"
               placeholder="Ej. De La Torre"
-              {...register('lastName', {
-                required: 'El campo apellidos es obligatorio',
+              {...register("lastName", {
+                required: "El campo apellidos es obligatorio",
                 minLength: {
                   value: 3,
-                  message: 'El campo apellidos debe tener al menos 3 caracteres'
+                  message: "El campo apellidos debe tener al menos 3 caracteres"
                 },
                 maxLength: {
                   value: 50,
-                  message: 'El campo apellidos debe tener máximo 50 caracteres'
+                  message: "El campo apellidos debe tener máximo 50 caracteres"
                 }
               })}
             />
@@ -160,14 +160,14 @@ export const AddressForm = ({
             <Label>Tipo de documento:</Label>
             <Select
               autoComplete="document-type"
-              onValueChange={(value) => setValue('typeOfIdentification', value)}
-              {...register('typeOfIdentification', {
-                required: 'El campo tipo de documento es obligatorio'
+              onValueChange={(value) => setValue("typeOfIdentification", value)}
+              {...register("typeOfIdentification", {
+                required: "El campo tipo de documento es obligatorio"
               })}
             >
               <SelectTrigger className="w-full">
                 <SelectValue
-                  placeholder={address?.typeOfIdentification ?? 'Selecciona'}
+                  placeholder={address?.typeOfIdentification ?? "Selecciona"}
                 />
               </SelectTrigger>
 
@@ -194,11 +194,11 @@ export const AddressForm = ({
               id="identification"
               autoComplete="family-name"
               placeholder="Ej. 1234567890"
-              {...register('identification', {
-                required: 'El campo cédula es obligatorio',
+              {...register("identification", {
+                required: "El campo cédula es obligatorio",
                 minLength: {
                   value: 10,
-                  message: 'El campo cédula debe tener al menos 10 caracteres'
+                  message: "El campo cédula debe tener al menos 10 caracteres"
                 }
               })}
             />
@@ -214,15 +214,15 @@ export const AddressForm = ({
               id="phone"
               autoComplete="tel-national"
               placeholder="Ej. 312 345 6789"
-              {...register('phone', {
-                required: 'El campo teléfono es obligatorio',
+              {...register("phone", {
+                required: "El campo teléfono es obligatorio",
                 minLength: {
                   value: 10,
-                  message: 'El campo teléfono debe tener al menos 10 caracteres'
+                  message: "El campo teléfono debe tener al menos 10 caracteres"
                 },
                 maxLength: {
                   value: 10,
-                  message: 'El campo teléfono debe tener máximo 10 caracteres'
+                  message: "El campo teléfono debe tener máximo 10 caracteres"
                 }
               })}
             />
@@ -240,15 +240,15 @@ export const AddressForm = ({
               id="address"
               autoComplete="street-address"
               placeholder="Ej. Calle 123 #123 - 123"
-              {...register('address', {
-                required: 'El campo dirección es obligatorio',
+              {...register("address", {
+                required: "El campo dirección es obligatorio",
                 minLength: {
                   value: 5,
-                  message: 'El campo dirección debe tener al menos 5 caracteres'
+                  message: "El campo dirección debe tener al menos 5 caracteres"
                 },
                 maxLength: {
                   value: 100,
-                  message: 'El campo dirección debe tener máximo 100 caracteres'
+                  message: "El campo dirección debe tener máximo 100 caracteres"
                 }
               })}
             />
@@ -264,14 +264,14 @@ export const AddressForm = ({
               id="address2"
               autoComplete="street-address"
               placeholder="Ej. Apartamento 123"
-              {...register('address2', {
+              {...register("address2", {
                 minLength: {
                   value: 5,
-                  message: 'El campo dirección debe tener al menos 5 caracteres'
+                  message: "El campo dirección debe tener al menos 5 caracteres"
                 },
                 maxLength: {
                   value: 100,
-                  message: 'El campo dirección debe tener máximo 100 caracteres'
+                  message: "El campo dirección debe tener máximo 100 caracteres"
                 }
               })}
             />
@@ -287,17 +287,17 @@ export const AddressForm = ({
               id="postal-code"
               autoComplete="postal-code"
               placeholder="Ej. 123456"
-              {...register('postalCode', {
-                required: 'El campo código postal es obligatorio',
+              {...register("postalCode", {
+                required: "El campo código postal es obligatorio",
                 minLength: {
                   value: 6,
                   message:
-                    'El campo código postal debe tener al menos 6 caracteres'
+                    "El campo código postal debe tener al menos 6 caracteres"
                 },
                 maxLength: {
                   value: 10,
                   message:
-                    'El campo código postal debe tener máximo 10 caracteres'
+                    "El campo código postal debe tener máximo 10 caracteres"
                 }
               })}
             />
@@ -312,15 +312,15 @@ export const AddressForm = ({
               autoComplete="address-level1"
               onValueChange={(value) => {
                 getDepartmentValue(value)
-                setValue('department', value)
+                setValue("department", value)
               }}
-              {...register('department', {
-                required: 'El campo departamento es obligatorio'
+              {...register("department", {
+                required: "El campo departamento es obligatorio"
               })}
             >
               <SelectTrigger className="w-full">
                 <SelectValue
-                  placeholder={capitalize(address?.department) ?? 'Selecciona'}
+                  placeholder={capitalize(address?.department) ?? "Selecciona"}
                 />
               </SelectTrigger>
 
@@ -348,14 +348,14 @@ export const AddressForm = ({
             <Label>Ciudad:</Label>
             <Select
               autoComplete="address-level2"
-              onValueChange={(value) => setValue('city', value)}
-              {...register('city', {
-                required: 'El campo ciudad es obligatorio'
+              onValueChange={(value) => setValue("city", value)}
+              {...register("city", {
+                required: "El campo ciudad es obligatorio"
               })}
             >
               <SelectTrigger className="w-full">
                 <SelectValue
-                  placeholder={capitalize(address?.city) ?? 'Selecciona'}
+                  placeholder={capitalize(address?.city) ?? "Selecciona"}
                 />
               </SelectTrigger>
 
@@ -386,16 +386,16 @@ export const AddressForm = ({
               id="extra-data"
               autoComplete="address-line2"
               placeholder="Ej. Bogotá"
-              {...register('extraData', {
+              {...register("extraData", {
                 minLength: {
                   value: 3,
                   message:
-                    'El campo información adicional debe tener al menos 3 caracteres'
+                    "El campo información adicional debe tener al menos 3 caracteres"
                 },
                 maxLength: {
                   value: 50,
                   message:
-                    'El campo información adicional debe tener máximo 50 caracteres'
+                    "El campo información adicional debe tener máximo 50 caracteres"
                 }
               })}
             />
@@ -419,7 +419,7 @@ export const AddressForm = ({
                 <Spinner />
               </>
             ) : (
-              'Guardar dirección'
+              "Guardar dirección"
             )}
           </Button>
         </CardFooter>

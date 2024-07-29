@@ -1,21 +1,21 @@
-import type { Metadata } from 'next'
-import { getOrdersByUser } from '@/actions'
-import { OrderGrid } from '@/components'
-import { titleFont } from '@/config'
+import type { Metadata } from "next"
+import { getOrdersByUser } from "@/actions"
+import { OrderGrid } from "@/components"
+import { titleFont } from "@/config"
 
 export const metadata: Metadata = {
-  title: 'Mis compras - Business Concept',
+  title: "Mis compras - Business Concept",
   description:
-    'Revisa todas tus compras realizadas en Business Concept. Desde el importe, hasta el estado de tu compra. ¡Descubre todo lo que has comprado!',
-  keywords: 'compras, ordenes, estado, importe, Business Concept',
-  robots: 'noindex, nofollow'
+    "Revisa todas tus compras realizadas en Business Concept. Desde el importe, hasta el estado de tu compra. ¡Descubre todo lo que has comprado!",
+  keywords: "compras, ordenes, estado, importe, Business Concept",
+  robots: "noindex, nofollow"
 }
 
 export default async function PurchasesPage() {
   const orders = await getOrdersByUser()
 
   const isEmptyTitleDescription =
-    orders.length === 0 ? 'No tienes ordenes registradas.' : 'Mis compras'
+    orders.length === 0 ? "No tienes ordenes registradas." : "Mis compras"
 
   return (
     <article>

@@ -1,9 +1,9 @@
-import type { ProductType } from '@/types'
-import { utilDiscountConverter } from '@/utils'
+import type { ProductType } from "@/types"
+import { utilDiscountConverter } from "@/utils"
 
 interface Props {
-  price: ProductType['price']
-  discount: ProductType['discount']
+  price: ProductType["price"]
+  discount: ProductType["discount"]
   className?: string
   isAdmin?: boolean
 }
@@ -11,7 +11,7 @@ interface Props {
 export const PriceWithPosibleDiscount = ({
   price,
   discount,
-  className = '',
+  className = "",
   isAdmin = false
 }: Props) => {
   const {
@@ -21,7 +21,7 @@ export const PriceWithPosibleDiscount = ({
     percentageOfDiscount
   } = utilDiscountConverter(discount, price)
 
-  const isAdminDashboard = isAdmin ? 'N/A' : priceBeforeFormatted
+  const isAdminDashboard = isAdmin ? "N/A" : priceBeforeFormatted
 
   return isProductWithDiscount ? (
     <>
@@ -29,7 +29,7 @@ export const PriceWithPosibleDiscount = ({
         {priceBeforeFormatted}
       </p>
       <div>
-        <span className={className}>{priceAfterFormatted}</span>{' '}
+        <span className={className}>{priceAfterFormatted}</span>{" "}
         <span className="font-extrabold text-yellow-500">
           {percentageOfDiscount}
         </span>

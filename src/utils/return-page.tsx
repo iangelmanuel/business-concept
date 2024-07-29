@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import { useRouter } from 'next/navigation'
-import { Button } from '@/components'
-import { CornerDownLeft } from 'lucide-react'
+import { useRouter } from "next/navigation"
+import { Button } from "@/components"
+import { CornerDownLeft } from "lucide-react"
 
 export const ReturnPage = () => {
   const router = useRouter()

@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import type { ColumnDef, SortDirection } from '@tanstack/react-table'
-import Image from 'next/image'
-import Link from 'next/link'
+import type { ColumnDef, SortDirection } from "@tanstack/react-table"
+import Image from "next/image"
+import Link from "next/link"
 import {
   Badge,
   Button,
@@ -19,11 +19,11 @@ import {
   HoverCardContent,
   HoverCardTrigger,
   PriceWithPosibleDiscount
-} from '@/components'
-import { titleFont } from '@/config'
-import { data } from '@/data'
-import type { ProductAllType } from '@/types'
-import { formatCurrency } from '@/utils'
+} from "@/components"
+import { titleFont } from "@/config"
+import { data } from "@/data"
+import type { ProductAllType } from "@/types"
+import { formatCurrency } from "@/utils"
 import {
   BadgeDollarSign,
   BadgePercent,
@@ -34,18 +34,18 @@ import {
   EyeOff,
   Headphones,
   Package
-} from 'lucide-react'
-import { ActionsButtons } from './ui/actions-buttons'
-import { ImageCarousel } from './ui/image-carousel'
+} from "lucide-react"
+import { ActionsButtons } from "./ui/actions-buttons"
+import { ImageCarousel } from "./ui/image-carousel"
 
 const SorterIcon = ({ isSorted }: { isSorted: false | SortDirection }) => {
   if (!isSorted) {
     return <ChevronsUpDown className="h-4 w-4" />
   }
-  if (isSorted === 'asc') {
+  if (isSorted === "asc") {
     return <ChevronUpIcon className="h-4 w-4" />
   }
-  if (isSorted === 'desc') {
+  if (isSorted === "desc") {
     return <ChevronDownIcon className="h-4 w-4" />
   }
   return null
@@ -53,12 +53,12 @@ const SorterIcon = ({ isSorted }: { isSorted: false | SortDirection }) => {
 
 export const columns: ColumnDef<ProductAllType>[] = [
   {
-    accessorKey: 'id',
+    accessorKey: "id",
     header: ({ table }) => (
       <Checkbox
         checked={
           table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && 'indeterminate')
+          (table.getIsSomePageRowsSelected() && "indeterminate")
         }
         onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
         aria-label="Select all"
@@ -76,8 +76,8 @@ export const columns: ColumnDef<ProductAllType>[] = [
   },
 
   {
-    accessorKey: 'image',
-    id: 'image',
+    accessorKey: "image",
+    id: "image",
     accessorFn: (row) => row.productImage,
     header: () => {
       return (
@@ -88,7 +88,7 @@ export const columns: ColumnDef<ProductAllType>[] = [
     },
     cell: ({ row }) => {
       const product = row.original
-      const images = row.getValue('image') as ProductAllType['productImage']
+      const images = row.getValue("image") as ProductAllType["productImage"]
       return (
         <ImageCarousel
           images={images}
@@ -99,7 +99,7 @@ export const columns: ColumnDef<ProductAllType>[] = [
   },
 
   {
-    accessorKey: 'name',
+    accessorKey: "name",
     header: ({ column }) => {
       return (
         <section className="flex items-center justify-center">
@@ -152,7 +152,7 @@ export const columns: ColumnDef<ProductAllType>[] = [
       )
     },
     cell: ({ row }) => {
-      const name = row.getValue('name') as string
+      const name = row.getValue("name") as string
       const slug = row.original.slug
       const product = row.original
 
@@ -226,7 +226,7 @@ export const columns: ColumnDef<ProductAllType>[] = [
   },
 
   {
-    accessorKey: 'stock',
+    accessorKey: "stock",
     header: ({ column }) => {
       return (
         <section className="flex items-center justify-center">
@@ -279,7 +279,7 @@ export const columns: ColumnDef<ProductAllType>[] = [
       )
     },
     cell: ({ row }) => {
-      const stock = row.getValue('stock') as number
+      const stock = row.getValue("stock") as number
       const isInStock = stock === 0
 
       return (
@@ -300,7 +300,7 @@ export const columns: ColumnDef<ProductAllType>[] = [
   },
 
   {
-    accessorKey: 'price',
+    accessorKey: "price",
     header: () => {
       return (
         <section className="flex items-center justify-center">
@@ -309,7 +309,7 @@ export const columns: ColumnDef<ProductAllType>[] = [
       )
     },
     cell: ({ row }) => {
-      const price = row.getValue('price') as number
+      const price = row.getValue("price") as number
       const formattedPrice = formatCurrency(price)
       return (
         <section className="flex items-center justify-center">
@@ -320,7 +320,7 @@ export const columns: ColumnDef<ProductAllType>[] = [
   },
 
   {
-    accessorKey: 'discount',
+    accessorKey: "discount",
     header: ({ column }) => {
       return (
         <section className="flex items-center justify-center">
@@ -373,7 +373,7 @@ export const columns: ColumnDef<ProductAllType>[] = [
       )
     },
     cell: ({ row }) => {
-      const discount = row.getValue('discount') as number
+      const discount = row.getValue("discount") as number
       const price = row.original.price
 
       return (
@@ -389,8 +389,8 @@ export const columns: ColumnDef<ProductAllType>[] = [
   },
 
   {
-    accessorKey: 'category',
-    id: 'category',
+    accessorKey: "category",
+    id: "category",
     accessorFn: (row) => row.category.name,
     header: ({ column }) => {
       const { categories } = data
@@ -450,7 +450,7 @@ export const columns: ColumnDef<ProductAllType>[] = [
       )
     },
     cell: ({ row }) => {
-      const cateogories = row.getValue('category') as string
+      const cateogories = row.getValue("category") as string
 
       return (
         <section className="flex items-center justify-center">
@@ -466,8 +466,8 @@ export const columns: ColumnDef<ProductAllType>[] = [
   },
 
   {
-    accessorKey: 'actions',
-    header: 'Acciones',
+    accessorKey: "actions",
+    header: "Acciones",
     cell: ({ row }) => {
       const product = row.original
       return (

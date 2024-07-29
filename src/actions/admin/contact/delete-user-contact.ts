@@ -1,25 +1,25 @@
-'use server'
+"use server"
 
-import { revalidatePath } from 'next/cache'
-import { auth } from '@/auth.config'
-import { prisma } from '@/lib'
-import type { ContactType } from '@/types'
+import { revalidatePath } from "next/cache"
+import { auth } from "@/auth.config"
+import { prisma } from "@/lib"
+import type { ContactType } from "@/types"
 
-export async function deleteUserContact(contactId: ContactType['id']) {
+export async function deleteUserContact(contactId: ContactType["id"]) {
   try {
     const session = await auth()
     if (!session) {
       return {
         ok: false,
-        message: 'No autorizado'
+        message: "No autorizado"
       }
     }
 
-    const isAdmin = session.user.role.includes('admin')
+    const isAdmin = session.user.role.includes("admin")
     if (!isAdmin) {
       return {
         ok: false,
-        message: 'No autorizado'
+        message: "No autorizado"
       }
     }
 
@@ -37,17 +37,17 @@ export async function deleteUserContact(contactId: ContactType['id']) {
       })
     })
 
-    revalidatePath('/admin/contacts')
-    revalidatePath('/admin/contacts/[id]', 'page')
+    revalidatePath("/admin/contacts")
+    revalidatePath("/admin/contacts/[id]", "page")
 
     return {
       ok: true,
-      message: 'Contacto eliminado correctamente'
+      message: "Contacto eliminado correctamente"
     }
   } catch (error) {
     return {
       ok: false,
-      message: 'Error al eliminar el contacto'
+      message: "Error al eliminar el contacto"
     }
   }
 }

@@ -1,6 +1,6 @@
-import React from 'react'
-import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components'
-import { MessageCircleQuestion } from 'lucide-react'
+import React from "react"
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components"
+import { MessageCircleQuestion } from "lucide-react"
 
 export const HoverCardDiscountDocs = () => {
   return (

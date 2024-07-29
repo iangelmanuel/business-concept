@@ -1,10 +1,10 @@
-'use client'
+"use client"
 
-import { useEffect, useState } from 'react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { Progress } from '@/components'
-import { useAddressStore, useCartStore } from '@/store'
+import { useEffect, useState } from "react"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { Progress } from "@/components"
+import { useAddressStore, useCartStore } from "@/store"
 import {
   CalendarCheck,
   CircleCheckBig,
@@ -12,7 +12,7 @@ import {
   MapPinIcon,
   ShoppingCart,
   UserCheckIcon
-} from 'lucide-react'
+} from "lucide-react"
 
 interface Props {
   step: number
@@ -22,15 +22,15 @@ export const BarProgress = ({ step }: Props) => {
   const pathname = usePathname()
 
   const initialProgress =
-    pathname === '/shop/cart'
+    pathname === "/shop/cart"
       ? 0
-      : pathname === '/shop/address'
+      : pathname === "/shop/address"
         ? 0
-        : pathname === '/shop/checkout'
+        : pathname === "/shop/checkout"
           ? 25
-          : pathname === '/shop/payment'
+          : pathname === "/shop/payment"
             ? 50
-            : pathname === '/shop/confirmation'
+            : pathname === "/shop/confirmation"
               ? 100
               : 0
 
@@ -65,7 +65,7 @@ export const BarProgress = ({ step }: Props) => {
   const isAddressEmpty = Object.keys(address).length === 0
   const isCartEmpty = cart.length === 0
 
-  if (!isCartEmpty && !isAddressEmpty && pathname === '/shop/payment') {
+  if (!isCartEmpty && !isAddressEmpty && pathname === "/shop/payment") {
     clearCart()
     clearAddress()
   }

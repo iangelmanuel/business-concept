@@ -1,10 +1,10 @@
-import Image from 'next/image'
-import { Card, CardContent, CardDescription, CardHeader } from '@/components'
-import { titleFont } from '@/config'
-import type { ProductAllType } from '@/types'
-import { ProductDeletedButton } from './product-deleted-button'
+import Image from "next/image"
+import { Card, CardContent, CardDescription, CardHeader } from "@/components"
+import { titleFont } from "@/config"
+import type { ProductAllType } from "@/types"
+import { ProductDeletedButton } from "./product-deleted-button"
 
-type ProductWithoutCategory = Omit<ProductAllType, 'category'>
+type ProductWithoutCategory = Omit<ProductAllType, "category">
 interface Props {
   product: ProductWithoutCategory
 }

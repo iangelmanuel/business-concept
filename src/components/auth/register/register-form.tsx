@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import { useTransition } from 'react'
-import { useRouter } from 'next/navigation'
-import { registerUser } from '@/actions'
+import { useTransition } from "react"
+import { useRouter } from "next/navigation"
+import { registerUser } from "@/actions"
 import {
   Button,
   CardContent,
@@ -10,11 +10,11 @@ import {
   Input,
   Label,
   Spinner
-} from '@/components'
-import { DEFAULT_REGISTER_VALUES } from '@/consts'
-import type { RegisterUser } from '@/types'
-import { useForm } from 'react-hook-form'
-import { toast } from 'sonner'
+} from "@/components"
+import { DEFAULT_REGISTER_VALUES } from "@/consts"
+import type { RegisterUser } from "@/types"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 
 export const CardRegisterForm = () => {
   const [isPending, startTransition] = useTransition()
@@ -33,17 +33,17 @@ export const CardRegisterForm = () => {
     startTransition(async () => {
       const response = await registerUser(data)
       if (response.ok) {
-        router.push('/auth/login?registered=true')
-        toast.success('¡Estas registrado!', {
+        router.push("/auth/login?registered=true")
+        toast.success("¡Estas registrado!", {
           description: response.message,
           duration: 5000,
-          position: 'top-right'
+          position: "top-right"
         })
       } else {
-        toast.success('Ocurrio un problema', {
+        toast.success("Ocurrio un problema", {
           description: response.message,
           duration: 5000,
-          position: 'top-right'
+          position: "top-right"
         })
       }
     })
@@ -62,15 +62,15 @@ export const CardRegisterForm = () => {
             type="text"
             id="name"
             placeholder="Ej. Angel"
-            {...register('name', {
-              required: 'El campo nombres es requerido',
+            {...register("name", {
+              required: "El campo nombres es requerido",
               minLength: {
                 value: 3,
-                message: 'El nombre debe tener al menos 3 caracteres'
+                message: "El nombre debe tener al menos 3 caracteres"
               },
               maxLength: {
                 value: 50,
-                message: 'El nombre debe tener máximo 50 caracteres'
+                message: "El nombre debe tener máximo 50 caracteres"
               }
             })}
           />
@@ -83,15 +83,15 @@ export const CardRegisterForm = () => {
             type="text"
             id="lastname"
             placeholder="Ej. Montaño"
-            {...register('lastname', {
-              required: 'El campo apellidos es requerido',
+            {...register("lastname", {
+              required: "El campo apellidos es requerido",
               minLength: {
                 value: 3,
-                message: 'El nombre debe tener al menos 3 caracteres'
+                message: "El nombre debe tener al menos 3 caracteres"
               },
               maxLength: {
                 value: 50,
-                message: 'El nombre debe tener máximo 50 caracteres'
+                message: "El nombre debe tener máximo 50 caracteres"
               }
             })}
           />
@@ -107,11 +107,11 @@ export const CardRegisterForm = () => {
             id="phone"
             autoComplete="tel"
             placeholder="Ej. 312 345 6789"
-            {...register('phone', {
-              required: 'El campo télefono es requerido',
+            {...register("phone", {
+              required: "El campo télefono es requerido",
               pattern: {
                 value: /^[0-9]{7,10}$/,
-                message: 'El télefono no es válido'
+                message: "El télefono no es válido"
               }
             })}
           />
@@ -125,11 +125,11 @@ export const CardRegisterForm = () => {
             id="email"
             autoComplete="email"
             placeholder="Ej. ejemplo@correo.com"
-            {...register('email', {
-              required: 'El campo email es requerido',
+            {...register("email", {
+              required: "El campo email es requerido",
               pattern: {
                 value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
-                message: 'El correo electrónico no es válido'
+                message: "El correo electrónico no es válido"
               }
             })}
           />
@@ -143,11 +143,11 @@ export const CardRegisterForm = () => {
             id="password"
             placeholder="Escriba su contraseña"
             autoComplete="new-password"
-            {...register('password', {
-              required: 'El campo contraseña es requerido',
+            {...register("password", {
+              required: "El campo contraseña es requerido",
               minLength: {
                 value: 8,
-                message: 'La contraseña debe tener al menos 8 caracteres'
+                message: "La contraseña debe tener al menos 8 caracteres"
               }
             })}
           />
@@ -163,11 +163,11 @@ export const CardRegisterForm = () => {
             id="new-password"
             placeholder="Repita su contraseña"
             autoComplete="new-password"
-            {...register('repeatPassword', {
-              required: 'El campo repetir contraseña es requerido',
+            {...register("repeatPassword", {
+              required: "El campo repetir contraseña es requerido",
               validate: (value) =>
-                value !== watch('password')
-                  ? 'Las contraseñas no coinciden'
+                value !== watch("password")
+                  ? "Las contraseñas no coinciden"
                   : true
             })}
           />
@@ -184,7 +184,7 @@ export const CardRegisterForm = () => {
                 <Spinner />
               </>
             ) : (
-              'Registrarse'
+              "Registrarse"
             )}
           </Button>
         </div>

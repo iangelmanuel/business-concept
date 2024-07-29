@@ -1,4 +1,4 @@
-import { z } from 'zod'
+import { z } from "zod"
 
 export const UserGeneralSchema = z.object({
   id: z.string(),
@@ -10,7 +10,7 @@ export const UserGeneralSchema = z.object({
     .trim()
     .transform((value) => value.toLowerCase()),
   phone: z.string().max(15),
-  role: z.enum(['admin', 'user']),
+  role: z.enum(["admin", "user"]),
   isConfirmed: z.boolean().default(false),
   isUserDeleted: z.boolean().default(false),
   createdAt: z.date(),
@@ -27,7 +27,7 @@ export const RegisterUserSchema = z
     repeatPassword: z.string()
   })
   .refine((data) => data.password === data.repeatPassword, {
-    path: ['repeatPassword']
+    path: ["repeatPassword"]
   })
 
 export const LoginUserSchema = z.object({

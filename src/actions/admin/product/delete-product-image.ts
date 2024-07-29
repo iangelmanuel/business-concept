@@ -1,10 +1,10 @@
-'use server'
+"use server"
 
-import { revalidatePath } from 'next/cache'
-import { auth } from '@/auth.config'
-import { prisma } from '@/lib'
-import type { ProductImage } from '@/types'
-import { v2 as cloudinary } from 'cloudinary'
+import { revalidatePath } from "next/cache"
+import { auth } from "@/auth.config"
+import { prisma } from "@/lib"
+import type { ProductImage } from "@/types"
+import { v2 as cloudinary } from "cloudinary"
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -12,21 +12,21 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 })
 
-export async function deleteProductImage(imageId: ProductImage['id']) {
+export async function deleteProductImage(imageId: ProductImage["id"]) {
   try {
     const session = await auth()
     if (!session) {
       return {
         ok: false,
-        message: 'No autorizado'
+        message: "No autorizado"
       }
     }
 
-    const isAdmin = session.user.role.includes('admin')
+    const isAdmin = session.user.role.includes("admin")
     if (!isAdmin) {
       return {
         ok: false,
-        message: 'No autorizado'
+        message: "No autorizado"
       }
     }
 
@@ -39,7 +39,7 @@ export async function deleteProductImage(imageId: ProductImage['id']) {
     if (!productImageDb) {
       return {
         ok: false,
-        message: 'La imagen no existe'
+        message: "La imagen no existe"
       }
     }
 
@@ -60,22 +60,22 @@ export async function deleteProductImage(imageId: ProductImage['id']) {
       })
     }
 
-    revalidatePath('/admin/products')
-    revalidatePath('/')
-    revalidatePath('/shop/products')
-    revalidatePath('/shop/products/[category]', 'page')
-    revalidatePath('/shop/product/[slug]', 'page')
-    revalidatePath('/shop/cart')
-    revalidatePath('/shop/checkout')
+    revalidatePath("/admin/products")
+    revalidatePath("/")
+    revalidatePath("/shop/products")
+    revalidatePath("/shop/products/[category]", "page")
+    revalidatePath("/shop/product/[slug]", "page")
+    revalidatePath("/shop/cart")
+    revalidatePath("/shop/checkout")
 
     return {
       ok: true,
-      message: 'Imagen eliminada correctamente'
+      message: "Imagen eliminada correctamente"
     }
   } catch (error) {
     return {
       ok: false,
-      message: 'Error al eliminar la imagen del producto'
+      message: "Error al eliminar la imagen del producto"
     }
   }
 }

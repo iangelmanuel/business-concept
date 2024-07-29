@@ -1,10 +1,10 @@
-'use server'
+"use server"
 
-import { revalidatePath } from 'next/cache'
-import { auth } from '@/auth.config'
-import { prisma } from '@/lib'
-import { ProductsToOrderSchema } from '@/schema'
-import type { AddressForm, ProductToOrderType } from '@/types'
+import { revalidatePath } from "next/cache"
+import { auth } from "@/auth.config"
+import { prisma } from "@/lib"
+import { ProductsToOrderSchema } from "@/schema"
+import type { AddressForm, ProductToOrderType } from "@/types"
 
 export async function placeOrder(
   productsData: ProductToOrderType[],
@@ -14,7 +14,7 @@ export async function placeOrder(
   if (!session) {
     return {
       ok: false,
-      message: 'No autorizado'
+      message: "No autorizado"
     }
   }
   const userId = session.user.id
@@ -23,7 +23,7 @@ export async function placeOrder(
   if (!result.success) {
     return {
       ok: false,
-      message: 'Datos incorrectos'
+      message: "Datos incorrectos"
     }
   }
 
@@ -88,7 +88,7 @@ export async function placeOrder(
         if (product.stock < 0) {
           return {
             ok: false,
-            message: 'Producto sin stock disponible'
+            message: "Producto sin stock disponible"
           }
         }
       })
@@ -142,18 +142,18 @@ export async function placeOrder(
       }
     })
 
-    revalidatePath('/dashboard/purchases')
-    revalidatePath('/admin/orders')
+    revalidatePath("/dashboard/purchases")
+    revalidatePath("/admin/orders")
 
     return {
       ok: true,
-      message: 'Pedido creado con éxito',
+      message: "Pedido creado con éxito",
       orderId: prismaTx.order.id
     }
   } catch (error) {
     return {
       ok: false,
-      message: 'Error al crear el pedido'
+      message: "Error al crear el pedido"
     }
   }
 }

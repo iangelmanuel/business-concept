@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation'
+import { redirect } from "next/navigation"
 
 export default function CategoryPage() {
-  return redirect('/shop/products')
+  return redirect("/shop/products")
 }

@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
-import { useTransition } from 'react'
-import { createUserContact } from '@/actions'
+import { useTransition } from "react"
+import { createUserContact } from "@/actions"
 import {
   Button,
   Card,
@@ -14,11 +14,11 @@ import {
   Label,
   Spinner,
   Textarea
-} from '@/components'
-import { titleFont } from '@/config'
-import type { ContactFormType } from '@/types'
-import { useForm } from 'react-hook-form'
-import { toast } from 'sonner'
+} from "@/components"
+import { titleFont } from "@/config"
+import type { ContactFormType } from "@/types"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 
 export const ContactForm = () => {
   const [isPending, startTransition] = useTransition()
@@ -30,10 +30,10 @@ export const ContactForm = () => {
     reset
   } = useForm<ContactFormType>({
     defaultValues: {
-      fullName: '',
-      email: '',
-      phone: '',
-      message: ''
+      fullName: "",
+      email: "",
+      phone: "",
+      message: ""
     }
   })
 
@@ -41,17 +41,17 @@ export const ContactForm = () => {
     startTransition(async () => {
       const response = await createUserContact(data)
       if (response.ok) {
-        toast.success('¡Todo salió bien!', {
+        toast.success("¡Todo salió bien!", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
         reset()
       } else {
-        toast.error('Ocurrio un problema', {
+        toast.error("Ocurrio un problema", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       }
     })
@@ -83,15 +83,15 @@ export const ContactForm = () => {
               type="text"
               id="name"
               placeholder="Ej. Angel De La Torre"
-              {...register('fullName', {
-                required: 'El campo nombre completo es requerido',
+              {...register("fullName", {
+                required: "El campo nombre completo es requerido",
                 minLength: {
                   value: 5,
-                  message: 'El nombre completo debe tener al menos 5 caracteres'
+                  message: "El nombre completo debe tener al menos 5 caracteres"
                 },
                 maxLength: {
                   value: 50,
-                  message: 'El nombre completo debe tener máximo 50 caracteres'
+                  message: "El nombre completo debe tener máximo 50 caracteres"
                 }
               })}
             />
@@ -106,11 +106,11 @@ export const ContactForm = () => {
               type="email"
               id="email"
               placeholder="Ej. ejemplo@correo.com"
-              {...register('email', {
-                required: 'El campo correo es requerido',
+              {...register("email", {
+                required: "El campo correo es requerido",
                 pattern: {
                   value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                  message: 'El correo no es válido'
+                  message: "El correo no es válido"
                 }
               })}
             />
@@ -125,11 +125,11 @@ export const ContactForm = () => {
               type="tel"
               id="phone"
               placeholder="Ej. 312 345 6789"
-              {...register('phone', {
-                required: 'El campo télefono es requerido',
+              {...register("phone", {
+                required: "El campo télefono es requerido",
                 maxLength: {
                   value: 15,
-                  message: 'El télefono debe tener máximo 15 caracteres'
+                  message: "El télefono debe tener máximo 15 caracteres"
                 }
               })}
             />
@@ -143,15 +143,15 @@ export const ContactForm = () => {
             <Textarea
               id="message"
               placeholder="Ej. Hola, me gustaría saber más sobre..."
-              {...register('message', {
-                required: 'El campo mensaje es requerido',
+              {...register("message", {
+                required: "El campo mensaje es requerido",
                 minLength: {
                   value: 10,
-                  message: 'El mensaje debe tener al menos 10 caracteres'
+                  message: "El mensaje debe tener al menos 10 caracteres"
                 },
                 maxLength: {
                   value: 500,
-                  message: 'El mensaje debe tener máximo 500 caracteres'
+                  message: "El mensaje debe tener máximo 500 caracteres"
                 }
               })}
             />
@@ -174,7 +174,7 @@ export const ContactForm = () => {
               <Spinner />
             </>
           ) : (
-            'Enviar'
+            "Enviar"
           )}
         </Button>
       </CardFooter>

@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import type { ColumnDef, SortDirection } from '@tanstack/react-table'
+import type { ColumnDef, SortDirection } from "@tanstack/react-table"
 import {
   Badge,
   Button,
@@ -11,10 +11,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
   SendEmail
-} from '@/components'
-import { orderStatusLang } from '@/consts'
-import type { UserOrderByAdmin } from '@/types'
-import { checkOrderStatusCn, formatCurrency, formatDate } from '@/utils'
+} from "@/components"
+import { orderStatusLang } from "@/consts"
+import type { UserOrderByAdmin } from "@/types"
+import { checkOrderStatusCn, formatCurrency, formatDate } from "@/utils"
 import {
   Ban,
   ChevronDownIcon,
@@ -27,17 +27,17 @@ import {
   Package,
   PackageCheck,
   Truck
-} from 'lucide-react'
-import { ActionsButtons } from './ui/actions-buttons'
+} from "lucide-react"
+import { ActionsButtons } from "./ui/actions-buttons"
 
 const SorterIcon = ({ isSorted }: { isSorted: false | SortDirection }) => {
   if (!isSorted) {
     return <ChevronsUpDown className="h-4 w-4" />
   }
-  if (isSorted === 'asc') {
+  if (isSorted === "asc") {
     return <ChevronUpIcon className="h-4 w-4" />
   }
-  if (isSorted === 'desc') {
+  if (isSorted === "desc") {
     return <ChevronDownIcon className="h-4 w-4" />
   }
   return null
@@ -45,15 +45,15 @@ const SorterIcon = ({ isSorted }: { isSorted: false | SortDirection }) => {
 
 export const columns: ColumnDef<UserOrderByAdmin>[] = [
   {
-    accessorKey: 'id',
-    id: 'OrderAddress.id',
+    accessorKey: "id",
+    id: "OrderAddress.id",
     accessorFn: (row) => row.OrderAddress?.id,
     header: ({ table }) => (
       <section>
         <Checkbox
           checked={
             table.getIsAllPageRowsSelected() ||
-            (table.getIsSomePageRowsSelected() && 'indeterminate')
+            (table.getIsSomePageRowsSelected() && "indeterminate")
           }
           onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
           aria-label="Select all"
@@ -75,8 +75,8 @@ export const columns: ColumnDef<UserOrderByAdmin>[] = [
   },
 
   {
-    accessorKey: 'nombres',
-    id: 'OrderAddress.firstName',
+    accessorKey: "nombres",
+    id: "OrderAddress.firstName",
     accessorFn: (row) => row.OrderAddress?.firstName,
     header: ({ column }) => {
       return (
@@ -144,8 +144,8 @@ export const columns: ColumnDef<UserOrderByAdmin>[] = [
   },
 
   {
-    accessorKey: 'email',
-    id: 'user.email',
+    accessorKey: "email",
+    id: "user.email",
     accessorFn: (row) => row.user.email,
     header: ({ column }) => {
       return (
@@ -199,9 +199,9 @@ export const columns: ColumnDef<UserOrderByAdmin>[] = [
       )
     },
     cell: ({ row }) => {
-      const email = row.getValue('user.email') as string
+      const email = row.getValue("user.email") as string
       const orderAddres = row.original
-        .OrderAddress as UserOrderByAdmin['OrderAddress']
+        .OrderAddress as UserOrderByAdmin["OrderAddress"]
 
       if (!orderAddres) return <span>{email}</span>
 
@@ -221,8 +221,8 @@ export const columns: ColumnDef<UserOrderByAdmin>[] = [
   },
 
   {
-    accessorKey: 'locación',
-    id: 'OrderAddress.department',
+    accessorKey: "locación",
+    id: "OrderAddress.department",
     accessorFn: (row) => row.OrderAddress?.department,
     header: ({ column }) => {
       return (
@@ -290,8 +290,8 @@ export const columns: ColumnDef<UserOrderByAdmin>[] = [
   },
 
   {
-    accessorKey: 'fecha de pago',
-    id: 'paidAt',
+    accessorKey: "fecha de pago",
+    id: "paidAt",
     accessorFn: (row) => row.paidAt,
     header: () => {
       return (
@@ -301,8 +301,8 @@ export const columns: ColumnDef<UserOrderByAdmin>[] = [
       )
     },
     cell: ({ row }) => {
-      const paidAt = row.getValue('paidAt') as string
-      const isOrderPaidAt = paidAt !== null ? formatDate(paidAt) : 'N/A'
+      const paidAt = row.getValue("paidAt") as string
+      const isOrderPaidAt = paidAt !== null ? formatDate(paidAt) : "N/A"
       return (
         <section className="flex flex-col items-center justify-center">
           <span>{isOrderPaidAt}</span>
@@ -312,8 +312,8 @@ export const columns: ColumnDef<UserOrderByAdmin>[] = [
   },
 
   {
-    accessorKey: 'estado de la orden',
-    id: 'orderStatus',
+    accessorKey: "estado de la orden",
+    id: "orderStatus",
     accessorFn: (row) => row.orderStatus,
     header: ({ column }) => {
       return (
@@ -345,7 +345,7 @@ export const columns: ColumnDef<UserOrderByAdmin>[] = [
                   <button
                     onClick={() => {
                       column.setFilterValue(undefined)
-                      column.setFilterValue('delivered')
+                      column.setFilterValue("delivered")
                     }}
                     className="flex items-center"
                   >
@@ -358,7 +358,7 @@ export const columns: ColumnDef<UserOrderByAdmin>[] = [
                   <button
                     onClick={() => {
                       column.setFilterValue(undefined)
-                      column.setFilterValue('shipped')
+                      column.setFilterValue("shipped")
                     }}
                     className="flex items-center"
                   >
@@ -371,7 +371,7 @@ export const columns: ColumnDef<UserOrderByAdmin>[] = [
                   <button
                     onClick={() => {
                       column.setFilterValue(undefined)
-                      column.setFilterValue('approved')
+                      column.setFilterValue("approved")
                     }}
                     className="flex items-center"
                   >
@@ -384,7 +384,7 @@ export const columns: ColumnDef<UserOrderByAdmin>[] = [
                   <button
                     onClick={() => {
                       column.setFilterValue(undefined)
-                      column.setFilterValue('pending')
+                      column.setFilterValue("pending")
                     }}
                     className="flex items-center"
                   >
@@ -397,7 +397,7 @@ export const columns: ColumnDef<UserOrderByAdmin>[] = [
                   <button
                     onClick={() => {
                       column.setFilterValue(undefined)
-                      column.setFilterValue('canceled')
+                      column.setFilterValue("canceled")
                     }}
                     className="flex items-center"
                   >
@@ -425,8 +425,8 @@ export const columns: ColumnDef<UserOrderByAdmin>[] = [
     },
     cell: ({ row }) => {
       const orderStatus = row.getValue(
-        'orderStatus'
-      ) as UserOrderByAdmin['orderStatus']
+        "orderStatus"
+      ) as UserOrderByAdmin["orderStatus"]
 
       return (
         <section className="flex items-center justify-center">
@@ -439,8 +439,8 @@ export const columns: ColumnDef<UserOrderByAdmin>[] = [
   },
 
   {
-    accessorKey: 'total',
-    id: 'total',
+    accessorKey: "total",
+    id: "total",
     accessorFn: (row) => row.total,
     header: () => {
       return (
@@ -450,7 +450,7 @@ export const columns: ColumnDef<UserOrderByAdmin>[] = [
       )
     },
     cell: ({ row }) => {
-      const total = row.getValue('total') as number
+      const total = row.getValue("total") as number
       const totalFormated = formatCurrency(total)
 
       return (
@@ -462,7 +462,7 @@ export const columns: ColumnDef<UserOrderByAdmin>[] = [
   },
 
   {
-    accessorKey: 'acciones',
+    accessorKey: "acciones",
     header: () => {
       return (
         <section className="flex items-center justify-center">

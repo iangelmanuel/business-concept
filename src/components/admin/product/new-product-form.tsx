@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import { useState, useTransition } from 'react'
-import Image from 'next/image'
-import { useRouter } from 'next/navigation'
-import { createProduct } from '@/actions'
+import { useState, useTransition } from "react"
+import Image from "next/image"
+import { useRouter } from "next/navigation"
+import { createProduct } from "@/actions"
 import {
   Button,
   Card,
@@ -23,13 +23,13 @@ import {
   SelectValue,
   Spinner,
   Textarea
-} from '@/components'
-import { formValuesCreateProduct } from '@/consts'
-import type { CategoryType, ProductCreateForm } from '@/types'
-import { ChevronDown, Upload } from 'lucide-react'
-import Dropzone from 'react-dropzone'
-import { useForm } from 'react-hook-form'
-import { toast } from 'sonner'
+} from "@/components"
+import { formValuesCreateProduct } from "@/consts"
+import type { CategoryType, ProductCreateForm } from "@/types"
+import { ChevronDown, Upload } from "lucide-react"
+import Dropzone from "react-dropzone"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 
 interface Props {
   categories: CategoryType[]
@@ -55,7 +55,7 @@ export const NewProductForm = ({ categories }: Props) => {
 
     const formData = new FormData()
     images.forEach((image) => {
-      formData.append('images', image)
+      formData.append("images", image)
     })
 
     const newDataFormatted = {
@@ -69,17 +69,17 @@ export const NewProductForm = ({ categories }: Props) => {
     startTransition(async () => {
       const response = await createProduct(newDataFormatted)
       if (response.ok) {
-        toast.success('¡Todo salió bien!', {
+        toast.success("¡Todo salió bien!", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
-        router.push('/admin/products')
+        router.push("/admin/products")
       } else {
-        toast.error('Ocurrio un problema', {
+        toast.error("Ocurrio un problema", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       }
     })
@@ -99,15 +99,15 @@ export const NewProductForm = ({ categories }: Props) => {
               type="text"
               id="name"
               placeholder="Ejemplo: iPhone 15 Pro Max"
-              {...register('name', {
-                required: 'El campo nombre es requerido',
+              {...register("name", {
+                required: "El campo nombre es requerido",
                 minLength: {
                   value: 3,
-                  message: 'El nombre debe tener al menos 3 caracteres'
+                  message: "El nombre debe tener al menos 3 caracteres"
                 },
                 maxLength: {
                   value: 50,
-                  message: 'El nombre debe tener como máximo 50 caracteres'
+                  message: "El nombre debe tener como máximo 50 caracteres"
                 }
               })}
             />
@@ -120,15 +120,15 @@ export const NewProductForm = ({ categories }: Props) => {
               type="number"
               id="price"
               placeholder="Ej. 4600000"
-              {...register('price', {
-                required: 'El campo precio es requerido',
+              {...register("price", {
+                required: "El campo precio es requerido",
                 min: {
                   value: 0,
-                  message: 'El precio debe ser mayor a 0'
+                  message: "El precio debe ser mayor a 0"
                 },
                 max: {
                   value: 5000000,
-                  message: 'El precio debe ser menor a 5.000.000'
+                  message: "El precio debe ser menor a 5.000.000"
                 }
               })}
             />
@@ -143,15 +143,15 @@ export const NewProductForm = ({ categories }: Props) => {
               type="number"
               id="stock"
               placeholder="Ej. 10 en el inventario"
-              {...register('stock', {
-                required: 'El campo disponibilidad es requerido',
+              {...register("stock", {
+                required: "El campo disponibilidad es requerido",
                 min: {
                   value: 0,
-                  message: 'La disponibilidad debe ser mayor a 0'
+                  message: "La disponibilidad debe ser mayor a 0"
                 },
                 max: {
                   value: 300,
-                  message: 'La disponibilidad debe ser menor a 300'
+                  message: "La disponibilidad debe ser menor a 300"
                 }
               })}
             />
@@ -166,14 +166,14 @@ export const NewProductForm = ({ categories }: Props) => {
               type="number"
               id="discount"
               placeholder="Ej. 0.10 (para un 10% de descuento)"
-              {...register('discount', {
+              {...register("discount", {
                 min: {
                   value: 0,
-                  message: 'El precio no puede ser menor a 0'
+                  message: "El precio no puede ser menor a 0"
                 },
                 max: {
                   value: 1,
-                  message: 'El precio no puede ser mayor a 1'
+                  message: "El precio no puede ser mayor a 1"
                 }
               })}
             />
@@ -185,9 +185,9 @@ export const NewProductForm = ({ categories }: Props) => {
           <section>
             <Label>Categoría:</Label>
             <Select
-              onValueChange={(value) => setValue('categoryId', value)}
-              {...register('categoryId', {
-                required: 'El campo categoría es requerido'
+              onValueChange={(value) => setValue("categoryId", value)}
+              {...register("categoryId", {
+                required: "El campo categoría es requerido"
               })}
             >
               <SelectTrigger className="w-full">
@@ -222,16 +222,16 @@ export const NewProductForm = ({ categories }: Props) => {
               id="description"
               rows={18}
               placeholder="Ej. El iPhone 15 Pro Max es el mejor teléfono del mercado..."
-              {...register('description', {
-                required: 'El campo descripción es requerido',
+              {...register("description", {
+                required: "El campo descripción es requerido",
                 minLength: {
                   value: 10,
-                  message: 'La descripción debe tener al menos 10 caracteres'
+                  message: "La descripción debe tener al menos 10 caracteres"
                 },
                 maxLength: {
                   value: 500,
                   message:
-                    'La descripción debe tener como máximo 500 caracteres'
+                    "La descripción debe tener como máximo 500 caracteres"
                 }
               })}
             />
@@ -246,8 +246,8 @@ export const NewProductForm = ({ categories }: Props) => {
             <input
               type="hidden"
               aria-hidden="true"
-              {...register('images', {
-                required: 'El campo imagen es requerido'
+              {...register("images", {
+                required: "El campo imagen es requerido"
               })}
             />
           </section>
@@ -256,7 +256,7 @@ export const NewProductForm = ({ categories }: Props) => {
           <Dropzone
             onDrop={(acceptedFiles) => {
               setImages(acceptedFiles)
-              setValue('images', acceptedFiles)
+              setValue("images", acceptedFiles)
             }}
           >
             {({ getRootProps, getInputProps, isDragActive }) => (
@@ -266,7 +266,7 @@ export const NewProductForm = ({ categories }: Props) => {
                     id="image"
                     {...getInputProps({
                       multiple: true,
-                      accept: 'image/*',
+                      accept: "image/*",
                       max: 5
                     })}
                   />
@@ -328,7 +328,7 @@ export const NewProductForm = ({ categories }: Props) => {
                   <Spinner />
                 </>
               ) : (
-                'Crear producto'
+                "Crear producto"
               )}
             </Button>
           </section>

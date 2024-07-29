@@ -1,11 +1,11 @@
-'use server'
+"use server"
 
-import { revalidatePath } from 'next/cache'
-import { auth } from '@/auth.config'
-import { prisma } from '@/lib'
-import type { ProductAllType } from '@/types'
-import type { UploadApiResponse } from 'cloudinary'
-import { v2 as cloudinary } from 'cloudinary'
+import { revalidatePath } from "next/cache"
+import { auth } from "@/auth.config"
+import { prisma } from "@/lib"
+import type { ProductAllType } from "@/types"
+import type { UploadApiResponse } from "cloudinary"
+import { v2 as cloudinary } from "cloudinary"
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -15,31 +15,31 @@ cloudinary.config({
 
 export async function createProductImage(
   formData: FormData,
-  id: ProductAllType['id'],
-  slug: ProductAllType['slug']
+  id: ProductAllType["id"],
+  slug: ProductAllType["slug"]
 ) {
   try {
     const session = await auth()
     if (!session) {
       return {
         ok: false,
-        message: 'No autorizado'
+        message: "No autorizado"
       }
     }
 
-    const isAdmin = session.user.role.includes('admin')
+    const isAdmin = session.user.role.includes("admin")
     if (!isAdmin) {
       return {
         ok: false,
-        message: 'No autorizado'
+        message: "No autorizado"
       }
     }
 
-    const images = formData.getAll('images') as File[]
+    const images = formData.getAll("images") as File[]
     if (!images) {
       return {
         ok: false,
-        message: 'Datos incorrectos'
+        message: "Datos incorrectos"
       }
     }
 
@@ -51,9 +51,9 @@ export async function createProductImage(
         cloudinary.uploader
           .upload_stream(
             {
-              folder: 'Business Concept',
+              folder: "Business Concept",
               public_id: `${slug}-${id}-${Date.now()}`,
-              resource_type: 'image'
+              resource_type: "image"
             },
             (error, result) => {
               if (error) {
@@ -69,7 +69,7 @@ export async function createProductImage(
       if (!cloudinaryResponse) {
         return {
           ok: false,
-          message: 'Error al subir la imagen del producto'
+          message: "Error al subir la imagen del producto"
         }
       }
 
@@ -88,22 +88,22 @@ export async function createProductImage(
       })
     })
 
-    revalidatePath('/admin/products')
-    revalidatePath('/')
-    revalidatePath('/shop/products')
-    revalidatePath('/shop/products/[category]', 'page')
-    revalidatePath('/shop/product/[slug]', 'page')
-    revalidatePath('/shop/cart')
-    revalidatePath('/shop/checkout')
+    revalidatePath("/admin/products")
+    revalidatePath("/")
+    revalidatePath("/shop/products")
+    revalidatePath("/shop/products/[category]", "page")
+    revalidatePath("/shop/product/[slug]", "page")
+    revalidatePath("/shop/cart")
+    revalidatePath("/shop/checkout")
 
     return {
       ok: true,
-      message: 'Imagen del producto subida correctamente'
+      message: "Imagen del producto subida correctamente"
     }
   } catch (error) {
     return {
       ok: false,
-      message: 'Error al subir la imagen del producto'
+      message: "Error al subir la imagen del producto"
     }
   }
 }

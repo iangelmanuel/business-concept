@@ -1,17 +1,17 @@
-'use server'
+"use server"
 
-import { revalidatePath } from 'next/cache'
-import { auth } from '@/auth.config'
-import { prisma } from '@/lib'
-import type { UserOrderByAdmin } from '@/types'
+import { revalidatePath } from "next/cache"
+import { auth } from "@/auth.config"
+import { prisma } from "@/lib"
+import type { UserOrderByAdmin } from "@/types"
 
-export async function deleteOrderById(orderId: UserOrderByAdmin['id']) {
+export async function deleteOrderById(orderId: UserOrderByAdmin["id"]) {
   try {
     const session = await auth()
-    if (!session) return { ok: false, message: 'No autorizado' }
+    if (!session) return { ok: false, message: "No autorizado" }
 
-    const isAdmin = session.user.role.includes('admin')
-    if (!isAdmin) return { ok: false, message: 'No autorizado' }
+    const isAdmin = session.user.role.includes("admin")
+    if (!isAdmin) return { ok: false, message: "No autorizado" }
 
     await prisma.orderItem.deleteMany({
       where: {
@@ -37,19 +37,19 @@ export async function deleteOrderById(orderId: UserOrderByAdmin['id']) {
       }
     })
 
-    revalidatePath('/admin/orders')
-    revalidatePath('/admin/orders/[id]', 'page')
-    revalidatePath('/dashboard/purchases')
-    revalidatePath('/dashboard/purchases/[id]', 'page')
+    revalidatePath("/admin/orders")
+    revalidatePath("/admin/orders/[id]", "page")
+    revalidatePath("/dashboard/purchases")
+    revalidatePath("/dashboard/purchases/[id]", "page")
 
     return {
       ok: true,
-      message: 'Orden eliminada correctamente'
+      message: "Orden eliminada correctamente"
     }
   } catch (error) {
     return {
       ok: false,
-      message: 'Error al eliminar la orden'
+      message: "Error al eliminar la orden"
     }
   }
 }

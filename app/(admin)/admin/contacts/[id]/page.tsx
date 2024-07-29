@@ -1,7 +1,7 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
-import { notFound } from 'next/navigation'
-import { getContactById } from '@/actions'
+import type { Metadata } from "next"
+import Link from "next/link"
+import { notFound } from "next/navigation"
+import { getContactById } from "@/actions"
 import {
   Avatar,
   AvatarFallback,
@@ -10,16 +10,16 @@ import {
   CardFooter,
   CardHeader,
   SendEmail
-} from '@/components'
-import { titleFont } from '@/config'
-import type { ContactType } from '@/types'
-import { ReturnPage, formatDate, getLettersName } from '@/utils'
-import { Calendar, Mail, Phone, User, User2 } from 'lucide-react'
+} from "@/components"
+import { titleFont } from "@/config"
+import type { ContactType } from "@/types"
+import { ReturnPage, formatDate, getLettersName } from "@/utils"
+import { Calendar, Mail, Phone, User, User2 } from "lucide-react"
 
 export async function generateMetadata({
   params
 }: {
-  params: { id: ContactType['id'] }
+  params: { id: ContactType["id"] }
 }): Promise<Metadata> {
   const { id } = params
   const contactData = await getContactById(id)
@@ -34,17 +34,17 @@ export async function generateMetadata({
 export default async function ContactIdPage({
   params
 }: {
-  params: { id: ContactType['id'] }
+  params: { id: ContactType["id"] }
 }) {
   const { id } = params
   const contactData = await getContactById(id)
   if (!contactData) notFound()
 
-  const userName = contactData.fullName.split(' ')[0]
-  const userLastName = contactData.fullName.split(' ')[1]
+  const userName = contactData.fullName.split(" ")[0]
+  const userLastName = contactData.fullName.split(" ")[1]
 
   const isUser = !!contactData.ContactMessage[0].userId
-  const isUserText = isUser ? 'Usuario registrado' : 'Usuario anónimo'
+  const isUserText = isUser ? "Usuario registrado" : "Usuario anónimo"
 
   const userId = contactData.ContactMessage[0].userId
 
@@ -75,7 +75,7 @@ export default async function ContactIdPage({
             </div>
 
             <div className="flex flex-col items-center">
-              <Mail />{' '}
+              <Mail />{" "}
               <SendEmail
                 email={contactData.email}
                 userFullName={`${userName} ${userLastName}`}

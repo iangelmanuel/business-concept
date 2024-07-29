@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
-import { useTransition } from 'react'
-import { updateUser } from '@/actions'
+import { useTransition } from "react"
+import { updateUser } from "@/actions"
 import {
   Avatar,
   AvatarFallback,
@@ -11,12 +11,12 @@ import {
   Input,
   Label,
   Spinner
-} from '@/components'
-import { titleFont } from '@/config'
-import type { UpdateUser, UserType } from '@/types'
-import { formatDate, getLettersName } from '@/utils'
-import { useForm } from 'react-hook-form'
-import { toast } from 'sonner'
+} from "@/components"
+import { titleFont } from "@/config"
+import type { UpdateUser, UserType } from "@/types"
+import { formatDate, getLettersName } from "@/utils"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 
 interface Props {
   user: UserType
@@ -42,25 +42,25 @@ export const UpdateUserForm = ({ user }: Props) => {
   const onSubmit = async (data: UpdateUser) => {
     const compareDatas = JSON.stringify(data) === JSON.stringify(defaultValues)
     if (compareDatas) {
-      return toast.error('No se han realizado cambios', {
+      return toast.error("No se han realizado cambios", {
         duration: 3000,
-        position: 'top-right'
+        position: "top-right"
       })
     }
 
     startTransition(async () => {
       const response = await updateUser(data)
       if (response.ok) {
-        toast.success('¡Todo salió bien!', {
+        toast.success("¡Todo salió bien!", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       } else {
-        toast.error('Ocurrio un problema', {
+        toast.error("Ocurrio un problema", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       }
     })
@@ -97,15 +97,15 @@ export const UpdateUserForm = ({ user }: Props) => {
               type="text"
               id="name"
               placeholder="Ej. Angel"
-              {...register('name', {
-                required: 'El campo nombre es requerido',
+              {...register("name", {
+                required: "El campo nombre es requerido",
                 minLength: {
                   value: 3,
-                  message: 'El campo nombre debe tener al menos 3 caracteres'
+                  message: "El campo nombre debe tener al menos 3 caracteres"
                 },
                 maxLength: {
                   value: 50,
-                  message: 'El campo nombre debe tener menos de 50 caracteres'
+                  message: "El campo nombre debe tener menos de 50 caracteres"
                 }
               })}
             />
@@ -118,15 +118,15 @@ export const UpdateUserForm = ({ user }: Props) => {
               type="text"
               id="lastname"
               placeholder="Ej. Montaño"
-              {...register('lastname', {
-                required: 'El campo apellido es requerido',
+              {...register("lastname", {
+                required: "El campo apellido es requerido",
                 minLength: {
                   value: 3,
-                  message: 'El campo apellido debe tener al menos 3 caracteres'
+                  message: "El campo apellido debe tener al menos 3 caracteres"
                 },
                 maxLength: {
                   value: 50,
-                  message: 'El campo apellido debe tener menos de 50 caracteres'
+                  message: "El campo apellido debe tener menos de 50 caracteres"
                 }
               })}
             />
@@ -150,15 +150,15 @@ export const UpdateUserForm = ({ user }: Props) => {
               type="email"
               id="email"
               placeholder="Ej. ejemplo@correo.com"
-              {...register('email', {
-                required: 'El campo email es requerido',
+              {...register("email", {
+                required: "El campo email es requerido",
                 pattern: {
                   value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                  message: 'El email no es válido'
+                  message: "El email no es válido"
                 },
                 maxLength: {
                   value: 50,
-                  message: 'El campo email debe tener menos de 50 caracteres'
+                  message: "El campo email debe tener menos de 50 caracteres"
                 }
               })}
             />
@@ -199,7 +199,7 @@ export const UpdateUserForm = ({ user }: Props) => {
               <Spinner />
             </>
           ) : (
-            'Actualizar datos'
+            "Actualizar datos"
           )}
         </Button>
       </div>

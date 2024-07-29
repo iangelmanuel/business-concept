@@ -1,9 +1,9 @@
-'use server'
+"use server"
 
-import { prisma } from '@/lib'
-import { RegisterUserSchema } from '@/schema'
-import type { RegisterUser } from '@/types'
-import bcrypt from 'bcrypt'
+import { prisma } from "@/lib"
+import { RegisterUserSchema } from "@/schema"
+import type { RegisterUser } from "@/types"
+import bcrypt from "bcrypt"
 
 export async function registerUser(data: RegisterUser) {
   try {
@@ -11,7 +11,7 @@ export async function registerUser(data: RegisterUser) {
     if (!response.success) {
       return {
         ok: false,
-        message: 'Ocurrio un error al validar los datos'
+        message: "Ocurrio un error al validar los datos"
       }
     }
 
@@ -19,7 +19,7 @@ export async function registerUser(data: RegisterUser) {
     if (user) {
       return {
         ok: false,
-        message: 'El correo ya se encuentra registrado'
+        message: "El correo ya se encuentra registrado"
       }
     }
 
@@ -32,12 +32,12 @@ export async function registerUser(data: RegisterUser) {
 
     return {
       ok: true,
-      message: 'Usuario registrado correctamente. Por favor inicie sesión'
+      message: "Usuario registrado correctamente. Por favor inicie sesión"
     }
   } catch (error) {
     return {
       ok: false,
-      message: 'Ocurrio un error al registrar el usuario'
+      message: "Ocurrio un error al registrar el usuario"
     }
   }
 }

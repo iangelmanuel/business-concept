@@ -1,13 +1,13 @@
-import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
-import { getAllUsersOrders } from '@/actions'
-import { titleFont } from '@/config'
-import { columns } from './columns'
-import { DataTable } from './data-table'
+import type { Metadata } from "next"
+import { notFound } from "next/navigation"
+import { getAllUsersOrders } from "@/actions"
+import { titleFont } from "@/config"
+import { columns } from "./columns"
+import { DataTable } from "./data-table"
 
 export const metadata: Metadata = {
-  title: 'Ordenes - Business Concept',
-  description: 'Administra las ordenes de la tienda de Business Concept'
+  title: "Ordenes - Business Concept",
+  description: "Administra las ordenes de la tienda de Business Concept"
 }
 
 export default async function UserPage() {

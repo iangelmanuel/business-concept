@@ -1,13 +1,13 @@
-'use server'
+"use server"
 
-import { revalidatePath } from 'next/cache'
-import { auth } from '@/auth.config'
-import { prisma } from '@/lib'
-import { UpdateUserByAdmin } from '@/schema'
-import type { UpdateUserByAdminType, UserType } from '@/types'
+import { revalidatePath } from "next/cache"
+import { auth } from "@/auth.config"
+import { prisma } from "@/lib"
+import { UpdateUserByAdmin } from "@/schema"
+import type { UpdateUserByAdminType, UserType } from "@/types"
 
 export async function updateUserById(
-  id: UserType['id'],
+  id: UserType["id"],
   data: UpdateUserByAdminType
 ) {
   try {
@@ -15,15 +15,15 @@ export async function updateUserById(
     if (!session) {
       return {
         ok: false,
-        message: 'No hay una sesión activa'
+        message: "No hay una sesión activa"
       }
     }
 
-    const isAdmin = session.user.role === 'admin'
+    const isAdmin = session.user.role === "admin"
     if (!isAdmin) {
       return {
         ok: false,
-        message: 'No tienes permisos para realizar esta acción'
+        message: "No tienes permisos para realizar esta acción"
       }
     }
 
@@ -31,7 +31,7 @@ export async function updateUserById(
     if (!result.success) {
       return {
         ok: false,
-        message: 'Datos incorrectos'
+        message: "Datos incorrectos"
       }
     }
 
@@ -50,17 +50,17 @@ export async function updateUserById(
       }
     })
 
-    revalidatePath('/admin/users')
-    revalidatePath('/dashboard/profile')
+    revalidatePath("/admin/users")
+    revalidatePath("/dashboard/profile")
 
     return {
       ok: true,
-      message: 'Usuario actualizado correctamente'
+      message: "Usuario actualizado correctamente"
     }
   } catch (error) {
     return {
       ok: false,
-      message: 'Error al actualizar el usuario'
+      message: "Error al actualizar el usuario"
     }
   }
 }

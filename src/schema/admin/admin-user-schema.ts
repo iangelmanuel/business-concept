@@ -1,5 +1,5 @@
-import { UserGeneralSchema } from '@/schema/user-schema'
-import { z } from 'zod'
+import { UserGeneralSchema } from "@/schema/user-schema"
+import { z } from "zod"
 
 export const UpdateUserByAdmin = z.object({
   name: UserGeneralSchema.shape.name,

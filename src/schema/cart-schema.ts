@@ -1,5 +1,5 @@
-import { z } from 'zod'
-import { ProductImage } from './products-schema'
+import { z } from "zod"
+import { ProductImage } from "./products-schema"
 
 export const CartGeneralSchema = z.object({
   id: z.string(),

@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation'
+import { redirect } from "next/navigation"
 
 export default function InvoicePage() {
-  return redirect('/dashboard/purchases')
+  return redirect("/dashboard/purchases")
 }

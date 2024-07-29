@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { useTransition } from 'react'
+import { useTransition } from "react"
 import {
   Button,
   Dialog,
@@ -15,15 +15,15 @@ import {
   Label,
   Spinner,
   Textarea
-} from '@/components'
-import { sendUserEmail } from '@/email'
-import type { UserType } from '@/types'
-import { useForm } from 'react-hook-form'
-import { toast } from 'sonner'
+} from "@/components"
+import { sendUserEmail } from "@/email"
+import type { UserType } from "@/types"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 
 interface Props {
-  email: UserType['email']
-  userFullName: UserType['name'] | UserType['lastname']
+  email: UserType["email"]
+  userFullName: UserType["name"] | UserType["lastname"]
   isOrder?: boolean
 }
 
@@ -44,8 +44,8 @@ export const SendEmail = ({ email, userFullName, isOrder = false }: Props) => {
   } = useForm<FormData>({
     defaultValues: {
       to: email,
-      subject: '',
-      message: ''
+      subject: "",
+      message: ""
     }
   })
 
@@ -59,23 +59,23 @@ export const SendEmail = ({ email, userFullName, isOrder = false }: Props) => {
       })
 
       if (response.ok) {
-        toast.success('Correo electrónico enviado', {
+        toast.success("Correo electrónico enviado", {
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
         reset()
       } else {
-        toast.error('No se pudo enviar el correo electrónico', {
+        toast.error("No se pudo enviar el correo electrónico", {
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       }
     })
   }
 
   const isOrderText = isOrder
-    ? 'Enviale un correo electrónico a tu cliente para informarle sobre el estado de su pedido.'
-    : 'Enviale un correo electrónico a tu cliente para ponerte en contacto con él.'
+    ? "Enviale un correo electrónico a tu cliente para informarle sobre el estado de su pedido."
+    : "Enviale un correo electrónico a tu cliente para ponerte en contacto con él."
 
   return (
     <Dialog>
@@ -104,7 +104,7 @@ export const SendEmail = ({ email, userFullName, isOrder = false }: Props) => {
               id="to"
               disabled
               value={email}
-              {...register('to')}
+              {...register("to")}
             />
           </section>
 
@@ -114,15 +114,15 @@ export const SendEmail = ({ email, userFullName, isOrder = false }: Props) => {
               type="text"
               id="subject"
               placeholder="Escribe el asunto del correo electrónico"
-              {...register('subject', {
-                required: 'El campo asunto es requerido',
+              {...register("subject", {
+                required: "El campo asunto es requerido",
                 minLength: {
                   value: 5,
-                  message: 'El asunto debe tener al menos 5 caracteres'
+                  message: "El asunto debe tener al menos 5 caracteres"
                 },
                 maxLength: {
                   value: 100,
-                  message: 'El asunto no puede tener más de 100 caracteres'
+                  message: "El asunto no puede tener más de 100 caracteres"
                 }
               })}
             />
@@ -136,15 +136,15 @@ export const SendEmail = ({ email, userFullName, isOrder = false }: Props) => {
             <Textarea
               id="message"
               placeholder="Escribe el mensaje que deseas enviar al cliente"
-              {...register('message', {
-                required: 'El campo mensaje es requerido',
+              {...register("message", {
+                required: "El campo mensaje es requerido",
                 minLength: {
                   value: 5,
-                  message: 'El mensaje debe tener al menos 5 caracteres'
+                  message: "El mensaje debe tener al menos 5 caracteres"
                 },
                 maxLength: {
                   value: 500,
-                  message: 'El mensaje no puede tener más de 500 caracteres'
+                  message: "El mensaje no puede tener más de 500 caracteres"
                 }
               })}
             />
@@ -166,7 +166,7 @@ export const SendEmail = ({ email, userFullName, isOrder = false }: Props) => {
                 <Spinner />
               </>
             ) : (
-              'Enviar correo'
+              "Enviar correo"
             )}
           </Button>
         </DialogFooter>

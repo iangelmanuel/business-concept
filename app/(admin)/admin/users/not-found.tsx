@@ -1,13 +1,13 @@
 // import Image from 'next/image'
-import type { Metadata } from 'next'
-import Link from 'next/link'
-import { titleFont } from '@/config'
+import type { Metadata } from "next"
+import Link from "next/link"
+import { titleFont } from "@/config"
 
 export const metadata: Metadata = {
-  title: 'Datos no encontrado - Business Concept',
+  title: "Datos no encontrado - Business Concept",
   description:
-    'Lo sentimos mucho, pero el dato que buscas no se encuentra en nuestra base de datos. ¡Regresa al inicio!',
-  keywords: 'dato, no encontrado, no existe, no se encuentra'
+    "Lo sentimos mucho, pero el dato que buscas no se encuentra en nuestra base de datos. ¡Regresa al inicio!",
+  keywords: "dato, no encontrado, no existe, no se encuentra"
 }
 
 export default function PageNotFound() {

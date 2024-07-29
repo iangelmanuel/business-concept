@@ -1,7 +1,7 @@
-'use server'
+"use server"
 
-import { auth } from '@/auth.config'
-import { prisma } from '@/lib'
+import { auth } from "@/auth.config"
+import { prisma } from "@/lib"
 
 export async function getProductDeleted() {
   try {
@@ -10,7 +10,7 @@ export async function getProductDeleted() {
       return null
     }
 
-    const isAdmin = session.user.role.includes('admin')
+    const isAdmin = session.user.role.includes("admin")
     if (!isAdmin) {
       return null
     }

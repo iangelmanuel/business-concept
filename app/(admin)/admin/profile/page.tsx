@@ -1,14 +1,14 @@
-import type { Metadata } from 'next'
-import { getSpecificsOrderDatas, getSpecificsUserDatas } from '@/actions'
+import type { Metadata } from "next"
+import { getSpecificsOrderDatas, getSpecificsUserDatas } from "@/actions"
 import {
   GeneralFinanceCards,
   OrderWithApproveStatus,
   PrincipalContent
-} from '@/components'
+} from "@/components"
 
 export const metadata: Metadata = {
-  title: 'Admin Perfil - Business Concept',
-  description: 'Administrador de la tienda en línea Business Concept'
+  title: "Admin Perfil - Business Concept",
+  description: "Administrador de la tienda en línea Business Concept"
 }
 
 export default async function ProfilePage() {

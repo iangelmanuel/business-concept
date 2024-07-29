@@ -1,13 +1,13 @@
-import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
-import { getProductBySlug } from '@/actions'
-import { ProductSlug } from '@/components'
-import type { ProductAllType } from '@/types'
+import type { Metadata } from "next"
+import { notFound } from "next/navigation"
+import { getProductBySlug } from "@/actions"
+import { ProductSlug } from "@/components"
+import type { ProductAllType } from "@/types"
 
 export async function generateMetadata({
   params
 }: {
-  params: { slug: ProductAllType['slug'] }
+  params: { slug: ProductAllType["slug"] }
 }): Promise<Metadata> {
   const { slug } = params
   const { product } = await getProductBySlug(slug)
@@ -20,7 +20,7 @@ export async function generateMetadata({
       title: `${product?.name} - Business Concept`,
       description: `Información acerca de ${product?.name} en nuestra tienda de Business Concept.`,
       url: `https://business-concept.vercel.app/shop/product/${slug}`,
-      type: 'article',
+      type: "article",
       siteName: `${product?.name} - Business Concept`,
       images: [
         {
@@ -37,7 +37,7 @@ export async function generateMetadata({
 export default async function ProductSlugPage({
   params
 }: {
-  params: { slug: ProductAllType['slug'] }
+  params: { slug: ProductAllType["slug"] }
 }) {
   const { slug } = params
   const { product } = await getProductBySlug(slug)

@@ -1,24 +1,24 @@
-'use server'
+"use server"
 
-import { revalidatePath } from 'next/cache'
-import { auth } from '@/auth.config'
-import { prisma } from '@/lib'
-import { AddressGeneralSchema } from '@/schema'
-import type { AddressType } from '@/types'
+import { revalidatePath } from "next/cache"
+import { auth } from "@/auth.config"
+import { prisma } from "@/lib"
+import { AddressGeneralSchema } from "@/schema"
+import type { AddressType } from "@/types"
 
 export async function updateUserAddress(address: AddressType) {
   try {
     const session = await auth()
-    if (!session) return { ok: false, message: 'No autorizado' }
+    if (!session) return { ok: false, message: "No autorizado" }
 
     const userId = session.user.id
     if (userId !== address.userId) {
-      return { ok: false, message: 'No autorizado' }
+      return { ok: false, message: "No autorizado" }
     }
 
     const result = AddressGeneralSchema.safeParse(address)
     if (!result.success) {
-      return { ok: false, message: 'Datos incorrectos' }
+      return { ok: false, message: "Datos incorrectos" }
     }
 
     const isAddressExist = await prisma.userAddress.findUnique({
@@ -26,7 +26,7 @@ export async function updateUserAddress(address: AddressType) {
     })
 
     if (!isAddressExist) {
-      return { ok: false, message: 'Dirección no encontrada' }
+      return { ok: false, message: "Dirección no encontrada" }
     }
 
     await prisma.userAddress.update({
@@ -46,15 +46,15 @@ export async function updateUserAddress(address: AddressType) {
       }
     })
 
-    revalidatePath('/admin/users/[id]', 'page')
-    revalidatePath('/dashboard/addresses')
-    revalidatePath('/shop/address')
+    revalidatePath("/admin/users/[id]", "page")
+    revalidatePath("/dashboard/addresses")
+    revalidatePath("/shop/address")
 
     return {
       ok: true,
-      message: 'Dirección actualizada'
+      message: "Dirección actualizada"
     }
   } catch (error) {
-    return { ok: false, message: 'Error al actualizar la dirección' }
+    return { ok: false, message: "Error al actualizar la dirección" }
   }
 }

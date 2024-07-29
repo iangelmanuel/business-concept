@@ -1,10 +1,10 @@
-'use server'
+"use server"
 
-import { revalidatePath } from 'next/cache'
-import { auth } from '@/auth.config'
-import { prisma } from '@/lib'
-import { UpdateUserSchema } from '@/schema'
-import type { UpdateUser } from '@/types'
+import { revalidatePath } from "next/cache"
+import { auth } from "@/auth.config"
+import { prisma } from "@/lib"
+import { UpdateUserSchema } from "@/schema"
+import type { UpdateUser } from "@/types"
 
 export const updateUser = async (data: UpdateUser) => {
   try {
@@ -13,7 +13,7 @@ export const updateUser = async (data: UpdateUser) => {
     if (!user) {
       return {
         ok: false,
-        message: 'No autorizado'
+        message: "No autorizado"
       }
     }
 
@@ -21,7 +21,7 @@ export const updateUser = async (data: UpdateUser) => {
     if (!result.success) {
       return {
         ok: false,
-        message: 'Datos incorrectos'
+        message: "Datos incorrectos"
       }
     }
 
@@ -34,21 +34,21 @@ export const updateUser = async (data: UpdateUser) => {
       }
     })
 
-    revalidatePath('/admin/users')
-    revalidatePath('/admin/users/[id]', 'page')
-    revalidatePath('/dashboard/profile')
+    revalidatePath("/admin/users")
+    revalidatePath("/admin/users/[id]", "page")
+    revalidatePath("/dashboard/profile")
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { password: _, ...rest } = newUser
     return {
       ok: true,
-      message: 'Usuario actualizado correctamente',
+      message: "Usuario actualizado correctamente",
       user: rest
     }
   } catch (error) {
     return {
       ok: false,
-      message: 'Error al actualizar el usuario'
+      message: "Error al actualizar el usuario"
     }
   }
 }

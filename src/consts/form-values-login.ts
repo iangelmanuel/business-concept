@@ -1,6 +1,6 @@
-import type { LoginUser } from '@/types'
+import type { LoginUser } from "@/types"
 
 export const DEFAULT_LOGIN_VALUES: LoginUser = {
-  email: '',
-  password: ''
+  email: "",
+  password: ""
 }

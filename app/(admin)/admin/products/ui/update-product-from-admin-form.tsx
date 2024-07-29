@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
-import { useEffect, useState, useTransition } from 'react'
-import { getCategories, updateProductById } from '@/actions'
+import { useEffect, useState, useTransition } from "react"
+import { getCategories, updateProductById } from "@/actions"
 import {
   Button,
   DialogFooter,
@@ -17,11 +17,11 @@ import {
   SelectValue,
   Spinner,
   Textarea
-} from '@/components'
-import type { CategoryType, ProductAllType, ProductUpdateForm } from '@/types'
-import { useForm } from 'react-hook-form'
-import { toast } from 'sonner'
-import { HoverCardDiscountDocs } from './hover-card-discount-docs'
+} from "@/components"
+import type { CategoryType, ProductAllType, ProductUpdateForm } from "@/types"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
+import { HoverCardDiscountDocs } from "./hover-card-discount-docs"
 
 interface Props {
   product: ProductAllType
@@ -78,25 +78,25 @@ export const UpdateProductFromAdminForm = ({ product }: Props) => {
     const compareDatas =
       JSON.stringify(productFormData) === JSON.stringify(productToCompare)
     if (compareDatas) {
-      return toast.error('No se han realizado cambios', {
+      return toast.error("No se han realizado cambios", {
         duration: 3000,
-        position: 'top-right'
+        position: "top-right"
       })
     }
 
     startTransition(async () => {
       const response = await updateProductById(id, productToUpdate)
       if (response.ok) {
-        toast.success('¡Todo salió bien!', {
+        toast.success("¡Todo salió bien!", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       } else {
-        toast.error('Ocurrio un problema', {
+        toast.error("Ocurrio un problema", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       }
     })
@@ -117,8 +117,8 @@ export const UpdateProductFromAdminForm = ({ product }: Props) => {
               id="name"
               type="text"
               placeholder="Ej. iPhone 15 Pro Max"
-              {...register('name', {
-                required: 'El campo nombre es requerido'
+              {...register("name", {
+                required: "El campo nombre es requerido"
               })}
             />
             {errors.name && <ErrorMessage>{errors.name.message}</ErrorMessage>}
@@ -130,8 +130,8 @@ export const UpdateProductFromAdminForm = ({ product }: Props) => {
               id="stock"
               type="number"
               placeholder="Ej. 10"
-              {...register('stock', {
-                required: 'El campo disponibilidad es requerido'
+              {...register("stock", {
+                required: "El campo disponibilidad es requerido"
               })}
             />
             {errors.stock && (
@@ -145,8 +145,8 @@ export const UpdateProductFromAdminForm = ({ product }: Props) => {
               id="price"
               type="number"
               placeholder="Ej. 3600000"
-              {...register('price', {
-                required: 'El campo disponibilidad es requerido'
+              {...register("price", {
+                required: "El campo disponibilidad es requerido"
               })}
             />
             {errors.price && (
@@ -167,15 +167,15 @@ export const UpdateProductFromAdminForm = ({ product }: Props) => {
               id="discount"
               type="number"
               placeholder="Ej. 0.1 para un 10% de descuento"
-              {...register('discount', {
-                required: 'El campo descuento campo es requerido',
+              {...register("discount", {
+                required: "El campo descuento campo es requerido",
                 min: {
                   value: 0.01,
-                  message: 'El descuento no puede ser menor o igual a 0'
+                  message: "El descuento no puede ser menor o igual a 0"
                 },
                 max: {
                   value: 1,
-                  message: 'El descuento no puede ser mayor a 1'
+                  message: "El descuento no puede ser mayor a 1"
                 }
               })}
             />
@@ -187,8 +187,8 @@ export const UpdateProductFromAdminForm = ({ product }: Props) => {
           <section>
             <Label htmlFor="category">Categoría:</Label>
             <Select
-              onValueChange={(value) => setValue('category.id', value)}
-              {...register('category.id')}
+              onValueChange={(value) => setValue("category.id", value)}
+              {...register("category.id")}
             >
               <SelectTrigger className="w-full capitalize">
                 <SelectValue placeholder={restOfProduct.category.name} />
@@ -222,8 +222,8 @@ export const UpdateProductFromAdminForm = ({ product }: Props) => {
               id="description"
               rows={18}
               placeholder="Ej. El iPhone 15 Pro Max es el mejor teléfono que jamás hayamos creado. Con una pantalla Super Retina XDR de 6.7 pulgadas, el chip A15 Bionic, el sistema de cámara Pro y mucho más, es un verdadero prodigio de la tecnología."
-              {...register('description', {
-                required: 'El campo descripción es requerido'
+              {...register("description", {
+                required: "El campo descripción es requerido"
               })}
             />
             {errors.description && (
@@ -245,7 +245,7 @@ export const UpdateProductFromAdminForm = ({ product }: Props) => {
               <Spinner />
             </>
           ) : (
-            'Guardar Cambios'
+            "Guardar Cambios"
           )}
         </Button>
       </DialogFooter>

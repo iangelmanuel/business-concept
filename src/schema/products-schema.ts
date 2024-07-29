@@ -1,5 +1,5 @@
-import { z } from 'zod'
-import { CategoryGenralSchema } from './category-schema'
+import { z } from "zod"
+import { CategoryGenralSchema } from "./category-schema"
 
 export const ProductGeneralSchema = z.object({
   id: z.string(),
@@ -17,7 +17,7 @@ export const ProductGeneralSchema = z.object({
 // Product Image Schema
 export const ProductImage = z.object({
   id: z.string(),
-  url: z.string().startsWith('http'),
+  url: z.string().startsWith("http"),
   publicId: z.string().nullable(),
   productId: ProductGeneralSchema.shape.id
 })

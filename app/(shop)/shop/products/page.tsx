@@ -1,21 +1,21 @@
-import type { Metadata } from 'next'
-import Image from 'next/image'
-import Link from 'next/link'
-import { notFound } from 'next/navigation'
-import { getAllProducts } from '@/actions'
+import type { Metadata } from "next"
+import Image from "next/image"
+import Link from "next/link"
+import { notFound } from "next/navigation"
+import { getAllProducts } from "@/actions"
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   PriceWithPosibleDiscount
-} from '@/components'
-import { titleFont } from '@/config'
+} from "@/components"
+import { titleFont } from "@/config"
 
 export const metadata: Metadata = {
-  title: 'Nuestros Productos - Business Concept',
+  title: "Nuestros Productos - Business Concept",
   description:
-    'Descubre todos los productos que tenemos en Business Concept. Desde productos de limpieza, hasta productos de oficina. ¡Descubre todo lo que tenemos para ti!'
+    "Descubre todos los productos que tenemos en Business Concept. Desde productos de limpieza, hasta productos de oficina. ¡Descubre todo lo que tenemos para ti!"
 }
 
 export default async function ShopProductsPage() {

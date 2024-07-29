@@ -1,6 +1,6 @@
-'use server'
+"use server"
 
-import { prisma } from '@/lib'
+import { prisma } from "@/lib"
 
 export async function getCategories() {
   try {

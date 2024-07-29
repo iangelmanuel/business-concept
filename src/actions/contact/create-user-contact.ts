@@ -1,9 +1,9 @@
-'use server'
+"use server"
 
-import { auth } from '@/auth.config'
-import { prisma } from '@/lib'
-import { CreateContactSchema } from '@/schema'
-import type { ContactFormType } from '@/types'
+import { auth } from "@/auth.config"
+import { prisma } from "@/lib"
+import { CreateContactSchema } from "@/schema"
+import type { ContactFormType } from "@/types"
 
 export async function createUserContact(data: ContactFormType) {
   try {
@@ -14,7 +14,7 @@ export async function createUserContact(data: ContactFormType) {
     if (!result.success) {
       return {
         ok: false,
-        message: 'Error en los datos'
+        message: "Error en los datos"
       }
     }
 
@@ -37,12 +37,12 @@ export async function createUserContact(data: ContactFormType) {
 
     return {
       ok: true,
-      message: 'Tu contacto ha sido enviado correctamente'
+      message: "Tu contacto ha sido enviado correctamente"
     }
   } catch (error) {
     return {
       ok: false,
-      message: 'Error al crear el contacto'
+      message: "Error al crear el contacto"
     }
   }
 }

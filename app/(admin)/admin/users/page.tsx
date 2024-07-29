@@ -1,13 +1,13 @@
-import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
-import { getAllUsers } from '@/actions'
-import { titleFont } from '@/config'
-import { columns } from './columns'
-import { DataTable } from './data-table'
+import type { Metadata } from "next"
+import { notFound } from "next/navigation"
+import { getAllUsers } from "@/actions"
+import { titleFont } from "@/config"
+import { columns } from "./columns"
+import { DataTable } from "./data-table"
 
 export const metadata: Metadata = {
-  title: 'Usuarios - Business Concept',
-  description: 'Administra a tus usuarios en Business Concept'
+  title: "Usuarios - Business Concept",
+  description: "Administra a tus usuarios en Business Concept"
 }
 
 export default async function UserPage() {

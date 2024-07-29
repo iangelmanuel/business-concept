@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import { useState, useTransition } from 'react'
-import Image from 'next/image'
-import { createProductImage, deleteProductImage } from '@/actions'
+import { useState, useTransition } from "react"
+import Image from "next/image"
+import { createProductImage, deleteProductImage } from "@/actions"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -20,12 +20,12 @@ import {
   Label,
   Spinner,
   buttonVariants
-} from '@/components'
-import type { ProductAllType, ProductImage } from '@/types'
-import { ChevronDown, CircleX, Upload } from 'lucide-react'
-import Dropzone from 'react-dropzone'
-import { useForm } from 'react-hook-form'
-import { toast } from 'sonner'
+} from "@/components"
+import type { ProductAllType, ProductImage } from "@/types"
+import { ChevronDown, CircleX, Upload } from "lucide-react"
+import Dropzone from "react-dropzone"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 
 interface Props {
   product: ProductAllType
@@ -57,43 +57,43 @@ export const UpdateProductImageForm = ({ product }: Props) => {
 
     const formData = new FormData()
     formDataImages.forEach((file) => {
-      formData.append('images', file)
+      formData.append("images", file)
     })
 
     startTransition(async () => {
       const response = await createProductImage(formData, id, slug)
       if (response.ok) {
-        toast.success('¡Todo salió bien!', {
+        toast.success("¡Todo salió bien!", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
         setImage(null)
       } else {
-        toast.error('Ocurrio un problema', {
+        toast.error("Ocurrio un problema", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       }
     })
   }
 
-  const handleClickDeleteImage = (imageId: ProductImage['id']) => {
+  const handleClickDeleteImage = (imageId: ProductImage["id"]) => {
     startTransition(async () => {
       const response = await deleteProductImage(imageId)
       if (response.ok) {
-        toast.success('¡Todo salió bien!', {
+        toast.success("¡Todo salió bien!", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
         setIsDeleteModalOpen(false)
       } else {
-        toast.error('Ocurrio un problema', {
+        toast.error("Ocurrio un problema", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       }
     })
@@ -147,7 +147,7 @@ export const UpdateProductImageForm = ({ product }: Props) => {
 
                     <AlertDialogAction
                       onClick={() => handleClickDeleteImage(image.id)}
-                      className={buttonVariants({ variant: 'destructive' })}
+                      className={buttonVariants({ variant: "destructive" })}
                     >
                       Eliminar
                     </AlertDialogAction>
@@ -168,8 +168,8 @@ export const UpdateProductImageForm = ({ product }: Props) => {
           <input
             type="hidden"
             aria-hidden="true"
-            {...register('image', {
-              required: 'El campo imagen es requerido'
+            {...register("image", {
+              required: "El campo imagen es requerido"
             })}
           />
         </form>
@@ -180,7 +180,7 @@ export const UpdateProductImageForm = ({ product }: Props) => {
         <Dropzone
           onDrop={(acceptedFiles) => {
             setImage(acceptedFiles)
-            setValue('image', acceptedFiles)
+            setValue("image", acceptedFiles)
           }}
         >
           {({ getRootProps, getInputProps, isDragActive }) => (
@@ -190,7 +190,7 @@ export const UpdateProductImageForm = ({ product }: Props) => {
                   id="image"
                   {...getInputProps({
                     multiple: true,
-                    accept: 'image/*',
+                    accept: "image/*",
                     max: 5
                   })}
                 />
@@ -255,7 +255,7 @@ export const UpdateProductImageForm = ({ product }: Props) => {
               <Spinner />
             </>
           ) : (
-            'Guardar Cambios'
+            "Guardar Cambios"
           )}
         </Button>
       </DialogFooter>

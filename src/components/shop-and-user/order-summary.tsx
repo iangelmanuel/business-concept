@@ -1,9 +1,9 @@
-import { notFound } from 'next/navigation'
-import { Card, CardContent, CardDescription, CardHeader } from '@/components'
-import { titleFont } from '@/config'
-import type { UserOrder } from '@/types'
-import { formatCurrency } from '@/utils'
-import { EpaycoButton } from './epayco-button'
+import { notFound } from "next/navigation"
+import { Card, CardContent, CardDescription, CardHeader } from "@/components"
+import { titleFont } from "@/config"
+import type { UserOrder } from "@/types"
+import { formatCurrency } from "@/utils"
+import { EpaycoButton } from "./epayco-button"
 
 interface Props {
   order: UserOrder
@@ -14,11 +14,11 @@ export const OrderSummary = ({ order, isAdmin = false }: Props) => {
   const address = order.OrderAddress
   if (!address) return notFound()
 
-  const isAdminTitle = isAdmin ? 'Orden del usuario' : 'Resumen de la compra'
+  const isAdminTitle = isAdmin ? "Orden del usuario" : "Resumen de la compra"
 
   const isAdminCardDescription = isAdmin
     ? `Orden: ${order.id}`
-    : 'Por favor, revisa los productos seleccionados antes de proceder al pago.'
+    : "Por favor, revisa los productos seleccionados antes de proceder al pago."
 
   return (
     <section className="order-1 lg:order-2">

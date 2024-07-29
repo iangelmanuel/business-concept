@@ -1,22 +1,22 @@
-'use server'
+"use server"
 
-import { revalidatePath } from 'next/cache'
-import { auth } from '@/auth.config'
-import { prisma } from '@/lib'
-import { AddressFormSchema } from '@/schema'
-import type { AddressForm } from '@/types'
+import { revalidatePath } from "next/cache"
+import { auth } from "@/auth.config"
+import { prisma } from "@/lib"
+import { AddressFormSchema } from "@/schema"
+import type { AddressForm } from "@/types"
 
 export async function saveUserAddress(addressFormData: AddressForm) {
   try {
     const session = await auth()
     if (!session) {
-      return { ok: false, message: 'No estas autenticado' }
+      return { ok: false, message: "No estas autenticado" }
     }
     const userId = session.user.id
 
     const result = AddressFormSchema.safeParse(addressFormData)
     if (!result.success) {
-      return { ok: false, message: 'Datos incorrectos' }
+      return { ok: false, message: "Datos incorrectos" }
     }
 
     await prisma.userAddress.create({
@@ -36,13 +36,13 @@ export async function saveUserAddress(addressFormData: AddressForm) {
       }
     })
 
-    revalidatePath('/admin/users/[id]', 'page')
-    revalidatePath('/dashboard/addresses')
-    revalidatePath('/shop/address')
+    revalidatePath("/admin/users/[id]", "page")
+    revalidatePath("/dashboard/addresses")
+    revalidatePath("/shop/address")
 
-    return { ok: true, message: 'Dirección guardada correctamente' }
+    return { ok: true, message: "Dirección guardada correctamente" }
   } catch (error) {
     console.error(error)
-    return { ok: false, message: 'Error al guardar la dirección' }
+    return { ok: false, message: "Error al guardar la dirección" }
   }
 }

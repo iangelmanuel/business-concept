@@ -1,11 +1,11 @@
-'use client'
+"use client"
 
 import type {
   ColumnDef,
   ColumnFiltersState,
   SortingState,
   VisibilityState
-} from '@tanstack/react-table'
+} from "@tanstack/react-table"
 import {
   flexRender,
   getCoreRowModel,
@@ -13,9 +13,9 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
   useReactTable
-} from '@tanstack/react-table'
-import React, { useState, useTransition } from 'react'
-import { deleteManyOrders } from '@/actions'
+} from "@tanstack/react-table"
+import React, { useState, useTransition } from "react"
+import { deleteManyOrders } from "@/actions"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -47,10 +47,10 @@ import {
   TableHeader,
   TableRow,
   buttonVariants
-} from '@/components'
-import type { UserOrderByAdmin } from '@/types'
-import { ChevronLeft, ChevronRight, Settings2 } from 'lucide-react'
-import { toast } from 'sonner'
+} from "@/components"
+import type { UserOrderByAdmin } from "@/types"
+import { ChevronLeft, ChevronRight, Settings2 } from "lucide-react"
+import { toast } from "sonner"
 
 type DataTableProps<TData, TValue> = {
   columns: ColumnDef<TData, TValue>[]
@@ -94,12 +94,12 @@ export function DataTable<TData, TValue>({
       <section className="flex flex-col-reverse items-center justify-center gap-y-2 py-4 sm:flex-row sm:justify-between sm:gap-y-0">
         <Input
           value={
-            (table.getColumn('user.email')?.getFilterValue() as string) ?? ''
+            (table.getColumn("user.email")?.getFilterValue() as string) ?? ""
           }
           placeholder="Filtrar por correo electrónico"
           onChange={(e) => {
             const value = e.target.value
-            table.getColumn('user.email')?.setFilterValue(value)
+            table.getColumn("user.email")?.setFilterValue(value)
           }}
           className="w-full sm:max-w-sm"
         />
@@ -119,7 +119,7 @@ export function DataTable<TData, TValue>({
                       <Spinner />
                     </>
                   ) : (
-                    'Eliminar'
+                    "Eliminar"
                   )}
                 </Button>
               </AlertDialogTrigger>
@@ -153,22 +153,22 @@ export function DataTable<TData, TValue>({
                       startTransition(async () => {
                         const response = await deleteManyOrders(ordersId)
                         if (response.ok) {
-                          toast.success('¡Todo salió bien!', {
+                          toast.success("¡Todo salió bien!", {
                             description: response.message,
                             duration: 3000,
-                            position: 'top-right'
+                            position: "top-right"
                           })
                           setRowSelection({})
                         } else {
-                          toast.error('Ocurrio un problema', {
+                          toast.error("Ocurrio un problema", {
                             description: response.message,
                             duration: 3000,
-                            position: 'top-right'
+                            position: "top-right"
                           })
                         }
                       })
                     }}
-                    className={buttonVariants({ variant: 'destructive' })}
+                    className={buttonVariants({ variant: "destructive" })}
                   >
                     Eliminar
                   </AlertDialogAction>
@@ -192,7 +192,7 @@ export function DataTable<TData, TValue>({
             {table
               .getAllColumns()
               .filter((column) => column.getCanHide())
-              .filter((column) => column.id !== 'actions')
+              .filter((column) => column.id !== "actions")
               .map((column) => {
                 return (
                   <DropdownMenuCheckboxItem
@@ -237,7 +237,7 @@ export function DataTable<TData, TValue>({
               table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
-                  data-state={row.getIsSelected() && 'selected'}
+                  data-state={row.getIsSelected() && "selected"}
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
@@ -266,7 +266,7 @@ export function DataTable<TData, TValue>({
       <section className="flex flex-col items-center justify-between py-4 sm:flex-row">
         <div className="flex items-center justify-between">
           <section className="flex-1 text-sm text-muted-foreground">
-            {table.getFilteredSelectedRowModel().rows.length} de{' '}
+            {table.getFilteredSelectedRowModel().rows.length} de{" "}
             {table.getFilteredRowModel().rows.length} fila(s) seleccionadas.
           </section>
         </div>
@@ -296,7 +296,7 @@ export function DataTable<TData, TValue>({
 
           <section>
             <span className="text-center text-sm text-muted-foreground sm:text-start">
-              Página {table.getState().pagination.pageIndex + 1} de{' '}
+              Página {table.getState().pagination.pageIndex + 1} de{" "}
               {table.getPageCount()}
             </span>
           </section>

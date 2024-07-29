@@ -1,12 +1,12 @@
-import type { Metadata } from 'next'
-import { getCategories } from '@/actions'
-import { NewProductForm } from '@/components'
-import { titleFont } from '@/config'
-import { ReturnPage } from '@/utils'
+import type { Metadata } from "next"
+import { getCategories } from "@/actions"
+import { NewProductForm } from "@/components"
+import { titleFont } from "@/config"
+import { ReturnPage } from "@/utils"
 
 export const metadata: Metadata = {
-  title: 'Nuevo producto - Business Concept',
-  description: 'Crea un nuevo producto'
+  title: "Nuevo producto - Business Concept",
+  description: "Crea un nuevo producto"
 }
 
 export default async function ProductNewPage() {

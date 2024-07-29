@@ -1,19 +1,19 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
+import type { Metadata } from "next"
+import Link from "next/link"
 import {
   Card,
   CardDescription,
   CardHeader,
   CardRegisterForm
-} from '@/components'
-import { titleFont } from '@/config'
+} from "@/components"
+import { titleFont } from "@/config"
 
 export const metadata: Metadata = {
-  title: 'Registrate en Business Concept',
+  title: "Registrate en Business Concept",
   description:
-    'Registrate en Business Concept y accede a todas las funcionalidades de la plataforma.',
-  keywords: 'business concept, registrate, registro, cuenta, usuario, empresa',
-  robots: 'noindex, nofollow'
+    "Registrate en Business Concept y accede a todas las funcionalidades de la plataforma.",
+  keywords: "business concept, registrate, registro, cuenta, usuario, empresa",
+  robots: "noindex, nofollow"
 }
 
 export default function RegisterPage() {
@@ -38,7 +38,7 @@ export default function RegisterPage() {
 
       <article className="mt-4 text-center">
         <p>
-          ¿Ya tienes una cuenta?{' '}
+          ¿Ya tienes una cuenta?{" "}
           <Link
             href="/auth/login"
             className="text-primary hover:underline"

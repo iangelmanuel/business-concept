@@ -1,6 +1,6 @@
-import { z } from 'zod'
-import { AddressGeneralSchema, OrderAddressSchema } from './address-schema'
-import { ProductGeneralSchema, ProductImage } from './products-schema'
+import { z } from "zod"
+import { AddressGeneralSchema, OrderAddressSchema } from "./address-schema"
+import { ProductGeneralSchema, ProductImage } from "./products-schema"
 
 export const OrderGeneralSchema = z.object({
   id: z.string(),
@@ -10,12 +10,12 @@ export const OrderGeneralSchema = z.object({
   total: z.number(),
   itemsInOrder: z.number(),
   orderStatus: z.enum([
-    'pending',
-    'processing',
-    'approved',
-    'shipped',
-    'delivered',
-    'cancelled'
+    "pending",
+    "processing",
+    "approved",
+    "shipped",
+    "delivered",
+    "cancelled"
   ]),
   paidAt: z.date().nullable(),
   transactionId: z.string().nullable(),

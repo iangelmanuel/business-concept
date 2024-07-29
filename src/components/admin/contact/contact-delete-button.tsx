@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import { useTransition } from 'react'
-import Link from 'next/link'
-import { deleteUserContact } from '@/actions'
+import { useTransition } from "react"
+import Link from "next/link"
+import { deleteUserContact } from "@/actions"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -17,12 +17,12 @@ import {
   CardFooter,
   Spinner,
   buttonVariants
-} from '@/components'
-import type { ContactType } from '@/types'
-import { toast } from 'sonner'
+} from "@/components"
+import type { ContactType } from "@/types"
+import { toast } from "sonner"
 
 interface Props {
-  contactId: ContactType['id']
+  contactId: ContactType["id"]
 }
 
 export const ContactDeleteButton = ({ contactId }: Props) => {
@@ -32,16 +32,16 @@ export const ContactDeleteButton = ({ contactId }: Props) => {
     startTransition(async () => {
       const response = await deleteUserContact(contactId)
       if (response.ok) {
-        toast.success('¡Todo salió bien!', {
+        toast.success("¡Todo salió bien!", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       } else {
-        toast.error('Ocurrio un problema', {
+        toast.error("Ocurrio un problema", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       }
     })
@@ -65,7 +65,7 @@ export const ContactDeleteButton = ({ contactId }: Props) => {
                 <Spinner />
               </>
             ) : (
-              'Eliminar'
+              "Eliminar"
             )}
           </Button>
         </AlertDialogTrigger>
@@ -83,7 +83,7 @@ export const ContactDeleteButton = ({ contactId }: Props) => {
             <AlertDialogCancel>Cancel</AlertDialogCancel>
             <AlertDialogAction
               onClick={handleClickDeleteContact}
-              className={buttonVariants({ variant: 'destructive' })}
+              className={buttonVariants({ variant: "destructive" })}
             >
               Eliminar
             </AlertDialogAction>

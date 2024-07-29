@@ -4,11 +4,11 @@ import {
   CardDescription,
   CardFooter,
   CardHeader
-} from '@/components'
-import { titleFont } from '@/config'
-import type { EpaycoResponse } from '@/types'
-import { formatCurrency, formatDate } from '@/utils'
-import { CheckCircle, XCircleIcon } from 'lucide-react'
+} from "@/components"
+import { titleFont } from "@/config"
+import type { EpaycoResponse } from "@/types"
+import { formatCurrency, formatDate } from "@/utils"
+import { CheckCircle, XCircleIcon } from "lucide-react"
 
 interface Props {
   dataPayco: EpaycoResponse
@@ -17,8 +17,8 @@ interface Props {
 
 export const ConfirmationData = ({ dataPayco, refPayco }: Props) => {
   const isStatusOk =
-    dataPayco.data.x_response === 'Aceptada' &&
-    dataPayco.data.x_response_reason_text === 'Aprobada'
+    dataPayco.data.x_response === "Aceptada" &&
+    dataPayco.data.x_response_reason_text === "Aprobada"
 
   return dataPayco.success ? (
     <article className="mx-auto max-w-screen-md">
@@ -41,7 +41,7 @@ export const ConfirmationData = ({ dataPayco, refPayco }: Props) => {
           <h1
             className={`${titleFont.className} text-center text-3xl font-bold`}
           >
-            {isStatusOk ? 'Transacción Aceptada' : dataPayco.data.x_respuesta}
+            {isStatusOk ? "Transacción Aceptada" : dataPayco.data.x_respuesta}
           </h1>
 
           <h2

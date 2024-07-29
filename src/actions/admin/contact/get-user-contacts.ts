@@ -1,14 +1,14 @@
-'use server'
+"use server"
 
-import { auth } from '@/auth.config'
-import { prisma } from '@/lib'
+import { auth } from "@/auth.config"
+import { prisma } from "@/lib"
 
 export async function getUserContacts() {
   try {
     const session = await auth()
     if (!session) return null
 
-    const isAdmin = session.user.role.includes('admin')
+    const isAdmin = session.user.role.includes("admin")
     if (!isAdmin) return null
 
     const userContacts = await prisma.contact.findMany({
@@ -19,7 +19,7 @@ export async function getUserContacts() {
           }
         }
       },
-      orderBy: { createdAt: 'desc' }
+      orderBy: { createdAt: "desc" }
     })
 
     return userContacts

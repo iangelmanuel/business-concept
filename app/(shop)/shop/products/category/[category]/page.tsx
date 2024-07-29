@@ -1,7 +1,7 @@
-import type { Metadata } from 'next'
-import Image from 'next/image'
-import Link from 'next/link'
-import { getProductByCategory } from '@/actions'
+import type { Metadata } from "next"
+import Image from "next/image"
+import Link from "next/link"
+import { getProductByCategory } from "@/actions"
 import {
   Card,
   CardContent,
@@ -10,8 +10,8 @@ import {
   CardHeader,
   PriceWithPosibleDiscount,
   ProductsButtonCart
-} from '@/components'
-import { titleFont } from '@/config'
+} from "@/components"
+import { titleFont } from "@/config"
 
 export async function generateMetadata({
   params
@@ -37,7 +37,7 @@ export default async function CategoryProductPage({
     <section className="mx-auto mt-10 max-w-screen-2xl p-5 2xl:p-0">
       <article>
         <h2 className={`text-xl font-bold ${titleFont.className} mb-2`}>
-          Productos de la categoria{' '}
+          Productos de la categoria{" "}
           <span className="capitalize">{params.category}</span>
         </h2>
         <section className="grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-5">

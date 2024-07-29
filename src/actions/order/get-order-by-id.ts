@@ -1,7 +1,7 @@
-'use server'
+"use server"
 
-import { auth } from '@/auth.config'
-import { prisma } from '@/lib'
+import { auth } from "@/auth.config"
+import { prisma } from "@/lib"
 
 export const getOrderById = async (id: string) => {
   try {
@@ -48,7 +48,7 @@ export const getOrderById = async (id: string) => {
       }
     })
 
-    if (userRoleSession === 'user') {
+    if (userRoleSession === "user") {
       if (userIdSession !== order?.userId) return null
     }
 

@@ -4,8 +4,8 @@ import type {
   ProductToOrderSchema,
   UserOrderSchema,
   UserOrderTrackingSchema
-} from '@/schema'
-import type { z } from 'zod'
+} from "@/schema"
+import type { z } from "zod"
 
 export type Order = z.infer<typeof OrderGeneralSchema>
 export type UserOrder = z.infer<typeof UserOrderSchema>
@@ -14,14 +14,14 @@ export type UserOrderTracking = z.infer<typeof UserOrderTrackingSchema>
 export type OrderGridType = z.infer<typeof OrderGridSchema>
 
 export interface OrderStatusLang {
-  pending: 'Pendiente'
-  processing: 'Procesando'
-  approved: 'Aprobado'
-  shipped: 'Enviado'
-  delivered: 'Entregado'
-  cancelled: 'Cancelado'
+  pending: "Pendiente"
+  processing: "Procesando"
+  approved: "Aprobado"
+  shipped: "Enviado"
+  delivered: "Entregado"
+  cancelled: "Cancelado"
 }
 
 interface OrderStatusFormValues {
-  orderStatus: UserOrder['orderStatus']
+  orderStatus: UserOrder["orderStatus"]
 }

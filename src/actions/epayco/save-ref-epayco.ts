@@ -1,13 +1,13 @@
-'use server'
+"use server"
 
-import { revalidatePath } from 'next/cache'
-import { auth } from '@/auth.config'
-import { prisma } from '@/lib'
-import type { EpaycoResponse, UserOrder } from '@/types'
+import { revalidatePath } from "next/cache"
+import { auth } from "@/auth.config"
+import { prisma } from "@/lib"
+import type { EpaycoResponse, UserOrder } from "@/types"
 
 export async function saveRefEpayco(
   refPayco: string,
-  orderId: UserOrder['id']
+  orderId: UserOrder["id"]
 ) {
   try {
     const session = auth()
@@ -22,7 +22,7 @@ export async function saveRefEpayco(
     if (!isOrderExists) return { ok: false }
 
     const isOrderPaid = await checkIfOrderSuccess(refPayco)
-    const orderStatus = isOrderPaid ? 'approved' : 'cancelled'
+    const orderStatus = isOrderPaid ? "approved" : "cancelled"
 
     await prisma.order.update({
       where: {
@@ -35,11 +35,11 @@ export async function saveRefEpayco(
       }
     })
 
-    revalidatePath('/admin/orders')
-    revalidatePath('/dashboard/purchases')
-    revalidatePath('/dashboard/purchases/order')
-    revalidatePath('/dashboard/purchases/order/[id]', 'page')
-    revalidatePath('/shop/payment')
+    revalidatePath("/admin/orders")
+    revalidatePath("/dashboard/purchases")
+    revalidatePath("/dashboard/purchases/order")
+    revalidatePath("/dashboard/purchases/order/[id]", "page")
+    revalidatePath("/shop/payment")
 
     return { ok: true }
   } catch (error) {
@@ -50,18 +50,18 @@ export async function saveRefEpayco(
 async function checkIfOrderSuccess(refPayco: string) {
   const url = `https://secure.epayco.co/validation/v1/reference/${refPayco}`
   const response = await fetch(url, {
-    method: 'GET',
+    method: "GET",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       Authorization: `Bearer ${process.env.EPAYCO_PUBLIC_KEY}`
     },
-    cache: 'force-cache'
+    cache: "force-cache"
   })
   const data = (await response.json()) as EpaycoResponse
 
   const isStatusOk =
-    data.data.x_response === 'Aceptada' &&
-    data.data.x_response_reason_text === 'Aprobada'
+    data.data.x_response === "Aceptada" &&
+    data.data.x_response_reason_text === "Aprobada"
 
   return isStatusOk
 }

@@ -1,13 +1,13 @@
-'use server'
+"use server"
 
-import { prisma } from '@/lib'
-import { LocationsSchema } from '@/schema'
+import { prisma } from "@/lib"
+import { LocationsSchema } from "@/schema"
 
 export async function getLocationData() {
   try {
     const locationData = await prisma.location.findMany({
       orderBy: {
-        department: 'asc'
+        department: "asc"
       }
     })
 

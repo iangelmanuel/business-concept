@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import { Button } from '@/components'
-import { useCartStore } from '@/store'
-import type { ProductAllType } from '@/types'
-import { toast } from 'sonner'
+import { Button } from "@/components"
+import { useCartStore } from "@/store"
+import type { ProductAllType } from "@/types"
+import { toast } from "sonner"
 
 interface Props {
   product: ProductAllType
@@ -32,9 +32,9 @@ export const ProductsButtonCart = ({ product }: Props) => {
       quantity: 1,
       image
     })
-    toast.success('Producto añadido al carrito', {
+    toast.success("Producto añadido al carrito", {
       duration: 3000,
-      position: 'top-right'
+      position: "top-right"
     })
   }
 

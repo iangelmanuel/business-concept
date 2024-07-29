@@ -1,29 +1,29 @@
-'use server'
+"use server"
 
-import { revalidatePath } from 'next/cache'
-import { auth } from '@/auth.config'
-import { prisma } from '@/lib'
-import { AddProductsDiscount } from '@/schema'
-import type { ProductAllType } from '@/types'
+import { revalidatePath } from "next/cache"
+import { auth } from "@/auth.config"
+import { prisma } from "@/lib"
+import { AddProductsDiscount } from "@/schema"
+import type { ProductAllType } from "@/types"
 
 export async function addProductsDiscount(
-  ids: ProductAllType['id'][],
-  discount: ProductAllType['discount']
+  ids: ProductAllType["id"][],
+  discount: ProductAllType["discount"]
 ) {
   try {
     const session = await auth()
     if (!session) {
       return {
         ok: false,
-        message: 'No autorizado'
+        message: "No autorizado"
       }
     }
 
-    const isAdmin = session.user.role.includes('admin')
+    const isAdmin = session.user.role.includes("admin")
     if (!isAdmin) {
       return {
         ok: false,
-        message: 'No autorizado'
+        message: "No autorizado"
       }
     }
 
@@ -31,7 +31,7 @@ export async function addProductsDiscount(
     if (!result.success) {
       return {
         ok: false,
-        message: 'Datos incorrectos'
+        message: "Datos incorrectos"
       }
     }
 
@@ -46,23 +46,23 @@ export async function addProductsDiscount(
       }
     })
 
-    revalidatePath('/admin/products')
-    revalidatePath('/')
-    revalidatePath('/shop/products')
-    revalidatePath('/shop/products/[category]', 'page')
-    revalidatePath('/shop/product/[slug]', 'page')
-    revalidatePath('/shop/cart')
-    revalidatePath('/shop/checkout')
+    revalidatePath("/admin/products")
+    revalidatePath("/")
+    revalidatePath("/shop/products")
+    revalidatePath("/shop/products/[category]", "page")
+    revalidatePath("/shop/product/[slug]", "page")
+    revalidatePath("/shop/cart")
+    revalidatePath("/shop/checkout")
 
     return {
       ok: true,
       message:
-        'Descuento aplicado para todos los productos seleccionados correctamente'
+        "Descuento aplicado para todos los productos seleccionados correctamente"
     }
   } catch (error) {
     return {
       ok: true,
-      message: 'Error al aplicar el descuento a los productos seleccionados'
+      message: "Error al aplicar el descuento a los productos seleccionados"
     }
   }
 }

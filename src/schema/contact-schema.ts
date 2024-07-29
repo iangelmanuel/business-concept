@@ -1,5 +1,5 @@
-import { z } from 'zod'
-import { UserGeneralSchema } from './user-schema'
+import { z } from "zod"
+import { UserGeneralSchema } from "./user-schema"
 
 export const ContactGeneralSchema = z.object({
   id: z.string(),

@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from "next/link"
 import {
   Avatar,
   AvatarFallback,
@@ -7,10 +7,10 @@ import {
   CardContent,
   CardDescription,
   CardHeader
-} from '@/components'
-import { titleFont } from '@/config'
-import type { AdminDashboard } from '@/types'
-import { formatCurrency, formatDate, getLettersName } from '@/utils'
+} from "@/components"
+import { titleFont } from "@/config"
+import type { AdminDashboard } from "@/types"
+import { formatCurrency, formatDate, getLettersName } from "@/utils"
 
 interface Props {
   data: AdminDashboard[] | null
@@ -18,7 +18,7 @@ interface Props {
 
 export const OrderWithApproveStatus = ({ data }: Props) => {
   const ordersWithApproveStatus = data?.filter(
-    (item) => item.orderStatus === 'approved'
+    (item) => item.orderStatus === "approved"
   )
 
   return (

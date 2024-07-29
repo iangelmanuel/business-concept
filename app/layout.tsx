@@ -1,46 +1,46 @@
-import type { Metadata } from 'next'
-import { inter } from '@/config'
-import { Providers } from '@/providers'
-import { Toaster } from 'sonner'
-import '../src/styles/globals.css'
+import type { Metadata } from "next"
+import { inter } from "@/config"
+import { Providers } from "@/providers"
+import { Toaster } from "sonner"
+import "../src/styles/globals.css"
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://business-concept.vercel.app'),
-  title: 'Business Concept',
+  metadataBase: new URL("https://business-concept.vercel.app"),
+  title: "Business Concept",
   description:
-    'Bienvenido a Business Concept nuestra tienda en línea de productos tecnológicos y de oficina para tu empresa o negocio',
+    "Bienvenido a Business Concept nuestra tienda en línea de productos tecnológicos y de oficina para tu empresa o negocio",
   keywords:
-    'business concept, productos, tecnología, oficina, empresa, negocio',
-  robots: 'index, follow',
+    "business concept, productos, tecnología, oficina, empresa, negocio",
+  robots: "index, follow",
   alternates: {
-    canonical: 'https://business-concept.vercel.app',
+    canonical: "https://business-concept.vercel.app",
     languages: {
-      'es-CO': '/es-CO'
+      "es-CO": "/es-CO"
     }
   },
   twitter: {
-    site: '@iangelmanuel',
-    creator: '@iangelmanuel'
+    site: "@iangelmanuel",
+    creator: "@iangelmanuel"
   },
   openGraph: {
-    title: 'Business Concept',
+    title: "Business Concept",
     description:
-      'Bienvenido a Business Concept nuestra tienda en línea de productos tecnológicos y de oficina para tu empresa o negocio',
-    url: 'https://business-concept.vercel.app',
-    type: 'website',
-    siteName: 'Business Concept',
+      "Bienvenido a Business Concept nuestra tienda en línea de productos tecnológicos y de oficina para tu empresa o negocio",
+    url: "https://business-concept.vercel.app",
+    type: "website",
+    siteName: "Business Concept",
     images: [
       {
-        url: './logo.png',
+        url: "./logo.png",
         width: 1200,
         height: 630,
-        alt: 'Business Concept'
+        alt: "Business Concept"
       }
     ],
-    countryName: 'Colombia',
-    locale: 'es_CO',
-    emails: ['iangelmanuel02@gmail.com'],
-    phoneNumbers: ['+573164338233']
+    countryName: "Colombia",
+    locale: "es_CO",
+    emails: ["iangelmanuel02@gmail.com"],
+    phoneNumbers: ["+573164338233"]
   }
 }
 

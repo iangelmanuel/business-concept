@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import type { ColumnDef, SortDirection } from '@tanstack/react-table'
+import type { ColumnDef, SortDirection } from "@tanstack/react-table"
 import {
   Badge,
   Button,
@@ -11,8 +11,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
   SendEmail
-} from '@/components'
-import type { UserType } from '@/types'
+} from "@/components"
+import type { UserType } from "@/types"
 import {
   ChevronDownIcon,
   ChevronUp,
@@ -25,17 +25,17 @@ import {
   ShieldCheck,
   User,
   Users
-} from 'lucide-react'
-import { ActionsButtons } from './ui/actions-buttons'
+} from "lucide-react"
+import { ActionsButtons } from "./ui/actions-buttons"
 
 const SorterIcon = ({ isSorted }: { isSorted: false | SortDirection }) => {
   if (!isSorted) {
     return <ChevronsUpDown className="h-4 w-4" />
   }
-  if (isSorted === 'asc') {
+  if (isSorted === "asc") {
     return <ChevronUpIcon className="h-4 w-4" />
   }
-  if (isSorted === 'desc') {
+  if (isSorted === "desc") {
     return <ChevronDownIcon className="h-4 w-4" />
   }
   return null
@@ -43,12 +43,12 @@ const SorterIcon = ({ isSorted }: { isSorted: false | SortDirection }) => {
 
 export const columns: ColumnDef<UserType>[] = [
   {
-    accessorKey: 'id',
+    accessorKey: "id",
     header: ({ table }) => (
       <Checkbox
         checked={
           table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && 'indeterminate')
+          (table.getIsSomePageRowsSelected() && "indeterminate")
         }
         onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
         aria-label="Select all"
@@ -66,7 +66,7 @@ export const columns: ColumnDef<UserType>[] = [
   },
 
   {
-    accessorKey: 'name',
+    accessorKey: "name",
     header: ({ column }) => {
       return (
         <section className="flex items-center justify-center">
@@ -119,7 +119,7 @@ export const columns: ColumnDef<UserType>[] = [
       )
     },
     cell: ({ row }) => {
-      const name = row.getValue('name') as string
+      const name = row.getValue("name") as string
       return (
         <section className="flex items-center justify-center">
           <span>{name}</span>
@@ -129,7 +129,7 @@ export const columns: ColumnDef<UserType>[] = [
   },
 
   {
-    accessorKey: 'lastname',
+    accessorKey: "lastname",
     header: ({ column }) => {
       return (
         <section className="flex items-center justify-center">
@@ -182,7 +182,7 @@ export const columns: ColumnDef<UserType>[] = [
       )
     },
     cell: ({ row }) => {
-      const lastname = row.getValue('lastname') as string
+      const lastname = row.getValue("lastname") as string
       return (
         <section className="flex items-center justify-center">
           <span>{lastname}</span>
@@ -192,7 +192,7 @@ export const columns: ColumnDef<UserType>[] = [
   },
 
   {
-    accessorKey: 'email',
+    accessorKey: "email",
     header: ({ column }) => {
       return (
         <section className="flex items-center justify-center">
@@ -245,9 +245,9 @@ export const columns: ColumnDef<UserType>[] = [
       )
     },
     cell: ({ row }) => {
-      const email = row.getValue('email') as string
-      const name = row.getValue('name') as string
-      const lastname = row.getValue('lastname') as string
+      const email = row.getValue("email") as string
+      const name = row.getValue("name") as string
+      const lastname = row.getValue("lastname") as string
 
       const userFullName = `${name} ${lastname}`
 
@@ -263,7 +263,7 @@ export const columns: ColumnDef<UserType>[] = [
   },
 
   {
-    accessorKey: 'phone',
+    accessorKey: "phone",
     header: () => {
       return (
         <section className="flex items-center justify-center">
@@ -272,8 +272,8 @@ export const columns: ColumnDef<UserType>[] = [
       )
     },
     cell: ({ row }) => {
-      const phone = row.getValue('phone') as string
-      const data = phone || 'N/A'
+      const phone = row.getValue("phone") as string
+      const data = phone || "N/A"
 
       return (
         <section className="flex items-center justify-center">
@@ -284,7 +284,7 @@ export const columns: ColumnDef<UserType>[] = [
   },
 
   {
-    accessorKey: 'role',
+    accessorKey: "role",
     header: ({ column }) => {
       return (
         <section className="flex items-center justify-center">
@@ -314,7 +314,7 @@ export const columns: ColumnDef<UserType>[] = [
                 <button
                   onClick={() => {
                     column.setFilterValue(undefined)
-                    column.setFilterValue('admin')
+                    column.setFilterValue("admin")
                   }}
                   className="flex items-center"
                 >
@@ -327,7 +327,7 @@ export const columns: ColumnDef<UserType>[] = [
                 <button
                   onClick={() => {
                     column.setFilterValue(undefined)
-                    column.setFilterValue('user')
+                    column.setFilterValue("user")
                   }}
                   className="flex items-center"
                 >
@@ -353,9 +353,9 @@ export const columns: ColumnDef<UserType>[] = [
       )
     },
     cell: ({ row }) => {
-      const role = row.getValue('role') as string
-      const textIsAdmin = role === 'admin' ? 'Admin' : 'Usuario'
-      const variantIsAdmin = role === 'admin' ? 'admin' : 'user'
+      const role = row.getValue("role") as string
+      const textIsAdmin = role === "admin" ? "Admin" : "Usuario"
+      const variantIsAdmin = role === "admin" ? "admin" : "user"
       return (
         <section className="flex items-center justify-center">
           <Badge
@@ -370,7 +370,7 @@ export const columns: ColumnDef<UserType>[] = [
   },
 
   {
-    accessorKey: 'isUserDeleted',
+    accessorKey: "isUserDeleted",
     header: ({ column }) => {
       return (
         <section className="flex items-center justify-center">
@@ -439,9 +439,9 @@ export const columns: ColumnDef<UserType>[] = [
       )
     },
     cell: ({ row }) => {
-      const isUserDeleted = row.getValue('isUserDeleted')
-      const text = isUserDeleted ? 'Eliminada' : 'Activa'
-      const variant = isUserDeleted ? 'destructive' : 'success'
+      const isUserDeleted = row.getValue("isUserDeleted")
+      const text = isUserDeleted ? "Eliminada" : "Activa"
+      const variant = isUserDeleted ? "destructive" : "success"
 
       return (
         <section className="flex items-center justify-center">
@@ -452,7 +452,7 @@ export const columns: ColumnDef<UserType>[] = [
   },
 
   {
-    accessorKey: 'isConfirmed',
+    accessorKey: "isConfirmed",
     header: ({ column }) => {
       return (
         <section className="flex items-center justify-center">
@@ -521,9 +521,9 @@ export const columns: ColumnDef<UserType>[] = [
       )
     },
     cell: ({ row }) => {
-      const isConfirmed = row.getValue('isConfirmed')
-      const text = isConfirmed ? 'Confirmado' : 'Sin confirmar'
-      const variant = isConfirmed ? 'success' : 'destructive'
+      const isConfirmed = row.getValue("isConfirmed")
+      const text = isConfirmed ? "Confirmado" : "Sin confirmar"
+      const variant = isConfirmed ? "success" : "destructive"
 
       return (
         <section className="flex items-center justify-center">
@@ -534,8 +534,8 @@ export const columns: ColumnDef<UserType>[] = [
   },
 
   {
-    accessorKey: 'actions',
-    header: 'Acciones',
+    accessorKey: "actions",
+    header: "Acciones",
     cell: ({ row }) => {
       const user = row.original
       return (

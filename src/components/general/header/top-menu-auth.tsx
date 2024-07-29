@@ -1,18 +1,18 @@
-'use client'
+"use client"
 
-import { useSession } from 'next-auth/react'
+import { useSession } from "next-auth/react"
 import {
   DropdownMenuAdmin,
   DropdownMenuGeneral,
   DropdownMenuUser,
   SheetMenuCart
-} from '@/components'
+} from "@/components"
 
 export const TopMenuAuth = () => {
   const { data: session } = useSession()
   const role = session?.user.role
-  const user = role === 'user'
-  const admin = role === 'admin'
+  const user = role === "user"
+  const admin = role === "admin"
   return (
     <section>
       {user ? (

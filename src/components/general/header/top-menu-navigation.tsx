@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import React, { useEffect, useState } from 'react'
-import Link from 'next/link'
-import { getCategories } from '@/actions'
+import React, { useEffect, useState } from "react"
+import Link from "next/link"
+import { getCategories } from "@/actions"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -11,10 +11,10 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle
-} from '@/components'
-import { navigationItems } from '@/data'
-import { cn } from '@/lib'
-import type { CategoryType } from '@/types'
+} from "@/components"
+import { navigationItems } from "@/data"
+import { cn } from "@/lib"
+import type { CategoryType } from "@/types"
 
 export function TopMenuNavigation() {
   const [categories, setCategories] = useState<CategoryType[]>([])
@@ -96,28 +96,28 @@ export function TopMenuNavigation() {
   )
 }
 
-interface ListItemProps extends React.ComponentPropsWithoutRef<'a'> {
+interface ListItemProps extends React.ComponentPropsWithoutRef<"a"> {
   capitalize?: boolean
 }
 
-const ListItem = React.forwardRef<React.ElementRef<'a'>, ListItemProps>(
+const ListItem = React.forwardRef<React.ElementRef<"a">, ListItemProps>(
   ({ className, title, children, href, capitalize = false, ...props }, ref) => {
     return (
       <li>
         <NavigationMenuLink asChild>
           <Link
-            href={href ?? '/'}
+            href={href ?? "/"}
             passHref
             ref={ref}
             className={cn(
-              'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
               className,
-              capitalize && 'capitalize'
+              capitalize && "capitalize"
             )}
             {...props}
           >
             <div className="text-sm font-medium leading-none">
-              <span className={cn(capitalize ? 'capitalize' : '')}>
+              <span className={cn(capitalize ? "capitalize" : "")}>
                 {title}
               </span>
             </div>
@@ -130,4 +130,4 @@ const ListItem = React.forwardRef<React.ElementRef<'a'>, ListItemProps>(
     )
   }
 )
-ListItem.displayName = 'ListItem'
+ListItem.displayName = "ListItem"

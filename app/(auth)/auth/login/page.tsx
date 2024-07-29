@@ -1,20 +1,20 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
+import type { Metadata } from "next"
+import Link from "next/link"
 import {
   AlertMessage,
   Card,
   CardDescription,
   CardHeader,
   CardLoginForm
-} from '@/components'
-import { titleFont } from '@/config'
+} from "@/components"
+import { titleFont } from "@/config"
 
 export const metadata: Metadata = {
-  title: 'Inicia sesión en Business Concept',
+  title: "Inicia sesión en Business Concept",
   description:
-    'Inicia sesión en Business Concept y accede a todas las funcionalidades de la plataforma.',
-  keywords: 'business concept, inicia sesion, login, cuenta, usuario, empresa',
-  robots: 'noindex, nofollow'
+    "Inicia sesión en Business Concept y accede a todas las funcionalidades de la plataforma.",
+  keywords: "business concept, inicia sesion, login, cuenta, usuario, empresa",
+  robots: "noindex, nofollow"
 }
 
 export default function LoginPage({
@@ -54,7 +54,7 @@ export default function LoginPage({
 
       <article className="mt-4 text-center">
         <p>
-          ¿No tienes cuenta?{' '}
+          ¿No tienes cuenta?{" "}
           <Link
             href="/auth/register"
             className="text-primary hover:underline"

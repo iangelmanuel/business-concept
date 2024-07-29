@@ -1,12 +1,12 @@
-'use client'
+"use client"
 
-import { useTransition } from 'react'
-import { changeUserPassword } from '@/actions'
-import { Button, ErrorMessage, Input, Label, Spinner } from '@/components'
-import { titleFont } from '@/config'
-import type { ChangeUserPassword } from '@/types'
-import { useForm } from 'react-hook-form'
-import { toast } from 'sonner'
+import { useTransition } from "react"
+import { changeUserPassword } from "@/actions"
+import { Button, ErrorMessage, Input, Label, Spinner } from "@/components"
+import { titleFont } from "@/config"
+import type { ChangeUserPassword } from "@/types"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 
 export const ChangePasswordForm = () => {
   const [isPending, startTransition] = useTransition()
@@ -23,17 +23,17 @@ export const ChangePasswordForm = () => {
     startTransition(async () => {
       const response = await changeUserPassword(data)
       if (response.ok) {
-        toast.success('¡Todo salió bien!', {
+        toast.success("¡Todo salió bien!", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
         reset()
       } else {
-        toast.error('Ocurrio un problema', {
+        toast.error("Ocurrio un problema", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       }
     })
@@ -55,8 +55,8 @@ export const ChangePasswordForm = () => {
             type="password"
             id="password"
             placeholder="Coloca tu contraseña actual"
-            {...register('password', {
-              required: 'El campo contraseña es requerido'
+            {...register("password", {
+              required: "El campo contraseña es requerido"
             })}
           />
           {errors.password && (
@@ -70,11 +70,11 @@ export const ChangePasswordForm = () => {
             type="password"
             id="new-password"
             placeholder="Coloca tu nueva contraseña"
-            {...register('newPassword', {
-              required: 'El campo nueva contraseña es requerido',
+            {...register("newPassword", {
+              required: "El campo nueva contraseña es requerido",
               minLength: {
                 value: 8,
-                message: 'La contraseña debe tener al menos 8 caracteres'
+                message: "La contraseña debe tener al menos 8 caracteres"
               }
             })}
           />
@@ -89,11 +89,11 @@ export const ChangePasswordForm = () => {
             type="password"
             id="confirm-password"
             placeholder="Confirma tu nueva contraseña"
-            {...register('confirmNewPassword', {
-              required: 'El campo confirmar contraseña es requerido',
+            {...register("confirmNewPassword", {
+              required: "El campo confirmar contraseña es requerido",
               validate: (value) =>
-                value !== watch('newPassword')
-                  ? 'Las contraseñas no coinciden'
+                value !== watch("newPassword")
+                  ? "Las contraseñas no coinciden"
                   : true
             })}
           />
@@ -114,7 +114,7 @@ export const ChangePasswordForm = () => {
                 <Spinner />
               </>
             ) : (
-              'Cambiar contraseña'
+              "Cambiar contraseña"
             )}
           </Button>
         </section>

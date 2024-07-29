@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
-import { useState, useTransition } from 'react'
-import { recoverProductDeleted } from '@/actions'
+import { useState, useTransition } from "react"
+import { recoverProductDeleted } from "@/actions"
 import {
   Button,
   Dialog,
@@ -14,18 +14,18 @@ import {
   Input,
   Label,
   Spinner
-} from '@/components'
-import { CardFooter } from '@/components/ui/card'
-import type { ProductType } from '@/types'
-import { useForm } from 'react-hook-form'
-import { toast } from 'sonner'
+} from "@/components"
+import { CardFooter } from "@/components/ui/card"
+import type { ProductType } from "@/types"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 
 interface Props {
-  productId: ProductType['id']
+  productId: ProductType["id"]
 }
 
 interface RecoverProductDeleted {
-  stock: ProductType['stock']
+  stock: ProductType["stock"]
 }
 
 export const ProductDeletedButton = ({ productId }: Props) => {
@@ -45,17 +45,17 @@ export const ProductDeletedButton = ({ productId }: Props) => {
     startTransition(async () => {
       const response = await recoverProductDeleted(productId, Number(stock))
       if (response.ok) {
-        toast.success('¡Todo salió bien!', {
+        toast.success("¡Todo salió bien!", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
         setIsProductDeletedModalOpen(false)
       } else {
-        toast.error('Ocurrio un problema', {
+        toast.error("Ocurrio un problema", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       }
     })
@@ -99,15 +99,15 @@ export const ProductDeletedButton = ({ productId }: Props) => {
                   type="number"
                   id="stock"
                   placeholder="Ej. 10"
-                  {...register('stock', {
-                    required: 'El campo disponibildad es requerido',
+                  {...register("stock", {
+                    required: "El campo disponibildad es requerido",
                     min: {
                       value: 1,
-                      message: 'La disponibilidad debe ser mayor a 0'
+                      message: "La disponibilidad debe ser mayor a 0"
                     },
                     max: {
                       value: 1000,
-                      message: 'La disponibilidad debe ser menor a 1000'
+                      message: "La disponibilidad debe ser menor a 1000"
                     }
                   })}
                 />
@@ -128,7 +128,7 @@ export const ProductDeletedButton = ({ productId }: Props) => {
                     <Spinner />
                   </>
                 ) : (
-                  'Recuperar producto'
+                  "Recuperar producto"
                 )}
               </Button>
             </DialogFooter>

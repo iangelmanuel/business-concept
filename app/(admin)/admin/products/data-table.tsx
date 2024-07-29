@@ -1,11 +1,11 @@
-'use client'
+"use client"
 
 import type {
   ColumnDef,
   ColumnFiltersState,
   SortingState,
   VisibilityState
-} from '@tanstack/react-table'
+} from "@tanstack/react-table"
 import {
   flexRender,
   getCoreRowModel,
@@ -13,10 +13,10 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
   useReactTable
-} from '@tanstack/react-table'
-import { useState, useTransition } from 'react'
-import Link from 'next/link'
-import { archiveManyProducts } from '@/actions'
+} from "@tanstack/react-table"
+import { useState, useTransition } from "react"
+import Link from "next/link"
+import { archiveManyProducts } from "@/actions"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -54,11 +54,11 @@ import {
   TableHeader,
   TableRow,
   buttonVariants
-} from '@/components'
-import type { ProductAllType } from '@/types'
-import { ChevronLeft, ChevronRight, Plus, Settings2 } from 'lucide-react'
-import { toast } from 'sonner'
-import { AddProductsDiscount } from './ui/add-products-discount'
+} from "@/components"
+import type { ProductAllType } from "@/types"
+import { ChevronLeft, ChevronRight, Plus, Settings2 } from "lucide-react"
+import { toast } from "sonner"
+import { AddProductsDiscount } from "./ui/add-products-discount"
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
@@ -108,11 +108,11 @@ export function DataTable<TData, TValue>({
       <section className="flex flex-col-reverse items-center justify-center gap-2 py-4 md:flex-row md:justify-between">
         <div className="flex w-full flex-col items-center gap-2 sm:w-auto sm:flex-row">
           <Input
-            value={(table.getColumn('name')?.getFilterValue() as string) ?? ''}
+            value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
             placeholder="Filtrar por nombre de producto"
             onChange={(e) => {
               const value = e.target.value
-              table.getColumn('name')?.setFilterValue(value)
+              table.getColumn("name")?.setFilterValue(value)
             }}
             className="w-full md:max-w-sm"
           />
@@ -158,7 +158,7 @@ export function DataTable<TData, TValue>({
                         <Spinner />
                       </>
                     ) : (
-                      'Archivar productos'
+                      "Archivar productos"
                     )}
                   </Button>
                 </AlertDialogTrigger>
@@ -185,22 +185,22 @@ export function DataTable<TData, TValue>({
                           const response =
                             await archiveManyProducts(productsIds)
                           if (response.ok) {
-                            toast.success('¡Todo salió bien!', {
+                            toast.success("¡Todo salió bien!", {
                               description: response.message,
                               duration: 3000,
-                              position: 'top-right'
+                              position: "top-right"
                             })
                             setRowSelection({})
                           } else {
-                            toast.error('Ocurrio un problema', {
+                            toast.error("Ocurrio un problema", {
                               description: response.message,
                               duration: 3000,
-                              position: 'top-right'
+                              position: "top-right"
                             })
                           }
                         })
                       }}
-                      className={buttonVariants({ variant: 'destructive' })}
+                      className={buttonVariants({ variant: "destructive" })}
                     >
                       Archivar
                     </AlertDialogAction>
@@ -234,7 +234,7 @@ export function DataTable<TData, TValue>({
               {table
                 .getAllColumns()
                 .filter((column) => column.getCanHide())
-                .filter((column) => column.id !== 'actions')
+                .filter((column) => column.id !== "actions")
                 .map((column) => {
                   return (
                     <DropdownMenuCheckboxItem
@@ -280,7 +280,7 @@ export function DataTable<TData, TValue>({
               table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
-                  data-state={row.getIsSelected() && 'selected'}
+                  data-state={row.getIsSelected() && "selected"}
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
@@ -309,7 +309,7 @@ export function DataTable<TData, TValue>({
       <section className="flex flex-col items-center justify-between py-4 sm:flex-row">
         <div className="flex items-center justify-between">
           <section className="flex-1 text-sm text-muted-foreground">
-            {table.getFilteredSelectedRowModel().rows.length} de{' '}
+            {table.getFilteredSelectedRowModel().rows.length} de{" "}
             {table.getFilteredRowModel().rows.length} fila(s) seleccionadas.
           </section>
         </div>
@@ -339,7 +339,7 @@ export function DataTable<TData, TValue>({
 
           <section>
             <span className="text-center text-sm text-muted-foreground sm:text-start">
-              Página {table.getState().pagination.pageIndex + 1} de{' '}
+              Página {table.getState().pagination.pageIndex + 1} de{" "}
               {table.getPageCount()}
             </span>
           </section>

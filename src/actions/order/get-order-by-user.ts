@@ -1,7 +1,7 @@
-'use server'
+"use server"
 
-import { auth } from '@/auth.config'
-import { prisma } from '@/lib'
+import { auth } from "@/auth.config"
+import { prisma } from "@/lib"
 
 export const getOrdersByUser = async () => {
   try {
@@ -25,7 +25,7 @@ export const getOrdersByUser = async () => {
         }
       },
       orderBy: {
-        createdAt: 'desc'
+        createdAt: "desc"
       }
     })
 

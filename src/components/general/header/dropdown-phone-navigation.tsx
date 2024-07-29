@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation"
 import {
   Button,
   DropdownMenu,
@@ -10,9 +10,9 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger
-} from '@/components'
-import { navigationItems } from '@/data'
-import { MenuSquare } from 'lucide-react'
+} from "@/components"
+import { navigationItems } from "@/data"
+import { MenuSquare } from "lucide-react"
 
 export const DropdownPhoneNavigation = () => {
   const router = useRouter()

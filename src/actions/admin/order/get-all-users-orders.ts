@@ -1,14 +1,14 @@
-'use server'
+"use server"
 
-import { auth } from '@/auth.config'
-import { prisma } from '@/lib'
+import { auth } from "@/auth.config"
+import { prisma } from "@/lib"
 
 export async function getAllUsersOrders() {
   try {
     const session = await auth()
     if (!session) return []
 
-    const isAdmin = session.user?.role.includes('admin')
+    const isAdmin = session.user?.role.includes("admin")
     if (!isAdmin) return []
 
     const usersOrders = await prisma.order.findMany({
@@ -33,7 +33,7 @@ export async function getAllUsersOrders() {
         }
       },
       orderBy: {
-        createdAt: 'desc'
+        createdAt: "desc"
       }
     })
 

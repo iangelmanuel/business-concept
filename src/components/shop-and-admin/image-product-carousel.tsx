@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import { Card, CardContent } from '../ui/card'
-import { useEffect, useState } from 'react'
-import Image from 'next/image'
+import { Card, CardContent } from "../ui/card"
+import { useEffect, useState } from "react"
+import Image from "next/image"
 import {
   Carousel,
   type CarouselApi,
@@ -10,9 +10,9 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious
-} from '@/components/ui/carousel'
-import type { ProductAllType } from '@/types'
-import Autoplay from 'embla-carousel-autoplay'
+} from "@/components/ui/carousel"
+import type { ProductAllType } from "@/types"
+import Autoplay from "embla-carousel-autoplay"
 
 interface Props {
   product: ProductAllType
@@ -34,12 +34,12 @@ export const ImageProductCarousel = ({ product }: Props) => {
       api2.scrollTo(index)
     }
 
-    api1.on('select', onSelect)
-    api2.on('select', onSelect)
+    api1.on("select", onSelect)
+    api2.on("select", onSelect)
 
     return () => {
-      api1.off('select', onSelect)
-      api2.off('select', onSelect)
+      api1.off("select", onSelect)
+      api2.off("select", onSelect)
     }
   }, [api1, api2])
 
@@ -55,7 +55,7 @@ export const ImageProductCarousel = ({ product }: Props) => {
       <Carousel
         setApi={setApi1}
         opts={{
-          align: 'center',
+          align: "center",
           loop: true
         }}
         plugins={[
@@ -87,7 +87,7 @@ export const ImageProductCarousel = ({ product }: Props) => {
       <Carousel
         setApi={setApi2}
         opts={{
-          align: 'center',
+          align: "center",
           loop: true
         }}
         plugins={[

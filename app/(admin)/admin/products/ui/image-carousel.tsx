@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
-import { useState } from 'react'
-import Image from 'next/image'
+import { useState } from "react"
+import Image from "next/image"
 import {
   Card,
   CardContent,
@@ -14,12 +14,12 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle
-} from '@/components'
-import type { ProductAllType } from '@/types'
+} from "@/components"
+import type { ProductAllType } from "@/types"
 
 interface Props {
-  images: ProductAllType['productImage']
-  productName: ProductAllType['name']
+  images: ProductAllType["productImage"]
+  productName: ProductAllType["name"]
 }
 
 export const ImageCarousel = ({ images, productName }: Props) => {

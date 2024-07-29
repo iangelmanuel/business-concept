@@ -1,14 +1,14 @@
-import type { Metadata } from 'next'
-import { ChangePasswordForm, DeleteUserAccount } from '@/components'
-import { titleFont } from '@/config'
+import type { Metadata } from "next"
+import { ChangePasswordForm, DeleteUserAccount } from "@/components"
+import { titleFont } from "@/config"
 
 export const metadata: Metadata = {
-  title: 'Seguridad y Privacidad - Business Concept',
+  title: "Seguridad y Privacidad - Business Concept",
   description:
-    'En esta sección puedes cambiar tu contraseña y eliminar tu cuenta de usuario en Business Concept. ¡Cuida tu información!',
+    "En esta sección puedes cambiar tu contraseña y eliminar tu cuenta de usuario en Business Concept. ¡Cuida tu información!",
   keywords:
-    'seguridad, privacidad, contraseña, eliminar cuenta, usuario, Business Concept',
-  robots: 'noindex, nofollow'
+    "seguridad, privacidad, contraseña, eliminar cuenta, usuario, Business Concept",
+  robots: "noindex, nofollow"
 }
 
 export default function SecurityPrivacyPage() {

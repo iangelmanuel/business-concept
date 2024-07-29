@@ -1,6 +1,6 @@
-import type { CartType } from '@/types'
-import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
+import type { CartType } from "@/types"
+import { create } from "zustand"
+import { persist } from "zustand/middleware"
 
 type State = {
   cart: CartType[]
@@ -75,7 +75,7 @@ export const useCartStore = create<State>()(
 
       updateProductInCart: (
         product: CartType,
-        quantity: CartType['quantity']
+        quantity: CartType["quantity"]
       ) => {
         const { cart } = get()
 
@@ -101,6 +101,6 @@ export const useCartStore = create<State>()(
         set({ cart: [] })
       }
     }),
-    { name: 'shopping-cart' }
+    { name: "shopping-cart" }
   )
 )

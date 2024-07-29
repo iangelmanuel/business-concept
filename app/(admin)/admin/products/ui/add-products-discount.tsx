@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import type { Table } from '@tanstack/react-table'
-import { useTransition } from 'react'
-import { addProductsDiscount } from '@/actions'
+import type { Table } from "@tanstack/react-table"
+import { useTransition } from "react"
+import { addProductsDiscount } from "@/actions"
 import {
   Button,
   DialogFooter,
@@ -10,20 +10,20 @@ import {
   Input,
   Label,
   Spinner
-} from '@/components'
-import type { ProductAllType } from '@/types'
-import { useForm } from 'react-hook-form'
-import { toast } from 'sonner'
-import { HoverCardDiscountDocs } from './hover-card-discount-docs'
+} from "@/components"
+import type { ProductAllType } from "@/types"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
+import { HoverCardDiscountDocs } from "./hover-card-discount-docs"
 
 interface Props {
-  productsIds: ProductAllType['id'][]
+  productsIds: ProductAllType["id"][]
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   table: Table<any>
 }
 
 interface FormType {
-  discount: ProductAllType['discount']
+  discount: ProductAllType["discount"]
 }
 
 export const AddProductsDiscount = ({ productsIds, table }: Props) => {
@@ -45,17 +45,17 @@ export const AddProductsDiscount = ({ productsIds, table }: Props) => {
     startTransition(async () => {
       const response = await addProductsDiscount(productsIds, Number(discount))
       if (response.ok) {
-        toast.success('¡Todo salió bien!', {
+        toast.success("¡Todo salió bien!", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
         table.toggleAllRowsSelected(false)
       } else {
-        toast.error('Ocurrio un problema', {
+        toast.error("Ocurrio un problema", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       }
     })
@@ -80,15 +80,15 @@ export const AddProductsDiscount = ({ productsIds, table }: Props) => {
             type="number"
             id="discount"
             placeholder="Ej. 0.1 para un 10% de descuento"
-            {...register('discount', {
-              required: 'El campo descuento campo es requerido',
+            {...register("discount", {
+              required: "El campo descuento campo es requerido",
               min: {
                 value: 0.01,
-                message: 'El descuento no puede ser menor o igual a 0'
+                message: "El descuento no puede ser menor o igual a 0"
               },
               max: {
                 value: 1,
-                message: 'El descuento no puede ser mayor a 1'
+                message: "El descuento no puede ser mayor a 1"
               }
             })}
           />
@@ -110,7 +110,7 @@ export const AddProductsDiscount = ({ productsIds, table }: Props) => {
               <Spinner />
             </>
           ) : (
-            'Guardar Cambios'
+            "Guardar Cambios"
           )}
         </Button>
       </DialogFooter>

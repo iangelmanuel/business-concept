@@ -4,8 +4,8 @@ import type {
   RegisterUserSchema,
   UpdateUserSchema,
   UserGeneralSchema
-} from '@/schema'
-import type { z } from 'zod'
+} from "@/schema"
+import type { z } from "zod"
 
 export type UserType = z.infer<typeof UserGeneralSchema>
 

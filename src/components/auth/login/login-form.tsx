@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
-import { useTransition } from 'react'
-import { loginUser } from '@/actions'
+import { useTransition } from "react"
+import { loginUser } from "@/actions"
 import {
   Button,
   CardContent,
@@ -9,11 +9,11 @@ import {
   Input,
   Label,
   Spinner
-} from '@/components'
-import { DEFAULT_LOGIN_VALUES } from '@/consts'
-import type { LoginUser } from '@/types'
-import { useForm } from 'react-hook-form'
-import { toast } from 'sonner'
+} from "@/components"
+import { DEFAULT_LOGIN_VALUES } from "@/consts"
+import type { LoginUser } from "@/types"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 
 export const CardLoginForm = () => {
   const [isPending, startTransition] = useTransition()
@@ -31,12 +31,12 @@ export const CardLoginForm = () => {
       const response = await loginUser(data)
 
       if (response.ok) {
-        window.location.replace('/shop/products?registered=true')
+        window.location.replace("/shop/products?registered=true")
       } else {
-        toast.error('Ocurrio un problema', {
+        toast.error("Ocurrio un problema", {
           description: response.message,
           duration: 5000,
-          position: 'top-right'
+          position: "top-right"
         })
       }
     })
@@ -56,11 +56,11 @@ export const CardLoginForm = () => {
             id="email"
             autoComplete="email"
             placeholder="Ej. ejemplo@correo.com"
-            {...register('email', {
-              required: 'El campo email es requerido',
+            {...register("email", {
+              required: "El campo email es requerido",
               pattern: {
                 value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
-                message: 'El correo electrónico no es válido'
+                message: "El correo electrónico no es válido"
               }
             })}
           />
@@ -73,8 +73,8 @@ export const CardLoginForm = () => {
             id="password"
             autoComplete="current-password"
             placeholder="Escriba su contraseña"
-            {...register('password', {
-              required: 'El campo contraseña es requerido'
+            {...register("password", {
+              required: "El campo contraseña es requerido"
             })}
           />
           {errors.password && (
@@ -90,7 +90,7 @@ export const CardLoginForm = () => {
                 <Spinner />
               </>
             ) : (
-              'Iniciar Sesión'
+              "Iniciar Sesión"
             )}
           </Button>
         </div>

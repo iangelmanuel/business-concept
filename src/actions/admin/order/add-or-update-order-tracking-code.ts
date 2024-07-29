@@ -1,20 +1,20 @@
-'use server'
+"use server"
 
-import { revalidatePath } from 'next/cache'
-import { auth } from '@/auth.config'
-import { prisma } from '@/lib'
-import type { UserOrderByAdmin, UserOrderTracking } from '@/types'
+import { revalidatePath } from "next/cache"
+import { auth } from "@/auth.config"
+import { prisma } from "@/lib"
+import type { UserOrderByAdmin, UserOrderTracking } from "@/types"
 
 export async function addOrUpdateOrderTrackingCode(
-  orderId: UserOrderByAdmin['id'],
+  orderId: UserOrderByAdmin["id"],
   data: UserOrderTracking
 ) {
   try {
     const session = await auth()
-    if (!session) return { ok: false, message: 'No autorizado' }
+    if (!session) return { ok: false, message: "No autorizado" }
 
-    const isAdmin = session.user.role.includes('admin')
-    if (!isAdmin) return { ok: false, message: 'No autorizado' }
+    const isAdmin = session.user.role.includes("admin")
+    if (!isAdmin) return { ok: false, message: "No autorizado" }
 
     const isOrderTrackingExists = await prisma.orderTracking.findFirst({
       where: {
@@ -41,7 +41,7 @@ export async function addOrUpdateOrderTrackingCode(
           id: orderId
         },
         data: {
-          orderStatus: 'shipped',
+          orderStatus: "shipped",
           OrderTracking: {
             create: {
               company: data.company,
@@ -53,14 +53,14 @@ export async function addOrUpdateOrderTrackingCode(
       orderTrackingExists = false
     }
 
-    revalidatePath('/admin/orders')
-    revalidatePath('/admin/orders/[id]', 'page')
-    revalidatePath('/dashboard/purchases')
-    revalidatePath('/dashboard/purchases/[id]', 'page')
+    revalidatePath("/admin/orders")
+    revalidatePath("/admin/orders/[id]", "page")
+    revalidatePath("/dashboard/purchases")
+    revalidatePath("/dashboard/purchases/[id]", "page")
 
     const orderTrackingNotification = orderTrackingExists
-      ? 'actualizado'
-      : 'agregado'
+      ? "actualizado"
+      : "agregado"
 
     return {
       ok: true,
@@ -69,7 +69,7 @@ export async function addOrUpdateOrderTrackingCode(
   } catch (error) {
     return {
       ok: false,
-      message: 'Error al agregar el código de seguimiento al pedido'
+      message: "Error al agregar el código de seguimiento al pedido"
     }
   }
 }

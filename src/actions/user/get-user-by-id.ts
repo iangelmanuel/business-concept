@@ -1,9 +1,9 @@
-'use server'
+"use server"
 
-import { prisma } from '@/lib'
-import type { UserType } from '@/types'
+import { prisma } from "@/lib"
+import type { UserType } from "@/types"
 
-export async function getUserById(id: UserType['id']) {
+export async function getUserById(id: UserType["id"]) {
   try {
     const user = await prisma.user.findUnique({
       where: { id }

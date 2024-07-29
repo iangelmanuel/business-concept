@@ -1,7 +1,7 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
-import { notFound, redirect } from 'next/navigation'
-import { getRefPaycoData, saveRefEpayco } from '@/actions'
+import type { Metadata } from "next"
+import Link from "next/link"
+import { notFound, redirect } from "next/navigation"
+import { getRefPaycoData, saveRefEpayco } from "@/actions"
 import {
   AlertMessage,
   BarProgress,
@@ -10,8 +10,8 @@ import {
   Input,
   Label,
   buttonVariants
-} from '@/components'
-import { sendInvoice } from '@/email'
+} from "@/components"
+import { sendInvoice } from "@/email"
 
 export async function generateMetadata({
   searchParams
@@ -19,7 +19,7 @@ export async function generateMetadata({
   searchParams: { ref_payco: string }
 }): Promise<Metadata> {
   const refPayco = searchParams.ref_payco
-  if (refPayco === 'undefined') notFound()
+  if (refPayco === "undefined") notFound()
 
   const dataPaycoAction = await getRefPaycoData(refPayco)
   if (!dataPaycoAction.ok || !dataPaycoAction.dataPayco) notFound()
@@ -29,8 +29,8 @@ export async function generateMetadata({
   return {
     title: `Compra ${dataPayco.data.x_response} - Business Concept`,
     description: `Compra ${dataPayco.data.x_response} en Business Concept. La razón de la compra es: ${dataPayco.data.x_response_reason_text}`,
-    keywords: 'compra, epayco, business concept, tienda online, pago exitoso',
-    robots: 'noindex, nofollow'
+    keywords: "compra, epayco, business concept, tienda online, pago exitoso",
+    robots: "noindex, nofollow"
   }
 }
 
@@ -40,7 +40,7 @@ export default async function ConfirmationPage({
   searchParams: { ref_payco: string; emailSend: string }
 }) {
   const { ref_payco: refPayco, emailSend } = searchParams
-  if (refPayco === 'undefined') notFound()
+  if (refPayco === "undefined") notFound()
 
   const dataPaycoAction = await getRefPaycoData(refPayco)
   if (!dataPaycoAction.ok || !dataPaycoAction.dataPayco) notFound()
@@ -52,8 +52,8 @@ export default async function ConfirmationPage({
   if (!saveRef.ok) notFound()
 
   const sendInvoiceEmail = async (formData: FormData) => {
-    'use server'
-    const email = formData.get('email') as string
+    "use server"
+    const email = formData.get("email") as string
     const response = await sendInvoice(email, dataPayco)
     redirect(
       `/shop/confirmation?ref_payco=${refPayco}&emailSend=${response.ok}`
@@ -69,7 +69,7 @@ export default async function ConfirmationPage({
         refPayco={refPayco}
       />
 
-      {emailSend === 'true' ? (
+      {emailSend === "true" ? (
         <div className="mx-auto mt-3 max-w-screen-md">
           <AlertMessage
             variant="success"
@@ -77,7 +77,7 @@ export default async function ConfirmationPage({
             description="Se envio un correo con su factura correctamente."
           />
         </div>
-      ) : emailSend === 'false' ? (
+      ) : emailSend === "false" ? (
         <div className="mx-auto mt-3 max-w-screen-md">
           <AlertMessage
             variant="destructive"
@@ -88,7 +88,7 @@ export default async function ConfirmationPage({
       ) : null}
 
       <div className="mx-auto mt-3 flex max-w-screen-md justify-between">
-        {emailSend !== 'true' ? (
+        {emailSend !== "true" ? (
           <form
             noValidate
             action={sendInvoiceEmail}
@@ -109,7 +109,7 @@ export default async function ConfirmationPage({
             <section className="mt-5">
               <Link
                 href="/dashboard/purchases"
-                className={buttonVariants({ variant: 'secondary' })}
+                className={buttonVariants({ variant: "secondary" })}
               >
                 Ver mis compras
               </Link>
@@ -118,7 +118,7 @@ export default async function ConfirmationPage({
         ) : (
           <Link
             href="/dashboard/purchases"
-            className={buttonVariants({ variant: 'secondary' })}
+            className={buttonVariants({ variant: "secondary" })}
           >
             Ver mis compras
           </Link>

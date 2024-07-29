@@ -4,7 +4,7 @@ import {
   CardFooter,
   CardHeader,
   Skeleton
-} from '@/components'
+} from "@/components"
 
 export const CartSummaryLoading = () => {
   return (

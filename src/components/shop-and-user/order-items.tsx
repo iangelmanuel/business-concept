@@ -1,5 +1,5 @@
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from "next/image"
+import Link from "next/link"
 import {
   Badge,
   Card,
@@ -8,11 +8,11 @@ import {
   CardHeader,
   PriceWithPosibleDiscount,
   buttonVariants
-} from '@/components'
-import { titleFont } from '@/config'
-import { orderStatusLang } from '@/consts'
-import type { UserOrder, UserOrderByAdmin } from '@/types'
-import { checkOrderStatusCn } from '@/utils'
+} from "@/components"
+import { titleFont } from "@/config"
+import { orderStatusLang } from "@/consts"
+import type { UserOrder, UserOrderByAdmin } from "@/types"
+import { checkOrderStatusCn } from "@/utils"
 
 interface Props {
   order: UserOrder | UserOrderByAdmin
@@ -25,15 +25,15 @@ export const OrderItems = ({
   order,
   isAdminFromUser = false,
   isAdminFromOrder = false,
-  userId = ''
+  userId = ""
 }: Props) => {
   const isAdminTitle = isAdminFromUser
-    ? 'Detalles del resumen de la compra del usuario'
-    : 'Detalles del resumen de la compra'
+    ? "Detalles del resumen de la compra del usuario"
+    : "Detalles del resumen de la compra"
 
   const isAdminCardDescription = isAdminFromUser
-    ? 'Detalles de la compra del usuario.'
-    : 'Por favor, revisa los detalles de tu compra antes de proceder al pago.'
+    ? "Detalles de la compra del usuario."
+    : "Por favor, revisa los detalles de tu compra antes de proceder al pago."
 
   const orderId = order.id
   const { transactionId, orderStatus } = order
@@ -66,7 +66,7 @@ export const OrderItems = ({
               <div>
                 <p className="font-bold">Código de rastreo:</p>
                 <span className="capitalize">
-                  {order.OrderTracking.company} -{' '}
+                  {order.OrderTracking.company} -{" "}
                 </span>
                 <span>{order.OrderTracking.trackingCode}</span>
               </div>

@@ -1,15 +1,15 @@
-import { Suspense } from 'react'
-import type { Metadata } from 'next'
-import { getUserContacts } from '@/actions'
-import { ContactInfoGrid, ContactInfoGridSkeleton } from '@/components'
-import { titleFont } from '@/config'
+import { Suspense } from "react"
+import type { Metadata } from "next"
+import { getUserContacts } from "@/actions"
+import { ContactInfoGrid, ContactInfoGridSkeleton } from "@/components"
+import { titleFont } from "@/config"
 
 export const metadata: Metadata = {
-  title: 'Business Concept - Contacto de Usuarios',
-  description: 'Administra los contactos de los usuarios de la tienda',
+  title: "Business Concept - Contacto de Usuarios",
+  description: "Administra los contactos de los usuarios de la tienda",
   keywords:
-    'business concept, tienda online, productos, calidad, precios accesibles',
-  robots: 'noindex, nofollow'
+    "business concept, tienda online, productos, calidad, precios accesibles",
+  robots: "noindex, nofollow"
 }
 
 export default async function AdminContactsPage() {
@@ -17,8 +17,8 @@ export default async function AdminContactsPage() {
 
   const isEmptyTitleDescription =
     contacts?.length === 0
-      ? 'No hay contactos de usuarios'
-      : 'Administra los contactos de los usuarios'
+      ? "No hay contactos de usuarios"
+      : "Administra los contactos de los usuarios"
 
   return (
     <article>

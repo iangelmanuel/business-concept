@@ -4,7 +4,7 @@ import {
   CardFooter,
   CardHeader,
   Skeleton
-} from '@/components'
+} from "@/components"
 
 const cart = [1, 2, 3, 4, 5]
 

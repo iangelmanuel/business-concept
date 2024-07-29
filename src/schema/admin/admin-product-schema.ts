@@ -1,6 +1,6 @@
-import { CategoryGenralSchema } from '../category-schema'
-import { ProductGeneralSchema } from '../products-schema'
-import { z } from 'zod'
+import { CategoryGenralSchema } from "../category-schema"
+import { ProductGeneralSchema } from "../products-schema"
+import { z } from "zod"
 
 export const ProductCreateSchema = ProductGeneralSchema.omit({
   id: true,

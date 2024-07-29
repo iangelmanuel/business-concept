@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from "next/link"
 import {
   Badge,
   Card,
@@ -6,11 +6,11 @@ import {
   CardFooter,
   CardHeader,
   buttonVariants
-} from '@/components'
-import { titleFont } from '@/config'
-import { orderStatusLang } from '@/consts'
-import type { OrderGridType } from '@/types'
-import { checkOrderStatusCn, formatCurrency, formatDate } from '@/utils'
+} from "@/components"
+import { titleFont } from "@/config"
+import { orderStatusLang } from "@/consts"
+import type { OrderGridType } from "@/types"
+import { checkOrderStatusCn, formatCurrency, formatDate } from "@/utils"
 
 interface Props {
   order: OrderGridType
@@ -37,17 +37,17 @@ export const OrderGrid = ({ order, isAdmin, userId }: Props) => {
         <h3 className={`${titleFont.className} font-bold`}>Información</h3>
         <section className="text-sm text-muted-foreground">
           <div>
-            <span className="font-bold">Importe:</span>{' '}
+            <span className="font-bold">Importe:</span>{" "}
             <span>{formatCurrency(order.total)}</span>
           </div>
 
           <div>
-            <span className="font-bold">Fecha:</span>{' '}
+            <span className="font-bold">Fecha:</span>{" "}
             <span>{formatDate(order.createdAt)}</span>
           </div>
 
           <div>
-            <span className="font-bold">Estado:</span>{' '}
+            <span className="font-bold">Estado:</span>{" "}
             <Badge variant={checkOrderStatusCn(orderStatus)}>
               {orderStatusLang[orderStatus]}
             </Badge>

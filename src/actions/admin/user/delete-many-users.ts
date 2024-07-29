@@ -1,25 +1,25 @@
-'use server'
+"use server"
 
-import { revalidatePath } from 'next/cache'
-import { auth } from '@/auth.config'
-import { prisma } from '@/lib'
-import type { UserType } from '@/types'
+import { revalidatePath } from "next/cache"
+import { auth } from "@/auth.config"
+import { prisma } from "@/lib"
+import type { UserType } from "@/types"
 
-export async function deleteManyUsers(ids: UserType['id'][]) {
+export async function deleteManyUsers(ids: UserType["id"][]) {
   try {
     const session = await auth()
     if (!session) {
       return {
         ok: false,
-        message: 'No tienes permisos para realizar esta acción'
+        message: "No tienes permisos para realizar esta acción"
       }
     }
 
-    const isAdmin = session.user.role.includes('admin')
+    const isAdmin = session.user.role.includes("admin")
     if (!isAdmin) {
       return {
         ok: false,
-        message: 'No tienes permisos para realizar esta acción'
+        message: "No tienes permisos para realizar esta acción"
       }
     }
 
@@ -31,16 +31,16 @@ export async function deleteManyUsers(ids: UserType['id'][]) {
       }
     })
 
-    revalidatePath('/admin/users')
+    revalidatePath("/admin/users")
 
     return {
       ok: true,
-      message: 'Usuarios eliminados correctamente'
+      message: "Usuarios eliminados correctamente"
     }
   } catch (error) {
     return {
       ok: false,
-      message: 'Error al eliminar los usuarios'
+      message: "Error al eliminar los usuarios"
     }
   }
 }

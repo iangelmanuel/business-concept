@@ -1,8 +1,8 @@
-import { Alert, AlertDescription, AlertTitle } from '@/components'
-import { InfoIcon } from 'lucide-react'
+import { Alert, AlertDescription, AlertTitle } from "@/components"
+import { InfoIcon } from "lucide-react"
 
 interface Props {
-  variant: 'default' | 'destructive' | 'success' | null | undefined
+  variant: "default" | "destructive" | "success" | null | undefined
   title: string
   description: string
   className?: string
@@ -12,7 +12,7 @@ export const AlertMessage = ({
   variant,
   title,
   description,
-  className = ''
+  className = ""
 }: Props) => {
   return (
     <Alert

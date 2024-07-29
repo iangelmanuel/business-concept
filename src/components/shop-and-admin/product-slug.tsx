@@ -4,13 +4,13 @@ import {
   CardDescription,
   CardHeader,
   PriceWithPosibleDiscount
-} from '..'
-import React from 'react'
-import { titleFont } from '@/config'
-import type { ProductAllType } from '@/types'
-import { ReturnPage } from '@/utils'
-import { Headphones, Package } from 'lucide-react'
-import { ImageProductCarousel } from './image-product-carousel'
+} from ".."
+import React from "react"
+import { titleFont } from "@/config"
+import type { ProductAllType } from "@/types"
+import { ReturnPage } from "@/utils"
+import { Headphones, Package } from "lucide-react"
+import { ImageProductCarousel } from "./image-product-carousel"
 
 interface Props {
   product: ProductAllType

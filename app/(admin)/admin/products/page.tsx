@@ -1,13 +1,13 @@
-import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
-import { getAllProductsByAdmin } from '@/actions'
-import { titleFont } from '@/config'
-import { columns } from './columns'
-import { DataTable } from './data-table'
+import type { Metadata } from "next"
+import { notFound } from "next/navigation"
+import { getAllProductsByAdmin } from "@/actions"
+import { titleFont } from "@/config"
+import { columns } from "./columns"
+import { DataTable } from "./data-table"
 
 export const metadata: Metadata = {
-  title: 'Productos - Business Concept',
-  description: 'Administra tus productos en Business Concept'
+  title: "Productos - Business Concept",
+  description: "Administra tus productos en Business Concept"
 }
 
 export default async function ProductsPage() {

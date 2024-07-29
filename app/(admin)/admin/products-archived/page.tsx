@@ -1,14 +1,14 @@
-import type { Metadata } from 'next'
-import { getProductDeleted } from '@/actions'
-import { ProductDeletedGrid } from '@/components'
-import { titleFont } from '@/config'
+import type { Metadata } from "next"
+import { getProductDeleted } from "@/actions"
+import { ProductDeletedGrid } from "@/components"
+import { titleFont } from "@/config"
 
 export const metadata: Metadata = {
-  title: 'Business Concept - Productos Archivados',
-  description: 'Administra los productos archivados de la tienda',
+  title: "Business Concept - Productos Archivados",
+  description: "Administra los productos archivados de la tienda",
   keywords:
-    'business concept, tienda online, productos, calidad, precios accesibles',
-  robots: 'noindex, nofollow'
+    "business concept, tienda online, productos, calidad, precios accesibles",
+  robots: "noindex, nofollow"
 }
 
 export default async function ProductArchivedPage() {
@@ -16,8 +16,8 @@ export default async function ProductArchivedPage() {
 
   const isEmptyTitleDescription =
     productArchived?.length === 0
-      ? 'No hay productos archivados'
-      : 'Productos archivados'
+      ? "No hay productos archivados"
+      : "Productos archivados"
 
   return (
     <article>

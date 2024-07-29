@@ -1,14 +1,14 @@
-'use server'
+"use server"
 
-import { revalidatePath } from 'next/cache'
-import { auth } from '@/auth.config'
-import { prisma } from '@/lib'
-import { ProductUpdateActionSchema } from '@/schema'
-import type { ProductType } from '@/types'
-import type { z } from 'zod'
+import { revalidatePath } from "next/cache"
+import { auth } from "@/auth.config"
+import { prisma } from "@/lib"
+import { ProductUpdateActionSchema } from "@/schema"
+import type { ProductType } from "@/types"
+import type { z } from "zod"
 
 export async function updateProductById(
-  id: ProductType['id'],
+  id: ProductType["id"],
   product: z.infer<typeof ProductUpdateActionSchema>
 ) {
   try {
@@ -16,15 +16,15 @@ export async function updateProductById(
     if (!session) {
       return {
         ok: false,
-        message: 'No autorizado'
+        message: "No autorizado"
       }
     }
 
-    const isAdmin = session.user.role.includes('admin')
+    const isAdmin = session.user.role.includes("admin")
     if (!isAdmin) {
       return {
         ok: false,
-        message: 'No autorizado'
+        message: "No autorizado"
       }
     }
 
@@ -32,7 +32,7 @@ export async function updateProductById(
     if (!result.success) {
       return {
         ok: false,
-        message: 'Datos incorrectos'
+        message: "Datos incorrectos"
       }
     }
 
@@ -45,22 +45,22 @@ export async function updateProductById(
       }
     })
 
-    revalidatePath('/admin/products')
-    revalidatePath('/')
-    revalidatePath('/shop/products')
-    revalidatePath('/shop/products/[category]', 'page')
-    revalidatePath('/shop/product/[slug]', 'page')
-    revalidatePath('/shop/cart')
-    revalidatePath('/shop/checkout')
+    revalidatePath("/admin/products")
+    revalidatePath("/")
+    revalidatePath("/shop/products")
+    revalidatePath("/shop/products/[category]", "page")
+    revalidatePath("/shop/product/[slug]", "page")
+    revalidatePath("/shop/cart")
+    revalidatePath("/shop/checkout")
 
     return {
       ok: true,
-      message: 'Producto actualizado correctamente'
+      message: "Producto actualizado correctamente"
     }
   } catch (error) {
     return {
       ok: false,
-      message: 'Error al actualizar el producto'
+      message: "Error al actualizar el producto"
     }
   }
 }

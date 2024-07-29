@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
-import { useTransition } from 'react'
-import { addOrUpdateOrderTrackingCode } from '@/actions'
+import { useTransition } from "react"
+import { addOrUpdateOrderTrackingCode } from "@/actions"
 import {
   Button,
   DialogFooter,
@@ -16,11 +16,11 @@ import {
   SelectTrigger,
   SelectValue,
   Spinner
-} from '@/components'
-import { selectOrderTrackingCompanyData } from '@/data'
-import type { UserOrderByAdmin, UserOrderTracking } from '@/types'
-import { useForm } from 'react-hook-form'
-import { toast } from 'sonner'
+} from "@/components"
+import { selectOrderTrackingCompanyData } from "@/data"
+import type { UserOrderByAdmin, UserOrderTracking } from "@/types"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 
 interface Props {
   order: UserOrderByAdmin
@@ -38,8 +38,8 @@ export const OrderTrackingForm = ({ order }: Props) => {
     setValue
   } = useForm<UserOrderTracking>({
     defaultValues: {
-      company: OrderTracking?.company || '',
-      trackingCode: OrderTracking?.trackingCode || ''
+      company: OrderTracking?.company || "",
+      trackingCode: OrderTracking?.trackingCode || ""
     }
   })
 
@@ -49,16 +49,16 @@ export const OrderTrackingForm = ({ order }: Props) => {
 
       const response = await addOrUpdateOrderTrackingCode(orderId, data)
       if (response.ok) {
-        toast.success('¡Todo salió bien!', {
+        toast.success("¡Todo salió bien!", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       } else {
-        toast.error('Ocurrio un problema', {
+        toast.error("Ocurrio un problema", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       }
     })
@@ -75,15 +75,15 @@ export const OrderTrackingForm = ({ order }: Props) => {
         <section>
           <Label>Empresa de rastreo</Label>
           <Select
-            {...register('company', {
-              required: 'El campo compañia es requerido'
+            {...register("company", {
+              required: "El campo compañia es requerido"
             })}
-            onValueChange={(value) => setValue('company', value)}
+            onValueChange={(value) => setValue("company", value)}
           >
             <SelectTrigger className="w-full capitalize">
               <SelectValue
                 placeholder={
-                  OrderTracking?.company ?? 'Selecciona la empresa de envio'
+                  OrderTracking?.company ?? "Selecciona la empresa de envio"
                 }
               />
             </SelectTrigger>
@@ -112,8 +112,8 @@ export const OrderTrackingForm = ({ order }: Props) => {
             type="text"
             id="trackingCode"
             placeholder="Agregar número de rastreo"
-            {...register('trackingCode', {
-              required: 'El campo número de rastreo es requerido'
+            {...register("trackingCode", {
+              required: "El campo número de rastreo es requerido"
             })}
           />
           {errors.trackingCode && (
@@ -133,7 +133,7 @@ export const OrderTrackingForm = ({ order }: Props) => {
               <Spinner />
             </>
           ) : (
-            'Añadir código'
+            "Añadir código"
           )}
         </Button>
       </DialogFooter>

@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
-import { useTransition } from 'react'
-import { changeOrderStatus } from '@/actions'
+import { useTransition } from "react"
+import { changeOrderStatus } from "@/actions"
 import {
   Button,
   DialogFooter,
@@ -15,12 +15,12 @@ import {
   SelectTrigger,
   SelectValue,
   Spinner
-} from '@/components'
-import { orderStatusLang } from '@/consts'
-import { selectOrderStatusData } from '@/data'
-import type { OrderStatusFormValues, UserOrderByAdmin } from '@/types'
-import { useForm } from 'react-hook-form'
-import { toast } from 'sonner'
+} from "@/components"
+import { orderStatusLang } from "@/consts"
+import { selectOrderStatusData } from "@/data"
+import type { OrderStatusFormValues, UserOrderByAdmin } from "@/types"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 
 interface Props {
   order: UserOrderByAdmin
@@ -47,16 +47,16 @@ export const OrderStatusForm = ({ order }: Props) => {
     startTransition(async () => {
       const response = await changeOrderStatus(orderId, orderStatus)
       if (response?.ok) {
-        toast.success('¡Todo salió bien!', {
+        toast.success("¡Todo salió bien!", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       } else {
-        toast.error('Ocurrio un problema', {
+        toast.error("Ocurrio un problema", {
           description: response.message,
           duration: 3000,
-          position: 'top-right'
+          position: "top-right"
         })
       }
     })
@@ -73,11 +73,11 @@ export const OrderStatusForm = ({ order }: Props) => {
         <section>
           <Label>Estado del rastreo</Label>
           <Select
-            {...register('orderStatus', {
-              required: 'El campo estado del rastreo es requerido'
+            {...register("orderStatus", {
+              required: "El campo estado del rastreo es requerido"
             })}
             onValueChange={(value) =>
-              setValue('orderStatus', value as UserOrderByAdmin['orderStatus'])
+              setValue("orderStatus", value as UserOrderByAdmin["orderStatus"])
             }
           >
             <SelectTrigger className="w-full">
@@ -114,7 +114,7 @@ export const OrderStatusForm = ({ order }: Props) => {
               <Spinner />
             </>
           ) : (
-            'Cambiar estado'
+            "Cambiar estado"
           )}
         </Button>
       </DialogFooter>

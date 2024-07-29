@@ -1,6 +1,6 @@
-import { useState, useTransition } from 'react'
-import Link from 'next/link'
-import { deleteOrderById, deleteOrderTrackingById } from '@/actions'
+import { useState, useTransition } from "react"
+import Link from "next/link"
+import { deleteOrderById, deleteOrderTrackingById } from "@/actions"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -23,8 +23,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
   buttonVariants
-} from '@/components'
-import type { UserOrderByAdmin } from '@/types'
+} from "@/components"
+import type { UserOrderByAdmin } from "@/types"
 import {
   Ellipsis,
   Package,
@@ -32,10 +32,10 @@ import {
   ScanEye,
   Trash,
   Trash2
-} from 'lucide-react'
-import { toast } from 'sonner'
-import { OrderStatusForm } from './order-status-form'
-import { OrderTrackingForm } from './order-tracking-form'
+} from "lucide-react"
+import { toast } from "sonner"
+import { OrderStatusForm } from "./order-status-form"
+import { OrderTrackingForm } from "./order-tracking-form"
 
 interface Props {
   order: UserOrderByAdmin
@@ -92,7 +92,7 @@ export const ActionsButtons = ({ order }: Props) => {
 
           <DropdownMenuSeparator />
 
-          {(orderStatus === 'approved' || orderStatus === 'shipped') && (
+          {(orderStatus === "approved" || orderStatus === "shipped") && (
             <DropdownMenuItem>
               <button
                 disabled={isPending}
@@ -100,7 +100,7 @@ export const ActionsButtons = ({ order }: Props) => {
                 className="flex items-center"
               >
                 <ScanEye className="mr-2 h-4 w-4" />
-                {OrderTracking ? 'Actualizar' : 'Añadir'} rastreo
+                {OrderTracking ? "Actualizar" : "Añadir"} rastreo
               </button>
             </DropdownMenuItem>
           )}
@@ -202,20 +202,20 @@ export const ActionsButtons = ({ order }: Props) => {
                   )
 
                   if (response.ok) {
-                    toast.success('¡Todo salió bien!', {
+                    toast.success("¡Todo salió bien!", {
                       description: response.message,
                       duration: 3000,
-                      position: 'top-right'
+                      position: "top-right"
                     })
                   } else {
-                    toast.error('Ocurrio un problema', {
+                    toast.error("Ocurrio un problema", {
                       duration: 3000,
-                      position: 'top-right'
+                      position: "top-right"
                     })
                   }
                 })
               }}
-              className={buttonVariants({ variant: 'destructive' })}
+              className={buttonVariants({ variant: "destructive" })}
             >
               Eliminar rastreo
             </AlertDialogAction>
@@ -250,21 +250,21 @@ export const ActionsButtons = ({ order }: Props) => {
                 startTransition(async () => {
                   const response = await deleteOrderById(id)
                   if (response.ok) {
-                    toast.success('¡Todo salió bien!', {
+                    toast.success("¡Todo salió bien!", {
                       description: response.message,
                       duration: 3000,
-                      position: 'top-right'
+                      position: "top-right"
                     })
                   } else {
-                    toast.error('Ocurrio un problema', {
+                    toast.error("Ocurrio un problema", {
                       description: response.message,
                       duration: 3000,
-                      position: 'top-right'
+                      position: "top-right"
                     })
                   }
                 })
               }}
-              className={buttonVariants({ variant: 'destructive' })}
+              className={buttonVariants({ variant: "destructive" })}
             >
               Eliminar orden
             </AlertDialogAction>

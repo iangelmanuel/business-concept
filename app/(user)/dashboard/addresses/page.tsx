@@ -1,20 +1,20 @@
-import type { Metadata } from 'next'
-import { getLocationData, getUserAddress } from '@/actions'
+import type { Metadata } from "next"
+import { getLocationData, getUserAddress } from "@/actions"
 import {
   AddressForm,
   AddressUser,
   Card,
   CardDescription,
   CardHeader
-} from '@/components'
-import { titleFont } from '@/config'
+} from "@/components"
+import { titleFont } from "@/config"
 
 export const metadata: Metadata = {
-  title: 'Dirección de envío - Business Concept',
+  title: "Dirección de envío - Business Concept",
   description:
-    'Agrega tu dirección de envío para que podamos enviarte tus compras.',
-  keywords: 'dirección, envío, agregar, compras, dirección de envío',
-  robots: 'noindex, nofollow'
+    "Agrega tu dirección de envío para que podamos enviarte tus compras.",
+  keywords: "dirección, envío, agregar, compras, dirección de envío",
+  robots: "noindex, nofollow"
 }
 
 export default async function AddressesPage() {

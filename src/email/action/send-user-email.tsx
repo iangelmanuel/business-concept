@@ -1,9 +1,9 @@
-'use server'
+"use server"
 
-import { UserEmailTemplate } from '../template/user-email-template'
-import { auth } from '@/auth.config'
-import { SendEmailUserSchema } from '@/schema'
-import { Resend } from 'resend'
+import { UserEmailTemplate } from "../template/user-email-template"
+import { auth } from "@/auth.config"
+import { SendEmailUserSchema } from "@/schema"
+import { Resend } from "resend"
 
 interface Props {
   subject: string
@@ -22,10 +22,10 @@ export async function sendUserEmail({
 }: Props) {
   try {
     const session = await auth()
-    if (!session) return { ok: false, message: 'No autorizado' }
+    if (!session) return { ok: false, message: "No autorizado" }
 
-    const isAdmin = session.user.role.includes('admin')
-    if (!isAdmin) return { ok: false, message: 'No autorizado' }
+    const isAdmin = session.user.role.includes("admin")
+    if (!isAdmin) return { ok: false, message: "No autorizado" }
 
     const result = SendEmailUserSchema.safeParse({
       subject,
@@ -33,10 +33,10 @@ export async function sendUserEmail({
       userFullName,
       message
     })
-    if (!result.success) return { ok: false, message: 'Datos inválidos' }
+    if (!result.success) return { ok: false, message: "Datos inválidos" }
 
     const responseResend = await resend.emails.create({
-      from: 'Business Concept <businessconcept@resend.dev>',
+      from: "Business Concept <businessconcept@resend.dev>",
       to: result.data.email,
       subject: result.data.subject,
       react: (
@@ -48,17 +48,17 @@ export async function sendUserEmail({
     })
 
     if (responseResend.error !== null) {
-      return { ok: false, message: 'No se pudo enviar el correo electrónico' }
+      return { ok: false, message: "No se pudo enviar el correo electrónico" }
     }
 
     return {
       ok: true,
-      message: 'Correo electrónico enviado'
+      message: "Correo electrónico enviado"
     }
   } catch (error) {
     return {
       ok: false,
-      message: 'No se pudo enviar el correo electrónico'
+      message: "No se pudo enviar el correo electrónico"
     }
   }
 }

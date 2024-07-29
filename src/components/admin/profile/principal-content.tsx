@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import {
   Card,
@@ -9,11 +9,11 @@ import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent
-} from '@/components'
-import { titleFont } from '@/config'
-import type { AdminDashboard } from '@/types'
-import { capitalize } from '@/utils'
-import { Bar, BarChart, CartesianGrid, XAxis } from 'recharts'
+} from "@/components"
+import { titleFont } from "@/config"
+import type { AdminDashboard } from "@/types"
+import { capitalize } from "@/utils"
+import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
 
 interface Props {
   data: AdminDashboard[] | null
@@ -21,8 +21,8 @@ interface Props {
 
 const chartConfig = {
   total: {
-    label: 'Total',
-    color: '#2563eb'
+    label: "Total",
+    color: "#2563eb"
   }
 } satisfies ChartConfig
 
@@ -30,8 +30,8 @@ export const PrincipalContent = ({ data }: Props) => {
   const crudData = data
     ?.filter((item) => item.paidAt !== null)
     .map((item) => {
-      const month = new Date(item.paidAt!).toLocaleString('es-CO', {
-        month: 'long'
+      const month = new Date(item.paidAt!).toLocaleString("es-CO", {
+        month: "long"
       })
 
       return {

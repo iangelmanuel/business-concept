@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
-import { useTheme } from 'next-themes'
-import { useRouter } from 'next/navigation'
+import { useTheme } from "next-themes"
+import { useRouter } from "next/navigation"
 import {
   Button,
   DropdownMenu,
@@ -15,9 +15,9 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger
-} from '@/components'
-import { notUserNavigation } from '@/data'
-import { Laptop2Icon, MenuIcon, Moon, Palette, Sun } from 'lucide-react'
+} from "@/components"
+import { notUserNavigation } from "@/data"
+import { Laptop2Icon, MenuIcon, Moon, Palette, Sun } from "lucide-react"
 
 export const DropdownMenuGeneral = () => {
   const { setTheme } = useTheme()
@@ -55,17 +55,17 @@ export const DropdownMenuGeneral = () => {
 
             <DropdownMenuPortal>
               <DropdownMenuSubContent>
-                <DropdownMenuItem onClick={() => setTheme('system')}>
+                <DropdownMenuItem onClick={() => setTheme("system")}>
                   <Laptop2Icon className="mr-2 h-4 w-4" />
                   <span>Sistema</span>
                 </DropdownMenuItem>
 
-                <DropdownMenuItem onClick={() => setTheme('ligth')}>
+                <DropdownMenuItem onClick={() => setTheme("ligth")}>
                   <Sun className="mr-2 h-4 w-4" />
                   <span>Claro</span>
                 </DropdownMenuItem>
 
-                <DropdownMenuItem onClick={() => setTheme('dark')}>
+                <DropdownMenuItem onClick={() => setTheme("dark")}>
                   <Moon className="mr-2 h-4 w-4" />
                   <span>Oscuro</span>
                 </DropdownMenuItem>

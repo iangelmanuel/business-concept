@@ -3,22 +3,22 @@ import {
   LockIcon,
   ShoppingBagIcon,
   User
-} from 'lucide-react'
+} from "lucide-react"
 
 export const userNavigation = [
   {
-    label: 'Cuenta',
-    href: '/dashboard/profile',
+    label: "Cuenta",
+    href: "/dashboard/profile",
     icon: <User className="mr-2 h-4 w-4" />
   },
   {
-    label: 'Mis Compras',
-    href: '/dashboard/purchases',
+    label: "Mis Compras",
+    href: "/dashboard/purchases",
     icon: <ShoppingBagIcon className="mr-2 h-4 w-4" />
   },
   {
-    label: 'Mis direcciones',
-    href: '/dashboard/addresses',
+    label: "Mis direcciones",
+    href: "/dashboard/addresses",
     icon: <BookUserIcon className="mr-2 h-4 w-4" />
   },
   // {
@@ -27,8 +27,8 @@ export const userNavigation = [
   //   icon: <CreditCard className="mr-2 h-4 w-4" />
   // },
   {
-    label: 'Seguridad y Privacidad',
-    href: '/dashboard/security-privacy',
+    label: "Seguridad y Privacidad",
+    href: "/dashboard/security-privacy",
     icon: <LockIcon className="mr-2 h-4 w-4" />
   }
 ]

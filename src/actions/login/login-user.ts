@@ -1,10 +1,10 @@
-'use server'
+"use server"
 
-import { AuthError } from 'next-auth'
-import { signIn } from '@/auth.config'
-import { prisma } from '@/lib'
-import { LoginUserSchema } from '@/schema'
-import type { LoginUser } from '@/types'
+import { AuthError } from "next-auth"
+import { signIn } from "@/auth.config"
+import { prisma } from "@/lib"
+import { LoginUserSchema } from "@/schema"
+import type { LoginUser } from "@/types"
 
 export async function loginUser(data: LoginUser) {
   try {
@@ -12,7 +12,7 @@ export async function loginUser(data: LoginUser) {
     if (!response.success) {
       return {
         ok: false,
-        message: 'Ocurrio un error al validar los datos'
+        message: "Ocurrio un error al validar los datos"
       }
     }
 
@@ -30,32 +30,32 @@ export async function loginUser(data: LoginUser) {
       return {
         ok: false,
         message:
-          'El usuario al que intentas acceder ha sido eliminado. Contacta con soporte para más información'
+          "El usuario al que intentas acceder ha sido eliminado. Contacta con soporte para más información"
       }
     }
 
     const { ...emailAndPassword } = response.data
-    await signIn('credentials', {
+    await signIn("credentials", {
       redirect: false,
       ...emailAndPassword
     })
 
     return {
       ok: true,
-      message: 'Usuario ingresado correctamente.'
+      message: "Usuario ingresado correctamente."
     }
   } catch (error) {
     if (error instanceof AuthError) {
       switch (error.type) {
-        case 'CredentialsSignin':
+        case "CredentialsSignin":
           return {
             ok: false,
-            message: 'El correo o la contraseña son incorrectos'
+            message: "El correo o la contraseña son incorrectos"
           }
         default:
           return {
             ok: false,
-            message: 'Ocurrio un error al iniciar sesión'
+            message: "Ocurrio un error al iniciar sesión"
           }
       }
     }

@@ -1,13 +1,13 @@
-'use server'
+"use server"
 
-import { revalidatePath } from 'next/cache'
-import { auth } from '@/auth.config'
-import { prisma } from '@/lib'
-import { ProductCreateSchema } from '@/schema'
-import type { ProductCreateForm } from '@/types'
-import { createSlugForProduct } from '@/utils'
-import type { UploadApiResponse } from 'cloudinary'
-import { v2 as cloudinary } from 'cloudinary'
+import { revalidatePath } from "next/cache"
+import { auth } from "@/auth.config"
+import { prisma } from "@/lib"
+import { ProductCreateSchema } from "@/schema"
+import type { ProductCreateForm } from "@/types"
+import { createSlugForProduct } from "@/utils"
+import type { UploadApiResponse } from "cloudinary"
+import { v2 as cloudinary } from "cloudinary"
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -21,15 +21,15 @@ export async function createProduct(data: ProductCreateForm) {
     if (!session) {
       return {
         ok: false,
-        message: 'No autorizado'
+        message: "No autorizado"
       }
     }
 
-    const isAdmin = session.user.role.includes('admin')
+    const isAdmin = session.user.role.includes("admin")
     if (!isAdmin) {
       return {
         ok: false,
-        message: 'No autorizado'
+        message: "No autorizado"
       }
     }
 
@@ -38,13 +38,13 @@ export async function createProduct(data: ProductCreateForm) {
     if (!result.success) {
       return {
         ok: false,
-        message: 'Datos incorrectos'
+        message: "Datos incorrectos"
       }
     }
 
     if (formData instanceof FormData) {
       const slug = createSlugForProduct(result.data.name)
-      const images = formData.getAll('images') as File[]
+      const images = formData.getAll("images") as File[]
 
       const cloudinaryResponse = images.map(async (image) => {
         const byte = await image.arrayBuffer()
@@ -54,9 +54,9 @@ export async function createProduct(data: ProductCreateForm) {
           cloudinary.uploader
             .upload_stream(
               {
-                folder: 'Business Concept',
+                folder: "Business Concept",
                 public_id: `${slug}-${crypto.randomUUID()}-${Date.now()}`,
-                resource_type: 'image'
+                resource_type: "image"
               },
               (error, result) => {
                 if (error) {
@@ -71,10 +71,10 @@ export async function createProduct(data: ProductCreateForm) {
       })
 
       const imageData = await Promise.all(cloudinaryResponse)
-      if (typeof imageData === 'undefined') {
+      if (typeof imageData === "undefined") {
         return {
           ok: false,
-          message: 'Error al subir las imágenes'
+          message: "Error al subir las imágenes"
         }
       }
 
@@ -98,21 +98,21 @@ export async function createProduct(data: ProductCreateForm) {
       })
     }
 
-    revalidatePath('/admin/products')
-    revalidatePath('/admin/products/[slug]', 'page')
-    revalidatePath('/')
-    revalidatePath('/shop/products')
-    revalidatePath('/shop/products/[slug]', 'page')
-    revalidatePath('/shop/products/[category]', 'page')
+    revalidatePath("/admin/products")
+    revalidatePath("/admin/products/[slug]", "page")
+    revalidatePath("/")
+    revalidatePath("/shop/products")
+    revalidatePath("/shop/products/[slug]", "page")
+    revalidatePath("/shop/products/[category]", "page")
 
     return {
       ok: true,
-      message: 'Producto creado correctamente'
+      message: "Producto creado correctamente"
     }
   } catch (error) {
     return {
       ok: false,
-      message: 'Error al crear el producto'
+      message: "Error al crear el producto"
     }
   }
 }

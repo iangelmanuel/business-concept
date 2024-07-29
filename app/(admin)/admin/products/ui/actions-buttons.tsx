@@ -1,6 +1,6 @@
-import { useState, useTransition } from 'react'
-import Link from 'next/link'
-import { archiveProductById } from '@/actions'
+import { useState, useTransition } from "react"
+import Link from "next/link"
+import { archiveProductById } from "@/actions"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -23,18 +23,18 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
   buttonVariants
-} from '@/components'
-import type { ProductAllType } from '@/types'
+} from "@/components"
+import type { ProductAllType } from "@/types"
 import {
   Archive,
   Ellipsis,
   Headphones,
   ImageIcon,
   Settings
-} from 'lucide-react'
-import { toast } from 'sonner'
-import { UpdateProductFromAdminForm } from './update-product-from-admin-form'
-import { UpdateProductImageForm } from './update-product-image-form'
+} from "lucide-react"
+import { toast } from "sonner"
+import { UpdateProductFromAdminForm } from "./update-product-from-admin-form"
+import { UpdateProductImageForm } from "./update-product-image-form"
 
 interface Props {
   product: ProductAllType
@@ -172,21 +172,21 @@ export const ActionsButtons = ({ product }: Props) => {
                 startTransition(async () => {
                   const response = await archiveProductById(id)
                   if (response.ok) {
-                    toast.success('¡Todo salió bien!', {
+                    toast.success("¡Todo salió bien!", {
                       description: response.message,
                       duration: 3000,
-                      position: 'top-right'
+                      position: "top-right"
                     })
                   } else {
-                    toast.error('Ocurrio un problema', {
+                    toast.error("Ocurrio un problema", {
                       description: response.message,
                       duration: 3000,
-                      position: 'top-right'
+                      position: "top-right"
                     })
                   }
                 })
               }}
-              className={buttonVariants({ variant: 'destructive' })}
+              className={buttonVariants({ variant: "destructive" })}
             >
               Archivar
             </AlertDialogAction>

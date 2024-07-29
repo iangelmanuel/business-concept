@@ -1,13 +1,13 @@
-import { UpdateUserFromAdminForm } from '../ui/update-user-from-admin-form'
-import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+import { UpdateUserFromAdminForm } from "../ui/update-user-from-admin-form"
+import type { Metadata } from "next"
+import { notFound } from "next/navigation"
 import {
   deleteUserById,
   findUserById,
   getLocationData,
   getUserAddressById,
   getUserOrdersById
-} from '@/actions'
+} from "@/actions"
 import {
   AddressForm,
   AddressUser,
@@ -34,16 +34,16 @@ import {
   DialogTrigger,
   OrderGrid,
   buttonVariants
-} from '@/components'
-import { titleFont } from '@/config'
-import type { UserType } from '@/types'
-import { ReturnPage } from '@/utils'
-import { toast } from 'sonner'
+} from "@/components"
+import { titleFont } from "@/config"
+import type { UserType } from "@/types"
+import { ReturnPage } from "@/utils"
+import { toast } from "sonner"
 
 export async function generateMetadata({
   params
 }: {
-  params: { id: UserType['id'] }
+  params: { id: UserType["id"] }
 }): Promise<Metadata> {
   const { id } = params
   const user = await findUserById(id)
@@ -58,7 +58,7 @@ export async function generateMetadata({
 export default async function UserIdPage({
   params
 }: {
-  params: { id: UserType['id'] }
+  params: { id: UserType["id"] }
 }) {
   const { id } = params
   const user = await findUserById(id)
@@ -71,32 +71,32 @@ export default async function UserIdPage({
   const userAddresses = userData!.addresses
 
   const handleActionDeleteUser = async () => {
-    'use server'
+    "use server"
     const response = await deleteUserById(id)
     if (response.ok) {
-      toast.success('¡Todo salió bien!', {
+      toast.success("¡Todo salió bien!", {
         description: response.message,
         duration: 3000,
-        position: 'top-right'
+        position: "top-right"
       })
     } else {
-      toast.error('Ocurrio un problema', {
+      toast.error("Ocurrio un problema", {
         description: response.message,
         duration: 3000,
-        position: 'top-right'
+        position: "top-right"
       })
     }
   }
 
   const { isUserDeleted, isConfirmed } = user
-  const textIsDeleted = isUserDeleted ? 'Eliminada' : 'Activa'
-  const variantIsDeleted = isUserDeleted ? 'destructive' : 'success'
+  const textIsDeleted = isUserDeleted ? "Eliminada" : "Activa"
+  const variantIsDeleted = isUserDeleted ? "destructive" : "success"
 
-  const textIsConfirmed = isConfirmed ? 'Confirmado' : 'Sin confirmar'
-  const variantIsConfirmed = isConfirmed ? 'success' : 'destructive'
+  const textIsConfirmed = isConfirmed ? "Confirmado" : "Sin confirmar"
+  const variantIsConfirmed = isConfirmed ? "success" : "destructive"
 
-  const textIsAdmin = user.role === 'admin' ? 'Admin' : 'Usuario'
-  const variantIsAdmin = user.role === 'admin' ? 'admin' : 'user'
+  const textIsAdmin = user.role === "admin" ? "Admin" : "Usuario"
+  const variantIsAdmin = user.role === "admin" ? "admin" : "user"
 
   return (
     <article>
@@ -115,7 +115,7 @@ export default async function UserIdPage({
 
         <CardContent className="space-y-3">
           <div className="flex items-center justify-between">
-            <strong>Nombre:</strong>{' '}
+            <strong>Nombre:</strong>{" "}
             <p>
               {user.name} {user.lastname}
             </p>
@@ -130,7 +130,7 @@ export default async function UserIdPage({
           </div>
 
           <div className="flex items-center justify-between">
-            <strong>Rol:</strong>{' '}
+            <strong>Rol:</strong>{" "}
             <Badge
               variant={variantIsAdmin}
               className="uppercase"
@@ -140,12 +140,12 @@ export default async function UserIdPage({
           </div>
 
           <div className="flex items-center justify-between">
-            <strong>Estado de cuenta:</strong>{' '}
+            <strong>Estado de cuenta:</strong>{" "}
             <Badge variant={variantIsDeleted}>{textIsDeleted}</Badge>
           </div>
 
           <div className="flex items-center justify-between">
-            <strong>Confirmación:</strong>{' '}
+            <strong>Confirmación:</strong>{" "}
             <Badge variant={variantIsConfirmed}>{textIsConfirmed}</Badge>
           </div>
         </CardContent>
@@ -171,7 +171,7 @@ export default async function UserIdPage({
           {/* AlertDialog de Eliminar Usuario */}
           <AlertDialog>
             <AlertDialogTrigger>
-              <span className={buttonVariants({ variant: 'ghost' })}>
+              <span className={buttonVariants({ variant: "ghost" })}>
                 Eliminar Usuario
               </span>
             </AlertDialogTrigger>
@@ -192,7 +192,7 @@ export default async function UserIdPage({
                 <AlertDialogCancel>Cancelar</AlertDialogCancel>
                 <form action={handleActionDeleteUser}>
                   <AlertDialogAction
-                    className={buttonVariants({ variant: 'destructive' })}
+                    className={buttonVariants({ variant: "destructive" })}
                   >
                     <button type="submit">Eliminar</button>
                   </AlertDialogAction>

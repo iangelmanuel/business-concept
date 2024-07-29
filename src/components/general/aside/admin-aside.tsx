@@ -1,16 +1,16 @@
-'use client'
+"use client"
 
-import { useState } from 'react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { useState } from "react"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 import {
   Card,
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup
-} from '@/components'
-import { adminNavigation } from '@/data'
-import { cn } from '@/lib'
+} from "@/components"
+import { adminNavigation } from "@/data"
+import { cn } from "@/lib"
 
 interface Props {
   children: React.ReactNode
@@ -48,11 +48,11 @@ export const AdminAside = ({ children }: Props) => {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  'flex w-full items-center rounded-lg p-3',
-                  defaultSize <= 5 && 'justify-center',
+                  "flex w-full items-center rounded-lg p-3",
+                  defaultSize <= 5 && "justify-center",
                   pathname === item.href
-                    ? 'bg-gray-100 dark:bg-accent'
-                    : 'hover:bg-gray-100 hover:dark:bg-accent'
+                    ? "bg-gray-100 dark:bg-accent"
+                    : "hover:bg-gray-100 hover:dark:bg-accent"
                 )}
               >
                 {item.icon}

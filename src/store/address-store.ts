@@ -1,6 +1,6 @@
-import type { AddressForm } from '@/types'
-import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
+import type { AddressForm } from "@/types"
+import { create } from "zustand"
+import { persist } from "zustand/middleware"
 
 type State = {
   address: AddressForm
@@ -22,7 +22,7 @@ export const useAddressStore = create<State>()(
       }
     }),
     {
-      name: 'address-storage'
+      name: "address-storage"
     }
   )
 )

@@ -1,11 +1,11 @@
-import { Card, CardContent, CardHeader } from '@/components'
-import { titleFont } from '@/config'
-import type { AdminDashboard, UserType } from '@/types'
-import { formatCurrency } from '@/utils'
-import { Box, CheckCircle, DollarSign, User } from 'lucide-react'
+import { Card, CardContent, CardHeader } from "@/components"
+import { titleFont } from "@/config"
+import type { AdminDashboard, UserType } from "@/types"
+import { formatCurrency } from "@/utils"
+import { Box, CheckCircle, DollarSign, User } from "lucide-react"
 
 interface UserIdType {
-  id: UserType['id']
+  id: UserType["id"]
 }
 
 interface Props {
@@ -29,7 +29,7 @@ export const GeneralFinanceCards = ({ data, userId }: Props) => {
   }, 0)
 
   const totalOrderWithApproveStatus = data?.reduce((acc, item) => {
-    if (item.orderStatus === 'approved') {
+    if (item.orderStatus === "approved") {
       return acc + 1
     }
     return acc

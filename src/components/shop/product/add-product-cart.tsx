@@ -1,11 +1,11 @@
-'use client'
+"use client"
 
-import { useState } from 'react'
-import { Button, CardContent } from '@/components'
-import { useCartStore } from '@/store'
-import type { ProductAllType } from '@/types'
-import { MinusCircle, PlusCircle } from 'lucide-react'
-import { toast } from 'sonner'
+import { useState } from "react"
+import { Button, CardContent } from "@/components"
+import { useCartStore } from "@/store"
+import type { ProductAllType } from "@/types"
+import { MinusCircle, PlusCircle } from "lucide-react"
+import { toast } from "sonner"
 
 interface Props {
   product: ProductAllType
@@ -27,9 +27,9 @@ export const AddProductCart = ({ product }: Props) => {
       image: productImage,
       quantity
     })
-    toast.success('Producto añadido al carrito', {
+    toast.success("Producto añadido al carrito", {
       duration: 2500,
-      position: 'top-center'
+      position: "top-center"
     })
   }
 

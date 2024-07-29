@@ -6,10 +6,10 @@ import {
   CardHeader,
   ContactDeleteButton,
   Skeleton
-} from '@/components'
-import { titleFont } from '@/config'
-import type { ContactAllType } from '@/types'
-import { Inbox, Mail, Phone } from 'lucide-react'
+} from "@/components"
+import { titleFont } from "@/config"
+import type { ContactAllType } from "@/types"
+import { Inbox, Mail, Phone } from "lucide-react"
 
 interface Props {
   contact: ContactAllType
@@ -24,7 +24,7 @@ export const ContactInfoGrid = ({ contact }: Props) => {
         </h3>
 
         <h4>
-          <span className="text-muted-foreground">Enviado por:</span>{' '}
+          <span className="text-muted-foreground">Enviado por:</span>{" "}
           <span className={`${titleFont.className} font-bold`}>
             {contact.fullName}
           </span>
@@ -69,12 +69,12 @@ export const ContactInfoGridSkeleton = () => {
 
       <CardContent className="space-y-1">
         <div className="flex items-center gap-2 truncate">
-          <Skeleton className="h-5 w-5 rounded-full" />{' '}
+          <Skeleton className="h-5 w-5 rounded-full" />{" "}
           <Skeleton className="h-5 w-10" />
         </div>
 
         <div className="flex items-center gap-2 truncate">
-          <Skeleton className="h-5 w-5 rounded-full" />{' '}
+          <Skeleton className="h-5 w-5 rounded-full" />{" "}
           <Skeleton className="h-5 w-8" />
         </div>
 
