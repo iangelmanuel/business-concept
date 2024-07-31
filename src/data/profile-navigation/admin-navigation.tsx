@@ -34,7 +34,7 @@ export const adminNavigation = [
     icon: <FileAudio2 className="mr-2 h-4 w-4" />
   },
   {
-    label: "Contanctos",
+    label: "Contactos",
     href: "/admin/contacts",
     icon: <Contact className="mr-2 h-4 w-4" />
   }
