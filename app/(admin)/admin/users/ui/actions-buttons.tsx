@@ -82,9 +82,9 @@ export const ActionsButtons = ({ user }: Props) => {
             <button
               disabled={isPending}
               onClick={() => setIsDeleteOptionOpen(true)}
-              className="flex items-center text-destructive"
+              className="text-destructive flex items-center"
             >
-              <Trash2 className="mr-2 h-4 w-4 text-destructive" />
+              <Trash2 className="text-destructive mr-2 h-4 w-4" />
               Eliminar usuario
             </button>
           </DropdownMenuItem>

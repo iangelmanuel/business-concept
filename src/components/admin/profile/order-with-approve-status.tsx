@@ -38,7 +38,7 @@ export const OrderWithApproveStatus = ({ data }: Props) => {
             <Link
               key={item.id}
               href={`/admin/orders/${item.id}`}
-              className="flex cursor-pointer flex-col items-center justify-between rounded-lg p-3 hover:bg-muted sm:flex-row"
+              className="hover:bg-muted flex cursor-pointer flex-col items-center justify-between rounded-lg p-3 sm:flex-row"
             >
               <article className="flex items-center gap-3">
                 <section>

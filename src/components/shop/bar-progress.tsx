@@ -71,11 +71,11 @@ export const BarProgress = ({ step }: Props) => {
   }
 
   return (
-    <section className="mx-auto mb-3 mt-10 max-w-(--breakpoint-2xl) p-5 2xl:p-0">
+    <section className="mx-auto mt-10 mb-3 max-w-(--breakpoint-2xl) p-5 2xl:p-0">
       <article className="relative flex items-center justify-between text-white">
         <Progress
           value={progress}
-          className="absolute left-1/2 top-1/2 -z-10 w-full -translate-x-1/2 -translate-y-1/2 transform border-b-2"
+          className="absolute top-1/2 left-1/2 -z-10 w-full -translate-x-1/2 -translate-y-1/2 transform border-b-2"
         />
 
         <section className="flex h-8 w-8 items-center justify-evenly gap-2 rounded-full bg-emerald-500 ring-2 ring-emerald-500">

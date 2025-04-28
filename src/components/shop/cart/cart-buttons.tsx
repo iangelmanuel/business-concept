@@ -34,7 +34,7 @@ export const CartButtons = ({ setIsSheetOpen }: Props) => {
     </div>
   ) : (
     <div className="flex items-center justify-center gap-2">
-      <p className="text-sm text-foreground">No hay productos en el carrito</p>
+      <p className="text-foreground text-sm">No hay productos en el carrito</p>
       <Button
         onClick={() => {
           setIsSheetOpen((prevState) => !prevState)

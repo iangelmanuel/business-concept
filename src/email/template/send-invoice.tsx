@@ -104,7 +104,7 @@ export const SendInvoiceTemplate = ({ dataPayco }: Props) => {
                   <Section className="grid grid-cols-2 gap-5">
                     <div className="flex flex-col items-center justify-center">
                       <Text className="font-bold">Banco</Text>
-                      <Text className="text-sm text-muted-foreground">
+                      <Text className="text-muted-foreground text-sm">
                         {dataPayco.data.x_bank_name}
                       </Text>
                     </div>
@@ -113,7 +113,7 @@ export const SendInvoiceTemplate = ({ dataPayco }: Props) => {
                       <Text className={`${titleFont.className} font-bold`}>
                         Transacción
                       </Text>
-                      <Text className="text-sm text-muted-foreground">
+                      <Text className="text-muted-foreground text-sm">
                         {dataPayco.data.x_transaction_id}
                       </Text>
                     </div>
@@ -122,7 +122,7 @@ export const SendInvoiceTemplate = ({ dataPayco }: Props) => {
                       <Text className={`${titleFont.className} font-bold`}>
                         Tarjeta de crédito
                       </Text>
-                      <Text className="text-sm text-muted-foreground">
+                      <Text className="text-muted-foreground text-sm">
                         {dataPayco.data.x_cardnumber}
                       </Text>
                     </div>
@@ -131,7 +131,7 @@ export const SendInvoiceTemplate = ({ dataPayco }: Props) => {
                       <Text className={`${titleFont.className} font-bold`}>
                         Cuotas
                       </Text>
-                      <Text className="text-sm text-muted-foreground">
+                      <Text className="text-muted-foreground text-sm">
                         {dataPayco.data.x_quotas}
                       </Text>
                     </div>
@@ -152,7 +152,7 @@ export const SendInvoiceTemplate = ({ dataPayco }: Props) => {
                             size={20}
                           />
                         )}
-                        <Text className="text-sm text-muted-foreground">
+                        <Text className="text-muted-foreground text-sm">
                           {dataPayco.data.x_transaction_state}
                         </Text>
                       </div>
@@ -160,7 +160,7 @@ export const SendInvoiceTemplate = ({ dataPayco }: Props) => {
                   </Section>
 
                   <Heading
-                    className={`mb-3 mt-8 text-center text-xl font-bold ${titleFont.className}`}
+                    className={`mt-8 mb-3 text-center text-xl font-bold ${titleFont.className}`}
                   >
                     Datos de la compra
                   </Heading>
@@ -169,7 +169,7 @@ export const SendInvoiceTemplate = ({ dataPayco }: Props) => {
                       <Text className={`${titleFont.className} font-bold`}>
                         Ref. Comercio
                       </Text>
-                      <Text className="text-sm text-muted-foreground">
+                      <Text className="text-muted-foreground text-sm">
                         {dataPayco.data.x_ref_payco}
                       </Text>
                     </div>
@@ -178,7 +178,7 @@ export const SendInvoiceTemplate = ({ dataPayco }: Props) => {
                       <Text className={`${titleFont.className} font-bold`}>
                         Descripción
                       </Text>
-                      <Text className="text-sm text-muted-foreground">
+                      <Text className="text-muted-foreground text-sm">
                         {dataPayco.data.x_description}
                       </Text>
                     </div>
@@ -187,7 +187,7 @@ export const SendInvoiceTemplate = ({ dataPayco }: Props) => {
                       <Text className={`${titleFont.className} font-bold`}>
                         Subtotal
                       </Text>
-                      <Text className="text-sm text-muted-foreground">
+                      <Text className="text-muted-foreground text-sm">
                         {formatCurrency(dataPayco.data.x_amount)}
                       </Text>
                     </div>
@@ -196,7 +196,7 @@ export const SendInvoiceTemplate = ({ dataPayco }: Props) => {
                       <Text className={`${titleFont.className} font-bold`}>
                         Valor Total
                       </Text>
-                      <Text className="text-sm text-muted-foreground">
+                      <Text className="text-muted-foreground text-sm">
                         {formatCurrency(dataPayco.data.x_amount_ok)}
                       </Text>
                     </div>

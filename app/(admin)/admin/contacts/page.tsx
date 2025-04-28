@@ -40,7 +40,7 @@ export default async function AdminContactsPage() {
             </Suspense>
           ))
         ) : (
-          <p className="text-sm text-muted-foreground">
+          <p className="text-muted-foreground text-sm">
             No se ha recibido ningún mensaje de contacto
           </p>
         )}

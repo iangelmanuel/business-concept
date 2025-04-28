@@ -34,7 +34,7 @@ export default async function ProductArchivedPage() {
             />
           ))
         ) : (
-          <p className="text-sm text-muted-foreground">
+          <p className="text-muted-foreground text-sm">
             No has archivado ningún producto.
           </p>
         )}

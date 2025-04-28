@@ -15,17 +15,17 @@ export const HoverCardDiscountDocs = () => {
           ¿Cómo funciona el descuento?
           <MessageCircleQuestion size={16} />
         </h4>
-        <span className="block text-xs text-muted-foreground">
+        <span className="text-muted-foreground block text-xs">
           El descuento debe ser un valor entre 0 y 1
         </span>
-        <span className="block text-xs text-muted-foreground">
+        <span className="text-muted-foreground block text-xs">
           1 es sin descuento y entre 0 y 0.99 es con descuento
         </span>
-        <span className="block text-xs text-muted-foreground">Ejemplo:</span>
-        <span className="block text-xs text-muted-foreground">
+        <span className="text-muted-foreground block text-xs">Ejemplo:</span>
+        <span className="text-muted-foreground block text-xs">
           0.25 = 25% de descuento
         </span>
-        <span className="block text-xs text-muted-foreground">
+        <span className="text-muted-foreground block text-xs">
           1 = Sin descuento
         </span>
       </HoverCardContent>

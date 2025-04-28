@@ -308,7 +308,7 @@ export function DataTable<TData, TValue>({
 
       <section className="flex flex-col items-center justify-between py-4 sm:flex-row">
         <div className="flex items-center justify-between">
-          <section className="flex-1 text-sm text-muted-foreground">
+          <section className="text-muted-foreground flex-1 text-sm">
             {table.getFilteredSelectedRowModel().rows.length} de{" "}
             {table.getFilteredRowModel().rows.length} fila(s) seleccionadas.
           </section>
@@ -316,7 +316,7 @@ export function DataTable<TData, TValue>({
 
         <div className="mt-10 flex items-center justify-end gap-x-10 sm:mt-0">
           <section className="flex flex-col items-center gap-x-2 sm:flex-row">
-            <span className="text-center text-sm text-muted-foreground sm:text-start">
+            <span className="text-muted-foreground text-center text-sm sm:text-start">
               Filas por página
             </span>
             <Select onValueChange={(value) => table.setPageSize(Number(value))}>
@@ -338,7 +338,7 @@ export function DataTable<TData, TValue>({
           </section>
 
           <section>
-            <span className="text-center text-sm text-muted-foreground sm:text-start">
+            <span className="text-muted-foreground text-center text-sm sm:text-start">
               Página {table.getState().pagination.pageIndex + 1} de{" "}
               {table.getPageCount()}
             </span>

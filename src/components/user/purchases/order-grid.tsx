@@ -35,7 +35,7 @@ export const OrderGrid = ({ order, isAdmin, userId }: Props) => {
 
       <CardContent>
         <h3 className={`${titleFont.className} font-bold`}>Información</h3>
-        <section className="text-sm text-muted-foreground">
+        <section className="text-muted-foreground text-sm">
           <div>
             <span className="font-bold">Importe:</span>{" "}
             <span>{formatCurrency(order.total)}</span>

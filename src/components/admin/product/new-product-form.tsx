@@ -275,7 +275,7 @@ export const NewProductForm = ({ categories }: Props) => {
                     <>
                       <ChevronDown
                         size={30}
-                        className="m-auto text-muted-foreground"
+                        className="text-muted-foreground m-auto"
                       />
                       <CardDescription className="mt-2 text-center">
                         Suelta los archivos aquí
@@ -285,7 +285,7 @@ export const NewProductForm = ({ categories }: Props) => {
                     <>
                       <Upload
                         size={30}
-                        className="m-auto text-muted-foreground"
+                        className="text-muted-foreground m-auto"
                       />
                       <CardDescription className="mt-2 text-center">
                         Arrastra y suelta una o más imagenes aquí, o haz clic

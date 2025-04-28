@@ -112,7 +112,7 @@ export const UpdateProductImageForm = ({ product }: Props) => {
               <div onClick={() => setIsDeleteModalOpen(true)}>
                 <CircleX
                   size={20}
-                  className="absolute -right-1 -top-2 cursor-pointer text-muted-foreground transition-colors hover:text-destructive"
+                  className="text-muted-foreground hover:text-destructive absolute -top-2 -right-1 cursor-pointer transition-colors"
                 />
               </div>
 
@@ -199,7 +199,7 @@ export const UpdateProductImageForm = ({ product }: Props) => {
                   <>
                     <ChevronDown
                       size={30}
-                      className="m-auto text-muted-foreground"
+                      className="text-muted-foreground m-auto"
                     />
                     <CardDescription className="mt-2 text-center">
                       Suelta los archivos aquí
@@ -209,7 +209,7 @@ export const UpdateProductImageForm = ({ product }: Props) => {
                   <>
                     <Upload
                       size={30}
-                      className="m-auto text-muted-foreground"
+                      className="text-muted-foreground m-auto"
                     />
                     <CardDescription className="mt-2 text-center">
                       Arrastra y suelta una o más imagenes aquí, o haz clic para

@@ -51,8 +51,8 @@ export const AdminAside = ({ children }: Props) => {
                   "flex w-full items-center rounded-lg p-3",
                   defaultSize <= 5 && "justify-center",
                   pathname === item.href
-                    ? "bg-gray-100 dark:bg-accent"
-                    : "hover:bg-gray-100 dark:hover:bg-accent"
+                    ? "dark:bg-accent bg-gray-100"
+                    : "dark:hover:bg-accent hover:bg-gray-100"
                 )}
               >
                 {item.icon}

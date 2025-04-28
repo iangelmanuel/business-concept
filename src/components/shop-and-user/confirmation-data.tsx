@@ -108,7 +108,7 @@ export const ConfirmationData = ({ dataPayco, refPayco }: Props) => {
           </section>
 
           <h3
-            className={`mb-3 mt-8 text-center text-xl font-bold ${titleFont.className}`}
+            className={`mt-8 mb-3 text-center text-xl font-bold ${titleFont.className}`}
           >
             Datos de la compra
           </h3>

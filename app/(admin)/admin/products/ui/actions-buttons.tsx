@@ -104,9 +104,9 @@ export const ActionsButtons = ({ product }: Props) => {
             <button
               disabled={isPending}
               onClick={() => setIsDeleteOptionOpen(true)}
-              className="flex items-center text-destructive"
+              className="text-destructive flex items-center"
             >
-              <Archive className="mr-2 h-4 w-4 text-destructive" />
+              <Archive className="text-destructive mr-2 h-4 w-4" />
               Archivar producto
             </button>
           </DropdownMenuItem>

@@ -33,7 +33,7 @@ export default async function PurchasesPage() {
               />
             ))
           ) : (
-            <p className="text-sm text-muted-foreground">
+            <p className="text-muted-foreground text-sm">
               Realiza una compra y tendrás tus registros de ordenes en esta
               sección.
             </p>
