@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "business-concept/package.json",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "business-concept/$1"
+    }
+  ]
+}
