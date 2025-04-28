@@ -38,7 +38,7 @@ jobs:
         run: pnpm run prettier:check
 
   build:
-    needs: [prettier, eslint]
+    needs: [prettier]
     runs-on: ubuntu-latest
     env:
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
