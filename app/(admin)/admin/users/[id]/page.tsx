@@ -106,7 +106,7 @@ export default async function UserIdPage({
 
       <ReturnPage />
 
-      <Card className="mx-auto max-w-screen-lg">
+      <Card className="mx-auto max-w-(--breakpoint-lg)">
         <CardHeader>
           <h2 className={`${titleFont.className} text-xl font-bold`}>
             Datos personales
@@ -156,7 +156,7 @@ export default async function UserIdPage({
             <DialogTrigger>
               <span className={buttonVariants()}>Editar Usuario</span>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-screen-md">
+            <DialogContent className="sm:max-w-(--breakpoint-md)">
               <DialogHeader>
                 <DialogTitle>Editar el pérfil del usuario</DialogTitle>
                 <DialogDescription>
@@ -203,7 +203,7 @@ export default async function UserIdPage({
         </CardFooter>
       </Card>
 
-      <Card className="mx-auto mt-5 max-w-screen-lg">
+      <Card className="mx-auto mt-5 max-w-(--breakpoint-lg)">
         <CardHeader>
           <h2 className={`${titleFont.className} text-xl font-bold`}>
             Datos de Direcciones
@@ -228,7 +228,7 @@ export default async function UserIdPage({
         </CardContent>
       </Card>
 
-      <Card className="mx-auto mt-5 max-w-screen-lg">
+      <Card className="mx-auto mt-5 max-w-(--breakpoint-lg)">
         <CardHeader>
           <h2 className={`${titleFont.className} text-xl font-bold`}>
             Datos de Ordenes

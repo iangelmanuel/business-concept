@@ -139,7 +139,7 @@ export const ActionsButtons = ({ order }: Props) => {
         open={isOrderStatusOpen}
         onOpenChange={setIsOrderStatusOpen}
       >
-        <DialogContent className="max-w-screen-sm">
+        <DialogContent className="max-w-(--breakpoint-sm)">
           <DialogHeader>
             <DialogTitle>Estado del pedido</DialogTitle>
             <DialogDescription>
@@ -156,7 +156,7 @@ export const ActionsButtons = ({ order }: Props) => {
         open={isOrderTrakingOpen}
         onOpenChange={setIsOrderTrakingOpen}
       >
-        <DialogContent className="max-w-screen-sm">
+        <DialogContent className="max-w-(--breakpoint-sm)">
           <DialogHeader>
             <DialogTitle>Detalles del código de rastro del pedido</DialogTitle>
             <DialogDescription>

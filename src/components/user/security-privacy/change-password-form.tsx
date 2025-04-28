@@ -40,7 +40,7 @@ export const ChangePasswordForm = () => {
   }
 
   return (
-    <section className="mx-auto mt-10 max-w-screen-md">
+    <section className="mx-auto mt-10 max-w-(--breakpoint-md)">
       <h2 className={`${titleFont.className} text-xl font-bold`}>
         Cambiar contraseña:
       </h2>

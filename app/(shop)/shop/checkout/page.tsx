@@ -21,7 +21,7 @@ export default async function CheckoutPage() {
   return (
     <section>
       <BarProgress step={3} />
-      <article className="mx-auto grid max-w-screen-2xl grid-cols-1 gap-x-5 p-5 lg:grid-cols-3">
+      <article className="mx-auto grid max-w-(--breakpoint-2xl) grid-cols-1 gap-x-5 p-5 lg:grid-cols-3">
         <CardCheckoutItems />
         <CardCheckoutSummary />
       </article>

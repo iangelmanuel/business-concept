@@ -34,7 +34,7 @@ export default async function CategoryProductPage({
   const { category } = params
   const products = await getProductByCategory(category)
   return (
-    <section className="mx-auto mt-10 max-w-screen-2xl p-5 2xl:p-0">
+    <section className="mx-auto mt-10 max-w-(--breakpoint-2xl) p-5 2xl:p-0">
       <article>
         <h2 className={`text-xl font-bold ${titleFont.className} mb-2`}>
           Productos de la categoria{" "}

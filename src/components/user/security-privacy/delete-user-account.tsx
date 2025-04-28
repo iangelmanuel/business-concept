@@ -52,7 +52,7 @@ export function DeleteUserAccount() {
   }
 
   return (
-    <section className="mx-auto mt-20 flex max-w-screen-md flex-col items-center justify-between sm:flex-row">
+    <section className="mx-auto mt-20 flex max-w-(--breakpoint-md) flex-col items-center justify-between sm:flex-row">
       <div>
         <h2 className={`${titleFont.className} text-xl font-bold`}>
           Eliminar cuenta

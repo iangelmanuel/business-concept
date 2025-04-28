@@ -59,7 +59,7 @@ export const SendInvoiceTemplate = ({ dataPayco }: Props) => {
               </Text>
             </Section>
 
-            <Section className="mx-auto max-w-screen-md">
+            <Section className="mx-auto max-w-(--breakpoint-md)">
               <Section>
                 <Section>
                   <Section className="flex items-center justify-center">

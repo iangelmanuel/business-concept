@@ -21,7 +21,7 @@ export const ProductSlug = ({ product, isAdmin = false }: Props) => {
   const { discount, price } = product
 
   return (
-    <section className="mx-auto flex min-h-screen max-w-screen-2xl flex-col items-center justify-center p-5 sm:flex-row 2xl:p-0">
+    <section className="mx-auto flex min-h-screen max-w-(--breakpoint-2xl) flex-col items-center justify-center p-5 sm:flex-row 2xl:p-0">
       <article className="mx-auto w-full">
         <ReturnPage />
         <ImageProductCarousel product={product} />

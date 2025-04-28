@@ -21,7 +21,7 @@ export const ConfirmationData = ({ dataPayco, refPayco }: Props) => {
     dataPayco.data.x_response_reason_text === "Aprobada"
 
   return dataPayco.success ? (
-    <article className="mx-auto max-w-screen-md">
+    <article className="mx-auto max-w-(--breakpoint-md)">
       <Card>
         <CardHeader>
           <section className="flex items-center justify-center">
@@ -149,7 +149,7 @@ export const ConfirmationData = ({ dataPayco, refPayco }: Props) => {
       </Card>
     </article>
   ) : (
-    <article className="mx-auto max-w-screen-md p-5">
+    <article className="mx-auto max-w-(--breakpoint-md) p-5">
       <Card>
         <CardHeader>
           <XCircleIcon

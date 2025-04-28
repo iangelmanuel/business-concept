@@ -35,7 +35,7 @@ export default function LoginPage({
           className="mb-3"
         />
       )}
-      <Card className="max-w-screen-sm">
+      <Card className="max-w-(--breakpoint-sm)">
         <CardHeader>
           <h1
             className={`${titleFont.className} text-center text-5xl font-bold`}

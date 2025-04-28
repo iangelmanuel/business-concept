@@ -47,7 +47,7 @@ export default async function HomePage() {
             quality={100}
           />
 
-          <div className="max-w-screen-sm">
+          <div className="max-w-(--breakpoint-sm)">
             <h1
               className={`${titleFont.className} text-center text-3xl font-bold text-purple-700 sm:text-start lg:text-6xl`}
             >
@@ -72,7 +72,7 @@ export default async function HomePage() {
         </article>
       </section>
 
-      <section className="mx-auto mt-10 max-w-screen-2xl space-y-20">
+      <section className="mx-auto mt-10 max-w-(--breakpoint-2xl) space-y-20">
         {Object.entries(categorizedProducts).map(
           ([category, productsOrder]) => (
             <article key={category}>

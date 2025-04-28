@@ -86,7 +86,7 @@ export const NewProductForm = ({ categories }: Props) => {
   }
 
   return (
-    <Card className="mx-auto max-w-screen-xl">
+    <Card className="mx-auto max-w-(--breakpoint-xl)">
       <form
         noValidate
         onSubmit={handleSubmit(onSubmit)}

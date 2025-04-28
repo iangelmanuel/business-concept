@@ -117,7 +117,7 @@ export const ActionsButtons = ({ product }: Props) => {
         open={isEditOptionOpen}
         onOpenChange={setIsEditOptionOpen}
       >
-        <DialogContent className="max-w-screen-sm">
+        <DialogContent className="max-w-(--breakpoint-sm)">
           <DialogHeader>
             <DialogTitle>Editar producto</DialogTitle>
             <DialogDescription>
@@ -133,7 +133,7 @@ export const ActionsButtons = ({ product }: Props) => {
         open={isEditImgOptionOpen}
         onOpenChange={setIsEditImgOptionOpen}
       >
-        <DialogContent className="max-w-screen-sm">
+        <DialogContent className="max-w-(--breakpoint-sm)">
           <DialogHeader>
             <DialogTitle>Editar imagen</DialogTitle>
             <DialogDescription>

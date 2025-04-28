@@ -145,7 +145,7 @@ export const ActionsButtons = ({ user }: Props) => {
         open={isEditOptionOpen}
         onOpenChange={setIsEditOptionOpen}
       >
-        <DialogContent className="sm:max-w-screen-md">
+        <DialogContent className="sm:max-w-(--breakpoint-md)">
           <DialogHeader>
             <DialogTitle>Editar el pérfil del usuario</DialogTitle>
             <DialogDescription>

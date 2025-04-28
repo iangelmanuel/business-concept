@@ -27,7 +27,7 @@ export default async function AddressPage() {
   return (
     <article>
       <BarProgress step={2} />
-      <section className="mx-auto mt-10 max-w-screen-lg p-5 lg:p-0">
+      <section className="mx-auto mt-10 max-w-(--breakpoint-lg) p-5 lg:p-0">
         <Card>
           <CardHeader>
             <h1 className={`${titleFont.className} text-2xl font-semibold`}>

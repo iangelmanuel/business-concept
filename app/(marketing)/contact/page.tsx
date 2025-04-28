@@ -23,7 +23,7 @@ export default function ContactPage() {
         </h1>
       </article>
 
-      <article className="mx-auto grid max-w-screen-lg grid-cols-1 gap-5 sm:grid-cols-2">
+      <article className="mx-auto grid max-w-(--breakpoint-lg) grid-cols-1 gap-5 sm:grid-cols-2">
         <section className="m-auto">
           <Image
             src="/contact.jpg"
@@ -34,7 +34,7 @@ export default function ContactPage() {
           />
         </section>
 
-        <section className="m-auto max-w-screen-sm">
+        <section className="m-auto max-w-(--breakpoint-sm)">
           <ContactForm />
         </section>
       </article>

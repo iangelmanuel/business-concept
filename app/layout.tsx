@@ -55,7 +55,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body
-        className={`${inter.className} selection:bg-black selection:text-white selection:dark:bg-white selection:dark:text-black`}
+        className={`${inter.className} selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black`}
       >
         <Providers
           attribute="class"

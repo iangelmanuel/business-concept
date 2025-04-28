@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export default function RegisterPage() {
   return (
     <section className="grid min-h-screen place-content-center">
-      <Card className="max-w-screen-sm">
+      <Card className="max-w-(--breakpoint-sm)">
         <CardHeader>
           <h1
             className={`${titleFont.className} text-center text-5xl font-bold`}

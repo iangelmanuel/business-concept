@@ -82,7 +82,7 @@ export const SendEmail = ({ email, userFullName, isOrder = false }: Props) => {
       <DialogTrigger>
         <span className="hover:underline">{email}</span>
       </DialogTrigger>
-      <DialogContent className="max-w-screen-sm">
+      <DialogContent className="max-w-(--breakpoint-sm)">
         <DialogHeader>
           <DialogTitle>
             Enviale un correo electrónico a {userFullName}

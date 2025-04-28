@@ -70,7 +70,7 @@ export default async function ConfirmationPage({
       />
 
       {emailSend === "true" ? (
-        <div className="mx-auto mt-3 max-w-screen-md">
+        <div className="mx-auto mt-3 max-w-(--breakpoint-md)">
           <AlertMessage
             variant="success"
             title="¡Todo salió bien!"
@@ -78,7 +78,7 @@ export default async function ConfirmationPage({
           />
         </div>
       ) : emailSend === "false" ? (
-        <div className="mx-auto mt-3 max-w-screen-md">
+        <div className="mx-auto mt-3 max-w-(--breakpoint-md)">
           <AlertMessage
             variant="destructive"
             title="Ocurrio un problema"
@@ -87,7 +87,7 @@ export default async function ConfirmationPage({
         </div>
       ) : null}
 
-      <div className="mx-auto mt-3 flex max-w-screen-md justify-between">
+      <div className="mx-auto mt-3 flex max-w-(--breakpoint-md) justify-between">
         {emailSend !== "true" ? (
           <form
             noValidate

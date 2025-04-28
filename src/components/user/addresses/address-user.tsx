@@ -128,7 +128,7 @@ export const AddressUser = ({ location, addressDb }: Props) => {
                   </Button>
                 </DialogTrigger>
 
-                <DialogContent className="sm:max-w-screen-lg">
+                <DialogContent className="sm:max-w-(--breakpoint-lg)">
                   <DialogHeader>
                     <DialogTitle>Editar dirección</DialogTitle>
                     <DialogDescription>

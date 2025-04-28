@@ -24,7 +24,7 @@ export default async function ShopProductsPage() {
   if (!products) return notFound()
 
   return (
-    <section className="mx-auto mt-10 max-w-screen-2xl p-5 2xl:p-0">
+    <section className="mx-auto mt-10 max-w-(--breakpoint-2xl) p-5 2xl:p-0">
       <article className="mb-10">
         <Card className="flex flex-col items-center justify-center gap-y-5 p-10 lg:flex-row lg:gap-y-0">
           <section className="max-w-xl">

@@ -52,7 +52,7 @@ export const AdminAside = ({ children }: Props) => {
                   defaultSize <= 5 && "justify-center",
                   pathname === item.href
                     ? "bg-gray-100 dark:bg-accent"
-                    : "hover:bg-gray-100 hover:dark:bg-accent"
+                    : "hover:bg-gray-100 dark:hover:bg-accent"
                 )}
               >
                 {item.icon}
