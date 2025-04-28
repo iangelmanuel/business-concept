@@ -2,11 +2,11 @@
   width: 17px;
   aspect-ratio: 1;
   border-radius: 50%;
+  border: 2px solid black;
+  margin-left: 0.5rem;
   animation:
     l20-1 0.8s infinite linear alternate,
     l20-2 1.6s infinite linear;
-
-  @apply ml-2 border-2 border-solid;
 }
 
 @keyframes l20-1 {

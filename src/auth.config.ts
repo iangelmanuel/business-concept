@@ -3,7 +3,7 @@ import NextAuth, { type NextAuthConfig } from "next-auth"
 import Credentials from "next-auth/providers/credentials"
 import { prisma } from "@/lib"
 import { LoginUserSchema } from "@/schema"
-import bcrypt from "bcrypt"
+import bcrypt from "bcryptjs"
 
 export const authConfig: NextAuthConfig = {
   pages: {
@@ -23,7 +23,7 @@ export const authConfig: NextAuthConfig = {
   },
   providers: [
     Credentials({
-      async authorize(credentials, req) {
+      async authorize(credentials) {
         const parsedCredentials = LoginUserSchema.safeParse(credentials)
 
         if (!parsedCredentials.success) return null

@@ -4,7 +4,7 @@ import { auth } from "@/auth.config"
 import { prisma } from "@/lib"
 import { ChangeUserPasswordSchema } from "@/schema"
 import type { ChangeUserPassword } from "@/types"
-import bcrypt from "bcrypt"
+import bcrypt from "bcryptjs"
 
 export async function changeUserPassword(data: ChangeUserPassword) {
   try {

@@ -3,7 +3,7 @@
 import { prisma } from "@/lib"
 import { RegisterUserSchema } from "@/schema"
 import type { RegisterUser } from "@/types"
-import bcrypt from "bcrypt"
+import bcrypt from "bcryptjs"
 
 export async function registerUser(data: RegisterUser) {
   try {
