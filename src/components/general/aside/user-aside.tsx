@@ -38,7 +38,6 @@ export const UserAside = ({ children }: Props) => {
         maxSize={15}
         defaultSize={defaultSize}
         onResize={handleOnResize}
-        onResizeCapture={() => setDefaultSize(5)}
         className="hidden xl:block"
       >
         <aside className="sticky top-0 hidden xl:block">

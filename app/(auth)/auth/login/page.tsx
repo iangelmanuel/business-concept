@@ -17,12 +17,12 @@ export const metadata: Metadata = {
   robots: "noindex, nofollow"
 }
 
-export default function LoginPage({
+export default async function LoginPage({
   searchParams
 }: {
-  searchParams: { registered: string }
+  searchParams: Promise<{ registered: string }>
 }) {
-  const { registered } = searchParams
+  const { registered } = await searchParams
 
   const isRegistered = !!registered
   return (

@@ -83,12 +83,10 @@ export function TopMenuNavigation() {
         <NavigationMenuItem>
           <Link
             href="/shop/products"
-            legacyBehavior
             passHref
+            className={navigationMenuTriggerStyle()}
           >
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Nuestra Tienda
-            </NavigationMenuLink>
+            Nuestra Tienda
           </Link>
         </NavigationMenuItem>
       </NavigationMenuList>

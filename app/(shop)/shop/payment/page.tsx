@@ -7,9 +7,9 @@ import type { UserOrder } from "@/types"
 export async function generateMetadata({
   searchParams
 }: {
-  searchParams: { orderId: UserOrder["id"] }
+  searchParams: Promise<{ orderId: UserOrder["id"] }>
 }): Promise<Metadata> {
-  const { orderId } = searchParams
+  const { orderId } = await searchParams
   const order = await getOrderById(orderId)
 
   const getTotalItems = order?.OrderItem.reduce(
@@ -28,9 +28,9 @@ export async function generateMetadata({
 export default async function PaymentIdPage({
   searchParams
 }: {
-  searchParams: { orderId: UserOrder["id"] }
+  searchParams: Promise<{ orderId: UserOrder["id"] }>
 }) {
-  const { orderId } = searchParams
+  const { orderId } = await searchParams
   const order = await getOrderById(orderId)
   if (!order) notFound()
 

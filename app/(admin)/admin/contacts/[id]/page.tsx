@@ -19,9 +19,9 @@ import { Calendar, Mail, Phone, User, User2 } from "lucide-react"
 export async function generateMetadata({
   params
 }: {
-  params: { id: ContactType["id"] }
+  params: Promise<{ id: ContactType["id"] }>
 }): Promise<Metadata> {
-  const { id } = params
+  const { id } = await params
   const contactData = await getContactById(id)
   if (!contactData) notFound()
 
@@ -34,9 +34,9 @@ export async function generateMetadata({
 export default async function ContactIdPage({
   params
 }: {
-  params: { id: ContactType["id"] }
+  params: Promise<{ id: ContactType["id"] }>
 }) {
-  const { id } = params
+  const { id } = await params
   const contactData = await getContactById(id)
   if (!contactData) notFound()
 

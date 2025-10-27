@@ -16,9 +16,9 @@ import { titleFont } from "@/config"
 export async function generateMetadata({
   params
 }: {
-  params: { category: string }
+  params: Promise<{ category: string }>
 }): Promise<Metadata> {
-  const { category } = params
+  const { category } = await params
 
   return {
     title: `Productos de la categoria ${category} - Business Concept`,
@@ -29,16 +29,16 @@ export async function generateMetadata({
 export default async function CategoryProductPage({
   params
 }: {
-  params: { category: string }
+  params: Promise<{ category: string }>
 }) {
-  const { category } = params
+  const { category } = await params
   const products = await getProductByCategory(category)
   return (
     <section className="mx-auto mt-10 max-w-(--breakpoint-2xl) p-5 2xl:p-0">
       <article>
         <h2 className={`text-xl font-bold ${titleFont.className} mb-2`}>
           Productos de la categoria{" "}
-          <span className="capitalize">{params.category}</span>
+          <span className="capitalize">{category}</span>
         </h2>
         <section className="grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {products.map((product) => (

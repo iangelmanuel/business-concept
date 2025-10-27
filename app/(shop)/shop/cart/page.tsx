@@ -1,7 +1,8 @@
 import type { Metadata } from "next"
 import {
   BarProgress,
-  CardCartItems, // CartItemsLoading,
+  CardCartItems,
+  // CartItemsLoading,
   CardCartSummary // CartSummaryLoading
 } from "@/components"
 

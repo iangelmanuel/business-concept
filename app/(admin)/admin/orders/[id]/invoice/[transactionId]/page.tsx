@@ -8,9 +8,9 @@ import { ReturnPage } from "@/utils"
 export async function generateMetadata({
   params
 }: {
-  params: { transactionId: UserOrderByAdmin["transactionId"] }
+  params: Promise<{ transactionId: UserOrderByAdmin["transactionId"] }>
 }): Promise<Metadata> {
-  const { transactionId } = params
+  const { transactionId } = await params
   if (!transactionId) notFound()
 
   const dataPaycoAction = await getRefPaycoData(transactionId)
@@ -27,9 +27,9 @@ export async function generateMetadata({
 export default async function InvoiceTransactionIdPage({
   params
 }: {
-  params: { transactionId: UserOrderByAdmin["transactionId"] }
+  params: Promise<{ transactionId: UserOrderByAdmin["transactionId"] }>
 }) {
-  const { transactionId } = params
+  const { transactionId } = await params
   if (!transactionId) notFound()
 
   const dataPaycoAction = await getRefPaycoData(transactionId)

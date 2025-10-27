@@ -43,9 +43,9 @@ import { toast } from "sonner"
 export async function generateMetadata({
   params
 }: {
-  params: { id: UserType["id"] }
+  params: Promise<{ id: UserType["id"] }>
 }): Promise<Metadata> {
-  const { id } = params
+  const { id } = await params
   const user = await findUserById(id)
   if (!user) notFound()
 
@@ -58,9 +58,9 @@ export async function generateMetadata({
 export default async function UserIdPage({
   params
 }: {
-  params: { id: UserType["id"] }
+  params: Promise<{ id: UserType["id"] }>
 }) {
-  const { id } = params
+  const { id } = await params
   const user = await findUserById(id)
   if (!user) notFound()
 

@@ -3,7 +3,8 @@ import { redirect } from "next/navigation"
 import { auth } from "@/auth.config"
 import {
   BarProgress,
-  CardCheckoutItems, // CardItemsLoading,
+  CardCheckoutItems,
+  // CardItemsLoading,
   CardCheckoutSummary // CardSummaryLoading
 } from "@/components"
 

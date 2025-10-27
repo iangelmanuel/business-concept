@@ -1,5 +1,6 @@
 import {
-  BookUserIcon, // CreditCard,
+  BookUserIcon,
+  // CreditCard,
   LockIcon,
   ShoppingBagIcon,
   User

@@ -7,9 +7,9 @@ import type { ProductAllType } from "@/types"
 export async function generateMetadata({
   params
 }: {
-  params: { slug: ProductAllType["slug"] }
+  params: Promise<{ slug: ProductAllType["slug"] }>
 }): Promise<Metadata> {
-  const { slug } = params
+  const { slug } = await params
   const { product } = await getProductBySlug(slug)
   if (!product) notFound()
 
@@ -37,9 +37,9 @@ export async function generateMetadata({
 export default async function ProductSlugPage({
   params
 }: {
-  params: { slug: ProductAllType["slug"] }
+  params: Promise<{ slug: ProductAllType["slug"] }>
 }) {
-  const { slug } = params
+  const { slug } = await params
   const { product } = await getProductBySlug(slug)
   if (!product) notFound()
   return (

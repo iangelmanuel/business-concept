@@ -1,6 +1,7 @@
 import {
   Inter as FontSans,
-  Inter, // eslint-disable-next-line camelcase
+  Inter,
+  // eslint-disable-next-line camelcase
   Montserrat_Alternates
 } from "next/font/google"
 

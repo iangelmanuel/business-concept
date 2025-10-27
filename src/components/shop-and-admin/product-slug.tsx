@@ -5,7 +5,6 @@ import {
   CardHeader,
   PriceWithPosibleDiscount
 } from ".."
-import React from "react"
 import { titleFont } from "@/config"
 import type { ProductAllType } from "@/types"
 import { ReturnPage } from "@/utils"

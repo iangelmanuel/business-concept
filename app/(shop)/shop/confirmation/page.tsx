@@ -16,9 +16,9 @@ import { sendInvoice } from "@/email"
 export async function generateMetadata({
   searchParams
 }: {
-  searchParams: { ref_payco: string }
+  searchParams: Promise<{ ref_payco: string }>
 }): Promise<Metadata> {
-  const refPayco = searchParams.ref_payco
+  const { ref_payco: refPayco } = await searchParams
   if (refPayco === "undefined") notFound()
 
   const dataPaycoAction = await getRefPaycoData(refPayco)
@@ -37,9 +37,9 @@ export async function generateMetadata({
 export default async function ConfirmationPage({
   searchParams
 }: {
-  searchParams: { ref_payco: string; emailSend: string }
+  searchParams: Promise<{ ref_payco: string; emailSend: string }>
 }) {
-  const { ref_payco: refPayco, emailSend } = searchParams
+  const { ref_payco: refPayco, emailSend } = await searchParams
   if (refPayco === "undefined") notFound()
 
   const dataPaycoAction = await getRefPaycoData(refPayco)

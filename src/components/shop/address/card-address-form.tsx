@@ -49,7 +49,7 @@ export const CardAddressForm = ({ location }: Props) => {
     formState: { errors },
     setValue
   } = useForm<AddressForm>({
-    defaultValues: { ...address } || FORM_VALUES_ADDRESS
+    defaultValues: { ...FORM_VALUES_ADDRESS, ...address }
   })
 
   const isCartEmpty = cart.length === 0
