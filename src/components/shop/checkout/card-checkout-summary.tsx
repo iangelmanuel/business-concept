@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useTransition } from "react"
 import { useRouter } from "next/navigation"
-import { placeOrder } from "@/actions"
+import { placeOrder } from "@/actions/order/place-order"
 import { Spinner } from "@/components/general/spinner/spinner"
 import { Button } from "@/components/ui/button"
 import {

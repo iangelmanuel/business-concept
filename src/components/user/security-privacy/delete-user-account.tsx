@@ -2,7 +2,8 @@
 
 import { useState, useTransition } from "react"
 import { useSession } from "next-auth/react"
-import { deleteUserAccount, logoutUser } from "@/actions"
+import { logoutUser } from "@/actions/logout/logout-user"
+import { deleteUserAccount } from "@/actions/user/delete-user-account"
 import { Spinner } from "@/components/general/spinner/spinner"
 import { Button } from "@/components/ui/button"
 import {

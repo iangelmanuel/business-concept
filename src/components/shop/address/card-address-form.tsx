@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from "react"
 import { useRouter } from "next/navigation"
-import { saveUserAddress } from "@/actions"
+import { saveUserAddress } from "@/actions/address/save-user-address"
 import { Spinner } from "@/components/general/spinner/spinner"
 import { Button } from "@/components/ui/button"
 import { CardContent, CardFooter } from "@/components/ui/card"

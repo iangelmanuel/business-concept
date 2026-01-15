@@ -2,8 +2,16 @@
 
 import React, { useEffect, useState } from "react"
 import Link from "next/link"
-import { getCategories } from "@/actions"
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
+import { getCategories } from "@/actions/categories/get-categories"
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle
+} from "@/components/ui/navigation-menu"
 import { navigationItems } from "@/data"
 import { cn } from "@/lib"
 import type { CategoryType } from "@/types"

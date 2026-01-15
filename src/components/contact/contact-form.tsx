@@ -1,14 +1,20 @@
 "use client"
 
 import { useTransition } from "react"
-import { createUserContact } from "@/actions"
+import { createUserContact } from "@/actions/contact/create-user-contact"
+import { Spinner } from "@/components/general/spinner/spinner"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader } from "@/components/ui/card"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader
+} from "@/components/ui/card"
+import { ErrorMessage } from "@/components/ui/error-message"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { ErrorMessage } from "@/components/ui/error-message"
-import { Spinner } from "@/components/general/spinner/spinner"
 import { titleFont } from "@/config"
 import type { ContactFormType } from "@/types"
 import { useForm } from "react-hook-form"

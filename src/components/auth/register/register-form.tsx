@@ -2,7 +2,7 @@
 
 import { useTransition } from "react"
 import { useRouter } from "next/navigation"
-import { registerUser } from "@/actions"
+import { registerUser } from "@/actions/register/register-user"
 import { Spinner } from "@/components/general/spinner/spinner"
 import { Button } from "@/components/ui/button"
 import { CardContent } from "@/components/ui/card"

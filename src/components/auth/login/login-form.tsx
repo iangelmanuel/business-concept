@@ -1,7 +1,7 @@
 "use client"
 
 import { useTransition } from "react"
-import { loginUser } from "@/actions"
+import { loginUser } from "@/actions/login/login-user"
 import { Spinner } from "@/components/general/spinner/spinner"
 import { Button } from "@/components/ui/button"
 import { CardContent } from "@/components/ui/card"
