@@ -1,9 +1,8 @@
-import type { Order } from "@prisma/client"
 import type { UserOrder } from "@/types"
 
-export function checkOrderStatusCn(
-  orderStatus: UserOrder["orderStatus"] | Order
-) {
+type OrderStatus = UserOrder["orderStatus"]
+
+export function checkOrderStatusCn(orderStatus: OrderStatus) {
   switch (orderStatus) {
     case "pending":
       return "pending"
