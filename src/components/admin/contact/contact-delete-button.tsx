@@ -3,10 +3,20 @@
 import { useTransition } from "react"
 import Link from "next/link"
 import { deleteUserContact } from "@/actions"
+import { Spinner } from "@/components/general/spinner/spinner"
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger
+} from "@/components/ui/alert-dialog"
 import { Button, buttonVariants } from "@/components/ui/button"
 import { CardFooter } from "@/components/ui/card"
-import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog"
-import { Spinner } from "@/components/general/spinner/spinner"
 import type { ContactType } from "@/types"
 import { toast } from "sonner"
 

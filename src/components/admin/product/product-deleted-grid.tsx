@@ -1,5 +1,10 @@
 import Image from "next/image"
-import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader
+} from "@/components/ui/card"
 import { titleFont } from "@/config"
 import type { ProductAllType } from "@/types"
 import { ProductDeletedButton } from "./product-deleted-button"

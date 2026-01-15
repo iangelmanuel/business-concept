@@ -1,8 +1,17 @@
 "use client"
 
-import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card"
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 import { type ChartConfig } from "@/components"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader
+} from "@/components/ui/card"
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent
+} from "@/components/ui/chart"
 import { titleFont } from "@/config"
 import type { AdminDashboard } from "@/types"
 import { capitalize } from "@/utils"

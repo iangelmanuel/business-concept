@@ -1,9 +1,14 @@
 import Image from "next/image"
 import Link from "next/link"
-import { buttonVariants } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { PriceWithPosibleDiscount } from "@/components/shop-and-admin/price-data-with-posible-discount"
+import { Badge } from "@/components/ui/badge"
+import { buttonVariants } from "@/components/ui/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader
+} from "@/components/ui/card"
 import { titleFont } from "@/config"
 import { orderStatusLang } from "@/consts"
 import type { UserOrder, UserOrderByAdmin } from "@/types"

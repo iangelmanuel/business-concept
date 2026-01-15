@@ -1,7 +1,7 @@
 import Link from "next/link"
+import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { titleFont } from "@/config"
 import { orderStatusLang } from "@/consts"
 import type { OrderGridType } from "@/types"

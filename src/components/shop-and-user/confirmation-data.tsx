@@ -1,4 +1,10 @@
-import { Card, CardContent, CardDescription, CardFooter, CardHeader } from "@/components/ui/card"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader
+} from "@/components/ui/card"
 import { titleFont } from "@/config"
 import type { EpaycoResponse } from "@/types"
 import { formatCurrency, formatDate } from "@/utils"
