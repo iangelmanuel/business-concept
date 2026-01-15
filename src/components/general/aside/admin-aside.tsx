@@ -3,12 +3,8 @@
 import { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import {
-  Card,
-  ResizableHandle,
-  ResizablePanel,
-  ResizablePanelGroup
-} from "@/components"
+import { Card } from "@/components/ui/card"
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable"
 import { adminNavigation } from "@/data"
 import { cn } from "@/lib"
 

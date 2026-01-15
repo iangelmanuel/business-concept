@@ -2,7 +2,11 @@
 
 import { useTransition } from "react"
 import { changeUserPassword } from "@/actions"
-import { Button, ErrorMessage, Input, Label, Spinner } from "@/components"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { ErrorMessage } from "@/components/ui/error-message"
+import { Spinner } from "@/components/general/spinner/spinner"
 import { titleFont } from "@/config"
 import type { ChangeUserPassword } from "@/types"
 import { useForm } from "react-hook-form"

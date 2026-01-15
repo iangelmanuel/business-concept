@@ -4,26 +4,28 @@ import { useState, useTransition } from "react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { createProduct } from "@/actions"
+import { Spinner } from "@/components/general/spinner/spinner"
+import { Button } from "@/components/ui/button"
 import {
-  Button,
   Card,
   CardContent,
   CardDescription,
   CardFooter,
-  CardHeader,
-  ErrorMessage,
-  Input,
-  Label,
+  CardHeader
+} from "@/components/ui/card"
+import { ErrorMessage } from "@/components/ui/error-message"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import {
   Select,
   SelectContent,
   SelectGroup,
   SelectItem,
   SelectLabel,
   SelectTrigger,
-  SelectValue,
-  Spinner,
-  Textarea
-} from "@/components"
+  SelectValue
+} from "@/components/ui/select"
+import { Textarea } from "@/components/ui/textarea"
 import { formValuesCreateProduct } from "@/consts"
 import type { CategoryType, ProductCreateForm } from "@/types"
 import { ChevronDown, Upload } from "lucide-react"

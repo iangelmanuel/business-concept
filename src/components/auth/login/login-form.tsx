@@ -2,14 +2,12 @@
 
 import { useTransition } from "react"
 import { loginUser } from "@/actions"
-import {
-  Button,
-  CardContent,
-  ErrorMessage,
-  Input,
-  Label,
-  Spinner
-} from "@/components"
+import { Spinner } from "@/components/general/spinner/spinner"
+import { Button } from "@/components/ui/button"
+import { CardContent } from "@/components/ui/card"
+import { ErrorMessage } from "@/components/ui/error-message"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 import { DEFAULT_LOGIN_VALUES } from "@/consts"
 import type { LoginUser } from "@/types"
 import { useForm } from "react-hook-form"

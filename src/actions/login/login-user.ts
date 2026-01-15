@@ -2,7 +2,7 @@
 
 import { AuthError } from "next-auth"
 import { signIn } from "@/auth.config"
-import { prisma } from "@/lib"
+import { prisma } from "@/lib/prisma-config"
 import { LoginUserSchema } from "@/schema"
 import type { LoginUser } from "@/types"
 

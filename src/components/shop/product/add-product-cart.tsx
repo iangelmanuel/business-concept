@@ -1,7 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { Button, CardContent } from "@/components"
+import { Button } from "@/components/ui/button"
+import { CardContent } from "@/components/ui/card"
 import { useCartStore } from "@/store"
 import type { ProductAllType } from "@/types"
 import { MinusCircle, PlusCircle } from "lucide-react"

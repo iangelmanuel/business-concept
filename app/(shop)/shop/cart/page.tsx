@@ -6,6 +6,8 @@ import {
   CardCartSummary // CartSummaryLoading
 } from "@/components"
 
+export const dynamic = "force-dynamic"
+
 export const metadata: Metadata = {
   title: "Carrito de compras - Business Concept",
   description:

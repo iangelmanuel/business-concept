@@ -1,7 +1,7 @@
 "use server"
 
 import { auth } from "@/auth.config"
-import { prisma } from "@/lib"
+import { prisma } from "@/lib/prisma-config"
 import { CreateContactSchema } from "@/schema"
 import type { ContactFormType } from "@/types"
 

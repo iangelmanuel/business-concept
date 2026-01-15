@@ -12,6 +12,9 @@ import {
 } from "@/components"
 import { titleFont } from "@/config"
 
+// Force dynamic rendering
+export const dynamic = "force-dynamic"
+
 export const metadata: Metadata = {
   title: "Detalles del envio - Business Concept",
   description: "¡Necesitamos saber donde hacerte llegar tu pedido!",

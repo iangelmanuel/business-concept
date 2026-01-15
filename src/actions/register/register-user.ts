@@ -1,6 +1,6 @@
 "use server"
 
-import { prisma } from "@/lib"
+import { prisma } from "@/lib/prisma-config"
 import { RegisterUserSchema } from "@/schema"
 import type { RegisterUser } from "@/types"
 import bcrypt from "bcryptjs"

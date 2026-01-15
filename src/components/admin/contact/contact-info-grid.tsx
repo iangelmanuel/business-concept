@@ -1,12 +1,6 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  ContactDeleteButton,
-  Skeleton
-} from "@/components"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader } from "@/components/ui/card"
+import { Skeleton } from "@/components/ui/skeleton"
+import { ContactDeleteButton } from "@/components"
 import { titleFont } from "@/config"
 import type { ContactAllType } from "@/types"
 import { Inbox, Mail, Phone } from "lucide-react"

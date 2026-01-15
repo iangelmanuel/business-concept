@@ -3,20 +3,20 @@
 import { useEffect, useState, useTransition } from "react"
 import { useRouter } from "next/navigation"
 import { placeOrder } from "@/actions"
+import { Spinner } from "@/components/general/spinner/spinner"
+import { Button } from "@/components/ui/button"
 import {
-  Button,
   Card,
   CardContent,
   CardDescription,
   CardFooter,
-  CardHeader,
-  CardSummaryLoading,
-  Spinner
-} from "@/components"
+  CardHeader
+} from "@/components/ui/card"
 import { titleFont } from "@/config"
 import { useAddressStore, useCartStore } from "@/store"
 import { formatCurrency } from "@/utils"
 import { toast } from "sonner"
+import { CardSummaryLoading } from "./card-summary-loading"
 
 export const CardCheckoutSummary = () => {
   const [loading, setLoading] = useState(true)
@@ -27,9 +27,10 @@ export const CardCheckoutSummary = () => {
   const address = useAddressStore((state) => state.address)
 
   const cart = useCartStore((state) => state.cart)
-  const { subTotal, discount, tax, total } = useCartStore((state) =>
-    state.getSummaryInfo()
-  )
+
+  const summaryInfo = useCartStore((state) => state.getSummaryInfo)
+
+  const { subTotal, discount, tax, total } = summaryInfo()
 
   useEffect(() => {
     setLoading(false)

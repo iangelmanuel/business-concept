@@ -3,6 +3,7 @@
 import { useState, useTransition } from "react"
 import { useRouter } from "next/navigation"
 import { deleteUserAddress } from "@/actions"
+import { Spinner } from "@/components/general/spinner/spinner"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -12,22 +13,22 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-  AlertDialogTrigger,
-  Button,
+  AlertDialogTrigger
+} from "@/components/ui/alert-dialog"
+import { Button, buttonVariants } from "@/components/ui/button"
+import {
   Card,
-  CardAddressForm,
   CardContent,
   CardDescription,
   CardFooter,
-  CardHeader,
-  Spinner,
-  buttonVariants
-} from "@/components"
+  CardHeader
+} from "@/components/ui/card"
 import { titleFont } from "@/config"
 import { useAddressStore, useCartStore } from "@/store"
 import type { AddressType, LocationType } from "@/types"
 import { TrashIcon } from "lucide-react"
 import { toast } from "sonner"
+import { CardAddressForm } from "./card-address-form"
 
 interface Props {
   location: LocationType[]

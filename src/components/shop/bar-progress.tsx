@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Progress } from "@/components"
+import { Progress } from "@/components/ui/progress"
 import { useAddressStore, useCartStore } from "@/store"
 import {
   CalendarCheck,

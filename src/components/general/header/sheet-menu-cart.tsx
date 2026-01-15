@@ -1,10 +1,10 @@
 "use client"
 
 import { useState } from "react"
+import { CartSheetItems } from "@/components/shop/cart/card-sheet-items"
+import { CartButtons } from "@/components/shop/cart/cart-buttons"
+import { Button } from "@/components/ui/button"
 import {
-  Button,
-  CartButtons,
-  CartSheetItems,
   Sheet,
   SheetClose,
   SheetContent,
@@ -13,7 +13,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger
-} from "@/components"
+} from "@/components/ui/sheet"
 import { titleFont } from "@/config"
 import { ShoppingBagIcon } from "lucide-react"
 

@@ -8,6 +8,8 @@ import {
   CardCheckoutSummary // CardSummaryLoading
 } from "@/components"
 
+export const dynamic = "force-dynamic"
+
 export const metadata: Metadata = {
   title: "Revisión del Pedido - Business Concept",
   description:

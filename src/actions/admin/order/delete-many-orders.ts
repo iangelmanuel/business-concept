@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache"
 import { auth } from "@/auth.config"
-import { prisma } from "@/lib"
+import { prisma } from "@/lib/prisma-config"
 import type { UserOrderByAdmin } from "@/types"
 
 export async function deleteManyOrders(ids: UserOrderByAdmin["id"][]) {

@@ -4,6 +4,8 @@ import { getOrderById } from "@/actions"
 import { BarProgress, OrderItems, OrderSummary } from "@/components"
 import type { UserOrder } from "@/types"
 
+export const dynamic = "force-dynamic"
+
 export async function generateMetadata({
   searchParams
 }: {

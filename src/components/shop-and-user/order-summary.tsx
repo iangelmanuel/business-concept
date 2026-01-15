@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation"
-import { Card, CardContent, CardDescription, CardHeader } from "@/components"
+import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card"
 import { titleFont } from "@/config"
 import type { UserOrder } from "@/types"
 import { formatCurrency } from "@/utils"

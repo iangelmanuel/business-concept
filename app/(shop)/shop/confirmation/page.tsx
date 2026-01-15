@@ -13,6 +13,8 @@ import {
 } from "@/components"
 import { sendInvoice } from "@/email"
 
+export const dynamic = "force-dynamic"
+
 export async function generateMetadata({
   searchParams
 }: {

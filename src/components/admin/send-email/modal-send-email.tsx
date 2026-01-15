@@ -1,21 +1,13 @@
 "use client"
 
 import { useTransition } from "react"
-import {
-  Button,
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-  ErrorMessage,
-  Input,
-  Label,
-  Spinner,
-  Textarea
-} from "@/components"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Textarea } from "@/components/ui/textarea"
+import { ErrorMessage } from "@/components/ui/error-message"
+import { Spinner } from "@/components/general/spinner/spinner"
 import { sendUserEmail } from "@/email"
 import type { UserType } from "@/types"
 import { useForm } from "react-hook-form"

@@ -5,11 +5,9 @@ import { useSession } from "next-auth/react"
 import { useTheme } from "next-themes"
 import { useRouter } from "next/navigation"
 import { logoutUser } from "@/actions"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Button } from "@/components/ui/button"
 import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-  Button,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
@@ -21,7 +19,7 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger
-} from "@/components"
+} from "@/components/ui/dropdown-menu"
 import { adminNavigation, userNavigation } from "@/data"
 import { getLettersName } from "@/utils"
 import { Laptop2Icon, LogOut, Moon, Palette, Sun } from "lucide-react"

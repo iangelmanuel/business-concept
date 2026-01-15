@@ -2,7 +2,10 @@
 
 import { useEffect } from "react"
 import Script from "next/script"
-import { Badge, CardFooter, Label, buttonVariants } from "@/components"
+import { buttonVariants } from "@/components/ui/button"
+import { CardFooter } from "@/components/ui/card"
+import { Label } from "@/components/ui/label"
+import { Badge } from "@/components/ui/badge"
 import { orderStatusLang } from "@/consts"
 import type { UserOrder } from "@/types"
 import { checkOrderStatusCn } from "@/utils"

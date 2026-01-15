@@ -28,15 +28,12 @@ export const CartSheetItems = () => {
         >
           {product.name}
         </Link>
-        <p className="font-bold">
-          Precio:{" "}
-          <PriceWithPosibleDiscount
-            price={product.price}
-            discount={product.discount}
-            className={`${titleFont.className} font-font-bold`}
-          />
-        </p>
-
+        Precio:{" "}
+        <PriceWithPosibleDiscount
+          price={product.price}
+          discount={product.discount}
+          className={`${titleFont.className} font-bold`}
+        />
         <p className="font-bold">
           Cantidad: <span className="font-normal">{product.quantity}</span>
         </p>

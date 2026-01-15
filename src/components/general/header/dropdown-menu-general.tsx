@@ -2,8 +2,8 @@
 
 import { useTheme } from "next-themes"
 import { useRouter } from "next/navigation"
+import { Button } from "@/components/ui/button"
 import {
-  Button,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
@@ -15,7 +15,7 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger
-} from "@/components"
+} from "@/components/ui/dropdown-menu"
 import { notUserNavigation } from "@/data"
 import { Laptop2Icon, MenuIcon, Moon, Palette, Sun } from "lucide-react"
 

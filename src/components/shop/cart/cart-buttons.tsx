@@ -2,7 +2,7 @@
 
 import type { Dispatch, SetStateAction } from "react"
 import { useRouter } from "next/navigation"
-import { Button } from "@/components"
+import { Button } from "@/components/ui/button"
 import { useCartStore } from "@/store"
 
 interface Props {

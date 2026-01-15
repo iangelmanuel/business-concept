@@ -1,15 +1,11 @@
-import {
-  AddProductCart,
-  Card,
-  CardDescription,
-  CardHeader,
-  PriceWithPosibleDiscount
-} from ".."
+import { AddProductCart } from "@/components/shop/product/add-product-cart"
+import { Card, CardDescription, CardHeader } from "@/components/ui/card"
 import { titleFont } from "@/config"
 import type { ProductAllType } from "@/types"
 import { ReturnPage } from "@/utils"
 import { Headphones, Package } from "lucide-react"
 import { ImageProductCarousel } from "./image-product-carousel"
+import { PriceWithPosibleDiscount } from "./price-data-with-posible-discount"
 
 interface Props {
   product: ProductAllType

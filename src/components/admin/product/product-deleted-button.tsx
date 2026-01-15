@@ -2,19 +2,12 @@
 
 import { useState, useTransition } from "react"
 import { recoverProductDeleted } from "@/actions"
-import {
-  Button,
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  ErrorMessage,
-  Input,
-  Label,
-  Spinner
-} from "@/components"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { ErrorMessage } from "@/components/ui/error-message"
+import { Spinner } from "@/components/general/spinner/spinner"
 import { CardFooter } from "@/components/ui/card"
 import type { ProductType } from "@/types"
 import { useForm } from "react-hook-form"

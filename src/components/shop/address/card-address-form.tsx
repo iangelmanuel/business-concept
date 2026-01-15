@@ -3,23 +3,22 @@
 import { useState, useTransition } from "react"
 import { useRouter } from "next/navigation"
 import { saveUserAddress } from "@/actions"
+import { Spinner } from "@/components/general/spinner/spinner"
+import { Button } from "@/components/ui/button"
+import { CardContent, CardFooter } from "@/components/ui/card"
+import { Checkbox } from "@/components/ui/checkbox"
+import { ErrorMessage } from "@/components/ui/error-message"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 import {
-  Button,
-  CardContent,
-  CardFooter,
-  Checkbox,
-  ErrorMessage,
-  Input,
-  Label,
   Select,
   SelectContent,
   SelectGroup,
   SelectItem,
   SelectLabel,
   SelectTrigger,
-  SelectValue,
-  Spinner
-} from "@/components"
+  SelectValue
+} from "@/components/ui/select"
 import { FORM_VALUES_ADDRESS } from "@/consts"
 import { useAddressStore, useCartStore } from "@/store"
 import type { AddressForm, LocationType } from "@/types"

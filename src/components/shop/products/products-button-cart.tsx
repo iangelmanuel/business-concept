@@ -1,6 +1,6 @@
 "use client"
 
-import { Button } from "@/components"
+import { Button } from "@/components/ui/button"
 import { useCartStore } from "@/store"
 import type { ProductAllType } from "@/types"
 import { toast } from "sonner"

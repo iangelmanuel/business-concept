@@ -1,13 +1,11 @@
 import Link from "next/link"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
   Card,
   CardContent,
   CardDescription,
   CardHeader
-} from "@/components"
+} from "@/components/ui/card"
 import { titleFont } from "@/config"
 import type { AdminDashboard } from "@/types"
 import { formatCurrency, formatDate, getLettersName } from "@/utils"

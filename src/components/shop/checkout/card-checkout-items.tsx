@@ -3,16 +3,16 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { PriceWithPosibleDiscount } from "@/components/shop-and-admin/price-data-with-posible-discount"
 import {
   Card,
   CardContent,
   CardDescription,
-  CardHeader,
-  CardItemsLoading,
-  PriceWithPosibleDiscount
-} from "@/components"
+  CardHeader
+} from "@/components/ui/card"
 import { titleFont } from "@/config"
 import { useCartStore } from "@/store"
+import { CardItemsLoading } from "./card-items-loading"
 
 export const CardCheckoutItems = () => {
   const [loading, setLoading] = useState(true)

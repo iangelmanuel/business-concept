@@ -1,7 +1,7 @@
 "use server"
 
 import type { Category } from "@prisma/client"
-import { prisma } from "@/lib"
+import { prisma } from "@/lib/prisma-config"
 
 export async function getProductByCategory(category: Category["name"]) {
   try {

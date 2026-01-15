@@ -3,20 +3,20 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { PriceWithPosibleDiscount } from "@/components/shop-and-admin/price-data-with-posible-discount"
+import { Button } from "@/components/ui/button"
 import {
-  Button,
   Card,
   CardContent,
   CardDescription,
   CardFooter,
-  CardHeader,
-  CartItemsLoading,
-  PriceWithPosibleDiscount
-} from "@/components"
+  CardHeader
+} from "@/components/ui/card"
 import { titleFont } from "@/config"
 import { useCartStore } from "@/store"
 import type { CartType } from "@/types"
 import { MinusCircle, PlusCircle, TrashIcon } from "lucide-react"
+import { CartItemsLoading } from "./cart-items-loading"
 
 export const CardCartItems = () => {
   const [loaded, setLoaded] = useState(false)

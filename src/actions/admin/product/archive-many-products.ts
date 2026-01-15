@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache"
 import { auth } from "@/auth.config"
-import { prisma } from "@/lib"
+import { prisma } from "@/lib/prisma-config"
 import type { ProductAllType } from "@/types"
 
 export async function archiveManyProducts(id: ProductAllType["id"][]) {

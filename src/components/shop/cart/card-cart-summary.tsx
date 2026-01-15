@@ -3,17 +3,12 @@
 import { useEffect, useState } from "react"
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
-import {
-  Button,
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CartSummaryLoading
-} from "@/components"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { titleFont } from "@/config"
 import { useCartStore } from "@/store"
 import { formatCurrency } from "@/utils"
+import { CartSummaryLoading } from "./cart-summary-loading"
 
 export const CardCartSummary = () => {
   const [loaded, setLoaded] = useState(false)
@@ -21,9 +16,9 @@ export const CardCartSummary = () => {
 
   const router = useRouter()
 
-  const { subTotal, discount, tax, total, itemsInCart } = useCartStore(
-    (state) => state.getSummaryInfo()
-  )
+  const getSummaryInfo = useCartStore((state) => state.getSummaryInfo)
+  const { subTotal, discount, tax, total, itemsInCart } = getSummaryInfo()
+
   const cart = useCartStore((state) => state.cart)
 
   useEffect(() => {

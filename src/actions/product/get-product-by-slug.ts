@@ -1,6 +1,6 @@
 "use server"
 
-import { prisma } from "@/lib"
+import { prisma } from "@/lib/prisma-config"
 
 export async function getProductBySlug(slug: string) {
   try {

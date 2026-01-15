@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader } from "@/components"
+import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { titleFont } from "@/config"
 import type { AdminDashboard, UserType } from "@/types"
 import { formatCurrency } from "@/utils"

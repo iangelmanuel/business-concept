@@ -1,7 +1,7 @@
 "use server"
 
 import { auth } from "@/auth.config"
-import { prisma } from "@/lib"
+import { prisma } from "@/lib/prisma-config"
 import { ChangeUserPasswordSchema } from "@/schema"
 import type { ChangeUserPassword } from "@/types"
 import bcrypt from "bcryptjs"

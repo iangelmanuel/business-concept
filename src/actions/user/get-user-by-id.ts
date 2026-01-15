@@ -1,6 +1,6 @@
 "use server"
 
-import { prisma } from "@/lib"
+import { prisma } from "@/lib/prisma-config"
 import type { UserType } from "@/types"
 
 export async function getUserById(id: UserType["id"]) {
