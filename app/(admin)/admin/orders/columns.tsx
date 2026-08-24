@@ -1,6 +1,7 @@
 "use client"
 
 import type { ColumnDef, SortDirection } from "@tanstack/react-table"
+import { adminTableFeatures } from "@/lib/table-features"
 import {
   Badge,
   Button,
@@ -43,7 +44,10 @@ const SorterIcon = ({ isSorted }: { isSorted: false | SortDirection }) => {
   return null
 }
 
-export const columns: ColumnDef<UserOrderByAdmin>[] = [
+export const columns: ColumnDef<
+  typeof adminTableFeatures,
+  UserOrderByAdmin
+>[] = [
   {
     accessorKey: "id",
     id: "OrderAddress.id",

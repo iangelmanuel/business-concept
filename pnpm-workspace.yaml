@@ -1,0 +1,5 @@
+allowBuilds:
+  '@prisma/engines': true
+  prisma: true
+minimumReleaseAgeExclude:
+  - '@types/react-dom@19.2.5'

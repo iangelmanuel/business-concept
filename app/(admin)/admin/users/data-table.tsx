@@ -3,19 +3,13 @@
 import type {
   ColumnDef,
   ColumnFiltersState,
-  SortingState,
-  VisibilityState
+  ColumnVisibilityState,
+  SortingState
 } from "@tanstack/react-table"
-import {
-  flexRender,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  useReactTable
-} from "@tanstack/react-table"
+import { flexRender, useTable } from "@tanstack/react-table"
 import { useState, useTransition } from "react"
 import { deleteManyUsers } from "@/actions"
+import { adminTableFeatures } from "@/lib/table-features"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -52,33 +46,31 @@ import type { UserType } from "@/types"
 import { ChevronLeft, ChevronRight, Settings2 } from "lucide-react"
 import { toast } from "sonner"
 
-type DataTableProps<TData, TValue> = {
-  columns: ColumnDef<TData, TValue>[]
+type DataTableProps<TData extends Record<string, unknown>> = {
+  columns: ColumnDef<typeof adminTableFeatures, TData>[]
   data: TData[]
 }
 
-export function DataTable<TData, TValue>({
+export function DataTable<TData extends Record<string, unknown>>({
   columns,
   data
-}: DataTableProps<TData, TValue>) {
+}: DataTableProps<TData>) {
   const [sorting, setSorting] = useState<SortingState>([])
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
-  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
+  const [columnVisibility, setColumnVisibility] =
+    useState<ColumnVisibilityState>({})
   const [rowSelection, setRowSelection] = useState({})
 
   const [isPending, startTransition] = useTransition()
 
   const isDeleteVisible = Object.keys(rowSelection).length > 0
 
-  const table = useReactTable({
+  const table = useTable({
     data,
     columns,
-    getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
+    features: adminTableFeatures,
     onSortingChange: setSorting,
-    getSortedRowModel: getSortedRowModel(),
     onColumnFiltersChange: setColumnFilters,
-    getFilteredRowModel: getFilteredRowModel(),
     onColumnVisibilityChange: setColumnVisibility,
     onRowSelectionChange: setRowSelection,
     state: {
@@ -143,7 +135,7 @@ export function DataTable<TData, TValue>({
                       const usersIds = table
                         .getSelectedRowModel()
                         .rows.map((row) => {
-                          const user = row.original as UserType
+                          const user = row.original as unknown as UserType
                           const { id } = user
                           return id
                         })
@@ -294,7 +286,7 @@ export function DataTable<TData, TValue>({
 
           <section>
             <span className="text-muted-foreground text-center text-sm sm:text-start">
-              Página {table.getState().pagination.pageIndex + 1} de{" "}
+              Página {table.state.pagination.pageIndex + 1} de{" "}
               {table.getPageCount()}
             </span>
           </section>

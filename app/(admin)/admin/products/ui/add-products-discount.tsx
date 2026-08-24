@@ -19,7 +19,7 @@ import { HoverCardDiscountDocs } from "./hover-card-discount-docs"
 interface Props {
   productsIds: ProductAllType["id"][]
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  table: Table<any>
+  table: Table<any, any>
 }
 
 interface FormType {

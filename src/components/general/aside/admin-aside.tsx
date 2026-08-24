@@ -20,7 +20,8 @@ export const AdminAside = ({ children }: Props) => {
   const [defaultSize, setDefaultSize] = useState(15)
   const pathname = usePathname()
 
-  const handleOnResize = (size: number) => {
+  const handleOnResize = (panelSize: { asPercentage: number }) => {
+    const size = panelSize.asPercentage
     setDefaultSize(size)
 
     if (size <= 12) {
@@ -30,13 +31,13 @@ export const AdminAside = ({ children }: Props) => {
 
   return (
     <ResizablePanelGroup
-      direction="horizontal"
+      orientation="horizontal"
       className="w-full rounded-lg"
     >
       <ResizablePanel
-        minSize={5}
-        maxSize={15}
-        defaultSize={defaultSize}
+        minSize="5"
+        maxSize="15"
+        defaultSize={`${defaultSize}`}
         onResize={handleOnResize}
         className="hidden xl:block"
       >
@@ -73,7 +74,7 @@ export const AdminAside = ({ children }: Props) => {
         className="hidden xl:flex"
       />
 
-      <ResizablePanel defaultSize={85}>
+      <ResizablePanel defaultSize="85">
         <main className="p-3 sm:p-5">
           <Card className="mt-5 overflow-y-auto p-5 xl:h-[650px] xl:p-10 2xl:h-[850px]">
             {children}

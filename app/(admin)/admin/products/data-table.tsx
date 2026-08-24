@@ -3,20 +3,15 @@
 import type {
   ColumnDef,
   ColumnFiltersState,
+  ColumnVisibilityState,
   SortingState,
-  VisibilityState
+  Table as ReactTableInstance
 } from "@tanstack/react-table"
-import {
-  flexRender,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  useReactTable
-} from "@tanstack/react-table"
+import { flexRender, useTable } from "@tanstack/react-table"
 import { useState, useTransition } from "react"
 import Link from "next/link"
 import { archiveManyProducts } from "@/actions"
+import { adminTableFeatures } from "@/lib/table-features"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -60,33 +55,31 @@ import { ChevronLeft, ChevronRight, Plus, Settings2 } from "lucide-react"
 import { toast } from "sonner"
 import { AddProductsDiscount } from "./ui/add-products-discount"
 
-interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[]
+interface DataTableProps<TData extends Record<string, unknown>> {
+  columns: ColumnDef<typeof adminTableFeatures, TData>[]
   data: TData[]
 }
 
-export function DataTable<TData, TValue>({
+export function DataTable<TData extends Record<string, unknown>>({
   columns,
   data
-}: DataTableProps<TData, TValue>) {
+}: DataTableProps<TData>) {
   const [sorting, setSorting] = useState<SortingState>([])
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
-  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
+  const [columnVisibility, setColumnVisibility] =
+    useState<ColumnVisibilityState>({})
   const [rowSelection, setRowSelection] = useState({})
 
   const [isPending, startTransition] = useTransition()
 
   const isDeleteOrDiscountVisible = Object.keys(rowSelection).length > 0
 
-  const table = useReactTable({
+  const table = useTable({
     data,
     columns,
-    getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
+    features: adminTableFeatures,
     onSortingChange: setSorting,
-    getSortedRowModel: getSortedRowModel(),
     onColumnFiltersChange: setColumnFilters,
-    getFilteredRowModel: getFilteredRowModel(),
     onColumnVisibilityChange: setColumnVisibility,
     onRowSelectionChange: setRowSelection,
     state: {
@@ -98,7 +91,7 @@ export function DataTable<TData, TValue>({
   })
 
   const productsIds = table.getSelectedRowModel().rows.map((row) => {
-    const product = row.original as ProductAllType
+    const product = row.original as unknown as ProductAllType
     const { id } = product
     return id
   })
@@ -140,7 +133,8 @@ export function DataTable<TData, TValue>({
                   {/* Formulario para añadir descuentos a multiples productos */}
                   <AddProductsDiscount
                     productsIds={productsIds}
-                    table={table}
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    table={table as unknown as ReactTableInstance<any, any>}
                   />
                 </DialogContent>
               </Dialog>
@@ -339,7 +333,7 @@ export function DataTable<TData, TValue>({
 
           <section>
             <span className="text-muted-foreground text-center text-sm sm:text-start">
-              Página {table.getState().pagination.pageIndex + 1} de{" "}
+              Página {table.state.pagination.pageIndex + 1} de{" "}
               {table.getPageCount()}
             </span>
           </section>
