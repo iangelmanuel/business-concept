@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any -- tipos de recharts que shadcn/ui deja sin tipar */
 "use client"
 
 import * as React from "react"

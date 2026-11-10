@@ -1,7 +1,6 @@
 "use client"
 
 import type { ColumnDef, SortDirection } from "@tanstack/react-table"
-import { adminTableFeatures } from "@/lib/table-features"
 import Image from "next/image"
 import Link from "next/link"
 import {
@@ -23,6 +22,7 @@ import {
 } from "@/components"
 import { titleFont } from "@/config"
 import { data } from "@/data"
+import { adminTableFeatures } from "@/lib/table-features"
 import type { ProductAllType } from "@/types"
 import { formatCurrency } from "@/utils"
 import {
@@ -52,8 +52,7 @@ const SorterIcon = ({ isSorted }: { isSorted: false | SortDirection }) => {
   return null
 }
 
-export const columns: ColumnDef<typeof adminTableFeatures, ProductAllType>[] =
-  [
+export const columns: ColumnDef<typeof adminTableFeatures, ProductAllType>[] = [
   {
     accessorKey: "id",
     header: ({ table }) => (

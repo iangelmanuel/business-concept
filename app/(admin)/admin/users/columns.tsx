@@ -1,7 +1,6 @@
 "use client"
 
 import type { ColumnDef, SortDirection } from "@tanstack/react-table"
-import { adminTableFeatures } from "@/lib/table-features"
 import {
   Badge,
   Button,
@@ -13,6 +12,7 @@ import {
   DropdownMenuTrigger,
   SendEmail
 } from "@/components"
+import { adminTableFeatures } from "@/lib/table-features"
 import type { UserType } from "@/types"
 import {
   ChevronDownIcon,

@@ -24,6 +24,7 @@ No lint or test scripts exist. There is no `.env` example beyond `.env.example` 
 ## Architecture
 
 **Route groups** under `app/` split the site by audience, each with its own `layout.tsx`:
+
 - `(marketing)` — public landing/about/contact
 - `(shop)` — product browsing, cart, checkout, payment, order confirmation
 - `(auth)` — login/register
@@ -32,15 +33,16 @@ No lint or test scripts exist. There is no `.env` example beyond `.env.example` 
 - `api/auth/[...nextauth]` is the only route handler; everything else is Server Components/Server Actions.
 
 **Source lives in `src/`, not colocated in `app/`.** Path aliases (see `tsconfig.json`) map to this structure:
-| Alias | Path | Purpose |
-|---|---|---|
-| `@actions/*` | `src/actions` | Server actions, one subfolder per domain (`order`, `product`, `admin/*`, `epayco`, etc.) — this is where mutations and DB writes happen, not in route files |
-| `@components/*` | `src/components` | UI, split into `admin/`, `shop/`, `user/`, `auth/`, `general/`, plus cross-cutting `shop-and-admin/` and `shop-and-user/` |
-| `@ui/*` | `src/components/ui` | shadcn/ui primitives (style "new-york", base color slate) |
-| `@schema/*` | `src/schema` | Zod validation schemas, shared between forms and server actions |
-| `@store/*` | `src/store` | Zustand stores (cart, address form/address) |
-| `@lib/*`, `@utils/*`, `@config/*`, `@consts/*`, `@data/*`, `@providers/*`, `@email/*` | `src/{lib,utils,config,consts,data,providers,email}` | |
-| `@prisma/*` | `src/generated/prisma` | generated Prisma client output (not the `prisma/` folder at repo root, which holds `schema.prisma`/`seed.ts`) |
+
+| Alias                                                                                 | Path                                                 | Purpose                                                                                                                                                     |
+| ------------------------------------------------------------------------------------- | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `@actions/*`                                                                          | `src/actions`                                        | Server actions, one subfolder per domain (`order`, `product`, `admin/*`, `epayco`, etc.) — this is where mutations and DB writes happen, not in route files |
+| `@components/*`                                                                       | `src/components`                                     | UI, split into `admin/`, `shop/`, `user/`, `auth/`, `general/`, plus cross-cutting `shop-and-admin/` and `shop-and-user/`                                   |
+| `@ui/*`                                                                               | `src/components/ui`                                  | shadcn/ui primitives (style "new-york", base color slate)                                                                                                   |
+| `@schema/*`                                                                           | `src/schema`                                         | Zod validation schemas, shared between forms and server actions                                                                                             |
+| `@store/*`                                                                            | `src/store`                                          | Zustand stores (cart, address form/address)                                                                                                                 |
+| `@lib/*`, `@utils/*`, `@config/*`, `@consts/*`, `@data/*`, `@providers/*`, `@email/*` | `src/{lib,utils,config,consts,data,providers,email}` |                                                                                                                                                             |
+| `@prisma/*`                                                                           | `src/generated/prisma`                               | generated Prisma client output (not the `prisma/` folder at repo root, which holds `schema.prisma`/`seed.ts`)                                               |
 
 **Auth**: `src/auth.config.ts` holds the NextAuth v5 config; role is `admin`/`user` on the `User` model and gates the `(admin)` route group.
 

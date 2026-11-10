@@ -9,7 +9,6 @@ import type {
 import { flexRender, useTable } from "@tanstack/react-table"
 import React, { useState, useTransition } from "react"
 import { deleteManyOrders } from "@/actions"
-import { adminTableFeatures } from "@/lib/table-features"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -42,6 +41,7 @@ import {
   TableRow,
   buttonVariants
 } from "@/components"
+import { adminTableFeatures } from "@/lib/table-features"
 import type { UserOrderByAdmin } from "@/types"
 import { ChevronLeft, ChevronRight, Settings2 } from "lucide-react"
 import { toast } from "sonner"

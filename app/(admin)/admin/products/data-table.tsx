@@ -4,14 +4,13 @@ import type {
   ColumnDef,
   ColumnFiltersState,
   ColumnVisibilityState,
-  SortingState,
-  Table as ReactTableInstance
+  Table as ReactTableInstance,
+  SortingState
 } from "@tanstack/react-table"
 import { flexRender, useTable } from "@tanstack/react-table"
 import { useState, useTransition } from "react"
 import Link from "next/link"
 import { archiveManyProducts } from "@/actions"
-import { adminTableFeatures } from "@/lib/table-features"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -50,6 +49,7 @@ import {
   TableRow,
   buttonVariants
 } from "@/components"
+import { adminTableFeatures } from "@/lib/table-features"
 import type { ProductAllType } from "@/types"
 import { ChevronLeft, ChevronRight, Plus, Settings2 } from "lucide-react"
 import { toast } from "sonner"
