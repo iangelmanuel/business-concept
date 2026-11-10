@@ -35,3 +35,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Herramientas de agentes y skills: no se versionan (exponen infraestructura interna)
+.claude/
+.agents/
+.codex/
+.cursor/
+.impeccable/
+.github/agents/
+.github/hooks/
+skills-lock.json
